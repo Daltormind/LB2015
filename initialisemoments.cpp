@@ -79,9 +79,9 @@ void wet::initialisemoments()
 	  else {C[k]=0.0;}
 		
 		
-		ux[k]=ux[k];
-		uy[k]=uy[k];
-		uz[k]=uz[k];
+		ux[k]=uxi;
+		uy[k]=uyi;
+		uz[k]=uzi;
 		
 	}
 	
@@ -245,8 +245,9 @@ void wet::initialisemoments()
 
 	if(mask[k]!=28)
 	{
-
-	p[k]=g0[k]+g1[k]+g2[k]+g3[k]+g4[k]+g7[k]+g8[k]+g9[k]+g10[k]+g11[k]+g12[k]+g12[k]+g13[k]+g14[k]+g15[k]+g16[k]+g17[k]+g18[k]+g5[k]+g6[k]+dt*ux[k]*gradrhoCx/6.0+dt*gradrhoCy*uy[k]/6.0+dt*gradrhoCz*uz[k]/6.0;//compute pressure
+	
+	
+	p[k]=0.0;//g0[k]+g1[k]+g2[k]+g3[k]+g4[k]+g7[k]+g8[k]+g9[k]+g10[k]+g11[k]+g12[k]+g12[k]+g13[k]+g14[k]+g15[k]+g16[k]+g17[k]+g18[k]+g5[k]+g6[k]+dt*ux[k]*gradrhoCx/6.0+dt*gradrhoCy*uy[k]/6.0+dt*gradrhoCz*uz[k]/6.0;//compute pressure
 
 tau[k]=1.0/(C[k]/tau1+(1-C[k])/tau2);
 

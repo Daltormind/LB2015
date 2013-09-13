@@ -37,6 +37,7 @@ void wet::writemoments(long int in)
 		
 		file.close();
 		
+		/*
 		//--------------------------- Write free energy file---------------------------
 		
 		snprintf(filename1,20,"/smu%ld.m",in);			//Create a name for file that contain data
@@ -86,7 +87,7 @@ void wet::writemoments(long int in)
 		}
 		
 		file.close();
-		
+		*/
 		//------------------------- Write pressure File----------------------------------
 		
 		snprintf(filename1,20,"/sp%ld.m",in);			//Create a name for file that contain data
