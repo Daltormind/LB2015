@@ -7,8 +7,7 @@ void wet::diffBD()
 	
 	
 	
-	if(mask[k]!=2)
-	{
+	
 	
 	//2D differentials
 	gradrhoU1=0.5*(-rho[d[d[k][0]][0]]+4*rho[d[k][0]]-3*rho[k])/dt;
@@ -180,8 +179,8 @@ void wet::diffBD()
     	*/
     	
     	}
-    }
-    else if(mask[k]==2)
+    
+     if(mask[k]==2 || mask[k]==1)
     {
     	if(mask[d[k][0]]==1 && mask[d[d[k][0]][0]]!=2)
     	{

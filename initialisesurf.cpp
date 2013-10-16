@@ -18,9 +18,24 @@ void wet::initialisesurface()
 		mask[k]=28;
 		
 	}
+	
+	if(xk>=h and xk<xs and mod(yk,P)<4)
+	{
+		mask[k]=28;
+		
+	}
 	}
 	
 	//exchangemask();
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	for(k=k1;k<k2;k++)
 	{	

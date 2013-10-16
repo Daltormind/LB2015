@@ -22,10 +22,18 @@ void wet::readinput()
     inputfile >> wrtst;
     inputfile.ignore(250,'\n');
     cout << "wrtst " << wrtst << endl;
+    
+    inputfile >> stst;
+    inputfile.ignore(250,'\n');
+    cout << "stst " << stst << endl;
 	
 	inputfile >> dimensions;
     inputfile.ignore(250,'\n');
     cout << "dimensions " << dimensions << endl;
+    
+    inputfile >> boundtype;
+    inputfile.ignore(250,'\n');
+    cout << "boundtype " << boundtype << endl;
     
     inputfile >> Lx >> Ly >> Lz;
     inputfile.ignore(250,'\n');
@@ -102,6 +110,10 @@ void wet::readinput()
     inputfile >> wx >> wy >> wz;
     inputfile.ignore(250,'\n');
     cout << "surface width " << wx << " " << wy << " " << wz << endl;
+    
+    inputfile >> h >> P ;
+    inputfile.ignore(250,'\n');
+    cout << "Posts " << h << " " << P << endl;
     
     inputfile.close();
 

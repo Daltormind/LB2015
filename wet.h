@@ -56,7 +56,7 @@ class wet
 
 	int xk,yk,zk; //Positions
 
-	int xs, ys ,zs,xw,yw,zw; //Position and width of solid surface
+	int xs, ys ,zs,xw,yw,zw,h,P; //Position and width of solid surface
 
 	int xcentre,ycentre,zcentre,R; //Drop position and drop radius
 
@@ -88,11 +88,11 @@ class wet
 
 	//double (*f)[19];
 
-	int wrtst;//step interval at which to write to file
+	int wrtst,stst;//step interval at which to write to file
 
 	//double d2rho;
 
-	int dimensions; //Number of dimensions the problem is being run in
+	int dimensions, boundtype; //Number of dimensions the problem is being run in
 
 	double B, kappa,ep; //Constants in free Energy and interface width
 

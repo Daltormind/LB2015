@@ -19,7 +19,7 @@ void wet::algorithm()
             
             //momentsbound();
 		
-		if(st%wrtst==0)
+		if(st%wrtst==0 and st>=stst)
 		{
 		//computefreeenergy();
 		computeenergy();

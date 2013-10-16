@@ -66,16 +66,16 @@ for(k=k1;k<k2;k++)//Initialise free energy
     	{hold2=C[d[k][0]]-2*dC;}else{hold2=C[d[k][1]];}
     	
     	if(mask[d[k][2]]==28)
-    	{hold3=C[d[k][2]]-2*dC;}else{hold3=C[d[k][2]];}
+    	{hold3=C[d[k][3]]-2*dC;}else{hold3=C[d[k][2]];}
     	
     	if(mask[d[k][3]]==28)
-    	{hold4=C[d[k][3]]-2*dC;}else{hold4=C[d[k][3]];}
+    	{hold4=C[d[k][2]]-2*dC;}else{hold4=C[d[k][3]];}
     	
     	if(mask[d[k][4]]==28)
-    	{hold5=C[d[k][4]]-2*dC;}else{hold5=C[d[k][4]];}
+    	{hold5=C[d[k][5]]-2*dC;}else{hold5=C[d[k][4]];}
     	
     	if(mask[d[k][5]]==28)
-    	{hold6=C[d[k][5]]-2*dC;}else{hold6=C[d[k][5]];}
+    	{hold6=C[d[k][4]]-2*dC;}else{hold6=C[d[k][5]];}
     	
     	if(mask[d[k][6]]==28)
     	{hold7=C[d[k][9]]-2*dC;}else{hold7=C[d[k][6]];}

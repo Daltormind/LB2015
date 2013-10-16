@@ -78,35 +78,35 @@ void wet::setwallnodes()
     	else{hold2=muh[d[k][1]];}
     	if(mask[d[k][2]]==28)
     	{
-    	hold3=muh[d[k][2]];
+    	hold3=muh[d[k][3]];
     	h4[k]=h3[k];
     	g4[k]=g3[k];
     	}
     	else{hold3=muh[d[k][2]];}
     	if(mask[d[k][3]]==28)
     	{
-    	hold4=muh[d[k][3]];
+    	hold4=muh[d[k][2]];
     	h3[k]=h4[k];
     	g3[k]=g4[k];
     	}
     	else{hold4=muh[d[k][3]];}
     	if(mask[d[k][4]]==28)
     	{
-    	hold5=muh[d[k][4]];
+    	hold5=muh[d[k][5]];
     	h6[k]=h5[k];
     	g6[k]=g5[k];
     	}
     	else{hold5=muh[d[k][4]];}
     	if(mask[d[k][5]]==28)
     	{
-    	hold6=muh[d[k][5]];
+    	hold6=muh[d[k][4]];
     	h5[k]=h6[k];
     	g5[k]=g6[k];
     	}
     	else{hold6=muh[d[k][5]];}
     	if(mask[d[k][6]]==28)
     	{
-    	hold7=muh[d[k][6]];
+    	hold7=muh[d[k][9]];
     	h10[k]=h7[k];
     	g10[k]=g7[k];
     	}
@@ -120,70 +120,70 @@ void wet::setwallnodes()
     	else{hold8=muh[d[k][7]];}
     	if(mask[d[k][8]]==28 || mask[d[d[k][8]][8]]==2)
     	{
-    	hold9=muh[d[k][8]];
+    	hold9=muh[d[k][7]];
     	h8[k]=h9[k];
     	g8[k]=g9[k];
     	}
     	else{hold9=muh[d[k][8]];}
     	if(mask[d[k][9]]==28 || mask[d[d[k][9]][9]]==2)
     	{
-    	hold10=muh[d[k][9]];
+    	hold10=muh[d[k][6]];
     	h7[k]=h10[k];
     	g7[k]=g10[k];
     	}
     	else{hold10=muh[d[k][9]];}
     	if(mask[d[k][10]]==28 || mask[d[d[k][10]][10]]==2)
     	{
-    	hold11=muh[d[k][10]];
+    	hold11=muh[d[k][13]];
     	h14[k]=h11[k];
     	g14[k]=g11[k];
     	}
     	else{hold11=muh[d[k][10]];}
     	if(mask[d[k][11]]==28 || mask[d[d[k][11]][11]]==2)
     	{
-    	hold12=muh[d[k][11]];
+    	hold12=muh[d[k][12]];
     	h13[k]=h12[k];
     	g13[k]=g12[k];
     	}
     	else{hold12=muh[d[k][11]];}
     	if(mask[d[k][12]]==28 || mask[d[d[k][12]][12]]==2)
     	{
-    	hold13=muh[d[k][12]];
+    	hold13=muh[d[k][11]];
     	h12[k]=h13[k];
     	g12[k]=g13[k];
     	}
     	else{hold13=muh[d[k][12]];}
     	if(mask[d[k][13]]==28 || mask[d[d[k][13]][13]]==2)
     	{
-    	hold14=muh[d[k][13]];
+    	hold14=muh[d[k][10]];
     	h11[k]=h14[k];
     	g11[k]=g14[k];
     	}
     	else{hold14=muh[d[k][13]];}
     	if(mask[d[k][14]]==28 || mask[d[d[k][14]][14]]==2)
     	{
-    	hold15=muh[d[k][14]];
+    	hold15=muh[d[k][17]];
     	h18[k]=h15[k];
     	g18[k]=g15[k];
     	}
     	else{hold15=muh[d[k][14]];}
     	if(mask[d[k][15]]==28 || mask[d[d[k][15]][15]]==2)
     	{
-    	hold16=muh[d[k][15]];
+    	hold16=muh[d[k][16]];
     	h17[k]=h16[k];
     	g17[k]=g16[k];
     	}
     	else{hold16=muh[d[k][15]];}
     	if(mask[d[k][16]]==28 || mask[d[d[k][16]][16]]==2)
     	{
-    	hold17=muh[d[k][16]];
+    	hold17=muh[d[k][15]];
     	h16[k]=h17[k];
     	g16[k]=g17[k];
     	}
     	else{hold17=muh[d[k][16]];}
     	if(mask[d[k][17]]==28 || mask[d[d[k][17]][17]]==2)
     	{
-    	hold18=muh[d[k][17]];
+    	hold18=muh[d[k][14]];
     	h15[k]=h18[k];
     	g15[k]=g18[k];
     	}

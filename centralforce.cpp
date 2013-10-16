@@ -70,53 +70,53 @@ void wet ::centralforce()
 			
 		
 		
-			FhC1=(gradCC1-3.0*C[k]/rho[k]*(gradpC1-mu[k]*gradCC1-G[0]));
-			FhC2=(gradCC2-3.0*C[k]/rho[k]*(gradpC2-mu[k]*gradCC2+G[0]));
-			FhC3=(gradCC3-3.0*C[k]/rho[k]*(gradpC3-mu[k]*gradCC3-G[1]));
-			FhC4=(gradCC4-3.0*C[k]/rho[k]*(gradpC4-mu[k]*gradCC4+G[1]));
-			FhC7=(gradCC7-3.0*C[k]/rho[k]*(gradpC7-mu[k]*gradCC7-G[0]-G[1]));
-			FhC8=(gradCC8-3.0*C[k]/rho[k]*(gradpC8-mu[k]*gradCC8+G[0]-G[1]));
-			FhC9=(gradCC9-3.0*C[k]/rho[k]*(gradpC9-mu[k]*gradCC9-G[0]+G[1]));
-			FhC10=(gradCC10-3.0*C[k]/rho[k]*(gradpC10-mu[k]*gradCC10+G[0]+G[1]));
+			FhC1=(gradCC1-3.0*C[k]/rho[k]*(gradpC1-mu[k]*gradCC1-rho[k]*G[0]));
+			FhC2=(gradCC2-3.0*C[k]/rho[k]*(gradpC2-mu[k]*gradCC2+rho[k]*G[0]));
+			FhC3=(gradCC3-3.0*C[k]/rho[k]*(gradpC3-mu[k]*gradCC3-rho[k]*G[1]));
+			FhC4=(gradCC4-3.0*C[k]/rho[k]*(gradpC4-mu[k]*gradCC4+rho[k]*G[1]));
+			FhC7=(gradCC7-3.0*C[k]/rho[k]*(gradpC7-mu[k]*gradCC7-rho[k]*(G[0]+G[1])));
+			FhC8=(gradCC8-3.0*C[k]/rho[k]*(gradpC8-mu[k]*gradCC8+rho[k]*(G[0]-G[1])));
+			FhC9=(gradCC9-3.0*C[k]/rho[k]*(gradpC9-mu[k]*gradCC9+rho[k]*(-G[0]+G[1])));
+			FhC10=(gradCC10-3.0*C[k]/rho[k]*(gradpC10-mu[k]*gradCC10+rho[k]*(G[0]+G[1])));
 			
-			FhC5=(gradCC5-3.0*C[k]/rho[k]*(gradpC5-mu[k]*gradCC5-G[0]));
-			FhC6=(gradCC6-3.0*C[k]/rho[k]*(gradpC6-mu[k]*gradCC6-G[0]));
-			FhC11=(gradCC11-3.0*C[k]/rho[k]*(gradpC11-mu[k]*gradCC11-G[0]));
-			FhC12=(gradCC12-3.0*C[k]/rho[k]*(gradpC12-mu[k]*gradCC12-G[0]));
-			FhC13=(gradCC13-3.0*C[k]/rho[k]*(gradpC13-mu[k]*gradCC13-G[0]));
-			FhC14=(gradCC14-3.0*C[k]/rho[k]*(gradpC14-mu[k]*gradCC14-G[0]));
-			FhC15=(gradCC15-3.0*C[k]/rho[k]*(gradpC15-mu[k]*gradCC15-G[0]));
-			FhC16=(gradCC16-3.0*C[k]/rho[k]*(gradpC16-mu[k]*gradCC16-G[0]));
-			FhC17=(gradCC17-3.0*C[k]/rho[k]*(gradpC17-mu[k]*gradCC17-G[0]));
-			FhC18=(gradCC18-3.0*C[k]/rho[k]*(gradpC18-mu[k]*gradCC18-G[0]));
+			FhC5=(gradCC5-3.0*C[k]/rho[k]*(gradpC5-mu[k]*gradCC5-rho[k]*G[2]));
+			FhC6=(gradCC6-3.0*C[k]/rho[k]*(gradpC6-mu[k]*gradCC6+rho[k]*G[2]));
+			FhC11=(gradCC11-3.0*C[k]/rho[k]*(gradpC11-mu[k]*gradCC11+rho[k]*(-G[1]-G[2])));
+			FhC12=(gradCC12-3.0*C[k]/rho[k]*(gradpC12-mu[k]*gradCC12+rho[k]*(G[1]-G[2])));
+			FhC13=(gradCC13-3.0*C[k]/rho[k]*(gradpC13-mu[k]*gradCC13+rho[k]*(-G[1]+G[2])));
+			FhC14=(gradCC14-3.0*C[k]/rho[k]*(gradpC14-mu[k]*gradCC14+rho[k]*(G[1]+G[2])));
+			FhC15=(gradCC15-3.0*C[k]/rho[k]*(gradpC15-mu[k]*gradCC15+rho[k]*(-G[0]-G[2])));
+			FhC16=(gradCC16-3.0*C[k]/rho[k]*(gradpC16-mu[k]*gradCC16+rho[k]*(G[0]-G[2])));
+			FhC17=(gradCC17-3.0*C[k]/rho[k]*(gradpC17-mu[k]*gradCC17-rho[k]*(-G[0]+G[2])));
+			FhC18=(gradCC18-3.0*C[k]/rho[k]*(gradpC18-mu[k]*gradCC18+rho[k]*(G[0]+G[2])));
 
-  	     FhCx=(gradCCx-3.0*C[k]/rho[k]*(gradpCx-mu[k]*gradCCx-G[0]));
-  	     FhCy=(gradCCy-3.0*C[k]/rho[k]*(gradpCy-mu[k]*gradCCy-G[1]));
-		 FhCz=(gradCCz-3.0*C[k]/rho[k]*(gradpCz-mu[k]*gradCCz-G[2]));
+  	     FhCx=(gradCCx-3.0*C[k]/rho[k]*(gradpCx-mu[k]*gradCCx-rho[k]*G[0]));
+  	     FhCy=(gradCCy-3.0*C[k]/rho[k]*(gradpCy-mu[k]*gradCCy-rho[k]*G[1]));
+		 FhCz=(gradCCz-3.0*C[k]/rho[k]*(gradpCz-mu[k]*gradCCz-rho[k]*G[2]));
 
-  	     FgC1=mu[k]*gradCC1+G[0];
-    	 FgC2=mu[k]*gradCC2-G[0];
-    	 FgC3=mu[k]*gradCC3+G[1];
-    	 FgC4=mu[k]*gradCC4-G[1];
-      	 FgC7=mu[k]*gradCC7+G[1];
-		 FgC8=mu[k]*gradCC8+G[1];
-		 FgC9=mu[k]*gradCC9-G[1];
-		 FgC10=mu[k]*gradCC10-G[1];
+  	     FgC1=mu[k]*gradCC1-rho[k]*G[0];
+    	 FgC2=mu[k]*gradCC2+rho[k]*G[0];
+    	 FgC3=mu[k]*gradCC3-rho[k]*G[1];
+    	 FgC4=mu[k]*gradCC4+rho[k]*G[1];
+      	 FgC7=mu[k]*gradCC7+rho[k]*(-G[1]-G[0]);
+		 FgC8=mu[k]*gradCC8+rho[k]*(G[0]-G[1]);
+		 FgC9=mu[k]*gradCC9+rho[k]*(-G[0]+G[1]);
+		 FgC10=mu[k]*gradCC10+rho[k]*(G[0]+G[1]);
 		 
-		 FgC5=mu[k]*gradCC5-G[1];
-		 FgC6=mu[k]*gradCC6-G[1];
-		 FgC11=mu[k]*gradCC11-G[1];
-		 FgC12=mu[k]*gradCC12-G[1];
-		 FgC13=mu[k]*gradCC13-G[1];
-		 FgC14=mu[k]*gradCC14-G[1];
-		 FgC15=mu[k]*gradCC15-G[1];
-		 FgC16=mu[k]*gradCC16-G[1];
-		 FgC17=mu[k]*gradCC17-G[1];
-		 FgC18=mu[k]*gradCC18-G[1];
+		 FgC5=mu[k]*gradCC5+rho[k]*G[2];
+		 FgC6=mu[k]*gradCC6-rho[k]*G[2];
+		 FgC11=mu[k]*gradCC11-rho[k]*(-G[1]-G[2]);
+		 FgC12=mu[k]*gradCC12-rho[k]*(G[1]-G[2]);
+		 FgC13=mu[k]*gradCC13-rho[k]*(-G[1]+G[2]);
+		 FgC14=mu[k]*gradCC14-rho[k]*(G[1]+G[2]);
+		 FgC15=mu[k]*gradCC15-rho[k]*(-G[0]-G[2]);
+		 FgC16=mu[k]*gradCC16-rho[k]*(G[0]-G[2]);
+		 FgC17=mu[k]*gradCC17-rho[k]*(-G[0]+G[2]);
+		 FgC18=mu[k]*gradCC18-rho[k]*(G[0]+G[2]);
 
-		 FgCx=mu[k]*gradCCx+G[0];
-		 FgCy=mu[k]*gradCCy+G[1];
-		 FgCz=mu[k]*gradCCz+G[2];
+		 FgCx=mu[k]*gradCCx+rho[k]*G[0];
+		 FgCy=mu[k]*gradCCy+rho[k]*G[1];
+		 FgCz=mu[k]*gradCCz+rho[k]*G[2];
 		 
 		 FgrC1=gradrhoC1/3.0;
     	 FgrC2=gradrhoC2/3.0;
