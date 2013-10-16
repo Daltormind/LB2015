@@ -139,7 +139,7 @@ void wet::writemoments(long int in)
 		
 		file.close();
 		*/
-		/*
+		
 		//--------------------------- Write mask ---------------------------------------
 		
 		snprintf(filename1,20,"/smask%ld.m",in);			//Create a name for file that contain data
@@ -164,7 +164,7 @@ void wet::writemoments(long int in)
 		}
 		
 		file.close();
-		
+		/*
 		//--------------------------- Write Ctest ---------------------------------------
 		
 		snprintf(filename1,20,"/sCt%ld.m",in);			//Create a name for file that contain data

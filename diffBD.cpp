@@ -114,7 +114,7 @@ void wet::diffBD()
     	if(mask[d[k][5]]==28)
     	{gradrhoU6=gradrhoU5;gradCU6=gradCU5;gradmuU6=gradmuU5;gradpU6=gradpU5;}
     	
-    	if(mask[d[k][6]]==28)
+    	if(mask[d[k][6]]==28 || mask[d[d[k][6]][6]]==2)
     	{gradrhoU7=gradrhoU10;gradCU7=gradCU10;gradmuU7=gradmuU10;gradpU7=gradpU10;}
     	
     	if(mask[d[k][7]]==28 || mask[d[d[k][7]][7]]==2)

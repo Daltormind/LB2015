@@ -104,7 +104,7 @@ void wet::setwallnodes()
     	g5[k]=g6[k];
     	}
     	else{hold6=muh[d[k][5]];}
-    	if(mask[d[k][6]]==28)
+    	if(mask[d[k][6]]==28 || mask[d[d[k][6]][6]]==2)
     	{
     	hold7=muh[d[k][9]];
     	h10[k]=h7[k];

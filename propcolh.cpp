@@ -40,7 +40,7 @@ void wet::propcolh()
     	if(mask[d[k][5]]==28)
     	{hold6=muh[d[k][5]];}else{hold6=muh[d[k][5]];}
     	
-    	if(mask[d[k][6]]==28)
+    	if(mask[d[k][6]]==28 || mask[d[d[k][6]][6]]==2)
     	{hold7=muh[d[k][9]];}else{hold7=muh[d[k][6]];}
     	
     	if(mask[d[k][7]]==28 || mask[d[d[k][7]][7]]==2)
