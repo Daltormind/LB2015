@@ -24,10 +24,19 @@ void wet::initialisesurface()
 		mask[k]=28;
 		
 	}
+	
+	
+	
 	}
 	
-	//exchangemask();
 	
+	
+	
+	exchangemask();
+	 
+	 
+	 
+	 cout  << "Process "<< rank << " past exchangmask 1" << endl;
 	
 	
 	
@@ -62,6 +71,8 @@ void wet::initialisesurface()
 		
 	}
 	
+	cout  << "Process "<< rank << " First in initsurf k loop done" << endl;
+	
 	for(k=k1;k<k2;k++)
 	{	
 		// Four Cardinal directions
@@ -87,9 +98,11 @@ void wet::initialisesurface()
 		
 	}
 	
+	cout  << "Process "<< rank << " before exchangemask 2" << endl;
 	
+	exchangemask();
 	
-	
+	cout  << "Process "<< rank << " Past exchangemask 2" << endl;
 	
 	/*
 	for(k=k1;k<k2;k++)

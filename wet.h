@@ -3,13 +3,14 @@
 #include <fstream>
 #include <cmath>
 #include <cstdlib>
-//#include <mpi.h>
+#include <mpi.h>
 #include <string>
 #include <sstream>
 
 
 using namespace std;
 
+#define ROOT 0				//definig root process
 
 const double e[19][3]={{0,0,0},{1,0,0},{-1,0,0},{0,1,0},{0,-1,0},{0,0,1},{0,0,-1},{1,1,0},{-1,1,0},{1,-1,0},{-1,-1,0},{0,1,1},{0,-1,1},{0,1,-1},{0,-1,-1},{1,0,1},{-1,0,1},{1,0,-1},{-1,0,-1}};
 
@@ -28,11 +29,13 @@ class wet
 
 	int ProcessN; //Number of nodes the processor is dealing with
 
-	double *C , *mu , *p, *rho, *mask,*muh; //Assigning memory space to the composition
+	double *C , *mu , *p, *rho, *muh; //Assigning memory space to the composition
+
+	int *mask;
 
 	//double (*u)[3];
 	
-	double G[2];
+	double G[3];
 
 	int (*d)[18]; //Assigning memory for neibour arrays
 
@@ -93,6 +96,8 @@ class wet
 	//double d2rho;
 
 	int dimensions, boundtype; //Number of dimensions the problem is being run in
+	
+	int rank,size,leftProcess,rightProcess; //MPI variables
 
 	double B, kappa,ep; //Constants in free Energy and interface width
 
@@ -158,7 +163,7 @@ class wet
     
     double M0,M1,M2,M3,M4,M5,M6,M7,M8,M9,M10,M11,M12,M13,M14,M15,M16,M17,M18;
 	
-
+	double *CGlobal, *maskGlobal;
 
 
 
@@ -194,6 +199,17 @@ class wet
 	void momentsbound();
 	void computeenergy();
 	void propset();
+	void exchangeC();
+	void exchangerho();
+	void exchangemu();
+	void exchangep();
+	void exchangevel();
+	void exchangemask();
+	void genCglobal();
+	void generateglobalmask();
+	void exchangemuh();
+	void exchangedencol();
+	
 	public:
 
 		void algorithm();

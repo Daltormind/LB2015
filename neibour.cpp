@@ -22,17 +22,31 @@ void wet::neibour()
 	
 	
 	
+	int x,y,z;
 	
-	
-	int x,y,z; //Intigers which give the offset of each point
 	
 	
 	if(boundtype==0)
 	{
-	for(k=k1;k<k2;k++)
+	
+	
+					
+						
+				
+			
+			
+		
+		
+		
+	
+	for(k=Lz*Ly;k<k2+Lz*Ly;k++)
 	{
 	
-	computecoordinates(k);
+		xk=int (k/float(Lz*Ly));
+		yk=int((k-xk*Lz*Ly)/float(Lz));
+		zk=k-xk*Ly*Lz-yk*Lz;
+	
+	//cout  << "Process "<< rank << " compute coordinates done" << endl;
 	
 	for(a=0;a<Q-1;a++)
 	{
@@ -44,20 +58,45 @@ void wet::neibour()
 	z=zk+geo[a][2];
 	
 	
-	x=mod(x,Lx);
+	//x=mod(x,Lx);
 	y=mod(y,Ly);
 	z=mod(z,Lz);
 	
 	
 	
 	d[k][a]=z+y*Lz+x*Ly*Lz;
+	
+	
+	
 	}
+	
+	
+	
+	
+	
+	
+	}
+	
+	
+	
+	
+	
+	
+	
 	/*
+	for(k=k1;k<k2;k++)
+	{
+	
 	if(k<k1+Ly*Lz or k>=k2-Ly*Lz)
 	{
+	
+		computecoordinates(k);
 		for(a=0;a<Q-1;a++)
 	{
 		x=xk+2*geo[a][0];
+		
+		//cout << " process k xk x a diff = " << rank << " " << k << " " << xk << " " << x << " " << a << " " << geo[a][0] << endl;
+		
 		y=yk+2*geo[a][1];
 		z=zk+2*geo[a][2];
 	
@@ -68,12 +107,13 @@ void wet::neibour()
 	
 	
 	
-	d[d[k][a]][a]=z+y*Lz+x*Ly*Lz;
+	d[d[k][a]][a]=z+y*Lz+(x+2)*Ly*Lz;
 	}
 	}
-	*/
 	
 	}
+	*/
+	cout  << "Process "<< rank << " Second k loop done" << endl;
 	}
 	
 	if(boundtype==1)
@@ -268,8 +308,36 @@ void wet::neibour()
 	
 	} 
 
-	
 
+int i, j, h;
+	ofstream file;
+	char filename1[20];
+		string filename;
+	
+snprintf(filename1,20,"/sd%ld.m",rank);			//Create a name for file that contain data
+		filename=folder+filename1;
+        file.open(filename.c_str());
+		file.precision(16);
+		
+		for( h = 0 ; h < Lz ; h++) 
+		{   
+			file << "d" << rank  << "=[" << endl;
+			for( i = 0 ; i < Lx/size +4 ; i++) 
+			{
+				for( j = 0 ; j < Ly ; j++) 
+				{
+					k = h + j*Lz + i*Ly*Lz;
+					
+					
+					file << d[k][1] << " " ;
+						
+				}
+				file << endl;
+			}
+			file <<"];" << endl;
+		}
+		
+		file.close();
 
 
 

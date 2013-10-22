@@ -9,7 +9,8 @@ wet::wet(void)
 
 	
 	
-	
+	MPI_Comm_rank(MPI_COMM_WORLD, &rank);		//rank = id number of process (see mpi.h library)
+	MPI_Comm_size(MPI_COMM_WORLD, &size);		//size = total number of processes (see mpi.h library)
 	
 	
 	readinput();

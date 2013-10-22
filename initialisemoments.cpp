@@ -61,8 +61,8 @@ void wet::initialisemoments()
 	{
 	  
 	  
-	 // C[k]=0.0;
-	  
+	  C[k]=1.0;
+	 /* 
 	  if(xk<30 ){C[k]=1.0;}
 	  else if (xk<40)
 	  
@@ -78,7 +78,7 @@ void wet::initialisemoments()
 	  					}
 	  
 	  else {C[k]=0.0;}
-		
+		*/
 		
 		ux[k]=uxi;
 		uy[k]=uyi;
@@ -91,6 +91,8 @@ void wet::initialisemoments()
 	}
 	}
 
+	exchangeC();
+	
 	for(k=k1;k<k2;++k)//Initialise free energy and density
 	{
 		if(mask[k]!=28)
@@ -238,10 +240,12 @@ void wet::initialisemoments()
 		}
 	}
 
+	exchangemu();
+	exchangemuh();
+	exchangerho();
 
 
-
-	for(k=k1;k<k2;++k)
+	for(k=k1;k<k2;++k)//Initialise pressure and tau
 	{
 
 	if(mask[k]!=28)
@@ -258,7 +262,9 @@ tau[k]=1.0/(C[k]/tau1+(1-C[k])/tau2);
 
 }
 
-
-
+	
+	exchangep();
+	
+	exchangevel();
 
 }

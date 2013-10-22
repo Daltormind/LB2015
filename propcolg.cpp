@@ -29,26 +29,26 @@ void wet::propcolg()
 
   
   gc0[k]=g0[k]-1.0/(tau[k]+0.5)*(g0[k]-geq0)+dt*gforce0;
-  gc1[d[k][0]]=g1[k]-1.0/(tau[k]+0.5)*(g1[k]-geq1)+dt*gforce1;
-  gc2[d[k][1]]=g2[k]-1.0/(tau[k]+0.5)*(g2[k]-geq2)+dt*gforce2;
-  gc3[d[k][2]]=g3[k]-1.0/(tau[k]+0.5)*(g3[k]-geq3)+dt*gforce3;
-  gc4[d[k][3]]=g4[k]-1.0/(tau[k]+0.5)*(g4[k]-geq4)+dt*gforce4;
+  gc1[k]=g1[k]-1.0/(tau[k]+0.5)*(g1[k]-geq1)+dt*gforce1;
+  gc2[k]=g2[k]-1.0/(tau[k]+0.5)*(g2[k]-geq2)+dt*gforce2;
+  gc3[k]=g3[k]-1.0/(tau[k]+0.5)*(g3[k]-geq3)+dt*gforce3;
+  gc4[k]=g4[k]-1.0/(tau[k]+0.5)*(g4[k]-geq4)+dt*gforce4;
     
-  gc7[d[k][6]]=g7[k]-1.0/(tau[k]+0.5)*(g7[k]-geq7)+dt*gforce7;
-  gc8[d[k][7]]=g8[k]-1.0/(tau[k]+0.5)*(g8[k]-geq8)+dt*gforce8;
-  gc9[d[k][8]]=g9[k]-1.0/(tau[k]+0.5)*(g9[k]-geq9)+dt*gforce9;
-  gc10[d[k][9]]=g10[k]-1.0/(tau[k]+0.5)*(g10[k]-geq10)+dt*gforce10;
+  gc7[k]=g7[k]-1.0/(tau[k]+0.5)*(g7[k]-geq7)+dt*gforce7;
+  gc8[k]=g8[k]-1.0/(tau[k]+0.5)*(g8[k]-geq8)+dt*gforce8;
+  gc9[k]=g9[k]-1.0/(tau[k]+0.5)*(g9[k]-geq9)+dt*gforce9;
+  gc10[k]=g10[k]-1.0/(tau[k]+0.5)*(g10[k]-geq10)+dt*gforce10;
   
-  gc5[d[k][4]]=g5[k]-1.0/(tau[k]+0.5)*(g5[k]-geq5)+dt*gforce5;
-  gc6[d[k][5]]=g6[k]-1.0/(tau[k]+0.5)*(g6[k]-geq6)+dt*gforce6;
-  gc11[d[k][10]]=g11[k]-1.0/(tau[k]+0.5)*(g11[k]-geq11)+dt*gforce11;
-  gc12[d[k][11]]=g12[k]-1.0/(tau[k]+0.5)*(g12[k]-geq12)+dt*gforce12;
-  gc13[d[k][12]]=g13[k]-1.0/(tau[k]+0.5)*(g13[k]-geq13)+dt*gforce13;
-  gc14[d[k][13]]=g14[k]-1.0/(tau[k]+0.5)*(g14[k]-geq14)+dt*gforce14;
-  gc15[d[k][14]]=g15[k]-1.0/(tau[k]+0.5)*(g15[k]-geq15)+dt*gforce15;
-  gc16[d[k][15]]=g16[k]-1.0/(tau[k]+0.5)*(g16[k]-geq16)+dt*gforce16;
-  gc17[d[k][16]]=g17[k]-1.0/(tau[k]+0.5)*(g17[k]-geq17)+dt*gforce17;
-  gc18[d[k][17]]=g18[k]-1.0/(tau[k]+0.5)*(g18[k]-geq18)+dt*gforce18;
+  gc5[k]=g5[k]-1.0/(tau[k]+0.5)*(g5[k]-geq5)+dt*gforce5;
+  gc6[k]=g6[k]-1.0/(tau[k]+0.5)*(g6[k]-geq6)+dt*gforce6;
+  gc11[k]=g11[k]-1.0/(tau[k]+0.5)*(g11[k]-geq11)+dt*gforce11;
+  gc12[k]=g12[k]-1.0/(tau[k]+0.5)*(g12[k]-geq12)+dt*gforce12;
+  gc13[k]=g13[k]-1.0/(tau[k]+0.5)*(g13[k]-geq13)+dt*gforce13;
+  gc14[k]=g14[k]-1.0/(tau[k]+0.5)*(g14[k]-geq14)+dt*gforce14;
+  gc15[k]=g15[k]-1.0/(tau[k]+0.5)*(g15[k]-geq15)+dt*gforce15;
+  gc16[k]=g16[k]-1.0/(tau[k]+0.5)*(g16[k]-geq16)+dt*gforce16;
+  gc17[k]=g17[k]-1.0/(tau[k]+0.5)*(g17[k]-geq17)+dt*gforce17;
+  gc18[k]=g18[k]-1.0/(tau[k]+0.5)*(g18[k]-geq18)+dt*gforce18;
 
 
 

@@ -40,6 +40,9 @@ if(mask[k]!=28)
 }
 }
 
+exchangeC();
+exchangerho();
+
 for(k=k1;k<k2;k++)//Initialise free energy 
 	{
 		if(mask[k]!=28)
@@ -192,6 +195,9 @@ for(k=k1;k<k2;k++)//Initialise free energy
 			else{muh[k]=mu[k];}
 		}
 	}
+	
+exchangemu();
+exchangemuh();
 
 //Compute Macroscopic velocity
 for(k=k1;k<k2;k++)
@@ -397,6 +403,8 @@ if(mask[k]!=28)
 }
 }
 
+exchangevel();
+
 //Compute macroscopic pressure
 
 for(k=k1;k<k2;k++)
@@ -594,6 +602,7 @@ if(mask[k]!=28)
 }
 }
 
+exchangep();
 
 
 
