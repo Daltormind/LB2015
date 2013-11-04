@@ -57,7 +57,7 @@ class wet
 	
 	double uxi,uyi,uzi; //Initial Drop velocity
 
-	int xk,yk,zk; //Positions
+	int xk,yk,zk,xend; //Positions
 
 	int xs, ys ,zs,xw,yw,zw,h,P; //Position and width of solid surface
 
@@ -163,7 +163,7 @@ class wet
     
     double M0,M1,M2,M3,M4,M5,M6,M7,M8,M9,M10,M11,M12,M13,M14,M15,M16,M17,M18;
 	
-	double *CGlobal, *maskGlobal;
+	double *CGlobal, *maskGlobal, *muGlobal,*pGlobal,*uxGlobal,*uyGlobal,*uzGlobal;
 
 
 
@@ -209,6 +209,11 @@ class wet
 	void generateglobalmask();
 	void exchangemuh();
 	void exchangedencol();
+	void genmuglobal();
+	void genpglobal();
+	void genuxglobal();
+	void genuyglobal();
+	void genuzglobal();
 	
 	public:
 

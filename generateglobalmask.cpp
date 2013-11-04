@@ -25,7 +25,7 @@ void wet::generateglobalmask(void)
 						maskGlobal[m*(k2-k1*(1+Lx%size))+g]=mask[g+k1];
 				}
 				if(m>ROOT)
-					MPI_Irecv(&(maskGlobal[m*(k2-k1*(1+Lx%size))+(Lx%size)*k1]), k2-k1*(1+Lx%size), MPI_INT, m, m, MPI_COMM_WORLD, &request[m]);
+					MPI_Irecv(&(maskGlobal[m*(k2-k1*(1+Lx%size))+(Lx%size)*Ly*Lz]), k2-k1*(1+Lx%size), MPI_INT, m, m, MPI_COMM_WORLD, &request[m]);
 			}
 		}
 	
@@ -39,5 +39,5 @@ void wet::generateglobalmask(void)
 		}
 	}
 
-	//cout << "Process " << rank << ": global mask generated." << endl;
+	cout << "Process " << rank << ": global mask generated." << endl;
 }

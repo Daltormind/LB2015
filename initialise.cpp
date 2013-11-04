@@ -33,12 +33,21 @@ void wet::initialise()
 		cout << "Process "<< rank <<": WARNING, very large number of processes for this lattice" << endl; 
 
 	if(rank==ROOT)
+		{
 		ProcessN=Ly*Lz*((Lx-Lx%size)/size + Lx%size + 4);	//Number of YZ plane for root process plus neighboors
+		
+		xend=(Lx-Lx%size)/size + Lx%size +2;
+		}	
 	else
+	{
 		ProcessN=Ly*Lz*((Lx-Lx%size)/size+4);			    //Number of YZ plane for other processes
-
+	
+		xend=(Lx-Lx%size)/size + 2;
+	}
 	k1 = 2*Ly*Lz;			//k where real lattice starts
 	k2 = ProcessN-2*Ly*Lz;		//k where real lattice ends
+	
+	
 	
 	cout << "Process k1 k2 "<< rank << " " << k1 << " " << k2 <<endl;
 	
@@ -48,6 +57,11 @@ void wet::initialise()
 	{
 		CGlobal=new double[N] ;
 		maskGlobal=new double[N];
+		muGlobal=new double[N] ;
+		pGlobal=new double[N] ;
+		uxGlobal=new double[N] ;
+		uyGlobal=new double[N] ;
+		uzGlobal=new double[N] ;
 	}
 	
 	cout << "Process "<< rank << " Entered initialise" << endl;
@@ -144,6 +158,8 @@ void wet::initialise()
 	cout  << "Process "<< rank << " past neibour" << endl;
 	
 	initialisesurface();
+	
+	generateglobalmask();
 
 	cout  << "Process "<< rank << " past initialise surface" << endl;
 

@@ -19,30 +19,33 @@ void wet::algorithm()
             
             
             
-            writemoments(100+st);
-            /*
-            exchangeC();
-            exchangep();
-            exchangevel();
-            exchangemu();
-            exchangerho();
-            exchangemuh();
-            */
             
             
-            //momentsbound();
 		
 		if(st%wrtst==0 and st>=stst)
 		{
-		//computefreeenergy();
+		computefreeenergy();
 		//computeenergy();
 		//cout << "t = " << st << " El=" << El << " Eg=" << Eg << " Ei=" << Ei  << " Et=" << Et << endl;
+		
+		
+		genCglobal();
+		genpglobal();
+		genmuglobal();
+		
+		
+		
+		
 		writemoments(st);
 		
-		cout << st <<  " " << "Process " << rank << " :Computed and exchanged" << endl;
-
-		//writevelocity(st);
+		/*
+		genuxglobal();
+		genuyglobal();
+		genuzglobal();
+		writevelocity(st);
+		*/
 		}
+		
 		
 		
 		//cout << "Process " << rank << " :Got through writemoments"  << endl;

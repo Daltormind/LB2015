@@ -20,7 +20,7 @@ void wet::writevelocity(int in)
 		
 		for( n = 0 ; n < Lz ; n++) 
 		{   
-			file << "ux"   << in << "(:,:," << n+1 << ")=[" << endl;
+			file  << "ux"   << in << "(:,:," << n+1 << ")=[" << endl;
 			for( q = 0 ; q < Lx ; q++) 
 			{
 				for( j = 0 ; j < Ly ; j++) 
@@ -60,6 +60,7 @@ void wet::writevelocity(int in)
 		}
 		
 		file.close();
+		
 		
 		// Write z velocity
         
