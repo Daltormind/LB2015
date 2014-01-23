@@ -36,27 +36,27 @@ void wet::initialise()
 		{
 		ProcessN=Ly*Lz*((Lx-Lx%size)/size + Lx%size + 4);	//Number of YZ plane for root process plus neighboors
 		
-		xend=(Lx-Lx%size)/size + Lx%size +2;
+		xend=(Lx-Lx%size)/size + Lx%size +4;
 		}	
 	else
 	{
 		ProcessN=Ly*Lz*((Lx-Lx%size)/size+4);			    //Number of YZ plane for other processes
 	
-		xend=(Lx-Lx%size)/size + 2;
+		xend=(Lx-Lx%size)/size + 4;
 	}
 	k1 = 2*Ly*Lz;			//k where real lattice starts
 	k2 = ProcessN-2*Ly*Lz;		//k where real lattice ends
 	
 	
 	
-	cout << "Process k1 k2 "<< rank << " " << k1 << " " << k2 <<endl;
+	cout << "Process k1 k2 ProcessN "<< rank << " " << k1 << " " << k2 << " " << ProcessN <<endl;
 	
 	//Setting up different processors done.
 	
 	if(rank==ROOT)
 	{
 		CGlobal=new double[N] ;
-		maskGlobal=new double[N];
+		maskGlobal=new int[N];
 		muGlobal=new double[N] ;
 		pGlobal=new double[N] ;
 		uxGlobal=new double[N] ;
@@ -152,7 +152,7 @@ void wet::initialise()
 	 
 	 Wc=-cos(theta*M_PI/180.0)*sqrt(2*B/kappa);
 
-
+	 writeinfofile();
 	neibour();
 	
 	cout  << "Process "<< rank << " past neibour" << endl;
@@ -171,9 +171,61 @@ void wet::initialise()
 
 	//momentsbound();
 	
+	
+	genCglobal();
+	genmuglobal();
+	genpglobal();
+	genuxglobal();
+	genuyglobal();
+	genuzglobal();
+	generateglobalmask();
+	cout  << "Process "<< rank << " past generateglobals" << endl;
+	
+	if(rank==ROOT)
+	{
+	
 	writemoments(0);
+	writevelocity(0);
+	//computeenergy();
 
-
+	}
+	
+	cout  << "Process "<< rank << " past writemoments" << endl;
+	int i, j, h;
+	ofstream file;
+	char filename1[20];
+		string filename;
+		/*
+        //------------------------- Write the composition File------------------------
+        
+        snprintf(filename1,20,"/s%ldmask%ld.m",rank,0);			//Create a name for file that contain data
+		filename=folder+filename1;
+        file.open(filename.c_str());
+		file.precision(16);
+		
+		for( h = 0 ; h < Lz ; h++) 
+		{   
+			file << "r" << rank  << "mask" << 0 << "(:,:," << h+1 << ")=[" << endl;
+			for( i = 0 ; i < xend ; i++) 
+			{
+				for( j = 0 ; j < Ly ; j++) 
+				{
+					k = h + j*Lz + i*Ly*Lz;
+					
+					
+					
+					file << mask[k] << " " ;
+					
+					
+						
+				}
+				file << endl;
+			}
+			file <<"];" << endl;
+		}
+		
+		file.close();
+		*/
 	cout << "Process "<< rank << " Initialised surface and moments" << endl;
 
 
@@ -185,11 +237,15 @@ void wet::initialise()
 		//writemoments(75);
 
 
-	for(k=k1-Ly*Lz;k<k2+Ly*Lz;k++)
+	for(k=k1;k<k2;k++)
 	{
-        diffCD();
-        diffBD();
-        centralforce();
+        
+	 
+	  diffCD();
+	 
+	  diffBD();
+	 
+	  centralforce();
         equiliberiumg();
         equiliberiumh();
         //equiliberiumf();

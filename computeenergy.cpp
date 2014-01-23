@@ -5,14 +5,61 @@
 void wet::computeenergy()
 
 {
-	double Ehold;
 	
-	Ekin=0.0;
-	for(k=k1;k<k2;k++)
-	{
-		Ehold=0.5*rho[k]*(ux[k]*ux[k]+uy[k]*uy[k]);
-		if(Ehold>Ekin){Ekin=Ehold;}
+  if(st%(infost) == 0){
+    if(mask[k]!=28)
+      {
+    double en;
+	
+		en=B*C[k]*C[k]*(C[k]-1.0)*(C[k]-1.0)+(kappa/2.0)*(gradCCx*gradCCx+gradCCy*gradCCy+gradCCz*gradCCz);
+		
+		
+		
+		
+		if(C[k]<0.1 or C[k]>0.9 )
+		{
+		Ebulk+=en;
+		}
+		else
+		{
+		Eint+=en;
+		}
+		
+		
+		if(mask[k]==1)
+		{
+		  Esurf+=Wc*kappa*(C[k]*C[k]/2.0 - C[k]*C[k]*C[k]/3.0);
+		}
+      }
+		if (k==(k2-1)){
+		double reducedEnergy;
+		
+		
+			
+			reducedEnergy = 0.0;
+			MPI_Reduce(&Ebulk,&reducedEnergy,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
+			Ebulk = reducedEnergy;
+						
+			reducedEnergy = 0.0;
+			MPI_Reduce(&Eint,&reducedEnergy,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
+			Eint = reducedEnergy;
+			
+			reducedEnergy = 0.0;
+			MPI_Reduce(&Esurf,&reducedEnergy,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
+			Esurf = reducedEnergy;
+			
+		       
+			
+			
+		
+		
+		if (rank == ROOT) {
+			
+			energy = Ebulk + Eint + Esurf;
+		}
 	}
+	}	
 	
-	cout << "At t=" << st << " Ekin=" << Ekin << endl;
+	
+	
 }

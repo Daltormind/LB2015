@@ -14,21 +14,22 @@ void wet::writemoments(long int in)
         
         //------------------------- Write the composition File------------------------
         
-        snprintf(filename1,20,"/sdC%ld.m",in);			//Create a name for file that contain data
+        snprintf(filename1,20,"/sC%d.m",in);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());
 		file.precision(16);
-		
-		for( h = 0 ; h < Lz ; h++) 
+	
+		for( h = 0 ; h < 1 ; h++) 
 		{   
 			file  << "C" << in << "(:,:," << h+1 << ")=[" << endl;
+		
 			for( i = 0 ; i < Lx ; i++) 
 			{
-				for( j = 0 ; j < Ly ; j++) 
+			  for( j = 0 ; j < Ly ; j++) 
 				{
 					k = h + j*Lz + i*Ly*Lz;
 					
-					if(mask[k]==28){file << -2 << " " ;}
+					if(maskGlobal[k]==28){file << -2 << " " ;}
 					
 					else{file << CGlobal[k] << " " ;}
 					
@@ -36,38 +37,45 @@ void wet::writemoments(long int in)
 						
 				}
 				file << endl;
-			}
+		
+}
 			file <<"];" << endl;
-		}
+		
+			
+}
 		
 		file.close();
 		
-		
+		/*
 		//--------------------------- Write free energy file---------------------------
 		
-		snprintf(filename1,20,"/smu%ld.m",in);			//Create a name for file that contain data
+		snprintf(filename1,20,"/smu%d.m",in);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());
 		file.precision(16);
 		
 		for( h = 0 ; h < Lz ; h++) 
 		{   
-			file << "n" << rank << "mu" << in << "(:,:," << h+1 << ")=[" << endl;
+			file  << "mu" << in << "(:,:," << h+1 << ")=[" << endl;
+		
 			for( i = 0 ; i < Lx ; i++) 
 			{
 				for( j = 0 ; j < Ly ; j++) 
 				{
 					k = h + j*Lz + i*Ly*Lz;
 					file << muGlobal[k] << " " ;
+				
 						
 				}
 				file << endl;
+			
 			}
 			file <<"];" << endl;
+		
 		}
 		
 		file.close();
-		
+		*/
 		/*
 		//-------------------------- Write Density File -------------------------------
 		
@@ -95,8 +103,8 @@ void wet::writemoments(long int in)
 		file.close();
 		*/
 		//------------------------- Write pressure File----------------------------------
-		
-		snprintf(filename1,20,"/sp%ld.m",in);			//Create a name for file that contain data
+		/*
+		snprintf(filename1,20,"/sp%d.m",in);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());
 		file.precision(16);
@@ -118,7 +126,7 @@ void wet::writemoments(long int in)
 		}
 		
 		file.close();
-		
+		*/
 		/*
 		//------------------------ Write f File -----------------------------------------
 		
@@ -145,7 +153,8 @@ void wet::writemoments(long int in)
 		
 		file.close();
 		
-		
+		*/
+		/*
 		//--------------------------- Write mask ---------------------------------------
 		
 		snprintf(filename1,20,"/smask%ld.m",in);			//Create a name for file that contain data
@@ -161,7 +170,7 @@ void wet::writemoments(long int in)
 				for( j = 0 ; j < Ly ; j++) 
 				{
 					k = h + j*Lz + i*Ly*Lz;
-					file << mask[k]<< " " ;
+					file << maskGlobal[k]<< " " ;
 						
 				}
 				file << endl;
@@ -170,7 +179,8 @@ void wet::writemoments(long int in)
 		}
 		
 		file.close();
-		/*
+		*/
+	/*
 		//--------------------------- Write Ctest ---------------------------------------
 		
 		snprintf(filename1,20,"/sCt%ld.m",in);			//Create a name for file that contain data

@@ -27,6 +27,9 @@ void wet::readinput()
     inputfile.ignore(250,'\n');
     cout << "stst " << stst << endl;
 	
+    inputfile >> infost;
+      inputfile.ignore(250,'\n');
+    cout << "infost " << infost << endl; 
 	inputfile >> dimensions;
     inputfile.ignore(250,'\n');
     cout << "dimensions " << dimensions << endl;
@@ -111,6 +114,14 @@ void wet::readinput()
     inputfile.ignore(250,'\n');
     cout << "surface width " << wx << " " << wy << " " << wz << endl;
     
+    inputfile >> xs2 >> ys2 >> zs2;
+    inputfile.ignore(250,'\n');
+    cout << "Surface position 2" << xs2 << " " << ys2 << " " << zs2 << endl;
+
+    inputfile >> wx2 >> wy2 >> wz2 ;
+    inputfile.ignore(250,'\n');
+    cout << "Surface width 2 " << wx2 << " " << wy2 << " " << wz2 << endl;
+
     inputfile >> h >> P ;
     inputfile.ignore(250,'\n');
     cout << "Posts " << h << " " << P << endl;

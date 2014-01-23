@@ -67,4 +67,116 @@ g16[k]=gc16[d[k][16]];
 g17[k]=gc17[d[k][15]];
 g18[k]=gc18[d[k][14]];
 
+/*
+ computecoordinates(k);
+ if(xk==68 and yk==27 and zk==49){cout << "Propset check " << st << " " << h7[k] << " "<< h10[k]<< " " << hc7[d[k][9]] << " " << hc10[d[k][6]]<< endl; }
+*/
+ if(boundtype==1)
+   {
+     computecoordinates(k);
+
+     if(xk==Lx-1)
+       {
+	 h2[k]=h1[k];
+	 h8[k]=h7[k];
+	 h10[k]=h9[k];
+	 h16[k]=h15[k];
+	 h18[k]=h17[k];
+
+	 g2[k]=g1[k];
+	 g8[k]=g7[k];
+	 g10[k]=g9[k];
+	 g16[k]=g15[k];
+	 g18[k]=g17[k];
+       }
+     if(xk==0)
+       {
+	 h1[k]=h2[k];
+	 h7[k]=h8[k];
+	 h9[k]=h10[k];
+	 h15[k]=h16[k];
+	 h17[k]=h18[k];
+
+	 g1[k]=g2[k];
+	 g7[k]=g8[k];
+	 g9[k]=g10[k];
+	 g15[k]=g16[k];
+	 g17[k]=g18[k];
+       }
+     if(yk==Ly-1)
+       {
+	 h4[k]=h3[k];
+	 h9[k]=h7[k];
+	 h10[k]=h8[k];
+	 h12[k]=h11[k];
+	 h14[k]=h13[k];
+
+	 g4[k]=g3[k];
+	 g9[k]=g7[k];
+	 g10[k]=g8[k];
+	 g12[k]=g11[k];
+	 g14[k]=g13[k];
+       }
+     if(yk==0)
+       {
+	 h3[k]=h4[k];
+	 h7[k]=h9[k];
+	 h8[k]=h10[k];
+	 h11[k]=h12[k];
+	 h13[k]=h14[k];
+
+	 g3[k]=g4[k];
+	 g7[k]=g9[k];
+	 g8[k]=g10[k];
+	 g11[k]=g12[k];
+	 g13[k]=g14[k];
+       }
+     if(zk==Lz-1)
+       {
+	 h6[k]=h5[k];
+	 h13[k]=h11[k];
+	 h14[k]=h12[k];
+	 h17[k]=h15[k];
+	 h18[k]=h16[k];
+
+	 g6[k]=g5[k];
+	 g13[k]=g11[k];
+	 g14[k]=g12[k];
+	 g17[k]=g15[k];
+	 g18[k]=g16[k];
+
+       }
+     if(zk==0)
+       {
+	 h5[k]=h6[k];
+	 h11[k]=h13[k];
+	 h12[k]=h14[k];
+	 h15[k]=h17[k];
+	 h16[k]=h18[k];
+
+	 g5[k]=g6[k];
+	 g11[k]=g13[k];
+	 g12[k]=g14[k];
+	 g15[k]=g17[k];
+	 g16[k]=g18[k];
+       }
+   }
+
+
+ if(mask[k]==1)
+   {
+     if (mask[d[k][6]]==28 && mask[d[k][9]]==28){h7[k]=hc10[k];h10[k]=hc7[k];g7[k]=gc10[k];g10[k]=gc7[k];}
+      if (mask[d[k][7]]==28 && mask[d[k][8]]==28){h8[k]=hc9[k];h9[k]=hc8[k];g8[k]=gc9[k];g9[k]=gc8[k];}
+       if (mask[d[k][10]]==28 && mask[d[k][13]]==28){h11[k]=hc14[k];h14[k]=hc11[k];g11[k]=gc14[k];g14[k]=gc11[k];}
+ if (mask[d[k][11]]==28 && mask[d[k][12]]==28){h12[k]=hc13[k];h13[k]=hc12[k];g12[k]=gc13[k];g13[k]=gc12[k];}
+ if (mask[d[k][15]]==28 && mask[d[k][16]]==28){h16[k]=hc17[k];h17[k]=hc16[k];g16[k]=gc17[k];g17[k]=gc16[k];}
+ if (mask[d[k][14]]==28 && mask[d[k][17]]==28){h15[k]=hc18[k];h18[k]=hc15[k];g15[k]=gc18[k];g18[k]=gc15[k];}
+   }
+
+ 
+
+
+
+   
+
 }

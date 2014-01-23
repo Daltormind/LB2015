@@ -16,7 +16,7 @@ void wet::initialisemoments()
 	if(R!=-1)
 	{
 
-	if((xk-xcentre)*(xk-xcentre)+(yk-ycentre)*(yk-ycentre)+(zk-zcentre)*(zk-zcentre)<(R-3*ep)*(R-3*ep))
+	if((xk-xcentre)*(xk-xcentre)+(yk-ycentre)*(yk-ycentre)+(zk-zcentre)*(zk-zcentre)<(R-5*ep)*(R-5*ep))
 		{
 			//C[k]=0.5+0.5*tanh(double(xk-25)/2/ep);//1;
 			C[k]=1.0;//(1.0)/2.0+(1.0)/2.0*tanh(2.0/ep*(sqrt((xk-50.0)*(xk-50.0)+(yk-50.0)*(yk-50.0))-25.0));
@@ -27,7 +27,7 @@ void wet::initialisemoments()
 
 		}
 		
-		else if ((xk-xcentre)*(xk-xcentre)+(yk-ycentre)*(yk-ycentre)+(zk-zcentre)*(zk-zcentre)<(R+3*ep)*(R+3*ep))
+	else  if ((xk-xcentre)*(xk-xcentre)+(yk-ycentre)*(yk-ycentre)+(zk-zcentre)*(zk-zcentre)<(R+5*ep)*(R+5*ep))
 		{
 				
 				num=sqrt((xk-xcentre)*(xk-xcentre)+(yk-ycentre)*(yk-ycentre)+(zk-zcentre)*(zk-zcentre));
@@ -54,31 +54,32 @@ void wet::initialisemoments()
 	
 
 		}
-	}
+	
+		}
 
 
 	else
 	{
 	  
 	  
-	  C[k]=1.0;
-	 /* 
-	  if(xk<30 ){C[k]=1.0;}
-	  else if (xk<40)
+	  // C[k]=1.0;
+	 
+	  if(yk<30 ){C[k]=1.0;}
+	  else if (yk<40)
 	  
 	  {
-	  			test=tanh(2.0*(35-xk)/ep);
+	  			test=tanh(2.0*(35-yk)/ep);
 	  			
 				C[k]=0.5 + 0.5*test;  	
 	  					}
-	  					else if(xk>60)
+	  					else if(yk>60)
 	  					{
-	  						test=tanh(2.0*(xk-65)/ep);
+	  						test=tanh(2.0*(yk-65)/ep);
 				C[k]=0.5 + 0.5*test; 
 	  					}
 	  
 	  else {C[k]=0.0;}
-		*/
+		
 		
 		ux[k]=uxi;
 		uy[k]=uyi;
@@ -99,10 +100,16 @@ void wet::initialisemoments()
 		{
 
             if (mask[k]!=1)
-            {
-            //d2C=(C[d[k][6]]+C[d[k][7]]+C[d[k][8]]+C[d[k][9]]+4.0*(C[d[k][0]]+C[d[k][1]]+C[d[k][2]]+C[d[k][3]])-20.0*C[k])/(6.0*dt*dt);
+            
+	      {
+		if(dimensions==2)
+		  {
+            d2C=(C[d[k][6]]+C[d[k][7]]+C[d[k][8]]+C[d[k][9]]+4.0*(C[d[k][0]]+C[d[k][1]]+C[d[k][2]]+C[d[k][3]])-20.0*C[k])/(6.0*dt*dt);
+		  }
+		if (dimensions==3)
+		  {
 			            d2C=(C[d[k][6]]+C[d[k][7]]+C[d[k][8]]+C[d[k][9]]+C[d[k][10]]+C[d[k][11]]+C[d[k][12]]+C[d[k][13]]+C[d[k][14]]+C[d[k][15]]+C[d[k][16]]+C[d[k][17]]+2.0*(C[d[k][0]]+C[d[k][1]]+C[d[k][2]]+C[d[k][3]]+C[d[k][4]]+C[d[k][5]])-24.0*C[k])/(6.0*dt*dt);
-
+		  }
 			}
 			else if (mask[k]==1)
 			{

@@ -216,26 +216,26 @@ void wet::propcolh()
 	
 	*/
 	
-	hc0[k]=h0[k]-1/(tau[k]+0.5)*(h0[k]-heq0)+dt*(0.5*M0*gamma0-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma0);
-	hc1[k]=h1[k]-1/(tau[k]+0.5)*(h1[k]-heq1)+dt*(0.5*M0*gamma1-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma1+FhM1*gamma1);
-	hc2[k]=h2[k]-1/(tau[k]+0.5)*(h2[k]-heq2)+dt*(0.5*M0*gamma2-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma2+FhM2*gamma2);
-	hc3[k]=h3[k]-1/(tau[k]+0.5)*(h3[k]-heq3)+dt*(0.5*M0*gamma3-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma3+FhM3*gamma3);
-	hc4[k]=h4[k]-1/(tau[k]+0.5)*(h4[k]-heq4)+dt*(0.5*M0*gamma4-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma4+FhM4*gamma4);
-	hc7[k]=h7[k]-1/(tau[k]+0.5)*(h7[k]-heq7)+dt*(0.5*M0*gamma7-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma7+FhM7*gamma7);
-	hc8[k]=h8[k]-1/(tau[k]+0.5)*(h8[k]-heq8)+dt*(0.5*M0*gamma8-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma8+FhM8*gamma8);
-	hc9[k]=h9[k]-1/(tau[k]+0.5)*(h9[k]-heq9)+dt*(0.5*M0*gamma9-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma9+FhM9*gamma9);
-	hc10[k]=h10[k]-1/(tau[k]+0.5)*(h10[k]-heq10)+dt*(0.5*M0*gamma10-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma10+FhM10*gamma10);
+	hc0[k]=/*h0[k]-1/(tau[k]+0.5)*(h0[k]-heq0)*/heq0+dt*(0.5*M0*gamma0-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma0);
+	hc1[k]=/*h1[k]-1/(tau[k]+0.5)*(h1[k]-heq1)*/heq1+dt*(0.5*M0*gamma1-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma1+FhM1*gamma1);
+	hc2[k]=/*h2[k]-1/(tau[k]+0.5)*(h2[k]-heq2)*/heq2+dt*(0.5*M0*gamma2-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma2+FhM2*gamma2);
+	hc3[k]=/*h3[k]-1/(tau[k]+0.5)*(h3[k]-heq3)*/heq3+dt*(0.5*M0*gamma3-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma3+FhM3*gamma3);
+	hc4[k]=/*h4[k]-1/(tau[k]+0.5)*(h4[k]-heq4)*/heq4+dt*(0.5*M0*gamma4-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma4+FhM4*gamma4);
+	hc7[k]=/*h7[k]-1/(tau[k]+0.5)*(h7[k]-heq7)*/heq7+dt*(0.5*M0*gamma7-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma7+FhM7*gamma7);
+	hc8[k]=/*h8[k]-1/(tau[k]+0.5)*(h8[k]-heq8)*/heq8+dt*(0.5*M0*gamma8-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma8+FhM8*gamma8);
+	hc9[k]=/*h9[k]-1/(tau[k]+0.5)*(h9[k]-heq9)*/heq9+dt*(0.5*M0*gamma9-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma9+FhM9*gamma9);
+	hc10[k]=/*h10[k]-1/(tau[k]+0.5)*(h10[k]-heq10)*/heq10+dt*(0.5*M0*gamma10-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma10+FhM10*gamma10);
 
-	hc5[k]=h5[k]-1/(tau[k]+0.5)*(h5[k]-heq5)+dt*(0.5*M0*gamma5-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma5+FhM5*gamma5);
-	hc6[k]=h6[k]-1/(tau[k]+0.5)*(h6[k]-heq6)+dt*(0.5*M0*gamma6-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma6+FhM6*gamma6);
-	hc11[k]=h11[k]-1/(tau[k]+0.5)*(h11[k]-heq11)+dt*(0.5*M0*gamma11-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma11+FhM11*gamma11);
-	hc12[k]=h12[k]-1/(tau[k]+0.5)*(h12[k]-heq12)+dt*(0.5*M0*gamma12-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma12+FhM12*gamma12);
-	hc13[k]=h13[k]-1/(tau[k]+0.5)*(h13[k]-heq13)+dt*(0.5*M0*gamma13-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma13+FhM13*gamma13);
-	hc14[k]=h14[k]-1/(tau[k]+0.5)*(h14[k]-heq14)+dt*(0.5*M0*gamma14-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma14+FhM14*gamma14);
-	hc15[k]=h15[k]-1/(tau[k]+0.5)*(h15[k]-heq15)+dt*(0.5*M0*gamma15-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma15+FhM15*gamma15);
-	hc16[k]=h16[k]-1/(tau[k]+0.5)*(h16[k]-heq16)+dt*(0.5*M0*gamma16-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma16+FhM16*gamma16);
-	hc17[k]=h17[k]-1/(tau[k]+0.5)*(h17[k]-heq17)+dt*(0.5*M0*gamma17-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma17+FhM17*gamma17);
-	hc18[k]=h18[k]-1/(tau[k]+0.5)*(h18[k]-heq18)+dt*(0.5*M0*gamma18-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma18+FhM18*gamma18);
+	hc5[k]=/*h5[k]-1/(tau[k]+0.5)*(h5[k]-heq5)*/heq5+dt*(0.5*M0*gamma5-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma5+FhM5*gamma5);
+	hc6[k]=/*h6[k]-1/(tau[k]+0.5)*(h6[k]-heq6)*/heq6+dt*(0.5*M0*gamma6-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma6+FhM6*gamma6);
+	hc11[k]=/*h11[k]-1/(tau[k]+0.5)*(h11[k]-heq11)*/heq11+dt*(0.5*M0*gamma11-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma11+FhM11*gamma11);
+	hc12[k]=/*h12[k]-1/(tau[k]+0.5)*(h12[k]-heq12)*/heq12+dt*(0.5*M0*gamma12-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma12+FhM12*gamma12);
+	hc13[k]=/*h13[k]-1/(tau[k]+0.5)*(h13[k]-heq13)*/heq13+dt*(0.5*M0*gamma13-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma13+FhM13*gamma13);
+	hc14[k]=/*h14[k]-1/(tau[k]+0.5)*(h14[k]-heq14)*/heq14+dt*(0.5*M0*gamma14-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma14+FhM14*gamma14);
+	hc15[k]=/*h15[k]-1/(tau[k]+0.5)*(h15[k]-heq15)*/heq15+dt*(0.5*M0*gamma15-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma15+FhM15*gamma15);
+	hc16[k]=/*h16[k]-1/(tau[k]+0.5)*(h16[k]-heq16)*/heq16+dt*(0.5*M0*gamma16-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma16+FhM16*gamma16);
+	hc17[k]=/*h17[k]-1/(tau[k]+0.5)*(h17[k]-heq17)*/heq17+dt*(0.5*M0*gamma17-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma17+FhM17*gamma17);
+	hc18[k]=/*h18[k]-1/(tau[k]+0.5)*(h18[k]-heq18)*/heq18+dt*(0.5*M0*gamma18-(ux[k]*FhMx+uy[k]*FhMy+uz[k]*FhMz)*gamma18+FhM18*gamma18);
 
 
 	

@@ -14,17 +14,26 @@ void wet::algorithm()
 
 		for(st=1;st<=Neqst;st++)
 		{
-			
+		  
+		    
             computemoments();
+		    
             
             
-            
-            
-            
-		
+	    
+	    if(st%infost==0)
+	      {
+
+		if (rank==ROOT)
+		  {
+		writeenergy(st);
+		  }
+		Ebulk=0.0;
+		Eint=0.0;
+		Esurf=0.0;
 		if(st%wrtst==0 and st>=stst)
 		{
-		computefreeenergy();
+		
 		//computeenergy();
 		//cout << "t = " << st << " El=" << El << " Eg=" << Eg << " Ei=" << Ei  << " Et=" << Et << endl;
 		
@@ -32,21 +41,25 @@ void wet::algorithm()
 		genCglobal();
 		genpglobal();
 		genmuglobal();
-		
-		
-		
-		
-		writemoments(st);
-		
-		/*
-		genuxglobal();
+		generateglobalmask();
+		genuxglobal();	
 		genuyglobal();
 		genuzglobal();
+		if(rank==ROOT)
+		{
+		writemoments(st);
 		writevelocity(st);
-		*/
+		//writeenergy(st);
 		}
 		
+	
+	
+	
+	
 		
+		}
+		
+	      }
 		
 		//cout << "Process " << rank << " :Got through writemoments"  << endl;
 
@@ -61,8 +74,14 @@ void wet::algorithm()
 			if(mask[k]!=28)
 			{
 			diffCD();
-			
-			diffBD();
+			/*
+			if(k==k1)
+			  {cout << "just before computeenergy" << endl;}
+			computeenergy();
+			if(k==k1)
+			  {cout << "just after compute energy" << endl;}
+			*/
+			 diffBD();
 			
 			
 			centralforce();
@@ -84,7 +103,9 @@ void wet::algorithm()
             
 
 			}
-		}
+	
+			computeenergy();
+	}
 		
 		exchangedencol();
 		

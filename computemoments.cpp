@@ -33,10 +33,15 @@ if(mask[k]!=28)
 		rho[k]=C[k]*rho1+(1-C[k])*rho2; //Compute Rho from updated moments
 		
 		tau[k]=1.0/(C[k]/tau1+(1-C[k])/tau2); // Compute tau for updated moments
-		if (mask[k]==1){tau[k]=0.5;}
+			if (mask[k]==1){tau[k]=0.5;}
 		
-		
-
+		/*
+		computecoordinates(k);
+		if(xk==68 and yk==27 and zk == 49)
+		  {
+		    cout << st << " " << C[k]  << " " << h0[k] << " " << h1[k] <<  " " << h2[k] << " " << h3[k] << " " << h4[k] << " " << h5[k] << " " << h6[k] << " " << h7[k]  <<  " " << h8[k] << " " << h9[k] << " " << h10[k] << " " << h11[k] << " " << h12[k] << " " << h13[k] << " " << h14[k] << " " << h15[k] << " " << h16[k] << " " << h17[k] << " " << h18[k] << endl; 
+		  }
+		*/
 }
 }
 
@@ -188,7 +193,7 @@ for(k=k1;k<k2;k++)//Initialise free energy
             
             //mu[k]=0.0;//4.0*B*(rho[k]-rho1)*(rho[k]-rho2)*(rho[k]-(rho2+rho1)*0.5)-kappa*d2rho; 
             
-            if(C[k]<0)
+			if(C[k]<0)
 			{
 			muh[k]=mu[k]+2*BA*C[k];
 			}
@@ -207,14 +212,14 @@ if(mask[k]!=28)
 {
 			if(mask[k]!=1)
 			{
-            gradCC1=0.5*(C[d[k][0]]-C[d[k][1]]);
-			gradCC2=0.5*(C[d[k][1]]-C[d[k][0]]);
-    		gradCC3=0.5*(C[d[k][2]]-C[d[k][3]]);
-    		gradCC4=0.5*(C[d[k][3]]-C[d[k][2]]);
-    		gradCC7=0.5*(C[d[k][6]]-C[d[k][9]]);
-    		gradCC8=0.5*(C[d[k][7]]-C[d[k][8]]);
-    		gradCC9=0.5*(C[d[k][8]]-C[d[k][7]]);
-    		gradCC10=0.5*(C[d[k][9]]-C[d[k][6]]);
+            gradCC1=0.5*(C[d[k][0]]-C[d[k][1]])/dt;
+			gradCC2=0.5*(C[d[k][1]]-C[d[k][0]])/dt;
+    		gradCC3=0.5*(C[d[k][2]]-C[d[k][3]])/dt;
+    		gradCC4=0.5*(C[d[k][3]]-C[d[k][2]])/dt;
+    		gradCC7=0.5*(C[d[k][6]]-C[d[k][9]])/dt;
+    		gradCC8=0.5*(C[d[k][7]]-C[d[k][8]])/dt;
+    		gradCC9=0.5*(C[d[k][8]]-C[d[k][7]])/dt;
+    		gradCC10=0.5*(C[d[k][9]]-C[d[k][6]])/dt;
     		
     		gradCC5=0.5*(C[d[k][4]]-C[d[k][5]])/dt;
     		gradCC6=0.5*(C[d[k][5]]-C[d[k][4]])/dt;
@@ -389,15 +394,15 @@ if(mask[k]!=28)
 			 
 			 if(dimensions==3)
 			 {
-			 ux[k]=(3.0*(g1[k]-g2[k]+g7[k]-g10[k]+g9[k]-g8[k]+g15[k]+g17[k]-g18[k]-g16[k])+0.5*dt*mu[k]*gradCCx)/rho[k];
-			 uy[k]=(3.0*(g3[k]-g4[k]+g7[k]-g10[k]+g8[k]-g9[k]+g11[k]+g13[k]-g12[k]-g14[k])+0.5*dt*mu[k]*gradCCy)/rho[k];
-			 uz[k]=(3.0*(g5[k]-g6[k]+g11[k]-g14[k]+g12[k]-g13[k]+g15[k]+g16[k]-g17[k]-g18[k])+0.5*dt*mu[k]*gradCCz)/rho[k];
+			   ux[k]=(3.0*(g1[k]-g2[k]+g7[k]-g10[k]+g9[k]-g8[k]+g15[k]+g17[k]-g18[k]-g16[k])+0.5*dt*mu[k]*gradCCx)/rho[k];
+			   uy[k]=(3.0*(g3[k]-g4[k]+g7[k]-g10[k]+g8[k]-g9[k]+g11[k]+g13[k]-g12[k]-g14[k])+0.5*dt*mu[k]*gradCCy)/rho[k];
+			   uz[k]=(3.0*(g5[k]-g6[k]+g11[k]-g14[k]+g12[k]-g13[k]+g15[k]+g16[k]-g17[k]-g18[k])+0.5*dt*mu[k]*gradCCz)/rho[k];
 			}
 			
 			if(dimensions==2)
 			{
-			ux[k]=(3.0*(g1[k]-g2[k]+g7[k]-g10[k]+g9[k]-g8[k])+0.5*dt*mu[k]*gradCCx)/rho[k];
-            uy[k]=(3.0*(g3[k]-g4[k]+g7[k]-g10[k]+g8[k]-g9[k])+0.5*dt*mu[k]*gradCCy)/rho[k];
+			  ux[k]=(3.0*(g1[k]-g2[k]+g7[k]-g10[k]+g9[k]-g8[k])+0.5*dt*mu[k]*gradCCx)/rho[k];
+			  uy[k]=(3.0*(g3[k]-g4[k]+g7[k]-g10[k]+g8[k]-g9[k])+0.5*dt*mu[k]*gradCCy)/rho[k];
 			uz[k]=0.0;
 			}
 }
@@ -414,14 +419,14 @@ if(mask[k]!=28)
 			
 			if(mask[k]!=1)
 			{
-            gradrhoC1=0.5*(rho[d[k][0]]-rho[d[k][1]]);
-			gradrhoC2=0.5*(rho[d[k][1]]-rho[d[k][0]]);
-    		gradrhoC3=0.5*(rho[d[k][2]]-rho[d[k][3]]);
-    		gradrhoC4=0.5*(rho[d[k][3]]-rho[d[k][2]]);
-    		gradrhoC7=0.5*(rho[d[k][6]]-rho[d[k][9]]);
-    		gradrhoC8=0.5*(rho[d[k][7]]-rho[d[k][8]]);
-    		gradrhoC9=0.5*(rho[d[k][8]]-rho[d[k][7]]);
-    		gradrhoC10=0.5*(rho[d[k][9]]-rho[d[k][6]]);
+            gradrhoC1=0.5*(rho[d[k][0]]-rho[d[k][1]])/dt;
+			gradrhoC2=0.5*(rho[d[k][1]]-rho[d[k][0]])/dt;
+    		gradrhoC3=0.5*(rho[d[k][2]]-rho[d[k][3]])/dt;
+    		gradrhoC4=0.5*(rho[d[k][3]]-rho[d[k][2]])/dt;
+    		gradrhoC7=0.5*(rho[d[k][6]]-rho[d[k][9]])/dt;
+    		gradrhoC8=0.5*(rho[d[k][7]]-rho[d[k][8]])/dt;
+    		gradrhoC9=0.5*(rho[d[k][8]]-rho[d[k][7]])/dt;
+    		gradrhoC10=0.5*(rho[d[k][9]]-rho[d[k][6]])/dt;
     		
     		gradrhoC5=0.5*(rho[d[k][4]]-rho[d[k][5]])/dt;
     gradrhoC6=0.5*(rho[d[k][5]]-rho[d[k][4]])/dt;
@@ -592,7 +597,7 @@ if(mask[k]!=28)
     //p[k]=0.0;
     if (dimensions==3)
     {
-	p[k]=g0[k]+g1[k]+g2[k]+g3[k]+g4[k]+g7[k]+g8[k]+g9[k]+g10[k]+g11[k]+g12[k]+g13[k]+g14[k]+g15[k]+g16[k]+g17[k]+g18[k]+g5[k]+g6[k]+dt*ux[k]*gradrhoCx/6.0+dt*gradrhoCy*uy[k]/6.0+dt*gradrhoCz*uz[k]/6.0;//compute pressure
+      p[k]=g0[k]+g1[k]+g2[k]+g3[k]+g4[k]+g7[k]+g8[k]+g9[k]+g10[k]+g11[k]+g12[k]+g13[k]+g14[k]+g15[k]+g16[k]+g17[k]+g18[k]+g5[k]+g6[k]+dt*ux[k]*gradrhoCx/6.0+dt*gradrhoCy*uy[k]/6.0+dt*gradrhoCz*uz[k]/6.0;//compute pressure
 	}
 	if(dimensions==2)
 	{

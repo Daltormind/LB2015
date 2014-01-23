@@ -4,7 +4,7 @@
 
 void wet::setwallnodes()
 {
-
+  //computecoordinates(k);
 	gamma0 = t0*(1.0 - 1.5*(ux[k]*ux[k] + uy[k]*uy[k] + uz[k]*uz[k]));
   
   gamma1 = t1*(1.0 + 3.0*ux[k] + 3.0*ux[k]*ux[k] - 1.5*uy[k]*uy[k] - 1.5*uz[k]*uz[k]);
@@ -104,84 +104,86 @@ void wet::setwallnodes()
     	g5[k]=g6[k];
     	}
     	else{hold6=muh[d[k][5]];}
-    	if(mask[d[k][6]]==28 || mask[d[d[k][6]][6]]==2)
+    	if(mask[d[k][6]]==28 || (mask[d[d[k][6]][6]]==2 && mask[d[k][6]]!=2))
     	{
     	hold7=muh[d[k][9]];
     	h10[k]=h7[k];
     	g10[k]=g7[k];
     	}
     	else{hold7=muh[d[k][6]];}
-    	if(mask[d[k][7]]==28 || mask[d[d[k][7]][7]]==2)
+    	if(mask[d[k][7]]==28 || (mask[d[d[k][7]][7]]==2 && mask[d[k][7]]!=2))
     	{
     	hold8=muh[d[k][8]];
     	h9[k]=h8[k];
     	g9[k]=g8[k];
     	}
     	else{hold8=muh[d[k][7]];}
-    	if(mask[d[k][8]]==28 || mask[d[d[k][8]][8]]==2)
+    	if(mask[d[k][8]]==28 || (mask[d[d[k][8]][8]]==2 && mask[d[k][8]]!=2))
     	{
     	hold9=muh[d[k][7]];
     	h8[k]=h9[k];
     	g8[k]=g9[k];
     	}
     	else{hold9=muh[d[k][8]];}
-    	if(mask[d[k][9]]==28 || mask[d[d[k][9]][9]]==2)
+    	if(mask[d[k][9]]==28 || (mask[d[d[k][9]][9]]==2 && mask[d[k][9]]!=2))
     	{
     	hold10=muh[d[k][6]];
     	h7[k]=h10[k];
     	g7[k]=g10[k];
     	}
     	else{hold10=muh[d[k][9]];}
-    	if(mask[d[k][10]]==28 || mask[d[d[k][10]][10]]==2)
+    	if(mask[d[k][10]]==28 || (mask[d[d[k][10]][10]]==2 && mask[d[k][10]]!=2))
     	{
     	hold11=muh[d[k][13]];
     	h14[k]=h11[k];
     	g14[k]=g11[k];
+	
     	}
     	else{hold11=muh[d[k][10]];}
-    	if(mask[d[k][11]]==28 || mask[d[d[k][11]][11]]==2)
+    	if(mask[d[k][11]]==28 || (mask[d[d[k][11]][11]]==2 && mask[d[k][11]]!=2))
     	{
     	hold12=muh[d[k][12]];
     	h13[k]=h12[k];
     	g13[k]=g12[k];
     	}
     	else{hold12=muh[d[k][11]];}
-    	if(mask[d[k][12]]==28 || mask[d[d[k][12]][12]]==2)
+    	if(mask[d[k][12]]==28 || (mask[d[d[k][12]][12]]==2 && mask[d[k][12]]!=2))
     	{
     	hold13=muh[d[k][11]];
     	h12[k]=h13[k];
     	g12[k]=g13[k];
     	}
     	else{hold13=muh[d[k][12]];}
-    	if(mask[d[k][13]]==28 || mask[d[d[k][13]][13]]==2)
+    	if(mask[d[k][13]]==28 || (mask[d[d[k][13]][13]]==2 && mask[d[k][13]]!=2))
     	{
     	hold14=muh[d[k][10]];
     	h11[k]=h14[k];
     	g11[k]=g14[k];
+	       
     	}
     	else{hold14=muh[d[k][13]];}
-    	if(mask[d[k][14]]==28 || mask[d[d[k][14]][14]]==2)
+    	if(mask[d[k][14]]==28 || (mask[d[d[k][14]][14]]==2 && mask[d[k][14]]!=2))
     	{
     	hold15=muh[d[k][17]];
     	h18[k]=h15[k];
     	g18[k]=g15[k];
     	}
     	else{hold15=muh[d[k][14]];}
-    	if(mask[d[k][15]]==28 || mask[d[d[k][15]][15]]==2)
+    	if(mask[d[k][15]]==28 || (mask[d[d[k][15]][15]]==2 && mask[d[k][15]]!=2))
     	{
     	hold16=muh[d[k][16]];
     	h17[k]=h16[k];
     	g17[k]=g16[k];
     	}
     	else{hold16=muh[d[k][15]];}
-    	if(mask[d[k][16]]==28 || mask[d[d[k][16]][16]]==2)
+    	if(mask[d[k][16]]==28 || (mask[d[d[k][16]][16]]==2 && mask[d[k][16]]!=2))
     	{
     	hold17=muh[d[k][15]];
     	h16[k]=h17[k];
     	g16[k]=g17[k];
     	}
     	else{hold17=muh[d[k][16]];}
-    	if(mask[d[k][17]]==28 || mask[d[d[k][17]][17]]==2)
+    	if(mask[d[k][17]]==28 || (mask[d[d[k][17]][17]]==2 && mask[d[k][17]]!=2))
     	{
     	hold18=muh[d[k][14]];
     	h15[k]=h18[k];
@@ -518,8 +520,12 @@ M0=M*(muh[d[k][6]]+muh[d[k][7]]+muh[d[k][8]]+muh[d[k][9]]+4.0*muh[d[k][0]]
 		
 	}
 */
-
-
+   
+   
+   
+	
+       
+   
 h0[k]+=dt*0.5*M0*gamma0;
 h1[k]+=dt*0.5*M0*gamma1;
 h2[k]+=dt*0.5*M0*gamma2;
@@ -539,6 +545,11 @@ h15[k]+=dt*0.5*M0*gamma15;
 h16[k]+=dt*0.5*M0*gamma16;
 h17[k]+=dt*0.5*M0*gamma17;
 h18[k]+=dt*0.5*M0*gamma18;
-
-
+/*   
+ computecoordinates(k);
+   if(yk==0 and xk==102)
+     {
+       cout << "hcheck " << h0[k] << " " << h1[k] << " " << h2[k] << " " << h3[k] << " " << h4[k] << " " << h7[k] << " " << h8[k] << " " << h9[k] << " " << h10[k] << endl; 
+     }
+*/
 }

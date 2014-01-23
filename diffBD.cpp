@@ -7,18 +7,29 @@ void wet::diffBD()
 	
 	
 	
-	
+
 	
 	//2D differentials
 	gradrhoU1=0.5*(-rho[d[d[k][0]][0]]+4*rho[d[k][0]]-3*rho[k])/dt;
+	
     gradrhoU2=0.5*(-rho[d[d[k][1]][1]]+4*rho[d[k][1]]-3*rho[k])/dt;
-    gradrhoU3=0.5*(-rho[d[d[k][2]][2]]+4*rho[d[k][2]]-3*rho[k])/dt;
-    gradrhoU4=0.5*(-rho[d[d[k][3]][3]]+4*rho[d[k][3]]-3*rho[k])/dt;
-    gradrhoU7=0.5*(-rho[d[d[k][6]][6]]+4*rho[d[k][6]]-3*rho[k])/dt;
-    gradrhoU8=0.5*(-rho[d[d[k][7]][7]]+4*rho[d[k][7]]-3*rho[k])/dt;
+
+ gradrhoU3=0.5*(-rho[d[d[k][2]][2]]+4*rho[d[k][2]]-3*rho[k])/dt;
+
+   gradrhoU4=0.5*(-rho[d[d[k][3]][3]]+4*rho[d[k][3]]-3*rho[k])/dt;
+
+ gradrhoU7=0.5*(-rho[d[d[k][6]][6]]+4*rho[d[k][6]]-3*rho[k])/dt;
+ 
+gradrhoU8=0.5*(-rho[d[d[k][7]][7]]+4*rho[d[k][7]]-3*rho[k])/dt;
+ 
     gradrhoU9=0.5*(-rho[d[d[k][8]][8]]+4*rho[d[k][8]]-3*rho[k])/dt;
+ 
     gradrhoU10=0.5*(-rho[d[d[k][9]][9]]+4*rho[d[k][9]]-3*rho[k])/dt;
 	
+    
+
+
+
 	gradmuU1=0.5*(-mu[d[d[k][0]][0]]+4*mu[d[k][0]]-3*mu[k])/dt;
     gradmuU2=0.5*(-mu[d[d[k][1]][1]]+4*mu[d[k][1]]-3*mu[k])/dt;
     gradmuU3=0.5*(-mu[d[d[k][2]][2]]+4*mu[d[k][2]]-3*mu[k])/dt;
@@ -45,7 +56,7 @@ void wet::diffBD()
     gradpU8=0.5*(-p[d[d[k][7]][7]]+4*p[d[k][7]]-3*p[k])/dt;
     gradpU9=0.5*(-p[d[d[k][8]][8]]+4*p[d[k][8]]-3*p[k])/dt;
     gradpU10=0.5*(-p[d[d[k][9]][9]]+4*p[d[k][9]]-3*p[k])/dt;
-    
+   
     //3D differentials
     gradrhoU5=0.5*(-rho[d[d[k][4]][4]]+4*rho[d[k][4]]-3*rho[k])/dt;
     gradrhoU6=0.5*(-rho[d[d[k][5]][5]]+4*rho[d[k][5]]-3*rho[k])/dt;
@@ -91,7 +102,7 @@ void wet::diffBD()
     gradpU17=0.5*(-p[d[d[k][16]][16]]+4*p[d[k][16]]-3*p[k])/dt;
     gradpU18=0.5*(-p[d[d[k][17]][17]]+4*p[d[k][17]]-3*p[k])/dt;
     
-    
+
     
     
 	 if(mask[k]==1)
@@ -455,6 +466,197 @@ void wet::diffBD()
     
     
     }
+    
+    if(boundtype==1)
+    {
+    computecoordinates(k);
+
+
+
+
+    if(xk==0 )
+    {
+    	gradrhoU2=gradrhoU1;
+    	gradrhoU8=gradrhoU7;
+    	gradrhoU10=gradrhoU9;
+    	gradrhoU16=gradrhoU15;
+    	gradrhoU18=gradrhoU17;
+    	
+    	gradCU2=gradCU1;
+    	gradCU8=gradCU7;
+    	gradCU10=gradCU9;
+    	gradCU16=gradCU15;
+    	gradCU18=gradCU17;
+    	
+    	gradpU2=gradpU1;
+    	gradpU8=gradpU7;
+    	gradpU10=gradpU9;
+    	gradpU16=gradpU15;
+    	gradpU18=gradpU17;
+    	
+    	gradmuU2=gradmuU1;
+    	gradmuU8=gradmuU7;
+    	gradmuU10=gradmuU9;
+    	gradmuU16=gradmuU15;
+    	gradmuU18=gradmuU17;
+    	
+   
+
+    }
+    
+    if(xk==Lx-1 )
+    {
+    	gradrhoU1=gradrhoU2;
+    	gradrhoU7=gradrhoU8;
+    	gradrhoU9=gradrhoU10;
+    	gradrhoU15=gradrhoU16;
+    	gradrhoU17=gradrhoU18;
+    	
+    	gradCU1=gradCU2;
+    	gradCU7=gradCU8;
+    	gradCU9=gradCU10;
+    	gradCU15=gradCU16;
+    	gradCU17=gradCU18;
+    	
+    	gradpU1=gradpU2;
+    	gradpU7=gradpU8;
+    	gradpU9=gradpU10;
+    	gradpU15=gradpU16;
+    	gradpU17=gradpU18;
+    	
+    	gradmuU1=gradmuU2;
+    	gradmuU7=gradmuU8;
+    	gradmuU9=gradmuU10;
+    	gradmuU15=gradmuU16;
+    	gradmuU17=gradmuU18;
+
+    }
+    
+    if(zk==0 )
+    {
+    	gradrhoU6=gradrhoU5;
+    	gradrhoU13=gradrhoU11;
+    	gradrhoU14=gradrhoU12;
+    	gradrhoU17=gradrhoU15;
+    	gradrhoU18=gradrhoU16;
+    	
+    	gradCU6=gradCU5;
+    	gradCU13=gradCU11;
+    	gradCU14=gradCU12;
+    	gradCU17=gradCU15;
+    	gradCU18=gradCU16;
+    	
+    	gradpU6=gradpU5;
+    	gradpU13=gradpU11;
+    	gradpU14=gradpU12;
+    	gradpU17=gradpU15;
+    	gradpU18=gradpU16;
+    	
+    	gradmuU6=gradmuU5;
+    	gradmuU13=gradmuU11;
+    	gradmuU14=gradmuU12;
+    	gradmuU17=gradmuU15;
+    	gradmuU18=gradmuU16;
+
+    }
+    
+    if(zk==Lz-1 )
+    {
+    	gradrhoU5=gradrhoU6;
+    	gradrhoU11=gradrhoU13;
+    	gradrhoU12=gradrhoU14;
+    	gradrhoU15=gradrhoU17;
+    	gradrhoU16=gradrhoU18;
+    	
+    	gradCU5=gradCU6;
+    	gradCU11=gradCU13;
+    	gradCU12=gradCU14;
+    	gradCU15=gradCU17;
+    	gradCU16=gradCU18;
+    	
+    	gradpU5=gradpU6;
+    	gradpU11=gradpU13;
+    	gradpU12=gradpU14;
+    	gradpU15=gradpU17;
+    	gradpU16=gradpU18;
+    	
+    	gradmuU5=gradmuU6;
+    	gradmuU11=gradmuU13;
+    	gradmuU12=gradmuU14;
+    	gradmuU15=gradmuU17;
+    	gradmuU16=gradmuU18;
+
+    }
+    
+    if(yk==0 )
+    {
+    	gradrhoU4=gradrhoU3;
+    	gradrhoU9=gradrhoU7;
+    	gradrhoU10=gradrhoU8;
+    	gradrhoU12=gradrhoU11;
+    	gradrhoU14=gradrhoU13;
+    	
+    	gradCU4=gradCU3;
+    	gradCU9=gradCU7;
+    	gradCU10=gradCU8;
+    	gradCU12=gradCU11;
+    	gradCU14=gradCU13;
+    	
+    	gradpU4=gradpU3;
+    	gradpU9=gradpU7;
+    	gradpU10=gradpU8;
+    	gradpU12=gradpU11;
+    	gradpU14=gradpU13;
+    	
+    	gradmuU4=gradmuU3;
+    	gradmuU9=gradmuU7;
+    	gradmuU10=gradmuU8;
+    	gradmuU12=gradmuU11;
+    	gradmuU14=gradmuU13;
+    	
+    	
+
+    }
+    
+    if(yk==Ly-1 )
+    {
+    	gradrhoU3=gradrhoU4;
+    	gradrhoU7=gradrhoU9;
+    	gradrhoU8=gradrhoU10;
+    	gradrhoU11=gradrhoU12;
+    	gradrhoU13=gradrhoU14;
+    	
+    	gradCU3=gradCU4;
+    	gradCU7=gradCU9;
+    	gradCU8=gradCU10;
+    	gradCU11=gradCU12;
+    	gradCU13=gradCU14;
+    	
+    	gradpU3=gradpU4;
+    	gradpU7=gradpU9;
+    	gradpU8=gradpU10;
+    	gradpU11=gradpU12;
+    	gradpU13=gradpU14;
+    	
+    	gradmuU3=gradmuU4;
+    	gradmuU7=gradmuU9;
+    	gradmuU8=gradmuU10;
+    	gradmuU11=gradmuU12;
+    	gradmuU13=gradmuU14;
+    	
+    	
+
+    }
+    
+    
+    }
+    /*
+    computecoordinates(k);
+    if(yk==0 and xk==102)
+      {
+	cout << "diff BD check " << gradmuU1 << " " << gradmuU2 << " " <<  gradmuU3 << " " << gradmuU4 << " " << gradmuU7 <<  " " << gradmuU8 << " " << gradmuU9 << " " << gradmuU10 << endl;
+      }
+    */
     /*
    else if(mask[k]==1)
 			{
@@ -1951,6 +2153,11 @@ void wet::diffBD()
     		gradCUx=1.0/3.0*(gradCU1-gradCU2)+1.0/12.0*(gradCU7-gradCU8+gradCU9-gradCU10);
     		gradCUy=1.0/3.0*(gradCU3-gradCU4)+1.0/12.0*(gradCU7+gradCU8-gradCU9-gradCU10);
     		
+	
+	
+		   
+	
+
     		gradmuUx=1.0/3.0*(gradmuU1-gradmuU2)+1.0/12.0*(gradmuU7-gradmuU8+gradmuU9-gradmuU10);
     		gradmuUy=1.0/3.0*(gradmuU3-gradmuU4)+1.0/12.0*(gradmuU7+gradmuU8-gradmuU9-gradmuU10);
     		

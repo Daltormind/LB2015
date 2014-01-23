@@ -13,12 +13,12 @@ void wet::writevelocity(int in)
 
 // Write x velocity
         
-        snprintf(filename1,20,"/sux%ld.m",in);			//Create a name for file that contain data
+        snprintf(filename1,20,"/sux%d.m",in);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());
 		file.precision(16);
 		
-		for( n = 0 ; n < Lz ; n++) 
+		for( n = 0 ; n < 1 ; n++) 
 		{   
 			file  << "ux"   << in << "(:,:," << n+1 << ")=[" << endl;
 			for( q = 0 ; q < Lx ; q++) 
@@ -26,7 +26,7 @@ void wet::writevelocity(int in)
 				for( j = 0 ; j < Ly ; j++) 
 				{
 					k = n + j*Lz + q*Ly*Lz;
-					file << ux[k] << " " ;
+					file << uxGlobal[k] << " " ;
 						
 				}
 				file << endl;
@@ -38,12 +38,12 @@ void wet::writevelocity(int in)
 		
 		// Write y velocity
         
-        snprintf(filename1,20,"/suy%ld.m",in);			//Create a name for file that contain data
+        snprintf(filename1,20,"/suy%d.m",in);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());
 		file.precision(16);
 		
-		for( n = 0 ; n < Lz ; n++) 
+		for( n = 0 ; n < 1 ; n++) 
 		{   
 			file << "uy"   << in << "(:,:," << n+1 << ")=[" << endl;
 			for( q = 0 ; q < Lx ; q++) 
@@ -51,7 +51,7 @@ void wet::writevelocity(int in)
 				for( j = 0 ; j < Ly ; j++) 
 				{
 					k = n + j*Lz + q*Ly*Lz;
-					file << uy[k] << " " ;
+					file << uyGlobal[k] << " " ;
 						
 				}
 				file << endl;
@@ -64,12 +64,12 @@ void wet::writevelocity(int in)
 		
 		// Write z velocity
         
-        snprintf(filename1,20,"/suz%ld.m",in);			//Create a name for file that contain data
+        snprintf(filename1,20,"/suz%d.m",in);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());
 		file.precision(16);
 		
-		for( n = 0 ; n < Lz ; n++) 
+		for( n = 0 ; n < 1 ; n++) 
 		{   
 			file << "uz"   << in << "(:,:," << n+1 << ")=[" << endl;
 			for( q = 0 ; q < Lx ; q++) 
@@ -77,7 +77,7 @@ void wet::writevelocity(int in)
 				for( j = 0 ; j < Ly ; j++) 
 				{
 					k = n + j*Lz + q*Ly*Lz;
-					file << uz[k] << " " ;
+					file << uzGlobal[k] << " " ;
 						
 				}
 				file << endl;

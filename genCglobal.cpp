@@ -31,7 +31,7 @@ void wet::genCglobal(void)
 						CGlobal[m*(k2-k1*(1+Lx%size))+n]=C[n+k1];
 				}
 				if(m>ROOT)
-					MPI_Irecv(&(CGlobal[m*(k2-k1*(1+Lx%size))+(Lx%size)*Ly*Lz]), k2-k1*(1+Lx%size), MPI_DOUBLE, m, m, 	MPI_COMM_WORLD, &request[m]);
+					MPI_Irecv(&(CGlobal[m*(k2-k1-(Lx%size)*Ly*Lz)+(Lx%size)*Ly*Lz]), k2-k1-(Lx%size)*Ly*Lz, MPI_DOUBLE, m, m, 	MPI_COMM_WORLD, &request[m]);
 			}
 		}
 		

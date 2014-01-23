@@ -13,13 +13,28 @@ void wet::initialisesurface()
 	mask[k]=0.0;
 	
 	
-	if(xk>=xs and xk<xs+wx and yk>=ys and yk<ys+wy)
+	if(xk>=xs and xk<xs+wx and zk>=zs and zk<zs+wz and yk>=ys and yk<ys+wy)
 	{
 		mask[k]=28;
 		
 	}
-	
-	if(xk>=h and xk<xs and mod(yk,P)<4)
+
+	if(xk>=xs2 and xk<xs2+wx2 and zk>=zs2 and zk<zs2+wz2 and yk>=ys2 and yk<ys2+wy2)
+	  {
+	    mask[k]=28;
+	  }
+	/*
+	if(yk>=ys2 and yk<ys2+wy2 and zk>=zs and zk<zs+wz)
+	  {
+	    mask[k]=28;
+	  }
+
+	if(yk>=ys and yk<ys+wy and zk>=zs and zk<zs+wz)
+	  {
+	    mask[k]=28;
+	  }
+	*/
+	if(xk>=h and xk<xs and mod(yk,P)<3)
 	{
 		mask[k]=28;
 		
@@ -45,7 +60,7 @@ void wet::initialisesurface()
 	
 	
 	
-	
+	 
 	for(k=k1;k<k2;k++)
 	{	
 		// Four Cardinal directions
@@ -70,9 +85,14 @@ void wet::initialisesurface()
 		if(mask[d[k][17]]==28 and mask[k]!=28){mask[k]=1;}
 		
 	}
+	 
 	
+	 
+	     
+	 
+	exchangemask();
 	cout  << "Process "<< rank << " First in initsurf k loop done" << endl;
-	
+	/*
 	for(k=k1;k<k2;k++)
 	{	
 		// Four Cardinal directions
@@ -97,7 +117,30 @@ void wet::initialisesurface()
 		if(mask[d[d[k][17]][17]]==28 and mask[k]==0){mask[k]=2;}
 		
 	}
-	
+	*/
+	for(k=k1;k<k2;k++)
+	  {
+	    if(mask[d[k][0]]==1 and mask[k]==0){mask[k]=2;}
+	    if(mask[d[k][1]]==1 and mask[k]==0){mask[k]=2;}
+	     if(mask[d[k][2]]==1 and mask[k]==0){mask[k]=2;}
+	      if(mask[d[k][3]]==1 and mask[k]==0){mask[k]=2;}
+	      if(mask[d[k][4]]==1 and mask[k]==0){mask[k]=2;}
+	       if(mask[d[k][5]]==1 and mask[k]==0){mask[k]=2;}
+	      if(mask[d[k][6]]==1 and mask[k]==0){mask[k]=2;}
+	     if(mask[d[k][7]]==1 and mask[k]==0){mask[k]=2;}
+	      if(mask[d[k][8]]==1 and mask[k]==0){mask[k]=2;}
+	      if(mask[d[k][9]]==1 and mask[k]==0){mask[k]=2;}
+	       if(mask[d[k][10]]==1 and mask[k]==0){mask[k]=2;}
+	       if(mask[d[k][11]]==1 and mask[k]==0){mask[k]=2;}
+	       if(mask[d[k][12]]==1 and mask[k]==0){mask[k]=2;}
+	       if(mask[d[k][13]]==1 and mask[k]==0){mask[k]=2;}
+	        if(mask[d[k][14]]==1 and mask[k]==0){mask[k]=2;}
+	 if(mask[d[k][15]]==1 and mask[k]==0){mask[k]=2;}	
+	 if(mask[d[k][16]]==1 and mask[k]==0){mask[k]=2;}
+      if(mask[d[k][17]]==1 and mask[k]==0){mask[k]=2;}
+      // cout << " Got past k= " << k << " process" << rank << endl;
+
+}
 	cout  << "Process "<< rank << " before exchangemask 2" << endl;
 	
 	exchangemask();

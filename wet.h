@@ -59,7 +59,7 @@ class wet
 
 	int xk,yk,zk,xend; //Positions
 
-	int xs, ys ,zs,xw,yw,zw,h,P; //Position and width of solid surface
+	int xs, ys ,zs,xs2,ys2,zs2,h,P; //Position and width of solid surface
 
 	int xcentre,ycentre,zcentre,R; //Drop position and drop radius
 
@@ -91,7 +91,7 @@ class wet
 
 	//double (*f)[19];
 
-	int wrtst,stst;//step interval at which to write to file
+	int wrtst,stst,infost;//step interval at which to write to file
 
 	//double d2rho;
 
@@ -106,7 +106,9 @@ class wet
 	double dx , dt ; //Lattice spacing both set to one at the moment
 
 	double rho1 ,rho2 ; // Liquid and gas densities
-
+	
+	double Ebulk,Eint,Esurf,energy;//variables to calculate energy
+	
 	string folder; //Holds the name of the folder to which inputs should be written
 
 	long int st;//equation step
@@ -115,7 +117,7 @@ class wet
 
 	int Q; // Number of velocity dicridations
 
-	int wx ,wy ,wz ; //Width of surface
+	int wx ,wy ,wz ,wx2,wy2,wz2; //Width of surface
 
 	double El,Eg,Ei,Et,Ekin;//Energy values
 
@@ -163,8 +165,8 @@ class wet
     
     double M0,M1,M2,M3,M4,M5,M6,M7,M8,M9,M10,M11,M12,M13,M14,M15,M16,M17,M18;
 	
-	double *CGlobal, *maskGlobal, *muGlobal,*pGlobal,*uxGlobal,*uyGlobal,*uzGlobal;
-
+	double *CGlobal,  *muGlobal,*pGlobal,*uxGlobal,*uyGlobal,*uzGlobal;
+	int *maskGlobal;
 
 
 
@@ -179,17 +181,12 @@ class wet
 	void computemoments();
 	template<typename V> V mod(V,V);
 	void writevelocity(int);
-	void diffgamma();
-	void diffMD();
 	void propcolh();
 	void propcolg();
 	void mach();
 	void initialisesurface();
 	void relabel();
 	void computefreeenergy();
-	void diffCD(double *,double *);
-	void diffMDt(double *,double *);
-	void diffMDgamma();
 	void diffBD();
 	void diffCD();
 	void centralforce();
@@ -214,6 +211,8 @@ class wet
 	void genuxglobal();
 	void genuyglobal();
 	void genuzglobal();
+	void writeinfofile();
+	void writeenergy(long int);
 	
 	public:
 

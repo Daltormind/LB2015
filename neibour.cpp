@@ -41,12 +41,13 @@ void wet::neibour()
 	
 	for(k=Lz*Ly;k<k2+Lz*Ly;k++)
 	{
-	
+	  
 		xk=int (k/float(Lz*Ly));
 		yk=int((k-xk*Lz*Ly)/float(Lz));
 		zk=k-xk*Ly*Lz-yk*Lz;
-	
-	//cout  << "Process "<< rank << " compute coordinates done" << endl;
+	  
+	  
+//cout  << "Process "<< rank << " compute coordinates done" << endl;
 	
 	for(a=0;a<Q-1;a++)
 	{
@@ -118,11 +119,11 @@ void wet::neibour()
 	
 	if(boundtype==1)
 	{
-		for(k=k1;k<k2;k++)
+		for(k=k1-Ly*Lz;k<k2+Ly*Lz;k++)
 	{
-	
-	computecoordinates(k);
-	
+		xk=int (k/float(Lz*Ly));
+		yk=int((k-xk*Lz*Ly)/float(Lz));
+		zk=k-xk*Ly*Lz-yk*Lz;
 	for(a=0;a<Q-1;a++)
 	{
 	
@@ -135,16 +136,85 @@ void wet::neibour()
 	
 	//x=mod(x,Lx);
 	//y=mod(y,Ly);
-	//z=mod(z,Lz);
-	
+	if(dimensions==2)
+	{
+	z=mod(z,Lz);
+	}
 	
 	
 	d[k][a]=z+y*Lz+x*Ly*Lz;
 	
 	
+	
+	
+	if(xk==9 and yk==0 and zk==0 and a==2)
+	  {
+	    cout << " xk yk zk " << xk << " " << yk << " " << zk << " " << x << " " << y << " " << z << endl;   
+	  }
+	
+	}
+	computecoordinates(k);
+	if(xk==0)
+	{
+		d[k][1]=d[k][0];
+		d[k][7]=d[k][6];
+		d[k][9]=d[k][8];
+		d[k][15]=d[k][14];
+		d[k][17]=d[k][16];
+		//if(yk==0){d[k][9]=d[k][6];d[k][3]=d[k][2];d[k][8]=d[k][6];d[k][11]=d[k][10];d[k][13]=d[k][12];if(zk==0){d[k][5]=d[k][4];d[k][12]=d[k][10];d[k][13]=d[k][10];d[k][16]=d[k][14]}}
+		//if(yk==Ly-1){d[k][7]=d[k][8];d[k][2]=d[k][3];}
+	}
+	
+	if(xk==Lx-1)
+	{
+		d[k][0]=d[k][1];
+		d[k][6]=d[k][7];
+		d[k][8]=d[k][9];
+		d[k][14]=d[k][15];
+		d[k][16]=d[k][17];
+		
+	}
+	
+	if(yk==0)
+	{
+		d[k][3]=d[k][2];
+		d[k][9]=d[k][7];
+		d[k][8]=d[k][6];
+		d[k][11]=d[k][10];
+		d[k][13]=d[k][12];
+	}
+	
+	if(yk==Ly-1)
+	{
+		d[k][2]=d[k][3];
+		d[k][7]=d[k][9];
+		d[k][6]=d[k][8];
+		d[k][10]=d[k][11];
+		d[k][12]=d[k][13];
+	}
+	
+	if(dimensions==3)
+	{
+	if(zk==0)
+	{
+		d[k][5]=d[k][4];
+		d[k][12]=d[k][10];
+		d[k][13]=d[k][11];
+		d[k][16]=d[k][14];
+		d[k][17]=d[k][15];
+	}
+	
+	if(zk==Lz-1)
+	{
+		d[k][4]=d[k][5];
+		d[k][10]=d[k][12];
+		d[k][11]=d[k][13];
+		d[k][14]=d[k][16];
+		d[k][15]=d[k][17];
 	}
 	
 	
+	}
 	
 	/*
 	if(k<k1+Ly*Lz or k>=k2-Ly*Lz)
@@ -168,7 +238,7 @@ void wet::neibour()
 	*/
 	
 	}
-	
+	/*
 	for(k=k1;k<k2;k++)
 	{
 		if(d[k][0]>=k2)
@@ -304,11 +374,11 @@ void wet::neibour()
 			d[k][5]=k;
 		}
 	}
-	
+	*/
 	
 	} 
 
-
+/*
 int i, j, h;
 	ofstream file;
 	char filename1[20];
@@ -338,7 +408,7 @@ snprintf(filename1,20,"/sd%ld.m",rank);			//Create a name for file that contain 
 		}
 		
 		file.close();
-
+*/
 
 
 
