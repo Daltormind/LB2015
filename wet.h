@@ -29,7 +29,7 @@ class wet
 
 	int ProcessN; //Number of nodes the processor is dealing with
 
-	double *C , *mu , *p, *rho, *muh; //Assigning memory space to the composition
+	double *C , *mu , *p, *rho;//, *muh; //Assigning memory space to the composition
 
 	int *mask;
 

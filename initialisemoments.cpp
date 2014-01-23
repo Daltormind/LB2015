@@ -238,17 +238,18 @@ void wet::initialisemoments()
             //d2rho=(rho[d[k][6]]+rho[d[k][7]]+rho[d[k][8]]+rho[d[k][9]]+4.0*(rho[d[k][0]]+rho[d[k][1]]+rho[d[k][2]]+rho[d[k][3]])-20.0*rho[k])/6.0;
             
             //mu[k]=0.0;//4.0*B*(rho[k]-rho1)*(rho[k]-rho2)*(rho[k]-(rho2+rho1)*0.5)-kappa*d2rho; 
-            
+            /*
             if(C[k]<0)
 			{
 			muh[k]=mu[k]+2*BA*C[k];
 			}
 			else{muh[k]=mu[k];}
+			*/
 		}
 	}
 
 	exchangemu();
-	exchangemuh();
+	//exchangemuh();
 	exchangerho();
 
 

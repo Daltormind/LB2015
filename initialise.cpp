@@ -108,7 +108,7 @@ void wet::initialise()
 
 	mu=new double[ProcessN]; //Free Energy
 	
-	muh=new double[ProcessN];
+	//muh=new double[ProcessN];
 	
 	p=new double[ProcessN];//Pressure
 
