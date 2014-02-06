@@ -46,7 +46,7 @@ void wet::writemoments(long int in)
 		
 		file.close();
 		
-		/*
+		
 		//--------------------------- Write free energy file---------------------------
 		
 		snprintf(filename1,20,"/smu%d.m",in);			//Create a name for file that contain data
@@ -54,7 +54,7 @@ void wet::writemoments(long int in)
         file.open(filename.c_str());
 		file.precision(16);
 		
-		for( h = 0 ; h < Lz ; h++) 
+		for( h = 0 ; h < 1 ; h++) 
 		{   
 			file  << "mu" << in << "(:,:," << h+1 << ")=[" << endl;
 		
@@ -75,7 +75,7 @@ void wet::writemoments(long int in)
 		}
 		
 		file.close();
-		*/
+		
 		/*
 		//-------------------------- Write Density File -------------------------------
 		
@@ -103,13 +103,13 @@ void wet::writemoments(long int in)
 		file.close();
 		*/
 		//------------------------- Write pressure File----------------------------------
-		/*
+		
 		snprintf(filename1,20,"/sp%d.m",in);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());
 		file.precision(16);
 		
-		for( h = 0 ; h < Lz ; h++) 
+		for( h = 0 ; h < 1 ; h++) 
 		{   
 			file  << "p" << in << "(:,:," << h+1 << ")=[" << endl;
 			for( i = 0 ; i < Lx ; i++) 
@@ -126,7 +126,7 @@ void wet::writemoments(long int in)
 		}
 		
 		file.close();
-		*/
+		
 		/*
 		//------------------------ Write f File -----------------------------------------
 		
@@ -154,7 +154,7 @@ void wet::writemoments(long int in)
 		file.close();
 		
 		*/
-		/*
+		
 		//--------------------------- Write mask ---------------------------------------
 		
 		snprintf(filename1,20,"/smask%ld.m",in);			//Create a name for file that contain data
@@ -162,7 +162,7 @@ void wet::writemoments(long int in)
         file.open(filename.c_str());
 		file.precision(16);
 		
-		for( h = 0 ; h < Lz ; h++) 
+		for( h = 0 ; h < 1 ; h++) 
 		{   
 			file << "mask" << in << "(:,:," << h+1 << ")=[" << endl;
 			for( i = 0 ; i < Lx ; i++) 
@@ -179,7 +179,7 @@ void wet::writemoments(long int in)
 		}
 		
 		file.close();
-		*/
+		
 	/*
 		//--------------------------- Write Ctest ---------------------------------------
 		

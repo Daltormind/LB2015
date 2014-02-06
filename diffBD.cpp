@@ -125,40 +125,40 @@ gradrhoU8=0.5*(-rho[d[d[k][7]][7]]+4*rho[d[k][7]]-3*rho[k])/dt;
     	if(mask[d[k][5]]==28)
     	{gradrhoU6=gradrhoU5;gradCU6=gradCU5;gradmuU6=gradmuU5;gradpU6=gradpU5;}
     	
-    	if(mask[d[k][6]]==28 || mask[d[d[k][6]][6]]==2)
-    	{gradrhoU7=gradrhoU10;gradCU7=gradCU10;gradmuU7=gradmuU10;gradpU7=gradpU10;}
+    	if(mask[d[k][6]]==28 || (mask[d[d[k][6]][6]]==2 && mask[d[k][6]]==1))
+	  {gradrhoU7=gradrhoU10;gradCU7=gradCU10;gradmuU7=gradmuU10;gradpU7=gradpU10;p[k]=7;}
     	
-    	if(mask[d[k][7]]==28 || mask[d[d[k][7]][7]]==2)
-    	{gradrhoU8=gradrhoU9;gradCU8=gradCU9;gradmuU8=gradmuU9;gradpU8=gradpU9;}
+    	if(mask[d[k][7]]==28 || (mask[d[d[k][7]][7]]==2 && mask[d[k][7]]==1))
+	  {gradrhoU8=gradrhoU9;gradCU8=gradCU9;gradmuU8=gradmuU9;gradpU8=gradpU9;p[k]=8;}
     	
-    	if(mask[d[k][8]]==28 || mask[d[d[k][8]][8]]==2)
-    	{gradrhoU9=gradrhoU8;gradCU9=gradCU8;gradmuU9=gradmuU8;gradpU9=gradpU8;}
+	if(mask[d[k][8]]==28 || (mask[d[d[k][8]][8]]==2 && mask[d[k][8]]==1))
+	  {gradrhoU9=gradrhoU8;gradCU9=gradCU8;gradmuU9=gradmuU8;gradpU9=gradpU8;p[k]=9;}
     	
-    	if(mask[d[k][9]]==28 || mask[d[d[k][9]][9]]==2)
-    	{gradrhoU10=gradrhoU7;gradCU10=gradCU7;gradmuU10=gradmuU7;gradpU10=gradpU7;}
+	if(mask[d[k][9]]==28 || (mask[d[d[k][9]][9]]==2 && mask[d[k][9]]))
+	  {gradrhoU10=gradrhoU7;gradCU10=gradCU7;gradmuU10=gradmuU7;gradpU10=gradpU7;p[k]=10;}
     	
-    	if(mask[d[k][10]]==28 || mask[d[d[k][10]][10]]==2)
-    	{gradrhoU11=gradrhoU14;gradCU11=gradCU14;gradmuU11=gradmuU14;gradpU11=gradpU14;}
+	      if(mask[d[k][10]]==28 || (mask[d[d[k][10]][10]]==2 && mask[d[k][10]]) )
+		{gradrhoU11=gradrhoU14;gradCU11=gradCU14;gradmuU11=gradmuU14;gradpU11=gradpU14;}
     	
-    	if(mask[d[k][11]]==28 || mask[d[d[k][11]][11]]==2)
+	      if(mask[d[k][11]]==28 || (mask[d[d[k][11]][11]]==2 && mask[d[k][11]]))
     	{gradrhoU12=gradrhoU13;gradCU12=gradCU13;gradmuU12=gradmuU13;gradpU12=gradpU13;}
     	
-    	if(mask[d[k][12]]==28 || mask[d[d[k][12]][12]]==2)
+	      if(mask[d[k][12]]==28 || (mask[d[d[k][12]][12]]==2 && mask[d[k][12]]))
     	{gradrhoU13=gradrhoU12;gradCU13=gradCU12;gradmuU13=gradmuU12;gradpU13=gradpU12;}
     	
-    	if(mask[d[k][13]]==28 || mask[d[d[k][13]][13]]==2)
+	      if(mask[d[k][13]]==28 || (mask[d[d[k][13]][13]]==2 && mask[d[k][13]]))
     	{gradrhoU14=gradrhoU11;gradCU14=gradCU11;gradmuU14=gradmuU11;gradpU14=gradpU11;}
     	
-    	if(mask[d[k][14]]==28 || mask[d[d[k][14]][14]]==2)
+	      if(mask[d[k][14]]==28 || (mask[d[d[k][14]][14]]==2 && mask[d[k][14]]))
     	{gradrhoU15=gradrhoU18;gradCU15=gradCU18;gradmuU15=gradmuU18;gradpU15=gradpU18;}
     	
-    	if(mask[d[k][15]]==28 || mask[d[d[k][15]][15]]==2)
+	      if(mask[d[k][15]]==28 || (mask[d[d[k][15]][15]]==2 && mask[d[k][15]]))
     	{gradrhoU16=gradrhoU17;gradCU16=gradCU17;gradmuU16=gradmuU17;gradpU16=gradpU17;}
     	
-    	if(mask[d[k][16]]==28 || mask[d[d[k][16]][16]]==2)
+	      if(mask[d[k][16]]==28 || (mask[d[d[k][16]][16]]==2 && mask[d[k][16]]))
     	{gradrhoU17=gradrhoU16;gradCU17=gradCU16;gradmuU17=gradmuU16;gradpU17=gradpU16;}
     	
-    	if(mask[d[k][17]]==28 || mask[d[d[k][17]][17]]==2)
+	      if(mask[d[k][17]]==28 || (mask[d[d[k][17]][17]]==2 && mask[d[k][17]]))
     	{gradrhoU18=gradrhoU15;gradCU18=gradCU15;gradmuU18=gradmuU15;gradpU18=gradpU15;}
     	
     
@@ -191,14 +191,15 @@ gradrhoU8=0.5*(-rho[d[d[k][7]][7]]+4*rho[d[k][7]]-3*rho[k])/dt;
     	
     	}
     
-     if(mask[k]==2 || mask[k]==1)
+	 if(mask[k]==2 /*|| mask[k]==1*/)
     {
-    	if(mask[d[k][0]]==1 && mask[d[d[k][0]][0]]!=2)
+      if(mask[d[k][0]]==1/* && mask[d[d[k][0]][0]]==28*/)
     	{
     	gradrhoU1=0.5*(4*rho[d[k][0]]-4*rho[k])/dt;
     	gradCU1=0.5*(4*C[d[k][0]]-4*C[k])/dt;
     	gradmuU1=0.5*(4*mu[d[k][0]]-4*mu[k])/dt;
 		gradpU1=0.5*(4*p[d[k][0]]-4*p[k])/dt;
+	       
 		}
 		else
 		{
@@ -208,12 +209,13 @@ gradrhoU8=0.5*(-rho[d[d[k][7]][7]]+4*rho[d[k][7]]-3*rho[k])/dt;
 		gradpU1=0.5*(-p[d[d[k][0]][0]]+4*p[d[k][0]]-3*p[k])/dt;
 		}
 		
-		if(mask[d[k][1]]==1 && mask[d[d[k][1]][1]]!=2)
+      if(mask[d[k][1]]==1/* && mask[d[d[k][1]][1]]==28*/)
     	{
     	gradrhoU2=0.5*(4*rho[d[k][1]]-4*rho[k])/dt;
     	gradCU2=0.5*(4*C[d[k][1]]-4*C[k])/dt;
     	gradmuU2=0.5*(4*mu[d[k][1]]-4*mu[k])/dt;
 		gradpU2=0.5*(4*p[d[k][1]]-4*p[k])/dt;
+		
 		}
 		else
 		{
@@ -223,13 +225,15 @@ gradrhoU8=0.5*(-rho[d[d[k][7]][7]]+4*rho[d[k][7]]-3*rho[k])/dt;
 		gradpU2=0.5*(-p[d[d[k][1]][1]]+4*p[d[k][1]]-3*p[k])/dt;
 		}
 		
-		if(mask[d[k][2]]==1 && mask[d[d[k][2]][2]]!=2)
+      if(mask[d[k][2]]==1/* && mask[d[d[k][2]][2]]==28*/)
     	{
     	gradrhoU3=0.5*(4*rho[d[k][2]]-4*rho[k])/dt;
     	gradCU3=0.5*(4*C[d[k][2]]-4*C[k])/dt;
     	gradmuU3=0.5*(4*mu[d[k][2]]-4*mu[k])/dt;
 		gradpU3=0.5*(4*p[d[k][2]]-4*p[k])/dt;
-		}
+		
+
+	}
 		else
 		{
 		gradrhoU3=0.5*(-rho[d[d[k][2]][2]]+4*rho[d[k][2]]-3*rho[k])/dt;
@@ -238,13 +242,16 @@ gradrhoU8=0.5*(-rho[d[d[k][7]][7]]+4*rho[d[k][7]]-3*rho[k])/dt;
 		gradpU3=0.5*(-p[d[d[k][2]][2]]+4*p[d[k][2]]-3*p[k])/dt;
 		}
 		
-		if(mask[d[k][3]]==1 && mask[d[d[k][3]][3]]!=2)
+      if(mask[d[k][3]]==1/* && mask[d[d[k][3]][3]]==28*/)
     	{
     	gradrhoU4=0.5*(4*rho[d[k][3]]-4*rho[k])/dt;
     	gradCU4=0.5*(4*C[d[k][3]]-4*C[k])/dt;
     	gradmuU4=0.5*(4*mu[d[k][3]]-4*mu[k])/dt;
 		gradpU4=0.5*(4*p[d[k][3]]-4*p[k])/dt;
-		}
+		
+		
+	
+	}
 		else
 		{
 		gradrhoU4=0.5*(-rho[d[d[k][3]][3]]+4*rho[d[k][3]]-3*rho[k])/dt;
@@ -253,13 +260,15 @@ gradrhoU8=0.5*(-rho[d[d[k][7]][7]]+4*rho[d[k][7]]-3*rho[k])/dt;
 		gradpU4=0.5*(-p[d[d[k][3]][3]]+4*p[d[k][3]]-3*p[k])/dt;
 		}
 		
-		if(mask[d[k][4]]==1 && mask[d[d[k][4]][4]]!=2)
+      if(mask[d[k][4]]==1/* && mask[d[d[k][4]][4]]==28*/)
     	{
     	gradrhoU5=0.5*(4*rho[d[k][4]]-4*rho[k])/dt;
     	gradCU5=0.5*(4*C[d[k][4]]-4*C[k])/dt;
     	gradmuU5=0.5*(4*mu[d[k][4]]-4*mu[k])/dt;
 		gradpU5=0.5*(4*p[d[k][4]]-4*p[k])/dt;
-		}
+		
+		
+	}
 		else
 		{
 		gradrhoU5=0.5*(-rho[d[d[k][4]][4]]+4*rho[d[k][4]]-3*rho[k])/dt;
@@ -268,13 +277,14 @@ gradrhoU8=0.5*(-rho[d[d[k][7]][7]]+4*rho[d[k][7]]-3*rho[k])/dt;
 		gradpU5=0.5*(-p[d[d[k][4]][4]]+4*p[d[k][4]]-3*p[k])/dt;
 		}
 		
-		if(mask[d[k][5]]==1 && mask[d[d[k][5]][5]]!=2)
+      if(mask[d[k][5]]==1/* && mask[d[d[k][5]][5]]==28*/)
     	{
     	gradrhoU6=0.5*(4*rho[d[k][5]]-4*rho[k])/dt;
     	gradCU6=0.5*(4*C[d[k][5]]-4*C[k])/dt;
     	gradmuU6=0.5*(4*mu[d[k][5]]-4*mu[k])/dt;
 		gradpU6=0.5*(4*p[d[k][5]]-4*p[k])/dt;
-		}
+		
+}
 		else
 		{
 		gradrhoU6=0.5*(-rho[d[d[k][5]][5]]+4*rho[d[k][5]]-3*rho[k])/dt;
@@ -283,13 +293,14 @@ gradrhoU8=0.5*(-rho[d[d[k][7]][7]]+4*rho[d[k][7]]-3*rho[k])/dt;
 		gradpU6=0.5*(-p[d[d[k][5]][5]]+4*p[d[k][5]]-3*p[k])/dt;
 		}
 		
-		if(mask[d[k][6]]==1 && mask[d[d[k][6]][6]]!=2)
+      if(mask[d[k][6]]==1/* && mask[d[d[k][6]][6]]==28*/)
     	{
     	gradrhoU7=0.5*(4*rho[d[k][6]]-4*rho[k])/dt;
     	gradCU7=0.5*(4*C[d[k][6]]-4*C[k])/dt;
     	gradmuU7=0.5*(4*mu[d[k][6]]-4*mu[k])/dt;
 		gradpU7=0.5*(4*p[d[k][6]]-4*p[k])/dt;
-		}
+		ux[k]=7;
+}
 		else
 		{
 		gradrhoU7=0.5*(-rho[d[d[k][6]][6]]+4*rho[d[k][6]]-3*rho[k])/dt;
@@ -298,13 +309,14 @@ gradrhoU8=0.5*(-rho[d[d[k][7]][7]]+4*rho[d[k][7]]-3*rho[k])/dt;
 		gradpU7=0.5*(-p[d[d[k][6]][6]]+4*p[d[k][6]]-3*p[k])/dt;
 		}
 		
-		if(mask[d[k][7]]==1 && mask[d[d[k][7]][7]]!=2)
+      if(mask[d[k][7]]==1/* && mask[d[d[k][7]][7]]==28*/)
     	{
     	gradrhoU8=0.5*(4*rho[d[k][7]]-4*rho[k])/dt;
     	gradCU8=0.5*(4*C[d[k][7]]-4*C[k])/dt;
     	gradmuU8=0.5*(4*mu[d[k][7]]-4*mu[k])/dt;
 		gradpU8=0.5*(4*p[d[k][7]]-4*p[k])/dt;
-		}
+		ux[k]=8;
+}
 		else
 		{
 		gradrhoU8=0.5*(-rho[d[d[k][7]][7]]+4*rho[d[k][7]]-3*rho[k])/dt;
@@ -313,13 +325,14 @@ gradrhoU8=0.5*(-rho[d[d[k][7]][7]]+4*rho[d[k][7]]-3*rho[k])/dt;
 		gradpU8=0.5*(-p[d[d[k][7]][7]]+4*p[d[k][7]]-3*p[k])/dt;
 		}
 		
-		if(mask[d[k][8]]==1 && mask[d[d[k][8]][8]]!=2)
+      if(mask[d[k][8]]==1/* && mask[d[d[k][8]][8]]==28*/)
     	{
     	gradrhoU9=0.5*(4*rho[d[k][8]]-4*rho[k])/dt;
     	gradCU9=0.5*(4*C[d[k][8]]-4*C[k])/dt;
     	gradmuU9=0.5*(4*mu[d[k][8]]-4*mu[k])/dt;
 		gradpU9=0.5*(4*p[d[k][8]]-4*p[k])/dt;
-		}
+		ux[k]=9;
+}
 		else
 		{
 		gradrhoU9=0.5*(-rho[d[d[k][8]][8]]+4*rho[d[k][8]]-3*rho[k])/dt;
@@ -328,13 +341,14 @@ gradrhoU8=0.5*(-rho[d[d[k][7]][7]]+4*rho[d[k][7]]-3*rho[k])/dt;
 		gradpU9=0.5*(-p[d[d[k][8]][8]]+4*p[d[k][8]]-3*p[k])/dt;
 		}
 		
-		if(mask[d[k][9]]==1 && mask[d[d[k][9]][9]]!=2)
+      if(mask[d[k][9]]==1/* && mask[d[d[k][9]][9]]==28*/)
     	{
     	gradrhoU10=0.5*(4*rho[d[k][9]]-4*rho[k])/dt;
     	gradCU10=0.5*(4*C[d[k][9]]-4*C[k])/dt;
     	gradmuU10=0.5*(4*mu[d[k][9]]-4*mu[k])/dt;
 		gradpU10=0.5*(4*p[d[k][9]]-4*p[k])/dt;
-		}
+	       ux[k]=10;
+	}
 		else
 		{
 		gradrhoU10=0.5*(-rho[d[d[k][9]][9]]+4*rho[d[k][9]]-3*rho[k])/dt;
@@ -343,7 +357,7 @@ gradrhoU8=0.5*(-rho[d[d[k][7]][7]]+4*rho[d[k][7]]-3*rho[k])/dt;
 		gradpU10=0.5*(-p[d[d[k][9]][9]]+4*p[d[k][9]]-3*p[k])/dt;
 		}
 		
-		if(mask[d[k][10]]==1 && mask[d[d[k][10]][10]]!=2)
+      if(mask[d[k][10]]==1/* && mask[d[d[k][10]][10]]==28*/)
     	{
     	gradrhoU11=0.5*(4*rho[d[k][10]]-4*rho[k])/dt;
     	gradCU11=0.5*(4*C[d[k][10]]-4*C[k])/dt;
@@ -358,7 +372,7 @@ gradrhoU8=0.5*(-rho[d[d[k][7]][7]]+4*rho[d[k][7]]-3*rho[k])/dt;
 		gradpU11=0.5*(-p[d[d[k][10]][10]]+4*p[d[k][10]]-3*p[k])/dt;
 		}
 		
-		if(mask[d[k][11]]==1 && mask[d[d[k][11]][11]]!=2)
+      if(mask[d[k][11]]==1/* && mask[d[d[k][11]][11]]==28*/)
     	{
     	gradrhoU12=0.5*(4*rho[d[k][11]]-4*rho[k])/dt;
     	gradCU12=0.5*(4*C[d[k][11]]-4*C[k])/dt;
@@ -373,7 +387,7 @@ gradrhoU8=0.5*(-rho[d[d[k][7]][7]]+4*rho[d[k][7]]-3*rho[k])/dt;
 		gradpU12=0.5*(-p[d[d[k][11]][11]]+4*p[d[k][11]]-3*p[k])/dt;
 		}
 		
-		if(mask[d[k][12]]==1 && mask[d[d[k][12]][12]]!=2)
+      if(mask[d[k][12]]==1/* && mask[d[d[k][12]][12]]==28*/)
     	{
     	gradrhoU13=0.5*(4*rho[d[k][12]]-4*rho[k])/dt;
     	gradCU13=0.5*(4*C[d[k][12]]-4*C[k])/dt;
@@ -388,7 +402,7 @@ gradrhoU8=0.5*(-rho[d[d[k][7]][7]]+4*rho[d[k][7]]-3*rho[k])/dt;
 		gradpU13=0.5*(-p[d[d[k][12]][12]]+4*p[d[k][12]]-3*p[k])/dt;
 		}
 		
-		if(mask[d[k][13]]==1 && mask[d[d[k][13]][13]]!=2)
+      if(mask[d[k][13]]==1/* && mask[d[d[k][13]][13]]==28*/)
     	{
     	gradrhoU14=0.5*(4*rho[d[k][13]]-4*rho[k])/dt;
     	gradCU14=0.5*(4*C[d[k][13]]-4*C[k])/dt;
@@ -403,7 +417,7 @@ gradrhoU8=0.5*(-rho[d[d[k][7]][7]]+4*rho[d[k][7]]-3*rho[k])/dt;
 		gradpU14=0.5*(-p[d[d[k][13]][13]]+4*p[d[k][13]]-3*p[k])/dt;
 		}
 		
-		if(mask[d[k][14]]==1 && mask[d[d[k][14]][14]]!=2)
+      if(mask[d[k][14]]==1/* && mask[d[d[k][14]][14]]==28*/)
     	{
     	gradrhoU15=0.5*(4*rho[d[k][14]]-4*rho[k])/dt;
     	gradCU15=0.5*(4*C[d[k][14]]-4*C[k])/dt;
@@ -418,7 +432,7 @@ gradrhoU8=0.5*(-rho[d[d[k][7]][7]]+4*rho[d[k][7]]-3*rho[k])/dt;
 		gradpU15=0.5*(-p[d[d[k][14]][14]]+4*p[d[k][14]]-3*p[k])/dt;
 		}
 		
-		if(mask[d[k][15]]==1 && mask[d[d[k][15]][15]]!=2)
+      if(mask[d[k][15]]==1/* && mask[d[d[k][15]][15]]==28*/)
     	{
     	gradrhoU16=0.5*(4*rho[d[k][15]]-4*rho[k])/dt;
     	gradCU16=0.5*(4*C[d[k][15]]-4*C[k])/dt;
@@ -433,7 +447,7 @@ gradrhoU8=0.5*(-rho[d[d[k][7]][7]]+4*rho[d[k][7]]-3*rho[k])/dt;
 		gradpU16=0.5*(-p[d[d[k][15]][15]]+4*p[d[k][15]]-3*p[k])/dt;
 		}
 		
-		if(mask[d[k][16]]==1 && mask[d[d[k][16]][16]]!=2)
+      if(mask[d[k][16]]==1/* && mask[d[d[k][16]][16]]==28*/)
     	{
     	gradrhoU17=0.5*(4*rho[d[k][16]]-4*rho[k])/dt;
     	gradCU17=0.5*(4*C[d[k][16]]-4*C[k])/dt;
@@ -448,7 +462,7 @@ gradrhoU8=0.5*(-rho[d[d[k][7]][7]]+4*rho[d[k][7]]-3*rho[k])/dt;
 		gradpU17=0.5*(-p[d[d[k][16]][16]]+4*p[d[k][16]]-3*p[k])/dt;
 		}
 		
-		if(mask[d[k][17]]==1 && mask[d[d[k][17]][17]]!=2)
+      if(mask[d[k][17]]==1/* && mask[d[d[k][17]][17]]==28*/)
     	{
     	gradrhoU18=0.5*(4*rho[d[k][17]]-4*rho[k])/dt;
     	gradCU18=0.5*(4*C[d[k][17]]-4*C[k])/dt;

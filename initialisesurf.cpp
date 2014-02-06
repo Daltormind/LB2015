@@ -10,7 +10,7 @@ void wet::initialisesurface()
 	
 	computecoordinates(k);
 	
-	mask[k]=0.0;
+	mask[k]=0;
 	
 	
 	if(xk>=xs and xk<xs+wx and zk>=zs and zk<zs+wz and yk>=ys and yk<ys+wy)
@@ -91,7 +91,7 @@ void wet::initialisesurface()
 	     
 	 
 	exchangemask();
-	cout  << "Process "<< rank << " First in initsurf k loop done" << endl;
+	//	cout  << "Process "<< rank << " First in initsurf k loop done" << endl;
 	/*
 	for(k=k1;k<k2;k++)
 	{	
@@ -141,11 +141,36 @@ void wet::initialisesurface()
       // cout << " Got past k= " << k << " process" << rank << endl;
 
 }
-	cout  << "Process "<< rank << " before exchangemask 2" << endl;
+	//	cout  << "Process "<< rank << " before exchangemask 2" << endl;
 	
 	exchangemask();
 	
-	cout  << "Process "<< rank << " Past exchangemask 2" << endl;
+
+	for(k=k1;k<k2;k++)
+	  {
+	    if(mask[k]==1)
+	      {
+		if(mask[d[k][6]]==1 || mask[d[k][7]]==1 || mask[d[k][8]]==1 || mask[d[k][9]]==1 /* || mask[d[k][10]]==1 || mask[d[k][11]]==1 || mask[d[k][12]]==1 || mask[d[k][13]]==1 || mask[d[k][14]]==1 || mask[d[k][15]]==1 || mask[d[k][16]]==1 || mask[d[k][17]]==1*/)
+		  {
+		    p[k]=-5;
+		  }
+	      
+
+	      }
+	  
+	  }
+
+	for(k=k1;k<k2;k++)
+	  {
+	    if(p[k]==-5)
+	      {
+		mask[k]=3;
+	      }
+	    
+	  }
+
+	exchangemask();
+	//	cout  << "Process "<< rank << " Past exchangemask 2" << endl;
 	
 	/*
 	for(k=k1;k<k2;k++)

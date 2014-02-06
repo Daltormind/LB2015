@@ -10,12 +10,25 @@ void wet::propcolh()
 	{
 		if(dimensions==2)
 		{
-		M0=M*((mu[d[k][6]]+mu[d[k][7]]+mu[d[k][8]]+mu[d[k][9]]+4.0*mu[d[k][0]]
-		+4.0*mu[d[k][1]]+4.0*mu[d[k][2]]+4.0*mu[d[k][3]]-20.0*mu[k])/(6.0*dt*dt)+2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k] )/kappa );
+		M0=M*(mu[d[k][6]]+mu[d[k][7]]+mu[d[k][8]]+mu[d[k][9]]+4.0*mu[d[k][0]]
+		      +4.0*mu[d[k][1]]+4.0*mu[d[k][2]]+4.0*mu[d[k][3]]-20.0*mu[k])/(6.0*dt*dt);
+		
+		if(C[k]<0)
+		  {
+		    M0+=M*2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k] )/kappa;
+		    //  cout << "st=" << st <<  " k=" << k << " C=" << C[k] << "MO=" << M0 << " mu="<< mu[k]  << " Have entered loop in propcol" << endl; 
+		  }
+		
 		}
 		if(dimensions==3)
 		{
-		M0=M*((mu[d[k][6]]+mu[d[k][7]]+mu[d[k][8]]+mu[d[k][9]]+mu[d[k][10]]+mu[d[k][11]]+mu[d[k][12]]+mu[d[k][13]]+mu[d[k][14]]+mu[d[k][15]]+mu[d[k][16]]+mu[d[k][17]]+2.0*(mu[d[k][0]]+mu[d[k][1]]+mu[d[k][2]]+mu[d[k][3]]+mu[d[k][4]]+mu[d[k][5]])-24.0*mu[k])/(6.0*dt*dt) + 2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k])/kappa);
+		  M0=M*(mu[d[k][6]]+mu[d[k][7]]+mu[d[k][8]]+mu[d[k][9]]+mu[d[k][10]]+mu[d[k][11]]+mu[d[k][12]]+mu[d[k][13]]+mu[d[k][14]]+mu[d[k][15]]+mu[d[k][16]]+mu[d[k][17]]+2.0*(mu[d[k][0]]+mu[d[k][1]]+mu[d[k][2]]+mu[d[k][3]]+mu[d[k][4]]+mu[d[k][5]])-24.0*mu[k])/(6.0*dt*dt);
+
+		  if(C[k]<0)
+		    {
+		      M0+=M*2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k] )/kappa;
+		    }
+
 		}
 	}
 	else if (mask[k]==1)
@@ -78,11 +91,22 @@ void wet::propcolh()
 			
 			if(dimensions==3)
             {
-            M0=M*((hold7+hold8+hold9+hold10+hold11+hold12+hold13+hold14+hold15+hold16+hold17+hold18+2.0*(hold1+hold2+hold3+hold4+hold5+hold6)-24.0*mu[k])/(6.0*dt*dt)+ 2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k])/kappa);
+            M0=M*(hold7+hold8+hold9+hold10+hold11+hold12+hold13+hold14+hold15+hold16+hold17+hold18+2.0*(hold1+hold2+hold3+hold4+hold5+hold6)-24.0*mu[k])/(6.0*dt*dt);
+
+	    if(C[k]<0)
+	      {
+		M0+=M*2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k] )/kappa;
+	      }
 			}
 			if(dimensions==2)
 			{
-            M0=M*((hold7+hold8+hold9+hold10+4.0*(hold1+hold2+hold3+hold4)-20.0*mu[k])/(6.0*dt*dt)+ 2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k])/kappa);
+			  M0=M*(hold7+hold8+hold9+hold10+4.0*(hold1+hold2+hold3+hold4)-20.0*mu[k])/(6.0*dt*dt);
+
+			  if(C[k]<0)
+
+			    {
+			      M0+=M*2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k] )/kappa;
+			    }
 			}
 			
 			}

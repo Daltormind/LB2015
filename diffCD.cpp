@@ -9,7 +9,7 @@ void wet::diffCD()
 
 
 			// First calculate Directional derivatives 
-			if(mask[k]!=1)
+			if(mask[k]!=1 && mask[k]!=3)
 			{
 
 

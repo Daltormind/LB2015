@@ -69,7 +69,8 @@ g18[k]=gc18[d[k][14]];
 
 /*
  computecoordinates(k);
- if(xk==68 and yk==27 and zk==49){cout << "Propset check " << st << " " << h7[k] << " "<< h10[k]<< " " << hc7[d[k][9]] << " " << hc10[d[k][6]]<< endl; }
+ if(xk==0 and yk==6 ){cout << "Propset check " << st << " " << g0[k] << " " << g1[k] << " " << g2[k] << " " << g3[k] << " " << g4[k]  << " " << g7[k] << " "<< g8[k]<< " " << g9[k] << " " << g10[k]<< endl; }
+ if(xk==0 and yk==7 ){cout << "Propset check " << st << " " << g0[k] << " " << g1[k] << " " << g2[k] << " " << g3[k] << " " << g4[k]  << " " << g7[k] << " "<< g8[k]<< " " << g9[k] << " " << g10[k]<< endl; }
 */
  if(boundtype==1)
    {

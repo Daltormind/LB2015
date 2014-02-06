@@ -62,29 +62,29 @@ void wet::initialisemoments()
 	{
 	  
 	  
-	  // C[k]=1.0;
-	 
-	  if(yk<30 ){C[k]=1.0;}
-	  else if (yk<40)
+	  //C[k]=0.0;
+	   
+	  if(xk<30 ){C[k]=0.0;}
+	  else if (xk<40)
 	  
-	  {
-	  			test=tanh(2.0*(35-yk)/ep);
+	    {
+	  			test=tanh(2.0*(xk-35)/ep);
 	  			
 				C[k]=0.5 + 0.5*test;  	
 	  					}
-	  					else if(yk>60)
+	  					else if(xk>60)
 	  					{
-	  						test=tanh(2.0*(yk-65)/ep);
+	  						test=tanh(2.0*(90-xk)/ep);
 				C[k]=0.5 + 0.5*test; 
 	  					}
 	  
-	  else {C[k]=0.0;}
+	  else {C[k]=1.0;}
 		
-		
+	  
 		ux[k]=uxi;
 		uy[k]=uyi;
 		uz[k]=uzi;
-		
+	   
 	}
 	
 	

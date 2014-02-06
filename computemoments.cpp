@@ -20,11 +20,20 @@ if(mask[k]!=28)
 		if(dimensions==3)
 		{
 		C[k]=h0[k]+h1[k]+h2[k]+h3[k]+h4[k]+h7[k]+h8[k]+h9[k]+h10[k]+h11[k]+h12[k]+h13[k]+h14[k]+h15[k]+h16[k]+h17[k]+h18[k]+h5[k]+h6[k]; //Compute C from updated velocity distributions
-		}
+		
+		  
+		    
+		  
+	}
 		if(dimensions==2)
 		{
 		C[k]=h0[k]+h1[k]+h2[k]+h3[k]+h4[k]+h7[k]+h8[k]+h9[k]+h10[k]; //Compute C from updated velocity distributions
-
+		/*
+	if(mask[k]==1)
+		  {
+		    C[k]=0.0;
+		  }
+		*/
 		}
 		//rho[k]=f[k][0]+f[k][1]+f[k][2]+f[k][3]+f[k][4]+f[k][7]+f[k][8]+f[k][9]+f[k][10];
 		
@@ -402,9 +411,16 @@ if(mask[k]!=28)
 			
 			if(dimensions==2)
 			{
-			  ux[k]=(3.0*(g1[k]-g2[k]+g7[k]-g10[k]+g9[k]-g8[k])+0.5*dt*mu[k]*gradCCx)/rho[k];
-			  uy[k]=(3.0*(g3[k]-g4[k]+g7[k]-g10[k]+g8[k]-g9[k])+0.5*dt*mu[k]*gradCCy)/rho[k];
-			uz[k]=0.0;
+			   ux[k]=(3.0*(g1[k]-g2[k]+g7[k]-g10[k]+g9[k]-g8[k])+0.5*dt*mu[k]*gradCCx)/rho[k];
+			   uy[k]=(3.0*(g3[k]-g4[k]+g7[k]-g10[k]+g8[k]-g9[k])+0.5*dt*mu[k]*gradCCy)/rho[k];
+			  	uz[k]=0.0;
+			/*
+	if(mask[k]==1)
+			  {
+			    ux[k]=0.0;
+			    uy[k]=0.0;
+			  }
+			*/
 			}
 }
 }
@@ -602,7 +618,7 @@ if(mask[k]!=28)
 	}
 	if(dimensions==2)
 	{
-		p[k]=g0[k]+g1[k]+g2[k]+g3[k]+g4[k]+g7[k]+g8[k]+g9[k]+g10[k]+dt*ux[k]*gradrhoCx/6.0+dt*gradrhoCy*uy[k]/6.0;//compute pressure
+	    p[k]=g0[k]+g1[k]+g2[k]+g3[k]+g4[k]+g7[k]+g8[k]+g9[k]+g10[k]+dt*ux[k]*gradrhoCx/6.0+dt*gradrhoCy*uy[k]/6.0;//compute pressure
 
 	}
 }

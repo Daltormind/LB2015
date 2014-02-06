@@ -48,12 +48,23 @@ void wet::setwallnodes()
 	{	
 		if(dimensions==2)
 		{
-		M0=M*((mu[d[k][6]]+mu[d[k][7]]+mu[d[k][8]]+mu[d[k][9]]+4.0*mu[d[k][0]]
-		+4.0*mu[d[k][1]]+4.0*mu[d[k][2]]+4.0*mu[d[k][3]]-20.0*mu[k])/(6.0*dt*dt) + 2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k])/kappa);
+		M0=M*(mu[d[k][6]]+mu[d[k][7]]+mu[d[k][8]]+mu[d[k][9]]+4.0*mu[d[k][0]]
+		      +4.0*mu[d[k][1]]+4.0*mu[d[k][2]]+4.0*mu[d[k][3]]-20.0*mu[k])/(6.0*dt*dt);
+		if(C[k]<0)
+		  {
+		     M0+=M*2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k])/kappa;
+		     // cout << "st=" << st << " k=" << k << " " << " C=" << C[k] << "M0=" << M0 << " have entered loop " << endl;
+		  }
+
 		}
 		if(dimensions==3)
 		{
-		M0=M*((mu[d[k][6]]+mu[d[k][7]]+mu[d[k][8]]+mu[d[k][9]]+mu[d[k][10]]+mu[d[k][11]]+mu[d[k][12]]+mu[d[k][13]]+mu[d[k][14]]+mu[d[k][15]]+mu[d[k][16]]+mu[d[k][17]]+2.0*(mu[d[k][0]]+mu[d[k][1]]+mu[d[k][2]]+mu[d[k][3]]+mu[d[k][4]]+mu[d[k][5]])-24.0*mu[k])/(6.0*dt*dt) + 2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k])/kappa);
+		M0=M*(mu[d[k][6]]+mu[d[k][7]]+mu[d[k][8]]+mu[d[k][9]]+mu[d[k][10]]+mu[d[k][11]]+mu[d[k][12]]+mu[d[k][13]]+mu[d[k][14]]+mu[d[k][15]]+mu[d[k][16]]+mu[d[k][17]]+2.0*(mu[d[k][0]]+mu[d[k][1]]+mu[d[k][2]]+mu[d[k][3]]+mu[d[k][4]]+mu[d[k][5]])-24.0*mu[k])/(6.0*dt*dt);
+		
+		if(C[k]<0)
+		  {
+		    M0+=M*2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k])/kappa;
+		  }
 		}
 	}
 	
@@ -64,140 +75,150 @@ void wet::setwallnodes()
 		if(mask[d[k][0]]==28)
     	{
     	hold1=mu[d[k][1]];
-    	h2[k]=h1[k];
-    	g2[k]=g1[k];
+		h2[k]=h1[k];
+		g2[k]=g1[k];
     	}
     	else{hold1=mu[d[k][0]];}
     	
     	if(mask[d[k][1]]==28)
     	{
     	hold2=mu[d[k][0]];
-    	h1[k]=h2[k];
-    	g1[k]=g2[k];
+		h1[k]=h2[k];
+		g1[k]=g2[k];
     	}
     	else{hold2=mu[d[k][1]];}
     	if(mask[d[k][2]]==28)
     	{
     	hold3=mu[d[k][3]];
-    	h4[k]=h3[k];
-    	g4[k]=g3[k];
+	    h4[k]=h3[k];
+		g4[k]=g3[k];
     	}
     	else{hold3=mu[d[k][2]];}
     	if(mask[d[k][3]]==28)
     	{
     	hold4=mu[d[k][2]];
-    	h3[k]=h4[k];
+		h3[k]=h4[k];
     	g3[k]=g4[k];
     	}
     	else{hold4=mu[d[k][3]];}
     	if(mask[d[k][4]]==28)
     	{
     	hold5=mu[d[k][5]];
-    	h6[k]=h5[k];
-    	g6[k]=g5[k];
+		h6[k]=h5[k];
+		g6[k]=g5[k];
     	}
     	else{hold5=mu[d[k][4]];}
     	if(mask[d[k][5]]==28)
     	{
     	hold6=mu[d[k][4]];
-    	h5[k]=h6[k];
-    	g5[k]=g6[k];
+		h5[k]=h6[k];
+		g5[k]=g6[k];
     	}
     	else{hold6=mu[d[k][5]];}
     	if(mask[d[k][6]]==28 || (mask[d[d[k][6]][6]]==2 && mask[d[k][6]]!=2))
     	{
     	hold7=mu[d[k][9]];
-    	h10[k]=h7[k];
-    	g10[k]=g7[k];
+		h10[k]=h7[k];
+		g10[k]=g7[k];
     	}
     	else{hold7=mu[d[k][6]];}
     	if(mask[d[k][7]]==28 || (mask[d[d[k][7]][7]]==2 && mask[d[k][7]]!=2))
     	{
     	hold8=mu[d[k][8]];
-    	h9[k]=h8[k];
-    	g9[k]=g8[k];
+		h9[k]=h8[k];
+		g9[k]=g8[k];
     	}
     	else{hold8=mu[d[k][7]];}
     	if(mask[d[k][8]]==28 || (mask[d[d[k][8]][8]]==2 && mask[d[k][8]]!=2))
     	{
     	hold9=mu[d[k][7]];
-    	h8[k]=h9[k];
-    	g8[k]=g9[k];
+		h8[k]=h9[k];
+		g8[k]=g9[k];
     	}
     	else{hold9=mu[d[k][8]];}
     	if(mask[d[k][9]]==28 || (mask[d[d[k][9]][9]]==2 && mask[d[k][9]]!=2))
     	{
     	hold10=mu[d[k][6]];
-    	h7[k]=h10[k];
-    	g7[k]=g10[k];
+		h7[k]=h10[k];
+		g7[k]=g10[k];
     	}
     	else{hold10=mu[d[k][9]];}
     	if(mask[d[k][10]]==28 || (mask[d[d[k][10]][10]]==2 && mask[d[k][10]]!=2))
     	{
     	hold11=mu[d[k][13]];
-    	h14[k]=h11[k];
-    	g14[k]=g11[k];
+		h14[k]=h11[k];
+		g14[k]=g11[k];
 	
     	}
     	else{hold11=mu[d[k][10]];}
     	if(mask[d[k][11]]==28 || (mask[d[d[k][11]][11]]==2 && mask[d[k][11]]!=2))
     	{
     	hold12=mu[d[k][12]];
-    	h13[k]=h12[k];
-    	g13[k]=g12[k];
+		h13[k]=h12[k];
+		g13[k]=g12[k];
     	}
     	else{hold12=mu[d[k][11]];}
     	if(mask[d[k][12]]==28 || (mask[d[d[k][12]][12]]==2 && mask[d[k][12]]!=2))
     	{
     	hold13=mu[d[k][11]];
-    	h12[k]=h13[k];
-    	g12[k]=g13[k];
+		h12[k]=h13[k];
+		g12[k]=g13[k];
     	}
     	else{hold13=mu[d[k][12]];}
     	if(mask[d[k][13]]==28 || (mask[d[d[k][13]][13]]==2 && mask[d[k][13]]!=2))
     	{
     	hold14=mu[d[k][10]];
-    	h11[k]=h14[k];
-    	g11[k]=g14[k];
+		h11[k]=h14[k];
+		g11[k]=g14[k];
 	       
     	}
     	else{hold14=mu[d[k][13]];}
     	if(mask[d[k][14]]==28 || (mask[d[d[k][14]][14]]==2 && mask[d[k][14]]!=2))
     	{
     	hold15=mu[d[k][17]];
-    	h18[k]=h15[k];
-    	g18[k]=g15[k];
+		h18[k]=h15[k];
+		g18[k]=g15[k];
     	}
     	else{hold15=mu[d[k][14]];}
     	if(mask[d[k][15]]==28 || (mask[d[d[k][15]][15]]==2 && mask[d[k][15]]!=2))
     	{
     	hold16=mu[d[k][16]];
-    	h17[k]=h16[k];
-    	g17[k]=g16[k];
+		h17[k]=h16[k];
+		g17[k]=g16[k];
     	}
     	else{hold16=mu[d[k][15]];}
     	if(mask[d[k][16]]==28 || (mask[d[d[k][16]][16]]==2 && mask[d[k][16]]!=2))
     	{
     	hold17=mu[d[k][15]];
-    	h16[k]=h17[k];
-    	g16[k]=g17[k];
+		h16[k]=h17[k];
+		g16[k]=g17[k];
     	}
     	else{hold17=mu[d[k][16]];}
     	if(mask[d[k][17]]==28 || (mask[d[d[k][17]][17]]==2 && mask[d[k][17]]!=2))
     	{
     	hold18=mu[d[k][14]];
-    	h15[k]=h18[k];
-    	g15[k]=g18[k];
+		h15[k]=h18[k];
+		g15[k]=g18[k];
     	}
     	else{hold18=mu[d[k][17]];}
 			
 			if(dimensions==3)
             {
-            M0=M*((hold7+hold8+hold9+hold10+hold11+hold12+hold13+hold14+hold15+hold16+hold17+hold18+2.0*(hold1+hold2+hold3+hold4+hold5+hold6)-24.0*mu[k])/(6.0*dt*dt) + 2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k])/kappa);
+            M0=M*(hold7+hold8+hold9+hold10+hold11+hold12+hold13+hold14+hold15+hold16+hold17+hold18+2.0*(hold1+hold2+hold3+hold4+hold5+hold6)-24.0*mu[k])/(6.0*dt*dt);
+
+	    if(C[k]<0)
+	      {
+		 M0+=M*2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k])/kappa;
+	      }
 			}
 			if(dimensions==2)
 			{
-            M0=M*((hold7+hold8+hold9+hold10+4.0*(hold1+hold2+hold3+hold4)-20.0*mu[k])/(6.0*dt*dt)+ 2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k])/kappa);
+            M0=M*(hold7+hold8+hold9+hold10+4.0*(hold1+hold2+hold3+hold4)-20.0*mu[k])/(6.0*dt*dt);
+
+	    if(C[k]<0)
+	      {
+		 M0+=M*2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k])/kappa;
+	      }
 			}
 			
 			}

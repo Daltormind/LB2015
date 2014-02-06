@@ -32,7 +32,7 @@ wet::~wet(void)
 	//delete []gamma;
 	//delete []Ct;
 	//delete []ht;
-	delete []muh;
+	//delete []muh;
 	//delete []f;
 
 }
