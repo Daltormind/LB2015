@@ -42,7 +42,7 @@ if(mask[k]!=28)
 		rho[k]=C[k]*rho1+(1-C[k])*rho2; //Compute Rho from updated moments
 		
 		tau[k]=1.0/(C[k]/tau1+(1-C[k])/tau2); // Compute tau for updated moments
-			if (mask[k]==1){tau[k]=0.5;}
+			if (mask[k]==1 || mask[k]==3){tau[k]=0.5;}
 		
 		/*
 		computecoordinates(k);
@@ -61,7 +61,7 @@ for(k=k1;k<k2;k++)//Initialise free energy
 	{
 		if(mask[k]!=28)
 		{
-			if (mask[k]!=1)
+			if (mask[k]!=1 && mask[k]!=3)
             {
             if(dimensions==3)
             {
@@ -94,40 +94,108 @@ for(k=k1;k<k2;k++)//Initialise free energy
     	if(mask[d[k][5]]==28)
     	{hold6=C[d[k][4]]-2*dC;}else{hold6=C[d[k][5]];}
     	
-    	if(mask[d[k][6]]==28 || mask[d[d[k][6]][6]]==2)
+    	if(mask[d[k][6]]==28)
     	{hold7=C[d[k][9]]-2*dC;}else{hold7=C[d[k][6]];}
     	
-    	if(mask[d[k][7]]==28 || mask[d[d[k][7]][7]]==2)
+    	if(mask[d[k][7]]==28)
     	{hold8=C[d[k][8]]-2*dC;}else{hold8=C[d[k][7]];}
     	
-    	if(mask[d[k][8]]==28 || mask[d[d[k][8]][8]]==2)
+    	if(mask[d[k][8]]==28)
     	{hold9=C[d[k][7]]-2*dC;}else{hold9=C[d[k][8]];}
     	
-    	if(mask[d[k][9]]==28 || mask[d[d[k][9]][9]]==2)
+    	if(mask[d[k][9]]==28)
     	{hold10=C[d[k][6]]-2*dC;}else{hold10=C[d[k][9]];}
     	
-    	if(mask[d[k][10]]==28 || mask[d[d[k][10]][10]]==2)
+    	if(mask[d[k][10]]==28)
     	{hold11=C[d[k][13]]-2*dC;}else{hold11=C[d[k][10]];}
     	
-    	if(mask[d[k][11]]==28 || mask[d[d[k][11]][11]]==2)
+    	if(mask[d[k][11]]==28)
     	{hold12=C[d[k][12]]-2*dC;}else{hold12=C[d[k][11]];}
     	
-    	if(mask[d[k][12]]==28 || mask[d[d[k][12]][12]]==2)
+    	if(mask[d[k][12]]==28)
     	{hold13=C[d[k][11]]-2*dC;}else{hold13=C[d[k][12]];}
     	
-    	if(mask[d[k][13]]==28 || mask[d[d[k][13]][13]]==2)
+    	if(mask[d[k][13]]==28)
     	{hold14=C[d[k][10]]-2*dC;}else{hold14=C[d[k][13]];}
     	
-    	if(mask[d[k][14]]==28 || mask[d[d[k][14]][14]]==2)
+    	if(mask[d[k][14]]==28)
     	{hold15=C[d[k][17]]-2*dC;}else{hold15=C[d[k][14]];}
     	
-    	if(mask[d[k][15]]==28 || mask[d[d[k][15]][15]]==2)
+    	if(mask[d[k][15]]==28)
     	{hold16=C[d[k][16]]-2*dC;}else{hold16=C[d[k][15]];}
     	
-    	if(mask[d[k][16]]==28 || mask[d[d[k][16]][16]]==2)
+    	if(mask[d[k][16]]==28)
     	{hold17=C[d[k][15]]-2*dC;}else{hold17=C[d[k][16]];}
     	
-    	if(mask[d[k][17]]==28 || mask[d[d[k][17]][17]]==2)
+    	if(mask[d[k][17]]==28)
+    	{hold18=C[d[k][14]]-2*dC;}else{hold18=C[d[k][17]];}
+			
+			if(dimensions==3)
+            {
+            d2C=(hold7+hold8+hold9+hold10+hold11+hold12+hold13+hold14+hold15+hold16+hold17+hold18+2.0*(hold1+hold2+hold3+hold4+hold5+hold6)-24.0*C[k])/(6.0*dt*dt);
+			}
+			if(dimensions==2)
+			{
+            d2C=(hold7+hold8+hold9+hold10+4.0*(hold1+hold2+hold3+hold4)-20.0*C[k])/(6.0*dt*dt);
+			}
+			
+			}
+			else if (mask[k]==3)
+			{
+			
+				dC=Wc*(C[k]-C[k]*C[k]);
+				if(mask[d[k][0]]==28)
+    	{hold1=C[d[k][1]]-2*dC;}else{hold1=C[d[k][0]];}
+    	
+    	if(mask[d[k][1]]==28)
+    	{hold2=C[d[k][0]]-2*dC;}else{hold2=C[d[k][1]];}
+    	
+    	if(mask[d[k][2]]==28)
+    	{hold3=C[d[k][3]]-2*dC;}else{hold3=C[d[k][2]];}
+    	
+    	if(mask[d[k][3]]==28)
+    	{hold4=C[d[k][2]]-2*dC;}else{hold4=C[d[k][3]];}
+    	
+    	if(mask[d[k][4]]==28)
+    	{hold5=C[d[k][5]]-2*dC;}else{hold5=C[d[k][4]];}
+    	
+    	if(mask[d[k][5]]==28)
+    	{hold6=C[d[k][4]]-2*dC;}else{hold6=C[d[k][5]];}
+    	
+    	if(mask[d[k][6]]==28 || mask[d[k][6]]==3)
+    	{hold7=C[d[k][9]]-2*dC;}else{hold7=C[d[k][6]];}
+    	
+    	if(mask[d[k][7]]==28 || mask[d[k][7]]==3)
+    	{hold8=C[d[k][8]]-2*dC;}else{hold8=C[d[k][7]];}
+    	
+    	if(mask[d[k][8]]==28 || mask[d[k][8]]==3)
+    	{hold9=C[d[k][7]]-2*dC;}else{hold9=C[d[k][8]];}
+    	
+    	if(mask[d[k][9]]==28 || mask[d[k][9]]==3)
+    	{hold10=C[d[k][6]]-2*dC;}else{hold10=C[d[k][9]];}
+    	
+    	if(mask[d[k][10]]==28 || mask[d[k][10]]==3)
+    	{hold11=C[d[k][13]]-2*dC;}else{hold11=C[d[k][10]];}
+    	
+    	if(mask[d[k][11]]==28 || mask[d[k][11]]==3)
+    	{hold12=C[d[k][12]]-2*dC;}else{hold12=C[d[k][11]];}
+    	
+    	if(mask[d[k][12]]==28 || mask[d[k][12]]==3)
+    	{hold13=C[d[k][11]]-2*dC;}else{hold13=C[d[k][12]];}
+    	
+    	if(mask[d[k][13]]==28 || mask[d[k][13]]==3)
+    	{hold14=C[d[k][10]]-2*dC;}else{hold14=C[d[k][13]];}
+    	
+    	if(mask[d[k][14]]==28 || mask[d[k][14]]==3)
+    	{hold15=C[d[k][17]]-2*dC;}else{hold15=C[d[k][14]];}
+    	
+    	if(mask[d[k][15]]==28 || mask[d[k][15]]==3)
+    	{hold16=C[d[k][16]]-2*dC;}else{hold16=C[d[k][15]];}
+    	
+    	if(mask[d[k][16]]==28 || mask[d[k][16]]==3)
+    	{hold17=C[d[k][15]]-2*dC;}else{hold17=C[d[k][16]];}
+    	
+    	if(mask[d[k][17]]==28 || mask[d[k][17]]==3)
     	{hold18=C[d[k][14]]-2*dC;}else{hold18=C[d[k][17]];}
 			
 			if(dimensions==3)

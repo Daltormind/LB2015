@@ -165,6 +165,7 @@ void wet::initialisesurface()
 	    if(p[k]==-5)
 	      {
 		mask[k]=3;
+		//cout << "Something has been set as 3" << endl;
 	      }
 	    
 	  }
