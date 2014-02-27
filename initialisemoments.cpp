@@ -15,7 +15,7 @@ void wet::initialisemoments()
 
 	if(R!=-1)
 	{
-
+	  /*
 	if((xk-xcentre)*(xk-xcentre)+(yk-ycentre)*(yk-ycentre)+(zk-zcentre)*(zk-zcentre)<(R-5*ep)*(R-5*ep))
 		{
 			//C[k]=0.5+0.5*tanh(double(xk-25)/2/ep);//1;
@@ -26,12 +26,12 @@ void wet::initialisemoments()
 			uz[k]=uzi;
 
 		}
-		
-	else  if ((xk-xcentre)*(xk-xcentre)+(yk-ycentre)*(yk-ycentre)+(zk-zcentre)*(zk-zcentre)<(R+5*ep)*(R+5*ep))
+	  */	
+	  /*else*/  if ((xk-xcentre)*(xk-xcentre)+(yk-ycentre)*(yk-ycentre)+(zk-zcentre)*(zk-zcentre)<(R+5*ep)*(R+5*ep))
 		{
 				
 				num=sqrt((xk-xcentre)*(xk-xcentre)+(yk-ycentre)*(yk-ycentre)+(zk-zcentre)*(zk-zcentre));
-				test=tanh(2.0*(ep/2.0-num+R)/ep);
+				test=tanh(2.0*(-num+R)/ep);
 				C[k]=0.5 + 0.5*test;
 				ux[k]=C[k]*uxi;
 				uy[k]=C[k]*uyi;
@@ -80,7 +80,7 @@ void wet::initialisemoments()
 	  
 	  else {C[k]=1.0;}
 		
-	  
+	  C[k]=0.0;
 		ux[k]=uxi;
 		uy[k]=uyi;
 		uz[k]=uzi;

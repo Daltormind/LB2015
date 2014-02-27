@@ -71,6 +71,7 @@ g18[k]=gc18[d[k][14]];
  computecoordinates(k);
  if(xk==68 and yk==27 and zk==49){cout << "Propset check " << st << " " << h7[k] << " "<< h10[k]<< " " << hc7[d[k][9]] << " " << hc10[d[k][6]]<< endl; }
 */
+
  if(boundtype==1)
    {
      computecoordinates(k);
