@@ -735,6 +735,190 @@ gradrhoU8=0.5*(-rho[d[d[k][7]][7]]+4*rho[d[k][7]]-3*rho[k])/dt;
     
     
     }
+    
+    if(boundtype==2)
+    {
+    computecoordinates(k);
+
+
+
+
+    if(xk==0 )
+    {
+    	gradrhoU2=0.0;
+    	gradrhoU8=0.0;
+    	gradrhoU10=0.0;
+    	gradrhoU16=0.0;
+    	gradrhoU18=0.0;
+    	
+    	gradCU2=0.0;
+    	gradCU8=0.0;
+    	gradCU10=0.0;
+    	gradCU16=0.0;
+    	gradCU18=0.0;
+    	
+    	gradpU2=0.0;
+    	gradpU8=0.0;
+    	gradpU10=0.0;
+    	gradpU16=0.0;
+    	gradpU18=0.0;
+    	
+    	gradmuU2=0.0;
+    	gradmuU8=0.0;
+    	gradmuU10=0.0;
+    	gradmuU16=0.0;
+    	gradmuU18=0.0;
+    	
+   
+
+    }
+    
+    if(xk==Lx-1 )
+    {
+    	gradrhoU1=0.0;
+    	gradrhoU7=0.0;
+    	gradrhoU9=0.0;
+    	gradrhoU15=0.0;
+    	gradrhoU17=0.0;
+    	
+    	gradCU1=0.0;
+    	gradCU7=0.0;
+    	gradCU9=0.0;
+    	gradCU15=0.0;
+    	gradCU17=0.0;
+    	
+    	gradpU1=0.0;
+    	gradpU7=0.0;
+    	gradpU9=0.0;
+    	gradpU15=0.0;
+    	gradpU17=0.0;
+    	
+    	gradmuU1=0.0;
+    	gradmuU7=0.0;
+    	gradmuU9=0.0;
+    	gradmuU15=0.0;
+    	gradmuU17=0.0;
+
+    }
+    
+    if(zk==0 )
+    {
+    	gradrhoU6=gradrhoU5;
+    	gradrhoU13=gradrhoU11;
+    	gradrhoU14=gradrhoU12;
+    	gradrhoU17=gradrhoU15;
+    	gradrhoU18=gradrhoU16;
+    	
+    	gradCU6=gradCU5;
+    	gradCU13=gradCU11;
+    	gradCU14=gradCU12;
+    	gradCU17=gradCU15;
+    	gradCU18=gradCU16;
+    	
+    	gradpU6=gradpU5;
+    	gradpU13=gradpU11;
+    	gradpU14=gradpU12;
+    	gradpU17=gradpU15;
+    	gradpU18=gradpU16;
+    	
+    	gradmuU6=gradmuU5;
+    	gradmuU13=gradmuU11;
+    	gradmuU14=gradmuU12;
+    	gradmuU17=gradmuU15;
+    	gradmuU18=gradmuU16;
+
+    }
+    
+    if(zk==Lz-1 )
+    {
+    	gradrhoU5=gradrhoU6;
+    	gradrhoU11=gradrhoU13;
+    	gradrhoU12=gradrhoU14;
+    	gradrhoU15=gradrhoU17;
+    	gradrhoU16=gradrhoU18;
+    	
+    	gradCU5=gradCU6;
+    	gradCU11=gradCU13;
+    	gradCU12=gradCU14;
+    	gradCU15=gradCU17;
+    	gradCU16=gradCU18;
+    	
+    	gradpU5=gradpU6;
+    	gradpU11=gradpU13;
+    	gradpU12=gradpU14;
+    	gradpU15=gradpU17;
+    	gradpU16=gradpU18;
+    	
+    	gradmuU5=gradmuU6;
+    	gradmuU11=gradmuU13;
+    	gradmuU12=gradmuU14;
+    	gradmuU15=gradmuU17;
+    	gradmuU16=gradmuU18;
+
+    }
+    
+    if(yk==0 )
+    {
+    	gradrhoU4=gradrhoU3;
+    	gradrhoU9=gradrhoU7;
+    	gradrhoU10=gradrhoU8;
+    	gradrhoU12=gradrhoU11;
+    	gradrhoU14=gradrhoU13;
+    	
+    	gradCU4=gradCU3;
+    	gradCU9=gradCU7;
+    	gradCU10=gradCU8;
+    	gradCU12=gradCU11;
+    	gradCU14=gradCU13;
+    	
+    	gradpU4=gradpU3;
+    	gradpU9=gradpU7;
+    	gradpU10=gradpU8;
+    	gradpU12=gradpU11;
+    	gradpU14=gradpU13;
+    	
+    	gradmuU4=gradmuU3;
+    	gradmuU9=gradmuU7;
+    	gradmuU10=gradmuU8;
+    	gradmuU12=gradmuU11;
+    	gradmuU14=gradmuU13;
+    	
+    	
+
+    }
+    
+    if(yk==Ly-1 )
+    {
+    	gradrhoU3=gradrhoU4;
+    	gradrhoU7=gradrhoU9;
+    	gradrhoU8=gradrhoU10;
+    	gradrhoU11=gradrhoU12;
+    	gradrhoU13=gradrhoU14;
+    	
+    	gradCU3=gradCU4;
+    	gradCU7=gradCU9;
+    	gradCU8=gradCU10;
+    	gradCU11=gradCU12;
+    	gradCU13=gradCU14;
+    	
+    	gradpU3=gradpU4;
+    	gradpU7=gradpU9;
+    	gradpU8=gradpU10;
+    	gradpU11=gradpU12;
+    	gradpU13=gradpU14;
+    	
+    	gradmuU3=gradmuU4;
+    	gradmuU7=gradmuU9;
+    	gradmuU8=gradmuU10;
+    	gradmuU11=gradmuU12;
+    	gradmuU13=gradmuU14;
+    	
+    	
+
+    }
+    
+    
+    }
     /*
     computecoordinates(k);
     if(yk==0 and xk==102)

@@ -163,6 +163,101 @@ g18[k]=gc18[d[k][14]];
        }
    }
 
+if(boundtype==2)
+   {
+     computecoordinates(k);
+
+     if(xk==Lx-1)
+       {
+	 h2[k]=hc2[k];
+	 h8[k]=hc8[k];
+	 h10[k]=hc10[k];
+	 h16[k]=hc16[k];
+	 h18[k]=hc18[k];
+
+	 g2[k]=gc2[k];
+	 g8[k]=gc8[k];
+	 g10[k]=gc10[k];
+	 g16[k]=gc16[k];
+	 g18[k]=gc18[k];
+       }
+     if(xk==0)
+       {
+	 h1[k]=hc1[k];
+	 h7[k]=hc7[k];
+	 h9[k]=hc9[k];
+	 h15[k]=hc15[k];
+	 h17[k]=hc17[k];
+
+	 g1[k]=gc1[k];
+	 g7[k]=gc7[k];
+	 g9[k]=gc9[k];
+	 g15[k]=gc15[k];
+	 g17[k]=gc17[k];
+       }
+     if(yk==Ly-1)
+       {
+	 h4[k]=h3[k];
+	 h9[k]=h7[k];
+	 h10[k]=h8[k];
+	 h12[k]=h11[k];
+	 h14[k]=h13[k];
+
+	 g4[k]=g3[k];
+	 g9[k]=g7[k];
+	 g10[k]=g8[k];
+	 g12[k]=g11[k];
+	 g14[k]=g13[k];
+       }
+     if(yk==0)
+       {
+	 h3[k]=h4[k];
+	 h7[k]=h9[k];
+	 h8[k]=h10[k];
+	 h11[k]=h12[k];
+	 h13[k]=h14[k];
+
+	 g3[k]=g4[k];
+	 g7[k]=g9[k];
+	 g8[k]=g10[k];
+	 g11[k]=g12[k];
+	 g13[k]=g14[k];
+       }
+     if(zk==Lz-1)
+       {
+	 h6[k]=h5[k];
+	 h13[k]=h11[k];
+	 h14[k]=h12[k];
+	 h17[k]=h15[k];
+	 h18[k]=h16[k];
+
+	 g6[k]=g5[k];
+	 g13[k]=g11[k];
+	 g14[k]=g12[k];
+	 g17[k]=g15[k];
+	 g18[k]=g16[k];
+
+       }
+     if(zk==0)
+       {
+	 h5[k]=h6[k];
+	 h11[k]=h13[k];
+	 h12[k]=h14[k];
+	 h15[k]=h17[k];
+	 h16[k]=h18[k];
+
+	 g5[k]=g6[k];
+	 g11[k]=g13[k];
+	 g12[k]=g14[k];
+	 g15[k]=g17[k];
+	 g16[k]=g18[k];
+       }
+   }
+ 
+
+
+
+
 
  if(mask[k]==1)
    {
