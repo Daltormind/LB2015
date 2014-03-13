@@ -17,10 +17,7 @@ void wet::algorithm()
 		  
 		    
             computemoments();
-		    
-            
-            
-	    
+	   
 	    if(st%infost==0)
 	      {
 

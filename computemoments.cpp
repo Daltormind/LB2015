@@ -37,13 +37,42 @@ if(mask[k]!=28)
 		}
 		//rho[k]=f[k][0]+f[k][1]+f[k][2]+f[k][3]+f[k][4]+f[k][7]+f[k][8]+f[k][9]+f[k][10];
 		
-		
+		/*     	    
+	    if(st%10000==0)
+	      {
+
+
+		cout << " New drop added " << endl;
+		int centre;
+		double test,num;
+		srand(st);
+		centre=rand()%140 + 30;
+		for(k=k1;k<k2;k++)
+		  {
+		computecoordinates(k);
+		if((xk-xcentre)*(xk-xcentre)+(yk-centre)*(yk-centre)<=(R+2*ep)*(R+2*ep))
+		  {
+		    //  cout << "entered new drop loop " << endl;
+				num=sqrt((xk-xcentre)*(xk-xcentre)+(yk-centre)*(yk-centre));
+				test=tanh(2.0*(-num+R)/ep);
+				C[k]=0.5 + 0.5*test;
+				
+				
+				
+			
+		  }
+	      }
+	      }
+		*/
+	    
+
+
 		
 		rho[k]=C[k]*rho1+(1-C[k])*rho2; //Compute Rho from updated moments
 		
 		tau[k]=1.0/(C[k]/tau1+(1-C[k])/tau2); // Compute tau for updated moments
 			if (mask[k]==1 || mask[k]==3){tau[k]=0.5;}
-		
+			//	if(st%10000==0){tau[k]=0.5;}
 		/*
 		computecoordinates(k);
 		if(xk==68 and yk==27 and zk == 49)
