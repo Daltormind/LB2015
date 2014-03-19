@@ -96,6 +96,10 @@ void wet::readinput()
     inputfile.ignore(250,'\n');
     cout << "Initial Drop velocity " << uxi << " " << uyi << " " << uzi << endl;
     
+    inputfile >> Nd;
+    inputfile.ignore(250,'\n');
+    cout << "Drop respawn time " << Nd << endl;
+    
     inputfile.close();
     
 	//-------------------------------Get inputs from surf.par-----------------------
@@ -122,9 +126,9 @@ void wet::readinput()
     inputfile.ignore(250,'\n');
     cout << "Surface width 2 " << wx2 << " " << wy2 << " " << wz2 << endl;
 
-    inputfile >> h >> P ;
+    inputfile >> h >> P >> pw ;
     inputfile.ignore(250,'\n');
-    cout << "Posts " << h << " " << P << endl;
+    cout << "Posts " << h << " " << P << " " << pw << endl;
     
     inputfile.close();
 

@@ -34,7 +34,7 @@ void wet::initialisesurface()
 	    mask[k]=28;
 	  }
 	*/
-	if(xk>=h and xk<xs and mod(yk,P)<20)
+	if(xk>=h and xk<xs and mod(yk,P)<pw)
 	{
 		mask[k]=28;
 		

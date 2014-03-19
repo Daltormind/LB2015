@@ -91,7 +91,7 @@ class wet
 
 	//double (*f)[19];
 
-	int wrtst,stst,infost;//step interval at which to write to file
+	int wrtst,stst,infost,Nd;//step interval at which to write to file
 
 	//double d2rho;
 
@@ -117,7 +117,7 @@ class wet
 
 	int Q; // Number of velocity dicridations
 
-	int wx ,wy ,wz ,wx2,wy2,wz2; //Width of surface
+	int wx ,wy ,wz ,wx2,wy2,wz2,pw; //Width of surface
 
 	double El,Eg,Ei,Et,Ekin;//Energy values
 
