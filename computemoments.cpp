@@ -46,7 +46,7 @@ if(mask[k]!=28)
 		int centre;
 		double test,num;
 		srand(st);
-		centre=rand()%140 + 30;
+		centre=rand()%(Ly-2*R-2*5) + R + 5;
 		for(k=k1;k<k2;k++)
 		  {
 		computecoordinates(k);

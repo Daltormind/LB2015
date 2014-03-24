@@ -13,18 +13,18 @@ void wet::initialisesurface()
 	mask[k]=0;
 	
 	
-	if(xk>=xs and xk<xs+wx and zk>=zs and zk<zs+wz and yk>=ys and yk<ys+wy)
+	if(xk>=xs and xk<xs+wx and zk>=zs and zk<zs+wz /* and yk>=ys and yk<ys+wy*/)
 	{
 		mask[k]=28;
 		
 	}
 
-	if(xk>=xs2 and xk<xs2+wx2 and zk>=zs2 and zk<zs2+wz2 and yk>=ys2 and yk<ys2+wy2)
+	if(xk>=xs2 and xk<xs2+wx2 and zk>=zs2 and zk<zs2+wz2 /* and yk>=ys2 and yk<ys2+wy2*/)
 	  {
 	    mask[k]=28;
 	  }
-	/*
-	if(yk>=ys2 and yk<ys2+wy2 and zk>=zs and zk<zs+wz)
+	
+	if(yk>=ys2 and yk<ys2+wy2 and zk>=zs2 and zk<zs2+wz2)
 	  {
 	    mask[k]=28;
 	  }
@@ -33,7 +33,7 @@ void wet::initialisesurface()
 	  {
 	    mask[k]=28;
 	  }
-	*/
+	
 	if(xk>=h and xk<xs and mod(yk,P)<pw)
 	{
 		mask[k]=28;
@@ -150,10 +150,82 @@ void wet::initialisesurface()
 	  {
 	    if(mask[k]==1)
 	      {
-		if(mask[d[k][6]]==1 || mask[d[k][7]]==1 || mask[d[k][8]]==1 || mask[d[k][9]]==1 /* || mask[d[k][10]]==1 || mask[d[k][11]]==1 || mask[d[k][12]]==1 || mask[d[k][13]]==1 || mask[d[k][14]]==1 || mask[d[k][15]]==1 || mask[d[k][16]]==1 || mask[d[k][17]]==1*/)
+		
+		if(mask[d[k][0]]==28)
 		  {
-		    p[k]=-5;
+		   
+
+		    if( mask[d[k][6]]==1 || mask[d[k][8]]==1 || mask[d[k][14]]==1 || mask[d[k][16]]==1)
+		      {
+			p[k]=-5;
+		      }
+		 
+		   
 		  }
+		
+
+		if(mask[d[k][1]]==28)
+		  {
+		   
+
+		    if( mask[d[k][7]]==1 || mask[d[k][9]]==1 || mask[d[k][15]]==1 || mask[d[k][17]]==1)
+		      {
+			p[k]=-5;
+		      }
+		 
+		   
+		  }
+		  
+		if(mask[d[k][2]]==28)
+		  {
+		   
+
+		    if( mask[d[k][6]]==1 || mask[d[k][7]]==1 || mask[d[k][10]]==1 || mask[d[k][12]]==1)
+		      {
+			p[k]=-5;
+		      }
+		 
+		   
+		  }
+		
+		   
+		if(mask[d[k][3]]==28)
+		  {
+		   
+
+		    if( mask[d[k][8]]==1 || mask[d[k][9]]==1 || mask[d[k][11]]==1 || mask[d[k][13]]==1)
+		      {
+			p[k]=-5;
+		      }
+		 
+		   
+		  }
+		
+		if(mask[d[k][4]]==28)
+		  {
+		   
+
+		    if( mask[d[k][10]]==1 || mask[d[k][11]]==1 || mask[d[k][14]]==1 || mask[d[k][15]]==1)
+		      {
+			p[k]=-5;
+		      }
+		 
+		   
+		  }
+		
+		  
+		if(mask[d[k][5]]==28)
+		  {
+		   
+
+		    if( mask[d[k][12]]==1 || mask[d[k][13]]==1 || mask[d[k][16]]==1 || mask[d[k][17]]==1)
+		      {
+			p[k]=-5;
+		      }
+		 
+		   
+		  }
+		
 	      
 
 	      }
