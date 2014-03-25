@@ -13,17 +13,17 @@ void wet::initialisesurface()
 	mask[k]=0;
 	
 	
-	if(xk>=xs and xk<xs+wx and zk>=zs and zk<zs+wz /* and yk>=ys and yk<ys+wy*/)
+	if(xk>=xs and xk<xs+wx and zk>=zs and zk<zs+wz  and yk>=ys and yk<ys+wy)
 	{
 		mask[k]=28;
 		
 	}
 
-	if(xk>=xs2 and xk<xs2+wx2 and zk>=zs2 and zk<zs2+wz2 /* and yk>=ys2 and yk<ys2+wy2*/)
+	if(xk>=xs2 and xk<xs2+wx2 and zk>=zs2 and zk<zs2+wz2  and yk>=ys2 and yk<ys2+wy2)
 	  {
 	    mask[k]=28;
 	  }
-	
+	/*
 	if(yk>=ys2 and yk<ys2+wy2 and zk>=zs2 and zk<zs2+wz2)
 	  {
 	    mask[k]=28;
@@ -33,8 +33,8 @@ void wet::initialisesurface()
 	  {
 	    mask[k]=28;
 	  }
-	
-	if(xk>=h and xk<xs and mod(yk,P)<pw)
+	*/
+	if(xk>=h and xk<xs and mod(yk,P)<pw and yk>=Ps and yk<Pe)
 	{
 		mask[k]=28;
 		
@@ -243,7 +243,14 @@ void wet::initialisesurface()
 	  }
 
 	exchangemask();
-	//	cout  << "Process "<< rank << " Past exchangemask 2" << endl;
+	
+	//Set concave corner specials.
+
+
+
+
+
+//	cout  << "Process "<< rank << " Past exchangemask 2" << endl;
 	
 	/*
 	for(k=k1;k<k2;k++)

@@ -59,7 +59,7 @@ class wet
 
 	int xk,yk,zk,xend; //Positions
 
-	int xs, ys ,zs,xs2,ys2,zs2,h,P; //Position and width of solid surface
+	int xs, ys ,zs,xs2,ys2,zs2,h,P,Ps,Pe; //Position and width of solid surface
 
 	int xcentre,ycentre,zcentre,R; //Drop position and drop radius
 

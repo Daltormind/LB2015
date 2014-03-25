@@ -61,8 +61,8 @@ void wet::writevelocity(int in)
 		
 		file.close();
 		
-		
-		// Write z velocity
+		if( dimensions==3)
+		  {		// Write z velocity
         
         snprintf(filename1,20,"/suz%d.m",in);			//Create a name for file that contain data
 		filename=folder+filename1;
@@ -86,6 +86,6 @@ void wet::writevelocity(int in)
 		}
 		
 		file.close();
-		
+		  }
 		
 }

@@ -126,9 +126,9 @@ void wet::readinput()
     inputfile.ignore(250,'\n');
     cout << "Surface width 2 " << wx2 << " " << wy2 << " " << wz2 << endl;
 
-    inputfile >> h >> P >> pw ;
+    inputfile >> h >> P >> pw >> Ps >> Pe ;
     inputfile.ignore(250,'\n');
-    cout << "Posts " << h << " " << P << " " << pw << endl;
+    cout << "Posts " << h << " " << P << " " << pw << " " << Ps << " " << Pe << endl;
     
     inputfile.close();
 

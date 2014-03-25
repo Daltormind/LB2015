@@ -42,11 +42,36 @@ if(mask[k]!=28)
 	      {
 
 
-		cout << " New drop added " << endl;
-		int centre;
+		//cout << " New drop added " << endl;
+		int centre,check,count;
+		check=0;
+		count=0;
 		double test,num;
 		srand(st);
-		centre=rand()%(Ly-2*R-2*5) + R + 5;
+		centre=rand()%(Pe-Ps) +Ps;
+		
+
+		do
+		  {
+		    check=0;
+		for(k=k1;k<k2;k++)
+		  {
+		    	computecoordinates(k);
+		    	if((xk-xcentre)*(xk-xcentre)+(yk-centre)*(yk-centre)<=(R+2*ep)*(R+2*ep))
+			  {
+		    if(C[k]>0.01){check=1;}
+			  }
+		    
+			  }
+		count=count+1;
+		srand(st+50*count);
+		centre=rand()%(Pe-Ps) +Ps;
+		cout << count << " " << centre << " " <<  check << endl;
+		  }
+		while(check==1 && count<=50);
+
+		if(check!=1)
+		  {
 		for(k=k1;k<k2;k++)
 		  {
 		computecoordinates(k);
@@ -61,8 +86,9 @@ if(mask[k]!=28)
 				
 			
 		  }
-	      }
-	      }
+		  }
+		  }
+		  }
 		
 	    
 
