@@ -44,7 +44,7 @@ void wet::setwallnodes()
   gamma18 = t2*(1.0+3.0*(-ux[k]-uz[k]+ux[k]*ux[k]+uz[k]*uz[k])+9.0*ux[k]*uz[k] - 1.5*uy[k]*uy[k]);
 			
 
-	if(mask[k]!=1 && mask[k]!=3)
+	if(mask[k]==0 || mask[k]==2)
 	{	
 		if(dimensions==2)
 		{
@@ -68,7 +68,7 @@ void wet::setwallnodes()
 		}
 	}
 	
-	else if (mask[k]==1)
+	else if (mask[k]==1 || mask[k]==4)
 			{
 			
 				

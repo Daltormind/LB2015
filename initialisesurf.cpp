@@ -246,9 +246,97 @@ void wet::initialisesurface()
 	
 	//Set concave corner specials.
 
+	  
+	for(k=k1;k<k2;k++)
+	  {
 
+	    	if(mask[k]==1)
+		  {
+	    if(mask[d[k][6]]==28 && mask[d[k][9]]==1)
+	      {
+		p[k]=4;
+	      }
+	    
+	    if(mask[d[k][9]]==28 && mask[d[k][6]]==1)
+	      {
+		p[k]=4;
+	      }
+	    
+	    if(mask[d[k][7]]==28 && mask[d[k][8]]==1)
+	      {
+		p[k]=4;
+	      }
+	    
+	    
+	    if(mask[d[k][8]]==28 && mask[d[k][7]]==1)
+	      {
+		p[k]=4;
+	      }
+	    
+	    /* 
+	    if(mask[d[k][10]]==28 && mask[d[k][13]]==1)
+	      {
+		p[k]=4;
+	      }
 
+	    
+	    if(mask[d[k][13]]==28 && mask[d[k][10]]==1)
+	      {
+		p[k]=4;
+	      }
+	    
+	    
+	    if(mask[d[k][11]]==28 && mask[d[k][12]]==1)
+	      {
+		p[k]=4;
+	      }
+	    
+	    
+	    if(mask[d[k][12]]==28 && mask[d[k][11]]==1)
+	      {
+		p[k]=4;
+	      }
+	    
+	    
+	    if(mask[d[k][14]]==28 && mask[d[k][17]]==1)
+	      {
+		p[k]=4;
+	      }
+	    
+	    
+	    if(mask[d[k][17]]==28 && mask[d[k][14]]==1)
+	      {
+		p[k]=4;
+	      }
+	    
+	    
+	    if(mask[d[k][15]]==28 && mask[d[k][16]]==1)
+	      {
+		p[k]=4;
+	      }
+	    
+	    
+	    if(mask[d[k][16]]==28 && mask[d[k][15]]==1)
+	      {
+		p[k]=4;
+	      }
+	    */
+	    
+	    
+	    
+ }
+	  }
 
+	for(k=k1;k<k2;k++)
+	  {
+	    if(p[k]==4)
+	      {
+		mask[k]=4;
+	      }
+	  }
+
+	exchangemask();
+	
 
 //	cout  << "Process "<< rank << " Past exchangemask 2" << endl;
 	

@@ -6,7 +6,7 @@ void wet::propcolh()
 {
 
 	
-	if(mask[k]!=1 && mask[k]!=3)
+	if(mask[k]==0 || mask[k]==2)
 	{
 		if(dimensions==2)
 		{
@@ -31,7 +31,7 @@ void wet::propcolh()
 
 		}
 	}
-	else if (mask[k]==1)
+	else if (mask[k]==1 || mask[k]==4)
 			{
 			
 				

@@ -99,7 +99,7 @@ void wet::initialisemoments()
 		if(mask[k]!=28)
 		{
 
-            if (mask[k]!=1 && mask[k]!=3)
+            if (mask[k]!=1 && mask[k]!=3 && mask[k]!=4)
             
 	      {
 		if(dimensions==2)
@@ -111,7 +111,7 @@ void wet::initialisemoments()
 			            d2C=(C[d[k][6]]+C[d[k][7]]+C[d[k][8]]+C[d[k][9]]+C[d[k][10]]+C[d[k][11]]+C[d[k][12]]+C[d[k][13]]+C[d[k][14]]+C[d[k][15]]+C[d[k][16]]+C[d[k][17]]+2.0*(C[d[k][0]]+C[d[k][1]]+C[d[k][2]]+C[d[k][3]]+C[d[k][4]]+C[d[k][5]])-24.0*C[k])/(6.0*dt*dt);
 		  }
 			}
-			else if (mask[k]==1)
+			else if (mask[k]==1 || mask[k]==4)
 			{
 			
 				dC=Wc*(C[k]-C[k]*C[k]);

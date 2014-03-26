@@ -261,9 +261,9 @@ if(boundtype==2)
 
  if(mask[k]==1)
    {
-     if (mask[d[k][6]]==28 && mask[d[k][9]]==28){h7[k]=hc10[k];h10[k]=hc7[k];g7[k]=gc10[k];g10[k]=gc7[k];}
-      if (mask[d[k][7]]==28 && mask[d[k][8]]==28){h8[k]=hc9[k];h9[k]=hc8[k];g8[k]=gc9[k];g9[k]=gc8[k];}
-       if (mask[d[k][10]]==28 && mask[d[k][13]]==28){h11[k]=hc14[k];h14[k]=hc11[k];g11[k]=gc14[k];g14[k]=gc11[k];}
+ if (mask[d[k][6]]==28 && mask[d[k][9]]==28){h7[k]=hc10[k];h10[k]=hc7[k];g7[k]=gc10[k];g10[k]=gc7[k];}
+ if (mask[d[k][7]]==28 && mask[d[k][8]]==28){h8[k]=hc9[k];h9[k]=hc8[k];g8[k]=gc9[k];g9[k]=gc8[k];}
+ if (mask[d[k][10]]==28 && mask[d[k][13]]==28){h11[k]=hc14[k];h14[k]=hc11[k];g11[k]=gc14[k];g14[k]=gc11[k];}
  if (mask[d[k][11]]==28 && mask[d[k][12]]==28){h12[k]=hc13[k];h13[k]=hc12[k];g12[k]=gc13[k];g13[k]=gc12[k];}
  if (mask[d[k][15]]==28 && mask[d[k][16]]==28){h16[k]=hc17[k];h17[k]=hc16[k];g16[k]=gc17[k];g17[k]=gc16[k];}
  if (mask[d[k][14]]==28 && mask[d[k][17]]==28){h15[k]=hc18[k];h18[k]=hc15[k];g15[k]=gc18[k];g18[k]=gc15[k];}
