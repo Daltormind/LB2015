@@ -337,7 +337,20 @@ void wet::initialisesurface()
 
 	exchangemask();
 	
+	for (k=k1;k<k2;k++)
+	  {
+	    if(mask[k]==1)
+	      {
+		if(mask[d[k][6]]==28 && mask[d[k][9]]==28){mask[k]=5;}
+		if(mask[d[k][7]]==28 && mask[d[k][8]]==28){mask[k]=5;}
+		if(mask[d[k][10]]==28 && mask[d[k][13]]==28){mask[k]=5;}
+		if(mask[d[k][11]]==28 && mask[d[k][12]]==28){mask[k]=5;}
+		if(mask[d[k][14]]==28 && mask[d[k][17]]==28){mask[k]=5;}
+		if(mask[d[k][15]]==28 && mask[d[k][16]]==28){mask[k]=5;}
+	      }
+	  }
 
+	exchangemask();
 //	cout  << "Process "<< rank << " Past exchangemask 2" << endl;
 	
 	/*

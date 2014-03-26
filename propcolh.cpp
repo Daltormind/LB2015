@@ -31,6 +31,8 @@ void wet::propcolh()
 
 		}
 	}
+
+	
 	else if (mask[k]==1 || mask[k]==4)
 			{
 			
@@ -110,6 +112,7 @@ void wet::propcolh()
 			}
 			
 			}
+
 else if (mask[k]==3)
 			{
 			
@@ -188,7 +191,112 @@ else if (mask[k]==3)
 			    }
 			}
 			
-			}			
+			}
+	
+	else if (mask[k]==5)
+			{
+			
+				
+				if(mask[d[k][0]]==28)
+    	{hold1=mu[d[k][1]];}else{hold1=mu[d[k][0]];}
+    	
+    	if(mask[d[k][1]]==28)
+    	{hold2=mu[d[k][0]];}else{hold2=mu[d[k][1]];}
+    	
+    	if(mask[d[k][2]]==28)
+    	{hold3=mu[d[k][2]];}else{hold3=mu[d[k][2]];}
+    	
+    	if(mask[d[k][3]]==28)
+    	{hold4=mu[d[k][3]];}else{hold4=mu[d[k][3]];}
+    	
+    	if(mask[d[k][4]]==28)
+    	{hold5=mu[d[k][4]];}else{hold5=mu[d[k][4]];}
+    	
+    	if(mask[d[k][5]]==28)
+    	{hold6=mu[d[k][5]];}else{hold6=mu[d[k][5]];}
+    	
+    	if(mask[d[k][6]]==28)
+    	{hold7=mu[d[k][9]];
+	  if(mask[d[k][9]]==28){hold7=mu[k];}
+	}else{hold7=mu[d[k][6]];}
+    	
+    	if(mask[d[k][7]]==28)
+    	{hold8=mu[d[k][8]];
+	  if(mask[d[k][8]]==28){hold8=mu[k];}
+}else{hold8=mu[d[k][7]];}
+    	
+    	if(mask[d[k][8]]==28)
+    	{hold9=mu[d[k][7]];
+	  if(mask[d[k][7]]==28){hold9=mu[k];}
+}else{hold9=mu[d[k][8]];}
+    	
+    	if(mask[d[k][9]]==28)
+    	{hold10=mu[d[k][6]];
+	  if(mask[d[k][6]]==28){hold10=mu[k];}
+}else{hold10=mu[d[k][9]];}
+    	
+    	if(mask[d[k][10]]==28)
+    	{hold11=mu[d[k][13]];
+	  if(mask[d[k][13]]==28){hold11=mu[k];}
+}else{hold11=mu[d[k][10]];}
+    	
+    	if(mask[d[k][11]]==28)
+    	{hold12=mu[d[k][12]];
+	  if(mask[d[k][12]]==28){hold12=mu[k];}
+}else{hold12=mu[d[k][11]];}
+    	
+    	if(mask[d[k][12]]==28)
+    	{hold13=mu[d[k][11]];
+	  if(mask[d[k][11]]==28){hold13=mu[k];}
+}else{hold13=mu[d[k][12]];}
+    	
+    	if(mask[d[k][13]]==28)
+    	{hold14=mu[d[k][10]];
+	  if(mask[d[k][10]]==28){hold14=mu[k];}
+}else{hold14=mu[d[k][13]];}
+    	
+    	if(mask[d[k][14]]==28)
+    	{hold15=mu[d[k][17]];
+	  if(mask[d[k][17]]==28){hold15=mu[k];}
+}else{hold15=mu[d[k][14]];}
+    	
+    	if(mask[d[k][15]]==28)
+    	{hold16=mu[d[k][16]];
+	  if(mask[d[k][16]]==28){hold16=mu[k];}
+}else{hold16=mu[d[k][15]];}
+    	
+    	if(mask[d[k][16]]==28)
+    	{hold17=mu[d[k][15]];
+	  if(mask[d[k][15]]==28){hold17=mu[k];}
+}else{hold17=mu[d[k][16]];}
+    	
+    	if(mask[d[k][17]]==28)
+    	{hold18=mu[d[k][14]];
+	  if(mask[d[k][14]]==28){hold18=mu[k];}
+}else{hold18=mu[d[k][17]];}
+			
+			if(dimensions==3)
+            {
+            M0=M*(hold7+hold8+hold9+hold10+hold11+hold12+hold13+hold14+hold15+hold16+hold17+hold18+2.0*(hold1+hold2+hold3+hold4+hold5+hold6)-24.0*mu[k])/(6.0*dt*dt);
+
+	    if(C[k]<0)
+	      {
+		M0+=M*2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k] )/kappa;
+	      }
+			}
+			if(dimensions==2)
+			{
+			  M0=M*(hold7+hold8+hold9+hold10+4.0*(hold1+hold2+hold3+hold4)-20.0*mu[k])/(6.0*dt*dt);
+
+			  if(C[k]<0)
+
+			    {
+			      M0+=M*2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k] )/kappa;
+			    }
+			}
+			
+			}
+
 	
 	
 	

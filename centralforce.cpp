@@ -291,7 +291,7 @@ void wet ::centralforce()
 		 FgrMz=0.5*(FgrUz+FgrCz);
 
 
-         FhM1=0.5*(FhU1+FhC1);
+		 FhM1=0.5*(FhU1+FhC1);
 		 FhM2=0.5*(FhU2+FhC2);
 		 FhM3=0.5*(FhU3+FhC3);
 		 FhM4=0.5*(FhU4+FhC4);

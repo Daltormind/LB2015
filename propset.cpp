@@ -258,7 +258,7 @@ if(boundtype==2)
 
 
 
-
+/*
  if(mask[k]==1)
    {
  if (mask[d[k][6]]==28 && mask[d[k][9]]==28){h7[k]=hc10[k];h10[k]=hc7[k];g7[k]=gc10[k];g10[k]=gc7[k];}
@@ -268,7 +268,7 @@ if(boundtype==2)
  if (mask[d[k][15]]==28 && mask[d[k][16]]==28){h16[k]=hc17[k];h17[k]=hc16[k];g16[k]=gc17[k];g17[k]=gc16[k];}
  if (mask[d[k][14]]==28 && mask[d[k][17]]==28){h15[k]=hc18[k];h18[k]=hc15[k];g15[k]=gc18[k];g18[k]=gc15[k];}
    }
-
+*/
  
 
 

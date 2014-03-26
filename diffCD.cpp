@@ -102,7 +102,7 @@ void wet::diffCD()
 
       
 			}
-    else if (mask[k]==1 || mask[k]==4 )
+    else if (mask[k]==1 || mask[k]==4 || mask[k]==5 )
     {
     	if(mask[d[k][0]]==28 || mask[d[k][1]]==28)
     	{gradrhoC1=0.0;gradCC1=0.0;gradmuC1=0.0;gradpC1=0.0;gradrhoC2=0.0;gradCC2=0.0;gradmuC2=0.0;gradpC2=0.0;}
