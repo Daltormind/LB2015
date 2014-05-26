@@ -27,20 +27,21 @@ void wet::initialisemoments()
 
 		}
 	  */	
-	  /*else*/  if ((xk-xcentre)*(xk-xcentre)+(yk-ycentre)*(yk-ycentre)+(zk-zcentre)*(zk-zcentre)<(R+5*ep)*(R+5*ep))
-		{
-				
-				num=sqrt((xk-xcentre)*(xk-xcentre)+(yk-ycentre)*(yk-ycentre)+(zk-zcentre)*(zk-zcentre));
-				test=tanh(2.0*(-num+R)/ep);
-				C[k]=0.5 + 0.5*test;
-				ux[k]=/*C[k]*/uxi;
-				uy[k]=/*C[k]*/uyi;
-				uz[k]=/*C[k]*/uzi;
-				
+	  /*else*/ // if ((xk-xcentre)*(xk-xcentre)+(yk-ycentre)*(yk-ycentre)+(zk-zcentre)*(zk-zcentre)<(R+5*ep)*(R+5*ep))
+	  //	{
+		  
+		  	num=sqrt((xk-xcentre)*(xk-xcentre)+(yk-ycentre)*(yk-ycentre)+(zk-zcentre)*(zk-zcentre));
+		  	test=tanh(2.0*(-num+R)/ep);
+		  	C[k]=0.5 + 0.5*test;
+		  	ux[k]=/*C[k]*/uxi;
+		  	uy[k]=/*C[k]*/uyi;
+		  	uz[k]=/*C[k]*/uzi;
+			
+				 
 				//cout << "Entered boundry layer C=" << C[k]  << " test=" << test << " num=" << num << endl;
 		
-		}
-		
+			//	}
+			/*		
 	else
 		{
 
@@ -54,7 +55,7 @@ void wet::initialisemoments()
 	
 
 		}
-	
+			*/
 		}
 
 

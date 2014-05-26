@@ -74,6 +74,15 @@ void wet::readinput()
     inputfile.ignore(250,'\n');
     cout << "Folder is " << folder << endl;
     
+    inputfile >> dist;
+    inputfile.ignore(250,'\n');
+    cout << "Dis=" << dist << endl;
+    inputfile.close();
+    
+
+    inputfile >> rt;
+    inputfile.ignore(250,'\n');
+    cout << "rt=" << rt << endl;
     inputfile.close();
     
     //-------------------------------Get inputs from LGconfig.par-----------------------

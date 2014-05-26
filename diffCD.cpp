@@ -273,7 +273,7 @@ void wet::diffCD()
 
 		}
 		*/
-		if(mask[d[k][10]]==28 || mask[d[d[k][10]][10]] || mask[d[k][13]]==28 || mask[d[d[k][13]][13]]==2)
+		if(mask[d[k][10]]==28 || mask[d[d[k][10]][10]]==2 || mask[d[k][13]]==28 || mask[d[d[k][13]][13]]==2)
     	{gradrhoC11=0.0;gradCC11=0.0;gradmuC11=0.0;gradpC11=0.0;
     	gradrhoC14=0.0;gradCC14=0.0;gradmuC14=0.0;gradpC14=0.0;}
     	else

@@ -29,7 +29,7 @@ void wet::computecoordinates(int k)
 	}
 	if(rank>ROOT)
 	{
-		kTot=k+rank*(k2-k1)+(Lx%size-1)*k1;
+		kTot=k+rank*(k2-k1)+Lx%size*Ly*Lz-1*k1;
 		xk=int(kTot/(float) (Lz*Ly));		//Index node of x coordinate 
 		yk=int((kTot-xk*Lz*Ly)/(float) Lz);	//Index node of y coordinate
 		zk=kTot-xk*Lz*Ly-yk*Lz;			//Index node of z coordinate

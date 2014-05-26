@@ -62,6 +62,13 @@ void wet::initialise()
 		uxGlobal=new double[N] ;
 		uyGlobal=new double[N] ;
 		uzGlobal=new double[N] ;
+	
+		if(dist==1)
+		  {
+		    disvGlobal=new double[N];
+		    disdGlobal=new double[N];
+		  }
+
 	}
 	
 	cout << "Process "<< rank << " Entered initialise" << endl;
@@ -97,7 +104,13 @@ void wet::initialise()
 	}
 
 	Q=19;
-
+	
+	if(dist==1)
+	  {
+	    disv=new double[ProcessN];	 
+	    disd=new double[ProcessN];
+	      
+	      }
 	d=new int[ProcessN][18]; //Array which holds neigbour values
 
 	C=new double[ProcessN]; //Array which holds Composition values

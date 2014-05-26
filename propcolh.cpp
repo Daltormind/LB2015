@@ -94,22 +94,24 @@ void wet::propcolh()
 			if(dimensions==3)
             {
             M0=M*(hold7+hold8+hold9+hold10+hold11+hold12+hold13+hold14+hold15+hold16+hold17+hold18+2.0*(hold1+hold2+hold3+hold4+hold5+hold6)-24.0*mu[k])/(6.0*dt*dt);
-
+	    
 	    if(C[k]<0)
 	      {
 		M0+=M*2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k] )/kappa;
 	      }
+	    
 			}
 			if(dimensions==2)
 			{
 			  M0=M*(hold7+hold8+hold9+hold10+4.0*(hold1+hold2+hold3+hold4)-20.0*mu[k])/(6.0*dt*dt);
-
+			  
 			  if(C[k]<0)
 
 			    {
 			      M0+=M*2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k] )/kappa;
 			    }
-			}
+			  
+	}
 			
 			}
 
@@ -174,22 +176,24 @@ else if (mask[k]==3)
 			if(dimensions==3)
             {
             M0=M*(hold7+hold8+hold9+hold10+hold11+hold12+hold13+hold14+hold15+hold16+hold17+hold18+2.0*(hold1+hold2+hold3+hold4+hold5+hold6)-24.0*mu[k])/(6.0*dt*dt);
-
+	    
 	    if(C[k]<0)
 	      {
 		M0+=M*2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k] )/kappa;
 	      }
+	    
 			}
 			if(dimensions==2)
 			{
 			  M0=M*(hold7+hold8+hold9+hold10+4.0*(hold1+hold2+hold3+hold4)-20.0*mu[k])/(6.0*dt*dt);
-
+			  
 			  if(C[k]<0)
 
 			    {
 			      M0+=M*2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k] )/kappa;
 			    }
-			}
+			  
+	}
 			
 			}
 	
@@ -278,21 +282,23 @@ else if (mask[k]==3)
 			if(dimensions==3)
             {
             M0=M*(hold7+hold8+hold9+hold10+hold11+hold12+hold13+hold14+hold15+hold16+hold17+hold18+2.0*(hold1+hold2+hold3+hold4+hold5+hold6)-24.0*mu[k])/(6.0*dt*dt);
-
+	    
 	    if(C[k]<0)
 	      {
 		M0+=M*2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k] )/kappa;
 	      }
+	    
 			}
 			if(dimensions==2)
 			{
 			  M0=M*(hold7+hold8+hold9+hold10+4.0*(hold1+hold2+hold3+hold4)-20.0*mu[k])/(6.0*dt*dt);
-
+			  
 			  if(C[k]<0)
 
 			    {
 			      M0+=M*2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k] )/kappa;
 			    }
+			  
 			}
 			
 			}

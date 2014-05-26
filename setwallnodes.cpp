@@ -127,6 +127,15 @@ void wet::setwallnodes()
     	hold8=mu[d[k][8]];
 		h9[k]=h8[k];
 		g9[k]=g8[k];
+		/*
+		computecoordinates(k);
+		if(xk==0)
+		  {
+		    h9[k]=h10[k];
+		    g9[k]=g10[k];
+		  }
+		*/
+		
     	}
     	else{hold8=mu[d[k][7]];}
     	if(mask[d[k][8]]==28 )
@@ -141,6 +150,15 @@ void wet::setwallnodes()
     	hold10=mu[d[k][6]];
 		h7[k]=h10[k];
 		g7[k]=g10[k];
+		/*
+		computecoordinates(k);
+		if(xk==0)
+		  {
+		    h7[k]=h8[k];
+		    g7[k]=g8[k];
+		  }
+		*/
+		
     	}
     	else{hold10=mu[d[k][9]];}
     	if(mask[d[k][10]]==28 )
@@ -205,20 +223,22 @@ void wet::setwallnodes()
 			if(dimensions==3)
             {
             M0=M*(hold7+hold8+hold9+hold10+hold11+hold12+hold13+hold14+hold15+hold16+hold17+hold18+2.0*(hold1+hold2+hold3+hold4+hold5+hold6)-24.0*mu[k])/(6.0*dt*dt);
-
+	    
 	    if(C[k]<0)
 	      {
 		 M0+=M*2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k])/kappa;
 	      }
+	    
 			}
 			if(dimensions==2)
 			{
             M0=M*(hold7+hold8+hold9+hold10+4.0*(hold1+hold2+hold3+hold4)-20.0*mu[k])/(6.0*dt*dt);
-
+	    
 	    if(C[k]<0)
 	      {
 		 M0+=M*2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k])/kappa;
 	      }
+	    
 			}
 			
 			}
@@ -360,20 +380,22 @@ void wet::setwallnodes()
 			if(dimensions==3)
             {
             M0=M*(hold7+hold8+hold9+hold10+hold11+hold12+hold13+hold14+hold15+hold16+hold17+hold18+2.0*(hold1+hold2+hold3+hold4+hold5+hold6)-24.0*mu[k])/(6.0*dt*dt);
-
+	    
 	    if(C[k]<0)
 	      {
 		 M0+=M*2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k])/kappa;
-	      }
+		 }
+	    
 			}
 			if(dimensions==2)
 			{
             M0=M*(hold7+hold8+hold9+hold10+4.0*(hold1+hold2+hold3+hold4)-20.0*mu[k])/(6.0*dt*dt);
-
+	    
 	    if(C[k]<0)
 	      {
 		 M0+=M*2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k])/kappa;
 	      }
+	    
 			}
 			
 			}
@@ -644,20 +666,22 @@ void wet::setwallnodes()
 			if(dimensions==3)
             {
             M0=M*(hold7+hold8+hold9+hold10+hold11+hold12+hold13+hold14+hold15+hold16+hold17+hold18+2.0*(hold1+hold2+hold3+hold4+hold5+hold6)-24.0*mu[k])/(6.0*dt*dt);
-
+	    
 	    if(C[k]<0)
 	      {
 		 M0+=M*2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k])/kappa;
 	      }
+	    
 			}
 			if(dimensions==2)
 			{
             M0=M*(hold7+hold8+hold9+hold10+4.0*(hold1+hold2+hold3+hold4)-20.0*mu[k])/(6.0*dt*dt);
-
+	    
 	    if(C[k]<0)
 	      {
 		 M0+=M*2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k])/kappa;
 	      }
+	    
 			}
 			
 			}
@@ -986,7 +1010,7 @@ M0=M*(mu[d[k][6]]+mu[d[k][7]]+mu[d[k][8]]+mu[d[k][9]]+4.0*mu[d[k][0]]
    
 	
        
-   
+      
 h0[k]+=dt*0.5*M0*gamma0;
 h1[k]+=dt*0.5*M0*gamma1;
 h2[k]+=dt*0.5*M0*gamma2;
@@ -1006,6 +1030,7 @@ h15[k]+=dt*0.5*M0*gamma15;
 h16[k]+=dt*0.5*M0*gamma16;
 h17[k]+=dt*0.5*M0*gamma17;
 h18[k]+=dt*0.5*M0*gamma18;
+   
 /*   
  computecoordinates(k);
    if(yk==0 and xk==102)

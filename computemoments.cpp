@@ -48,7 +48,7 @@ if(mask[k]!=28)
 		count=0;
 		double test,num;
 		srand(st);
-		centre=rand()%(Pe-Ps) +Ps;
+		centre=rand()%(Ly-40) +20;
 		
 
 		do
@@ -65,7 +65,7 @@ if(mask[k]!=28)
 			  }
 		count=count+1;
 		srand(st+50*count);
-		centre=rand()%(Pe-Ps) +Ps;
+		centre=rand()%(Ly-40) +20;
 		cout << count << " " << centre << " " <<  check << endl;
 		  }
 		while(check==1 && count<=50);
@@ -97,8 +97,11 @@ if(mask[k]!=28)
 		rho[k]=C[k]*rho1+(1-C[k])*rho2; //Compute Rho from updated moments
 		
 		tau[k]=1.0/(C[k]/tau1+(1-C[k])/tau2); // Compute tau for updated moments
-			if (mask[k]==1 || mask[k]==3){tau[k]=0.5;}
-			//	if(st%10000==0){tau[k]=0.5;}
+		if(rt==1){
+	if (mask[k]==1 || mask[k]==3 || mask[k]==4 || mask[k]==5){tau[k]=0.5;}
+		}
+	
+//	if(st%10000==0){tau[k]=0.5;}
 		/*
 		computecoordinates(k);
 		if(xk==68 and yk==27 and zk == 49)

@@ -27,9 +27,11 @@ const int com[19]={0,2,1,4,3,6,5,10,9,8,7,14,13,12,11,18,17,16,15};
 class wet
 {
 
-	int ProcessN; //Number of nodes the processor is dealing with
+  int ProcessN,dist; //Number of nodes the processor is dealing with
 
 	double *C , *mu , *p, *rho;//, *muh; //Assigning memory space to the composition
+	
+	double *disv, *disd;
 
 	int *mask;
 
@@ -95,7 +97,7 @@ class wet
 
 	//double d2rho;
 
-	int dimensions, boundtype; //Number of dimensions the problem is being run in
+	int dimensions, boundtype,rt; //Number of dimensions the problem is being run in
 	
 	int rank,size,leftProcess,rightProcess; //MPI variables
 
@@ -109,6 +111,8 @@ class wet
 	
 	double Ebulk,Eint,Esurf,energy;//variables to calculate energy
 	
+	double KEx , KEy , KEz , COMx , COMy , COMz , Ctot , rhotot , disdtot , disvtot, vol; //Variables to calculate Kinetic energy
+
 	string folder; //Holds the name of the folder to which inputs should be written
 
 	long int st;//equation step
@@ -126,7 +130,12 @@ class wet
     double gamma0,gamma1,gamma2,gamma3,gamma4,gamma5,gamma6,gamma7,gamma8,gamma9,gamma10,gamma11,gamma12,gamma13,gamma14,gamma15,gamma16,gamma17,gamma18,gammat;
         double gammar0,gammar1,gammar2,gammar3,gammar4,gammar5,gammar6,gammar7,gammar8,gammar9,gammar10,gammar11,gammar12,gammar13,gammar14,gammar15,gammar16,gammar17,gammar18,gammart;
 
-    double gammap1,gammap2,gammap3,gammap4,gammap7,gammap8,gammap9,gammap10;
+   
+ double gammap1,gammap2,gammap3,gammap4,gammap7,gammap8,gammap9,gammap10;
+ double graduxC1,graduxC2,graduxC3,graduxC4,graduxC5,graduxC6,graduxC7,graduxC8,graduxC9,graduxC10,graduxC11,graduxC12,graduxC13,graduxC14,graduxC15,graduxC16,graduxC17,graduxC18,graduxCx,graduxCy,graduxCz;
+ double graduyC1,graduyC2,graduyC3,graduyC4,graduyC5,graduyC6,graduyC7,graduyC8,graduyC9,graduyC10,graduyC11,graduyC12,graduyC13,graduyC14,graduyC15,graduyC16,graduyC17,graduyC18,graduyCx,graduyCy,graduyCz;
+   
+   
     double gradrhoC1,gradrhoC2,gradrhoC3,gradrhoC4,gradrhoC5,gradrhoC6,gradrhoC7,gradrhoC8,gradrhoC9,gradrhoC10,gradrhoC11,gradrhoC12,gradrhoC13,gradrhoC14,gradrhoC15,gradrhoC16,gradrhoC17,gradrhoC18,gradrhoCx,gradrhoCy,gradrhoCz;
     double gradmuC1,gradmuC2,gradmuC3,gradmuC4,gradmuC5,gradmuC6,gradmuC7,gradmuC8,gradmuC9,gradmuC10,gradmuC11,gradmuC12,gradmuC13,gradmuC14,gradmuC15,gradmuC16,gradmuC17,gradmuC18,gradmuCx,gradmuCy,gradmuCz;
     double gradpC1,gradpC2,gradpC3,gradpC4,gradpC5,gradpC6,gradpC7,gradpC8,gradpC9,gradpC10,gradpC11,gradpC12,gradpC13,gradpC14,gradpC15,gradpC16,gradpC17,gradpC18,gradpCx,gradpCy,gradpCz;
@@ -165,7 +174,7 @@ class wet
     
     double M0,M1,M2,M3,M4,M5,M6,M7,M8,M9,M10,M11,M12,M13,M14,M15,M16,M17,M18;
 	
-	double *CGlobal,  *muGlobal,*pGlobal,*uxGlobal,*uyGlobal,*uzGlobal;
+    double *CGlobal,  *muGlobal,*pGlobal,*uxGlobal,*uyGlobal,*uzGlobal,*disvGlobal,*disdGlobal;
 	int *maskGlobal;
 
 
@@ -213,7 +222,11 @@ class wet
 	void genuzglobal();
 	void writeinfofile();
 	void writeenergy(long int);
-	
+	void dis();
+	void writedis(long int);
+	void gendisvGlobal();
+	void gendisdGlobal();
+	void writedisin(long int);
 	public:
 
 		void algorithm();
