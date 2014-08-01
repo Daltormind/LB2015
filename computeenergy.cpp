@@ -26,7 +26,7 @@ void wet::computeenergy()
 		}
 		
 		
-		if(mask[k]==1)
+		if(mask[k]!=0 and mask[k]!=2)
 		{
 		  Esurf+=Wc*kappa*(C[k]*C[k]/2.0 - C[k]*C[k]*C[k]/3.0);
 		}
@@ -43,6 +43,10 @@ void wet::computeenergy()
 		KEx+=rho[k]*ux[k]*ux[k]/2.0;
 		KEy+=rho[k]*uy[k]*uy[k]/2.0;
 		KEz+=rho[k]*uz[k]*uz[k]/2.0;
+		
+		//Compute Total pressure energy dU=-pdV
+
+		dU+=-p[k];
 
 		//Compute total fluid Volume
 		

@@ -33,9 +33,12 @@ void wet::initialisemoments()
 		  	num=sqrt((xk-xcentre)*(xk-xcentre)+(yk-ycentre)*(yk-ycentre)+(zk-zcentre)*(zk-zcentre));
 		  	test=tanh(2.0*(-num+R)/ep);
 		  	C[k]=0.5 + 0.5*test;
-		  	ux[k]=/*C[k]*/uxi;
-		  	uy[k]=/*C[k]*/uyi;
-		  	uz[k]=/*C[k]*/uzi;
+		  	
+			if(xk>50)
+			  {ux[k]=C[k]*uxi;}else{ux[k]=-C[k]*uxi;}
+		  	if(yk>50)
+			  {uy[k]=C[k]*uyi;}else{uy[k]=-C[k]*uyi;}
+		  	uz[k]=C[k]*uzi;
 			
 				 
 				//cout << "Entered boundry layer C=" << C[k]  << " test=" << test << " num=" << num << endl;

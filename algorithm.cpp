@@ -24,6 +24,8 @@ void wet::algorithm()
 		  
 	    if(dist==1)
 	    {
+	      disdtot=0.0;
+	      disvtot=0.0;
 	      dis();
 	    }
 	     
@@ -53,8 +55,9 @@ void wet::algorithm()
 		KEz=0.0;
 		Ctot=0.0;
 		rhotot=0.0;
-		disdtot=0.0;
-		disvtot=0.0;
+		
+		
+		dU=0.0;
 		if(st%wrtst==0 and st>=stst)
 		{
 		

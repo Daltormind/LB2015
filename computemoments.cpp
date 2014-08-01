@@ -628,13 +628,51 @@ if(mask[k]!=28)
 			   ux[k]=(3.0*(g1[k]-g2[k]+g7[k]-g10[k]+g9[k]-g8[k]+g15[k]+g17[k]-g18[k]-g16[k])+0.5*dt*mu[k]*gradCCx)/rho[k];
 			   uy[k]=(3.0*(g3[k]-g4[k]+g7[k]-g10[k]+g8[k]-g9[k]+g11[k]+g13[k]-g12[k]-g14[k])+0.5*dt*mu[k]*gradCCy)/rho[k];
 			   uz[k]=(3.0*(g5[k]-g6[k]+g11[k]-g14[k]+g12[k]-g13[k]+g15[k]+g16[k]-g17[k]-g18[k])+0.5*dt*mu[k]*gradCCz)/rho[k];
-			}
+			   /*
+			   if(st==1)
+			     {
+			       ux[k]=C[k]*uxi;
+			       uy[k]=C[k]*uyi;
+			       uz[k]=C[k]*uzi;
+			       /*
+			       computecoordinates(k);
+			       /*
+			       double cth,sth,r,rs,xkd,ykd;
+
+			       ykd=double(yk);
+			       xkd=double(xk);
+			       cth=(xk+yk)/sqrt(xk*xk+yk*yk);
+			       sth=sqrt(1-cth*cth);
+
+			       r=sqrt(xk*xk+yk*yk);
+			       rs=r*sth;
+			       
+			       if(yk>xk){uy[k]=C[k]*uyi;}
+			      
+
+
+			       if(xk>yk){ux[k]=C[k]*uxi;}
+			       if(zk>50){uz[k]=C[k]*uzi;}
+			       
+			     }
+			 */
+
+
+	}
 			
 			if(dimensions==2)
 			{
 			   ux[k]=(3.0*(g1[k]-g2[k]+g7[k]-g10[k]+g9[k]-g8[k])+0.5*dt*mu[k]*gradCCx)/rho[k];
 			   uy[k]=(3.0*(g3[k]-g4[k]+g7[k]-g10[k]+g8[k]-g9[k])+0.5*dt*mu[k]*gradCCy)/rho[k];
 			  	uz[k]=0.0;
+				/*
+				if(st==1)
+				  {
+				    ux[k]=C[k]*uxi;
+				    uy[k]=C[k]*uyi;
+				    uz[k]=0.0;
+				  }
+				*/
 			/*
 	if(mask[k]==1)
 			  {

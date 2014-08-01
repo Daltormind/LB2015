@@ -18,7 +18,7 @@ void wet::writevelocity(int in)
         file.open(filename.c_str());
 		file.precision(16);
 		
-		for( n = 0 ; n < 1 ; n++) 
+		for( n = 0 ; n < Lz ; n++) 
 		{   
 			file  << "ux"   << in << "(:,:," << n+1 << ")=[" << endl;
 			for( q = 0 ; q < Lx ; q++) 
@@ -43,7 +43,7 @@ void wet::writevelocity(int in)
         file.open(filename.c_str());
 		file.precision(16);
 		
-		for( n = 0 ; n < 1 ; n++) 
+		for( n = 0 ; n < Lz ; n++) 
 		{   
 			file << "uy"   << in << "(:,:," << n+1 << ")=[" << endl;
 			for( q = 0 ; q < Lx ; q++) 
@@ -69,7 +69,7 @@ void wet::writevelocity(int in)
         file.open(filename.c_str());
 		file.precision(16);
 		
-		for( n = 0 ; n < 1 ; n++) 
+		for( n = 0 ; n < Lz ; n++) 
 		{   
 			file << "uz"   << in << "(:,:," << n+1 << ")=[" << endl;
 			for( q = 0 ; q < Lx ; q++) 

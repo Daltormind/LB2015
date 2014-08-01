@@ -19,7 +19,7 @@ void wet::writemoments(long int in)
         file.open(filename.c_str());
 		file.precision(16);
 	
-		for( h = 0 ; h < 1 ; h++) 
+		for( h = 0 ; h < Lz ; h++) 
 		{   
 			file  << "C" << in << "(:,:," << h+1 << ")=[" << endl;
 		
@@ -54,7 +54,7 @@ void wet::writemoments(long int in)
         file.open(filename.c_str());
 		file.precision(16);
 		
-		for( h = 0 ; h < 1 ; h++) 
+		for( h = 0 ; h < Lz ; h++) 
 		{   
 			file  << "mu" << in << "(:,:," << h+1 << ")=[" << endl;
 		
@@ -109,7 +109,7 @@ void wet::writemoments(long int in)
         file.open(filename.c_str());
 		file.precision(16);
 		
-		for( h = 0 ; h < 1 ; h++) 
+		for( h = 0 ; h < Lz ; h++) 
 		{   
 			file  << "p" << in << "(:,:," << h+1 << ")=[" << endl;
 			for( i = 0 ; i < Lx ; i++) 

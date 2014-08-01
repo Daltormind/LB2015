@@ -19,7 +19,7 @@ void wet::writeenergy(long int in)
 		file << st << " " << energy << " " << Ebulk << " " << Eint << " " << Esurf << " ";
 		cout << st << " " << energy << " " << Ebulk << " " << Eint << " " << Esurf << " " << KEx << " " << KEy << " " << KEz <<   endl;
 		
-		file << KEx << " " << KEy <<  " " << KEz << " " << COMx << " " << COMy << " " << COMz << " " << vol << " " << Ctot << " " << rhotot << endl;
+		file << KEx << " " << KEy <<  " " << KEz << " " << COMx << " " << COMy << " " << COMz << " " << vol << " " << Ctot << " " << rhotot << " " << dU << endl;
 
 		file.close();
 }

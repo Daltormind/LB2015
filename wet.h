@@ -111,7 +111,7 @@ class wet
 	
 	double Ebulk,Eint,Esurf,energy;//variables to calculate energy
 	
-	double KEx , KEy , KEz , COMx , COMy , COMz , Ctot , rhotot , disdtot , disvtot, vol; //Variables to calculate Kinetic energy
+	double KEx , KEy , KEz , COMx , COMy , COMz , Ctot , rhotot , disdtot , disvtot, vol, dU; //Variables to calculate Kinetic energy
 
 	string folder; //Holds the name of the folder to which inputs should be written
 
@@ -134,6 +134,7 @@ class wet
  double gammap1,gammap2,gammap3,gammap4,gammap7,gammap8,gammap9,gammap10;
  double graduxC1,graduxC2,graduxC3,graduxC4,graduxC5,graduxC6,graduxC7,graduxC8,graduxC9,graduxC10,graduxC11,graduxC12,graduxC13,graduxC14,graduxC15,graduxC16,graduxC17,graduxC18,graduxCx,graduxCy,graduxCz;
  double graduyC1,graduyC2,graduyC3,graduyC4,graduyC5,graduyC6,graduyC7,graduyC8,graduyC9,graduyC10,graduyC11,graduyC12,graduyC13,graduyC14,graduyC15,graduyC16,graduyC17,graduyC18,graduyCx,graduyCy,graduyCz;
+ double graduzC1,graduzC2,graduzC3,graduzC4,graduzC5,graduzC6,graduzC7,graduzC8,graduzC9,graduzC10,graduzC11,graduzC12,graduzC13,graduzC14,graduzC15,graduzC16,graduzC17,graduzC18,graduzCx,graduzCy,graduzCz;
    
    
     double gradrhoC1,gradrhoC2,gradrhoC3,gradrhoC4,gradrhoC5,gradrhoC6,gradrhoC7,gradrhoC8,gradrhoC9,gradrhoC10,gradrhoC11,gradrhoC12,gradrhoC13,gradrhoC14,gradrhoC15,gradrhoC16,gradrhoC17,gradrhoC18,gradrhoCx,gradrhoCy,gradrhoCz;
