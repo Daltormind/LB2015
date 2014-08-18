@@ -12,7 +12,7 @@ void wet::initialisesurface()
 	
 	mask[k]=0;
 	
-	
+	//Surface One
 	if(xk>=xs and xk<xs+wx and zk>=zs and zk<zs+wz  and yk>=ys and yk<ys+wy)
 	{
 		mask[k]=28;
@@ -34,6 +34,7 @@ void wet::initialisesurface()
 	    mask[k]=28;
 	  }
 	*/
+	//Initialise Posts
 	if(xk>=h and xk<xs and mod(yk,P)<pw and yk>=Ps and yk<Pe)
 	{
 		mask[k]=28;
@@ -42,10 +43,22 @@ void wet::initialisesurface()
 	
 	
 	
+	
+	
+	if(input==1)
+	  {
+	  
+	      
+	       
+	    if(rank==ROOT){ktot=k+rank*(k2-(Lx%size+1)*k1)-k1;}
+	    if(rank >ROOT){ktot=k+rank*(k2-k1)+(Lx%size)*Ly*Lz-k1;}
+	    
+	    if(Chold[ktot]==-2){mask[k]=28;}
+	    
+	 
+	 
+	  }
 	}
-	
-	
-	
 	
 	exchangemask();
 	 

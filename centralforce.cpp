@@ -206,10 +206,10 @@ FhC10=(gradCC10-3.0*C[k]/rho[k]*(gradpC10-mu[k]*gradCC10/*+rho[k]*(G[0]+G[1])*/)
 		 FgUz=mu[k]*gradCUz-rho[k]*G[2];
 		 
 		 FgrU1=gradrhoU1/3.0;
-    	 FgrU2=gradrhoU2/3.0;
-    	 FgrU3=gradrhoU3/3.0;
-    	 FgrU4=gradrhoU4/3.0;
-      	 FgrU7=gradrhoU7/3.0;
+    	         FgrU2=gradrhoU2/3.0;
+    	         FgrU3=gradrhoU3/3.0;
+    	         FgrU4=gradrhoU4/3.0;
+      	         FgrU7=gradrhoU7/3.0;
 		 FgrU8=gradrhoU8/3.0;
 		 FgrU9=gradrhoU9/3.0;
 		 FgrU10=gradrhoU10/3.0;
@@ -231,10 +231,10 @@ FhC10=(gradCC10-3.0*C[k]/rho[k]*(gradpC10-mu[k]*gradCC10/*+rho[k]*(G[0]+G[1])*/)
 		 
 		 /*
 		 FfU1=(gradrhoU1/3.0 -rho[k]*gradmuU1)*3.0;
-    	 FfU2=(gradrhoU2/3.0 -rho[k]*gradmuU2)*3.0;
-    	 FfU3=(gradrhoU3/3.0 -rho[k]*gradmuU3)*3.0;
-    	 FfU4=(gradrhoU4/3.0 -rho[k]*gradmuU4)*3.0;
-      	 FfU7=(gradrhoU7/3.0 -rho[k]*gradmuU7)*3.0;
+    	         FfU2=(gradrhoU2/3.0 -rho[k]*gradmuU2)*3.0;
+    	         FfU3=(gradrhoU3/3.0 -rho[k]*gradmuU3)*3.0;
+    	         FfU4=(gradrhoU4/3.0 -rho[k]*gradmuU4)*3.0;
+      	         FfU7=(gradrhoU7/3.0 -rho[k]*gradmuU7)*3.0;
 		 FfU8=(gradrhoU8/3.0 -rho[k]*gradmuU8)*3.0;
 		 FfU9=(gradrhoU9/3.0 -rho[k]*gradmuU9)*3.0;
 		 FfU10=(gradrhoU10/3.0 -rho[k]*gradmuU10)*3.0;
@@ -311,7 +311,7 @@ FhC10=(gradCC10-3.0*C[k]/rho[k]*(gradpC10-mu[k]*gradCC10/*+rho[k]*(G[0]+G[1])*/)
 		 FhM17=0.5*(FhU17+FhC17);
 		 FhM18=0.5*(FhU18+FhC18);
          
-         FhMx=0.5*(FhUx+FhCx);
+                 FhMx=0.5*(FhUx+FhCx);
 		 FhMy=0.5*(FhUy+FhCy);
 		 FhMz=0.5*(FhUz+FhCz);
 		 

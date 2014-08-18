@@ -50,6 +50,10 @@ class wet
 	double d2C,dC;
 	
 	double theta;
+	 
+	double *Chold, *uxhold,*uyhold,*uzhold,*phold;
+
+	int input,ktot;
 
 	int Lx,Ly,Lz,N; // Size of simulation box
 	

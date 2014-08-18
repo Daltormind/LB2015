@@ -77,12 +77,18 @@ void wet::readinput()
     inputfile >> dist;
     inputfile.ignore(250,'\n');
     cout << "Dis=" << dist << endl;
-    inputfile.close();
+   
     
-
+    
     inputfile >> rt;
     inputfile.ignore(250,'\n');
     cout << "rt=" << rt << endl;
+   
+    
+    
+    inputfile >> input;
+    inputfile.ignore(250,'\n');
+    cout << "input=" << input << endl;
     inputfile.close();
     
     //-------------------------------Get inputs from LGconfig.par-----------------------
@@ -141,7 +147,60 @@ void wet::readinput()
     
     inputfile.close();
 
+    if(input==1)
+      {
 
+	
+	cout << "Have entered input=1" << endl;
+	Chold=new double[Lx*Ly*Lz];
+	uxhold=new double[Lx*Ly*Lz];
+	uyhold=new double[Lx*Ly*Lz];
+	uzhold=new double[Lx*Ly*Lz];
+	phold=new double[Lx*Ly*Lz];
+
+	
+	inputfile.open("C.txt");
+	  for(int i=0;i<Lx*Ly*Lz;i++)
+	    {
+	      inputfile >> Chold[i];
+	    }
+	  inputfile.close();
+	  
+	  
+	  inputfile.open("ux.txt");
+	  for(int i=0;i<Lx*Ly*Lz;i++)
+	    {
+	      inputfile >> uxhold[i];
+	    }
+	  inputfile.close();
+	  
+	  
+	inputfile.open("uy.txt");
+	  for(int i=0;i<Lx*Ly*Lz;i++)
+	    {
+	      inputfile >> uyhold[i];
+	    }
+	  inputfile.close();
+	  
+	  
+	inputfile.open("uz.txt");
+	  for(int i=0;i<Lx*Ly*Lz;i++)
+	    {
+	      inputfile >> uzhold[i];
+	    }
+	  inputfile.close();
+	
+	    
+	inputfile.open("p.txt");
+	  for(int i=0;i<Lx*Ly*Lz;i++)
+	    {
+	      inputfile >> phold[i];
+	    }
+	  inputfile.close();
+	
+	  
+  
+      }
 
 
 
