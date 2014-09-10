@@ -130,6 +130,7 @@ for(k=k1;k<k2;k++)//Initialise free energy
             d2C=(C[d[k][6]]+C[d[k][7]]+C[d[k][8]]+C[d[k][9]]+4.0*(C[d[k][0]]+C[d[k][1]]+C[d[k][2]]+C[d[k][3]])-20.0*C[k])/(6.0*dt*dt);
 			}
 			}
+			/*
 			else if (mask[k]==1 || mask[k]==4)
 			{
 			
@@ -198,6 +199,7 @@ for(k=k1;k<k2;k++)//Initialise free energy
 			}
 			
 			}
+			*/
 			else if (mask[k]==3)
 			{
 			
@@ -221,40 +223,64 @@ for(k=k1;k<k2;k++)//Initialise free energy
     	{hold6=C[d[k][4]]-2*dC;}else{hold6=C[d[k][5]];}
     	
     	if(mask[d[k][6]]==28 || mask[d[k][6]]==3)
-    	{hold7=C[d[k][9]]-2*dC;}else{hold7=C[d[k][6]];}
+    	{hold7=C[d[k][9]]-2*dC;
+  if(mask[d[k][9]]==28 || mask[d[k][9]]==3){hold7=C[k];}
+}else{hold7=C[d[k][6]];}
     	
     	if(mask[d[k][7]]==28 || mask[d[k][7]]==3)
-    	{hold8=C[d[k][8]]-2*dC;}else{hold8=C[d[k][7]];}
+    	{hold8=C[d[k][8]]-2*dC;
+	   if(mask[d[k][8]]==28 || mask[d[k][8]]==3){hold8=C[k];}
+}else{hold8=C[d[k][7]];}
     	
     	if(mask[d[k][8]]==28 || mask[d[k][8]]==3)
-    	{hold9=C[d[k][7]]-2*dC;}else{hold9=C[d[k][8]];}
+    	{hold9=C[d[k][7]]-2*dC;}
+ if(mask[d[k][7]]==28 || mask[d[k][7]]==3){hold9=C[k];}
+else{hold9=C[d[k][8]];}
     	
     	if(mask[d[k][9]]==28 || mask[d[k][9]]==3)
-    	{hold10=C[d[k][6]]-2*dC;}else{hold10=C[d[k][9]];}
+    	{hold10=C[d[k][6]]-2*dC;}
+	 if(mask[d[k][6]]==28 || mask[d[k][6]]==3){hold10=C[k];}
+else{hold10=C[d[k][9]];}
     	
     	if(mask[d[k][10]]==28 || mask[d[k][10]]==3)
-    	{hold11=C[d[k][13]]-2*dC;}else{hold11=C[d[k][10]];}
+    	{hold11=C[d[k][13]]-2*dC;}
+ if(mask[d[k][13]]==28 || mask[d[k][13]]==3){hold11=C[k];}
+else{hold11=C[d[k][10]];}
     	
     	if(mask[d[k][11]]==28 || mask[d[k][11]]==3)
-    	{hold12=C[d[k][12]]-2*dC;}else{hold12=C[d[k][11]];}
+    	{hold12=C[d[k][12]]-2*dC;
+ if(mask[d[k][12]]==28 || mask[d[k][12]]==3){hold12=C[k];}
+}else{hold12=C[d[k][11]];}
     	
     	if(mask[d[k][12]]==28 || mask[d[k][12]]==3)
-    	{hold13=C[d[k][11]]-2*dC;}else{hold13=C[d[k][12]];}
+    	{hold13=C[d[k][11]]-2*dC;
+ if(mask[d[k][11]]==28 || mask[d[k][11]]==3){hold13=C[k];}
+}else{hold13=C[d[k][12]];}
     	
     	if(mask[d[k][13]]==28 || mask[d[k][13]]==3)
-    	{hold14=C[d[k][10]]-2*dC;}else{hold14=C[d[k][13]];}
+    	{hold14=C[d[k][10]]-2*dC;
+ if(mask[d[k][10]]==28 || mask[d[k][10]]==3){hold14=C[k];}
+}else{hold14=C[d[k][13]];}
     	
     	if(mask[d[k][14]]==28 || mask[d[k][14]]==3)
-    	{hold15=C[d[k][17]]-2*dC;}else{hold15=C[d[k][14]];}
+    	{hold15=C[d[k][17]]-2*dC;
+ if(mask[d[k][17]]==28 || mask[d[k][17]]==3){hold15=C[k];}
+}else{hold15=C[d[k][14]];}
     	
     	if(mask[d[k][15]]==28 || mask[d[k][15]]==3)
-    	{hold16=C[d[k][16]]-2*dC;}else{hold16=C[d[k][15]];}
+    	{hold16=C[d[k][16]]-2*dC;
+ if(mask[d[k][16]]==28 || mask[d[k][16]]==3){hold16=C[k];}
+}else{hold16=C[d[k][15]];}
     	
     	if(mask[d[k][16]]==28 || mask[d[k][16]]==3)
-    	{hold17=C[d[k][15]]-2*dC;}else{hold17=C[d[k][16]];}
+    	{hold17=C[d[k][15]]-2*dC;
+ if(mask[d[k][15]]==28 || mask[d[k][15]]==3){hold17=C[k];}
+}else{hold17=C[d[k][16]];}
     	
     	if(mask[d[k][17]]==28 || mask[d[k][17]]==3)
-    	{hold18=C[d[k][14]]-2*dC;}else{hold18=C[d[k][17]];}
+    	{hold18=C[d[k][14]]-2*dC;
+ if(mask[d[k][14]]==28 || mask[d[k][14]]==3){hold18=C[k];}
+}else{hold18=C[d[k][17]];}
 			
 			if(dimensions==3)
             {
@@ -267,7 +293,7 @@ for(k=k1;k<k2;k++)//Initialise free energy
 			
 			}
 			    
-	else if (mask[k]==5)
+	else if (mask[k]==1)
 	      {
 			
 				dC=Wc*(C[k]-C[k]*C[k]);
@@ -441,7 +467,7 @@ for(k=k1;k<k2;k++)
 if(mask[k]!=28)
 
 {
-			if(mask[k]!=1)
+			if(mask[k]==0 || mask[k]==2)
 			{
             gradCC1=0.5*(C[d[k][0]]-C[d[k][1]])/dt;
 			gradCC2=0.5*(C[d[k][1]]-C[d[k][0]])/dt;
@@ -463,21 +489,16 @@ if(mask[k]!=28)
    			 gradCC17=0.5*(C[d[k][16]]-C[d[k][15]])/dt;
     		gradCC18=0.5*(C[d[k][17]]-C[d[k][14]])/dt;
 			}
-			else if(mask[k]==1)
+		
+	else if(mask[k]==1)
 			{
 				if(mask[d[k][0]]==28 || mask[d[k][1]]==28)
     	{gradCC1=0.0;gradCC2=0.0;}
     	else
-    	{			
-    		
-    		gradCC1=0.5*(C[d[k][0]]-C[d[k][1]])/dt;
-    		
-    		
-    		
-    		gradCC2=0.5*(C[d[k][1]]-C[d[k][0]])/dt;
-    		
-
-		}
+	        {			
+                gradCC1=0.5*(C[d[k][0]]-C[d[k][1]])/dt;
+    	        gradCC2=0.5*(C[d[k][1]]-C[d[k][0]])/dt;
+    	    	}
     
     	
 		if(mask[d[k][2]]==28 || mask[d[k][3]]==28)
@@ -510,7 +531,7 @@ if(mask[k]!=28)
 		
 		
     
-    	if(mask[d[k][6]]==28 || mask[d[d[k][6]][6]]==2 || mask[d[k][9]]==28 || mask[d[d[k][9]][9]]==2)
+    	if(mask[d[k][6]]==28 || mask[d[k][9]]==28)
     	{gradCC7=0.0;gradCC10=0.0;}
     	else
     	{			
@@ -522,7 +543,7 @@ if(mask[k]!=28)
 
 		}
 		
-		if(mask[d[k][7]]==28 || mask[d[d[k][7]][7]]==2 || mask[d[k][8]]==28 || mask[d[d[k][8]][8]]==2)
+		if(mask[d[k][7]]==28 || mask[d[k][8]]==28)
     	{gradCC8=0.0;
     	gradCC9=0.0;}
     	else
@@ -536,7 +557,7 @@ if(mask[k]!=28)
 		}
 		
 		
-		if(mask[d[k][10]]==28 || mask[d[d[k][10]][10]] || mask[d[k][13]]==28 || mask[d[d[k][13]][13]]==2)
+		if(mask[d[k][10]]==28 || mask[d[k][13]]==28)
     	{gradCC11=0.0;
     	gradCC14=0.0;}
     	else
@@ -549,7 +570,7 @@ if(mask[k]!=28)
 
 		}
 		
-		if(mask[d[k][11]]==28 || mask[d[d[k][11]][11]]==2 || mask[d[k][12]]==28 || mask[d[d[k][12]][12]]==2)
+		if(mask[d[k][11]]==28 || mask[d[k][12]]==28)
     	{gradCC12=0.0;
     	gradCC13=0.0;}
     	else
@@ -562,7 +583,7 @@ if(mask[k]!=28)
 
 		}
 		
-		if(mask[d[k][14]]==28 || mask[d[d[k][14]][14]]==2 || mask[d[k][17]]==28 || mask[d[d[k][17]][17]]==2)
+		if(mask[d[k][14]]==28 || mask[d[k][17]]==28)
     	{gradCC15=0.0;
     	gradCC18=0.0;}
     	else
@@ -575,7 +596,7 @@ if(mask[k]!=28)
 
 		}
 		
-		if(mask[d[k][15]]==28 || mask[d[d[k][15]][15]]==2 || mask[d[k][16]]==28 || mask[d[d[k][16]][16]]==2)
+		if(mask[d[k][15]]==28 || mask[d[k][16]]==28)
     	{gradCC16=0.0;
     	gradCC17=0.0;}
     	else
@@ -590,7 +611,130 @@ if(mask[k]!=28)
 		
 		
     
-    }
+			}
+				
+	else if(mask[k]==3)
+			{
+				if(mask[d[k][0]]==28 || mask[d[k][1]]==28 ||  mask[d[k][0]]==3 || mask[d[k][1]]==3 )
+    	{gradCC1=0.0;gradCC2=0.0;}
+    	else
+	        {			
+                gradCC1=0.5*(C[d[k][0]]-C[d[k][1]])/dt;
+    	        gradCC2=0.5*(C[d[k][1]]-C[d[k][0]])/dt;
+    	    	}
+    
+    	
+		if(mask[d[k][2]]==28 || mask[d[k][3]]==28 ||  mask[d[k][2]]==3 || mask[d[k][3]]==3 )
+    	{gradCC3=0.0;gradCC4=0.0;}
+    	else
+    	{			
+    		
+    		gradCC3=0.5*(C[d[k][2]]-C[d[k][3]])/dt;
+    		
+    		
+    		
+    		gradCC4=0.5*(C[d[k][3]]-C[d[k][2]])/dt;
+    		
+
+		}
+		
+		
+		
+		if(mask[d[k][4]]==28 || mask[d[k][5]]==28 ||  mask[d[k][4]]==3 || mask[d[k][5]]==3 )
+    	{gradCC5=0.0;gradCC6=0.0;}
+    	else
+    	{			
+    		gradCC5=0.5*(C[d[k][4]]-C[d[k][5]])/dt;
+    		
+    		
+    		gradCC6=0.5*(C[d[k][5]]-C[d[k][4]])/dt;
+    		
+
+		}
+		
+		
+    
+    	if(mask[d[k][6]]==28 || mask[d[k][9]]==28 ||  mask[d[k][6]]==3 || mask[d[k][9]]==3 )
+    	{gradCC7=0.0;gradCC10=0.0;}
+    	else
+    	{			
+    		gradCC7=0.5*(C[d[k][6]]-C[d[k][9]])/dt;
+    		
+    		
+    		gradCC10=0.5*(C[d[k][9]]-C[d[k][6]])/dt;
+    		
+
+		}
+		
+		if(mask[d[k][7]]==28 || mask[d[k][8]]==28 ||  mask[d[k][7]]==3 || mask[d[k][8]]==3 )
+    	{gradCC8=0.0;
+    	gradCC9=0.0;}
+    	else
+    	{			
+    		gradCC8=0.5*(C[d[k][7]]-C[d[k][8]])/dt;
+    		
+    		
+    		gradCC9=0.5*(C[d[k][8]]-C[d[k][7]])/dt;
+    		
+
+		}
+		
+		
+		if(mask[d[k][10]]==28 || mask[d[k][13]]==28 ||  mask[d[k][10]]==3 || mask[d[k][13]]==3 )
+    	{gradCC11=0.0;
+    	gradCC14=0.0;}
+    	else
+    	{			
+    		gradCC11=0.5*(C[d[k][10]]-C[d[k][13]])/dt;
+    		
+    		
+    		gradCC14=0.5*(C[d[k][13]]-C[d[k][10]])/dt;
+    		
+
+		}
+		
+		if(mask[d[k][11]]==28 || mask[d[k][12]]==28 ||  mask[d[k][11]]==3 || mask[d[k][12]]==3 )
+    	{gradCC12=0.0;
+    	gradCC13=0.0;}
+    	else
+    	{			
+    		gradCC12=0.5*(C[d[k][11]]-C[d[k][12]])/dt;
+    		
+    		
+    		gradCC13=0.5*(C[d[k][12]]-C[d[k][11]])/dt;
+    		
+
+		}
+		
+		if(mask[d[k][14]]==28 || mask[d[k][17]]==28 ||  mask[d[k][14]]==3 || mask[d[k][17]]==3 )
+    	{gradCC15=0.0;
+    	gradCC18=0.0;}
+    	else
+    	{			
+    		gradCC15=0.5*(C[d[k][14]]-C[d[k][17]])/dt;
+    		
+    		
+    		gradCC18=0.5*(C[d[k][17]]-C[d[k][14]])/dt;
+    		
+
+		}
+		
+		if(mask[d[k][15]]==28 || mask[d[k][16]]==28 || mask[d[k][15]]==3 || mask[d[k][16]]==3 )
+    	{gradCC16=0.0;
+    	gradCC17=0.0;}
+    	else
+    	{			
+    		gradCC16=0.5*(C[d[k][15]]-C[d[k][16]])/dt;
+    		
+    		
+    		gradCC17=0.5*(C[d[k][16]]-C[d[k][15]])/dt;
+    		
+
+		}
+		
+		
+    
+			}
 			
 			if(dimensions==2)
 			{
@@ -693,7 +837,7 @@ for(k=k1;k<k2;k++)
 if(mask[k]!=28)
 {
 			
-			if(mask[k]!=1)
+			if(mask[k]==0 || mask[k]==2)
 			{
             gradrhoC1=0.5*(rho[d[k][0]]-rho[d[k][1]])/dt;
 			gradrhoC2=0.5*(rho[d[k][1]]-rho[d[k][0]])/dt;
@@ -715,6 +859,7 @@ if(mask[k]!=28)
     gradrhoC17=0.5*(rho[d[k][16]]-rho[d[k][15]])/dt;
     gradrhoC18=0.5*(rho[d[k][17]]-rho[d[k][14]])/dt;
     }
+			
     else if(mask[k]==1)
 			{
 				if(mask[d[k][0]]==28 || mask[d[k][1]]==28)
@@ -762,7 +907,7 @@ if(mask[k]!=28)
 		
 		
     
-    	if(mask[d[k][6]]==28 || mask[d[d[k][6]][6]]==2 || mask[d[k][9]]==28 || mask[d[d[k][9]][9]]==2)
+    	if(mask[d[k][6]]==28 || mask[d[k][9]]==28)
     	{gradrhoC7=0.0;gradrhoC10=0.0;}
     	else
     	{			
@@ -774,7 +919,7 @@ if(mask[k]!=28)
 
 		}
 		
-		if(mask[d[k][7]]==28 || mask[d[d[k][7]][7]]==2 || mask[d[k][8]]==28 || mask[d[d[k][8]][8]]==2)
+		if(mask[d[k][7]]==28 || mask[d[k][8]]==28)
     	{gradrhoC8=0.0;
     	gradrhoC9=0.0;}
     	else
@@ -788,7 +933,7 @@ if(mask[k]!=28)
 		}
 		
 		
-		if(mask[d[k][10]]==28 || mask[d[d[k][10]][10]] || mask[d[k][13]]==28 || mask[d[d[k][13]][13]]==2)
+		if(mask[d[k][10]]==28 || mask[d[k][13]]==28)
     	{gradrhoC11=0.0;
     	gradrhoC14=0.0;}
     	else
@@ -801,7 +946,7 @@ if(mask[k]!=28)
 
 		}
 		
-		if(mask[d[k][11]]==28 || mask[d[d[k][11]][11]]==2 || mask[d[k][12]]==28 || mask[d[d[k][12]][12]]==2)
+		if(mask[d[k][11]]==28 || mask[d[k][12]]==28)
     	{gradrhoC12=0.0;
     	gradrhoC13=0.0;}
     	else
@@ -814,7 +959,7 @@ if(mask[k]!=28)
 
 		}
 		
-		if(mask[d[k][14]]==28 || mask[d[d[k][14]][14]]==2 || mask[d[k][17]]==28 || mask[d[d[k][17]][17]]==2)
+		if(mask[d[k][14]]==28 || mask[d[k][17]]==28)
     	{gradrhoC15=0.0;
     	gradrhoC18=0.0;}
     	else
@@ -827,7 +972,7 @@ if(mask[k]!=28)
 
 		}
 		
-		if(mask[d[k][15]]==28 || mask[d[d[k][15]][15]]==2 || mask[d[k][16]]==28 || mask[d[d[k][16]][16]]==2)
+		if(mask[d[k][15]]==28 || mask[d[k][16]]==28)
     	{gradrhoC16=0.0;
     	gradrhoC17=0.0;}
     	else
@@ -842,7 +987,137 @@ if(mask[k]!=28)
 		
 		
     
-    }
+			}
+
+    else if(mask[k]==3)
+			{
+				if(mask[d[k][0]]==28 || mask[d[k][1]]==28 ||  mask[d[k][0]]==3 || mask[d[k][1]]==3 )
+    	{gradrhoC1=0.0;gradrhoC2=0.0;}
+    	else
+    	{			
+    		
+    		gradrhoC1=0.5*(C[d[k][0]]-C[d[k][1]])/dt;
+    		
+    		
+    		
+    		gradrhoC2=0.5*(C[d[k][1]]-C[d[k][0]])/dt;
+    		
+
+		}
+    
+    	
+		if(mask[d[k][2]]==28 || mask[d[k][3]]==28 ||  mask[d[k][2]]==3 || mask[d[k][3]]==3 )
+    	{gradrhoC3=0.0;gradrhoC4=0.0;}
+    	else
+    	{			
+    		
+    		gradrhoC3=0.5*(C[d[k][2]]-C[d[k][3]])/dt;
+    		
+    		
+    		
+    		gradrhoC4=0.5*(C[d[k][3]]-C[d[k][2]])/dt;
+    		
+
+		}
+		
+		
+		
+		if(mask[d[k][4]]==28 || mask[d[k][5]]==28 ||  mask[d[k][4]]==3 || mask[d[k][5]]==3 )
+    	{gradrhoC5=0.0;gradrhoC6=0.0;}
+    	else
+    	{			
+    		gradrhoC5=0.5*(C[d[k][4]]-C[d[k][5]])/dt;
+    		
+    		
+    		gradrhoC6=0.5*(C[d[k][5]]-C[d[k][4]])/dt;
+    		
+
+		}
+		
+		
+    
+    	if(mask[d[k][6]]==28 || mask[d[k][9]]==28 ||  mask[d[k][6]]==3 || mask[d[k][9]]==3 )
+    	{gradrhoC7=0.0;gradrhoC10=0.0;}
+    	else
+    	{			
+    		gradrhoC7=0.5*(C[d[k][6]]-C[d[k][9]])/dt;
+    		
+    		
+    		gradrhoC10=0.5*(C[d[k][9]]-C[d[k][6]])/dt;
+    		
+
+		}
+		
+		if(mask[d[k][7]]==28 || mask[d[k][8]]==28 ||  mask[d[k][7]]==3 || mask[d[k][8]]==3 )
+    	{gradrhoC8=0.0;
+    	gradrhoC9=0.0;}
+    	else
+    	{			
+    		gradrhoC8=0.5*(C[d[k][7]]-C[d[k][8]])/dt;
+    		
+    		
+    		gradrhoC9=0.5*(C[d[k][8]]-C[d[k][7]])/dt;
+    		
+
+		}
+		
+		
+		if(mask[d[k][10]]==28 || mask[d[k][13]]==28 ||  mask[d[k][10]]==3 || mask[d[k][13]]==3 )
+    	{gradrhoC11=0.0;
+    	gradrhoC14=0.0;}
+    	else
+    	{			
+    		gradrhoC11=0.5*(C[d[k][10]]-C[d[k][13]])/dt;
+    		
+    		
+    		gradrhoC14=0.5*(C[d[k][13]]-C[d[k][10]])/dt;
+    		
+
+		}
+		
+		if(mask[d[k][11]]==28 || mask[d[k][12]]==28 ||  mask[d[k][11]]==3 || mask[d[k][12]]==3 )
+    	{gradrhoC12=0.0;
+    	gradrhoC13=0.0;}
+    	else
+    	{			
+    		gradrhoC12=0.5*(C[d[k][11]]-C[d[k][12]])/dt;
+    		
+    		
+    		gradrhoC13=0.5*(C[d[k][12]]-C[d[k][11]])/dt;
+    		
+
+		}
+		
+		if(mask[d[k][14]]==28 || mask[d[k][17]]==28 || mask[d[k][14]]==3 || mask[d[k][17]]==3 )
+    	{gradrhoC15=0.0;
+    	gradrhoC18=0.0;}
+    	else
+    	{			
+    		gradrhoC15=0.5*(C[d[k][14]]-C[d[k][17]])/dt;
+    		
+    		
+    		gradrhoC18=0.5*(C[d[k][17]]-C[d[k][14]])/dt;
+    		
+
+		}
+		
+		if(mask[d[k][15]]==28 || mask[d[k][16]]==28 || mask[d[k][15]]==3 || mask[d[k][16]]==3 )
+    	{gradrhoC16=0.0;
+    	gradrhoC17=0.0;}
+    	else
+    	{			
+    		gradrhoC16=0.5*(C[d[k][15]]-C[d[k][16]])/dt;
+    		
+    		
+    		gradrhoC17=0.5*(C[d[k][16]]-C[d[k][15]])/dt;
+    		
+
+		}
+		
+		
+    
+			}
+
     
     		
     		if(dimensions==3)

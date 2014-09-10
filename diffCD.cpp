@@ -102,7 +102,7 @@ void wet::diffCD()
 
       
 			}
-    else if (mask[k]==1 || mask[k]==4 || mask[k]==5 )
+    else if (mask[k]==1)
     {
     	if(mask[d[k][0]]==28 || mask[d[k][1]]==28)
     	{gradrhoC1=0.0;gradCC1=0.0;gradmuC1=0.0;gradpC1=0.0;gradrhoC2=0.0;gradCC2=0.0;gradmuC2=0.0;gradpC2=0.0;}
@@ -206,7 +206,7 @@ void wet::diffCD()
 		}
     	*/
     
-    	if(mask[d[k][6]]==28 || mask[d[d[k][6]][6]]==2 || mask[d[k][9]]==28 || mask[d[d[k][9]][9]]==2)
+    	if(mask[d[k][6]]==28 || mask[d[k][9]]==28)
     	{gradrhoC7=0.0;gradCC7=0.0;gradmuC7=0.0;gradpC7=0.0;gradrhoC10=0.0;gradCC10=0.0;gradmuC10=0.0;gradpC10=0.0;}
     	else
     	{			
@@ -222,7 +222,7 @@ void wet::diffCD()
 
 		}
 		
-		if(mask[d[k][7]]==28 || mask[d[d[k][7]][7]]==2 || mask[d[k][8]]==28 || mask[d[d[k][8]][8]]==2)
+		if(mask[d[k][7]]==28 || mask[d[k][8]]==28)
     	{gradrhoC8=0.0;gradCC8=0.0;gradmuC8=0.0;gradpC8=0.0;
     	gradrhoC9=0.0;gradCC9=0.0;gradmuC9=0.0;gradpC9=0.0;}
     	else
@@ -273,7 +273,7 @@ void wet::diffCD()
 
 		}
 		*/
-		if(mask[d[k][10]]==28 || mask[d[d[k][10]][10]]==2 || mask[d[k][13]]==28 || mask[d[d[k][13]][13]]==2)
+		if(mask[d[k][10]]==28 || mask[d[k][13]]==28)
     	{gradrhoC11=0.0;gradCC11=0.0;gradmuC11=0.0;gradpC11=0.0;
     	gradrhoC14=0.0;gradCC14=0.0;gradmuC14=0.0;gradpC14=0.0;}
     	else
@@ -290,7 +290,7 @@ void wet::diffCD()
 
 		}
 		
-		if(mask[d[k][11]]==28 || mask[d[d[k][11]][11]]==2 || mask[d[k][12]]==28 || mask[d[d[k][12]][12]]==2)
+		if(mask[d[k][11]]==28 || mask[d[k][12]]==28)
     	{gradrhoC12=0.0;gradCC12=0.0;gradmuC12=0.0;gradpC12=0.0;
     	gradrhoC13=0.0;gradCC13=0.0;gradmuC13=0.0;gradpC13=0.0;}
     	else
@@ -330,7 +330,7 @@ void wet::diffCD()
 
 		}
 		*/
-		if(mask[d[k][14]]==28 || mask[d[d[k][14]][14]]==2 || mask[d[k][17]]==28 || mask[d[d[k][17]][17]]==2)
+		if(mask[d[k][14]]==28 || mask[d[k][17]]==28)
     	{gradrhoC15=0.0;gradCC15=0.0;gradmuC15=0.0;gradpC15=0.0;
     	gradrhoC18=0.0;gradCC18=0.0;gradmuC18=0.0;gradpC18=0.0;}
     	else
@@ -347,7 +347,7 @@ void wet::diffCD()
 
 		}
 		
-		if(mask[d[k][15]]==28 || mask[d[d[k][15]][15]]==2 || mask[d[k][16]]==28 || mask[d[d[k][16]][16]]==2)
+		if(mask[d[k][15]]==28 || mask[d[k][16]]==28)
     	{gradrhoC16=0.0;gradCC16=0.0;gradmuC16=0.0;gradpC16=0.0;
     	gradrhoC17=0.0;gradCC17=0.0;gradmuC17=0.0;gradpC17=0.0;}
     	else

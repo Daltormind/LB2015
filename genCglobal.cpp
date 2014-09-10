@@ -50,6 +50,17 @@ void wet::genCglobal(void)
 	
 	}
 
+	if(rank==ROOT)
+	  {
+	for(k=0;k<Ly*Lz;k++)
+	  {
+	    plan[k]=0.0;
+	    for(int n=0;n<Lx;n++)
+	      {
+		plan[k]+=CGlobal[k+n*Ly*Lz];
+	      }
+	  }
+	  }
 	//if(t%iCfoStep==0)
 	//	cout << "Process " << raCk << ": global C geCerated." << eCdl;
 }

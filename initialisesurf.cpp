@@ -11,7 +11,8 @@ void wet::initialisesurface()
 	computecoordinates(k);
 	
 	mask[k]=0;
-	
+	if(surftype==0)
+	  {
 	//Surface One
 	if(xk>=xs and xk<xs+wx and zk>=zs and zk<zs+wz  and yk>=ys and yk<ys+wy)
 	{
@@ -40,9 +41,15 @@ void wet::initialisesurface()
 		mask[k]=28;
 		
 	}
-	
-	
-	
+	  }
+	else if (surftype==1)
+	  {
+	//Initialise Circle
+	    if((Lx-double(xk)+double(xs))*(Lx-double(xk)+double(xs))+double(yk)*double(yk)<double(ys)*double(ys))
+	  {	
+  mask[k]=28;
+	  }
+	  }
 	
 	
 	if(input==1)
@@ -256,7 +263,7 @@ void wet::initialisesurface()
 	  }
 
 	exchangemask();
-	
+	/*
 	//Set concave corner specials.
 
 	  
@@ -286,7 +293,7 @@ void wet::initialisesurface()
 		p[k]=4;
 	      }
 	    
-	    /* 
+	     
 	    if(mask[d[k][10]]==28 && mask[d[k][13]]==1)
 	      {
 		p[k]=4;
@@ -333,7 +340,7 @@ void wet::initialisesurface()
 	      {
 		p[k]=4;
 	      }
-	    */
+	    
 	    
 	    
 	    
@@ -362,7 +369,7 @@ void wet::initialisesurface()
 		if(mask[d[k][15]]==28 && mask[d[k][16]]==28){mask[k]=5;}
 	      }
 	  }
-
+*/
 	exchangemask();
 //	cout  << "Process "<< rank << " Past exchangemask 2" << endl;
 	

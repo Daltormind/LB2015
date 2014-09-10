@@ -89,7 +89,15 @@ void wet::readinput()
     inputfile >> input;
     inputfile.ignore(250,'\n');
     cout << "input=" << input << endl;
+    
+    inputfile >> surftype;
+    inputfile.ignore(250,'\n');
+    cout << "surftype=" << surftype << endl;
+
+
     inputfile.close();
+
+    
     
     //-------------------------------Get inputs from LGconfig.par-----------------------
     

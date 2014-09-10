@@ -67,8 +67,8 @@ void wet::setwallnodes()
 		  }
 		}
 	}
-	
-	else if (mask[k]==1 || mask[k]==4)
+	/*
+	else if (mask[k]==1)
 			{
 			
 				
@@ -127,14 +127,7 @@ void wet::setwallnodes()
     	hold8=mu[d[k][8]];
 		h9[k]=h8[k];
 		g9[k]=g8[k];
-		/*
-		computecoordinates(k);
-		if(xk==0)
-		  {
-		    h9[k]=h10[k];
-		    g9[k]=g10[k];
-		  }
-		*/
+	
 		
     	}
     	else{hold8=mu[d[k][7]];}
@@ -150,14 +143,7 @@ void wet::setwallnodes()
     	hold10=mu[d[k][6]];
 		h7[k]=h10[k];
 		g7[k]=g10[k];
-		/*
-		computecoordinates(k);
-		if(xk==0)
-		  {
-		    h7[k]=h8[k];
-		    g7[k]=g8[k];
-		  }
-		*/
+	
 		
     	}
     	else{hold10=mu[d[k][9]];}
@@ -242,7 +228,7 @@ void wet::setwallnodes()
 			}
 			
 			}
-			
+	*/
 			else if (mask[k]==3)
 			{
 			
@@ -400,7 +386,7 @@ void wet::setwallnodes()
 			
 			}
 	
-	else if (mask[k]==5)
+	else if (mask[k]==1)
 			{
 			
 				

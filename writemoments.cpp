@@ -53,19 +53,19 @@ void wet::writemoments(long int in)
         file.open(filename.c_str());
 		file.precision(16);
 	
-		for( h = 0 ; h < Lz ; h++) 
+		for( h = 0 ; h < 1 ; h++) 
 		{   
 			file  << "C" << in << "X95(:,:," << h+1 << ")=[" << endl;
 		
-			for( i = 94 ; i < 95 ; i++) 
+			for( i = 0 ; i < Lz ; i++) 
 			{
 			  for( j = 0 ; j < Ly ; j++) 
 				{
-					k = h + j*Lz + i*Ly*Lz;
+					k = i + j*Lz + h*Ly*Lz;
 					
-					if(maskGlobal[k]==28){file << -2 << " " ;}
+				
 					
-					else{file << CGlobal[k] << " " ;}
+					file << plan[k] << " " ;
 					
 					
 						
@@ -115,7 +115,7 @@ void wet::writemoments(long int in)
 	
 		
 		//--------------------------- Write free energy file---------------------------
-		
+		/*		
 		snprintf(filename1,20,"/smu%dZ1.m",in);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());
@@ -198,7 +198,7 @@ void wet::writemoments(long int in)
 		}
 		file << "mu" << in << "Y1=squeeze(mu" << in << "Y1);" << endl;
 		file.close();
-		
+		*/
 		/*
 		//-------------------------- Write Density File -------------------------------
 		
@@ -251,7 +251,7 @@ void wet::writemoments(long int in)
 		file.close();
 		
 
-		
+		/*	
 		snprintf(filename1,20,"/sp%dX95.m",in);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());
@@ -274,7 +274,7 @@ void wet::writemoments(long int in)
 		}
 		file << "p" << in << "X95=squeeze(p" << in << "X95);" << endl;
 		file.close();
-		
+		*/
 		
 		snprintf(filename1,20,"/sp%dY1.m",in);			//Create a name for file that contain data
 		filename=folder+filename1;
@@ -326,9 +326,9 @@ void wet::writemoments(long int in)
 		file.close();
 		
 		*/
-		/*	
+			
 		//--------------------------- Write mask ---------------------------------------
-		
+		/*
 		snprintf(filename1,20,"/smask%ld.m",in);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());

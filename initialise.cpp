@@ -62,7 +62,7 @@ void wet::initialise()
 		uxGlobal=new double[N] ;
 		uyGlobal=new double[N] ;
 		uzGlobal=new double[N] ;
-	
+		plan=new double[Lz*Ly];
 		if(dist==1)
 		  {
 		    disvGlobal=new double[N];

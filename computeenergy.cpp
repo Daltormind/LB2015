@@ -144,6 +144,7 @@ void wet::computeenergy()
 			energy = Ebulk + Eint + Esurf;
 		}
 	}
+	
 	}	
 	
 	

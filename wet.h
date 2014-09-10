@@ -51,9 +51,9 @@ class wet
 	
 	double theta;
 	 
-	double *Chold, *uxhold,*uyhold,*uzhold,*phold;
+	double *Chold, *uxhold,*uyhold,*uzhold,*phold,*plan;
 
-	int input,ktot;
+	int input,ktot,surftype;
 
 	int Lx,Ly,Lz,N; // Size of simulation box
 	
@@ -113,7 +113,7 @@ class wet
 
 	double rho1 ,rho2 ; // Liquid and gas densities
 	
-	double Ebulk,Eint,Esurf,energy;//variables to calculate energy
+	double Ebulk,Eint,Esurf,energy,surfarea,xhold,yhold,zhold,r;//variables to calculate energy
 	
 	double KEx , KEy , KEz , COMx , COMy , COMz , Ctot , rhotot , disdtot , disvtot, vol, dU; //Variables to calculate Kinetic energy
 
@@ -232,6 +232,7 @@ class wet
 	void gendisvGlobal();
 	void gendisdGlobal();
 	void writedisin(long int);
+	void computesurfarea();
 	public:
 
 		void algorithm();

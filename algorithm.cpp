@@ -33,6 +33,7 @@ void wet::algorithm()
 		for(k=k1;k<k2;k++)
 		  {
 		    computeenergy();
+		    computesurfarea();
 		  }
 
 		if (rank==ROOT)
@@ -55,9 +56,12 @@ void wet::algorithm()
 		KEz=0.0;
 		Ctot=0.0;
 		rhotot=0.0;
-		
-		
+		surfarea=0.0;
+		xhold=0.0;
+		yhold=0.0;
+		zhold=0.0;
 		dU=0.0;
+		r=0.0;
 		if(st%wrtst==0 and st>=stst)
 		{
 		
