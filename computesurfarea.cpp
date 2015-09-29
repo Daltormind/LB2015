@@ -16,7 +16,7 @@ void wet::computesurfarea()
 
      
       if(C[k]>0.15){
-	if(xk>xhold){xhold=xk+ys-Lx-xs;}
+	
 	if(yk>yhold){yhold=yk;}
 	
       
@@ -30,6 +30,13 @@ void wet::computesurfarea()
 	  if(zk>zhold){zhold=zk;}
 	}
     }
+    
+    
+      if(C[k]>0.15)
+	{
+	  if(xk>xhold){xhold=xk;}
+	}
+    
   
 
 	if (k==(k2-1)){
@@ -49,7 +56,7 @@ void wet::computesurfarea()
 				
 			
 			reducedEnergy = 0.0;
-			MPI_Reduce(&xhold,&reducedEnergy,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
+			MPI_Reduce(&xhold,&reducedEnergy,1,MPI_DOUBLE,MPI_MAX,0,MPI_COMM_WORLD);
 			xhold = reducedEnergy;
 						
 				
@@ -61,7 +68,7 @@ void wet::computesurfarea()
 				
 			
 			reducedEnergy = 0.0;
-			MPI_Reduce(&yhold,&reducedEnergy,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
+			MPI_Reduce(&yhold,&reducedEnergy,1,MPI_DOUBLE,MPI_MAX,0,MPI_COMM_WORLD);
 			yhold = reducedEnergy;
 						
 				
@@ -73,7 +80,7 @@ void wet::computesurfarea()
 				
 			
 			reducedEnergy = 0.0;
-			MPI_Reduce(&zhold,&reducedEnergy,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
+			MPI_Reduce(&zhold,&reducedEnergy,1,MPI_DOUBLE,MPI_MAX,0,MPI_COMM_WORLD);
 			zhold = reducedEnergy;
 						
 				
