@@ -11,7 +11,7 @@ void wet::writemoments(long int in)
 	ofstream file;
 	char filename1[20];
 		string filename;
-        
+		//	cout << "Process:" << rank << " Entered writemoments" << endl; 
         //------------------------- Write the composition File------------------------
         
         snprintf(filename1,20,"/sC%dZ1.m",in);			//Create a name for file that contain data
@@ -43,9 +43,9 @@ void wet::writemoments(long int in)
 		
 			
 }
-		file << "C" << in << "Z1=squeeze(C" << in << "Z1);" << endl;
+			file << "C" << in << "Z1=squeeze(C" << in << "Z1);" << endl;
 		file.close();
-		
+		//	cout << "Process:" << rank << " past C write writemoments" << endl; 
 
 
         snprintf(filename1,20,"/sC%dX95.m",in);			//Create a name for file that contain data
@@ -53,15 +53,15 @@ void wet::writemoments(long int in)
         file.open(filename.c_str());
 		file.precision(16);
 	
-		for( h = 0 ; h < 1 ; h++) 
+		for( h = 0 ; h < Lz ; h++) 
 		{   
 			file  << "C" << in << "X95(:,:," << h+1 << ")=[" << endl;
 		
-			for( i = 0 ; i < Lz ; i++) 
+			for( i = 0 ; i < 1 ; i++) 
 			{
 			  for( j = 0 ; j < Ly ; j++) 
 				{
-					k = i + j*Lz + h*Ly*Lz;
+					k = h + j*Lz + i*Ly*Lz;
 					
 				
 					
@@ -79,7 +79,41 @@ void wet::writemoments(long int in)
 		}
 		file << "C" << in << "X95=squeeze(C" << in << "X95);" << endl;
 		file.close();
+		//	cout << "Process:" << rank << " pastwriteplan" << endl; 
+	/*       
+ snprintf(filename1,20,"/sC%dslice.m",in);			//Create a name for file that contain data
+		filename=folder+filename1;
+        file.open(filename.c_str());
+		file.precision(16);
 	
+		for( h = 0 ; h < Lz ; h++) 
+		{   
+			file  << "C" << in << "slice(:,:," << h+1 << ")=[" << endl;
+		
+			for( i = 0 ; i < 6 ; i++) 
+			{
+			  for( j = 0 ; j < Ly ; j++) 
+				{
+				  k = h + j*Lz + (120+5*i)*Ly*Lz;
+					
+				
+				       	if(maskGlobal[k]==28){file << -2 << " " ;}
+					file << CGlobal[k] << " " ;
+					
+					
+						
+				}
+				file << endl;
+		
+}
+			file <<"];" << endl;
+			
+			
+		}
+		file << "C" << in << "slice=squeeze(C" << in << "slice);" << endl;
+		file.close();
+	*/
+	//	cout << "Process:" << rank << " pastwriteslice" << endl; 
 
         snprintf(filename1,20,"/sC%dY1.m",in);			//Create a name for file that contain data
 		filename=folder+filename1;
@@ -113,7 +147,7 @@ void wet::writemoments(long int in)
 		file << "C" << in << "Y1=squeeze(C" << in << "Y1);" << endl;
 		file.close();
 	
-		
+		//cout << "Process:" << rank << " PastCwriteall" << endl; 	
 		//--------------------------- Write free energy file---------------------------
 		/*		
 		snprintf(filename1,20,"/smu%dZ1.m",in);			//Create a name for file that contain data
@@ -378,4 +412,6 @@ void wet::writemoments(long int in)
 		
 		file.close();
 		*/
+
+	//cout << "Process:" << rank << " Exited writemoments" << endl; 
 }

@@ -9,6 +9,7 @@ void wet::computeenergy()
   if(st%(infost) == 0){
     if(mask[k]!=28)
       {
+	computecoordinates(k);
     double en;
     //Compute the surface energy Portion
 		en=B*C[k]*C[k]*(C[k]-1.0)*(C[k]-1.0)+(kappa/2.0)*(gradCCx*gradCCx+gradCCy*gradCCy+gradCCz*gradCCz);
@@ -28,7 +29,7 @@ void wet::computeenergy()
 		
 		if(mask[k]!=0 and mask[k]!=2)
 		{
-		  Esurf+=Wc*kappa*(C[k]*C[k]/2.0 - C[k]*C[k]*C[k]/3.0);
+		  Esurf+=Wc[k]*kappa*(C[k]*C[k]/2.0 - C[k]*C[k]*C[k]/3.0);
 		}
      
 
@@ -61,12 +62,33 @@ void wet::computeenergy()
 		rhotot+=rho[k];
 
 		//Compute Drop COM motion and KE
-
+		double th;
+		th=atan(double(yk)/(double(Lx-xk+xs)));
 		COMx+=rho[k]*ux[k];
 		COMy+=rho[k]*uy[k];
 		COMz+=rho[k]*uz[k];
-
+		COMt+=rho[k]*uy[k]*rho[k]*uy[k];//rho[k]*(uy[k]*cos(th)+ux[k]*sin(th));
+		COMn+=rho[k]*rho[k]*uz[k]*uz[k];//rho[k]*(-ux[k]*cos(th)+uy[k]*sin(th));
+		/*	
+	if(yk>100+uyi*st)
+		  {COMt+=rho[k]*uy[k];}
+		else{COMn+=rho[k]*uy[k];}
+		*/
 		
+		if(mask[k]==1 || mask[k]==3)
+		  {
+		    if(C[k]>0.5)
+		      {
+			if(zk>zc){zc=zk;}
+			if(yk>yc){yc=yk;xc=xk;}
+		      }
+		  }
+
+		if(C[k]>0.5)
+		  {
+		    if(zk>zl){zl=zk;}
+		    if(yk>yl){yl=yk;xl=xk;}
+		  }
 
       }
 
@@ -79,7 +101,7 @@ void wet::computeenergy()
 
 	if (k==(k2-1)){
 		double reducedEnergy;
-		
+		int redEn;
 		
 			
 			reducedEnergy = 0.0;
@@ -126,6 +148,17 @@ void wet::computeenergy()
 			
 			
 			reducedEnergy = 0.0;
+			MPI_Reduce(&COMn,&reducedEnergy,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
+			COMn = reducedEnergy;
+
+
+			reducedEnergy = 0.0;
+			MPI_Reduce(&COMt,&reducedEnergy,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
+			COMt = reducedEnergy;
+			
+			
+			
+			reducedEnergy = 0.0;
 			MPI_Reduce(&Ctot,&reducedEnergy,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
 			Ctot = reducedEnergy;
 			
@@ -134,11 +167,41 @@ void wet::computeenergy()
 			MPI_Reduce(&rhotot,&reducedEnergy,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
 			rhotot = reducedEnergy;
 			
-
+                       
 			reducedEnergy = 0.0;
 			MPI_Reduce(&vol,&reducedEnergy,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
 			vol = reducedEnergy;
+		
+				
+			//redEn = 0;
+			MPI_Reduce(&xc,&redEn,1,MPI_INT,MPI_MAX,0,MPI_COMM_WORLD);
+				xc = redEn;
+		
 			
+			//redEn = 0;
+			MPI_Reduce(&yc,&redEn,1,MPI_INT,MPI_MAX,0,MPI_COMM_WORLD);
+				yc = redEn;
+
+			
+			//redEn = 0;
+			MPI_Reduce(&zc,&redEn,1,MPI_INT,MPI_MAX,0,MPI_COMM_WORLD);
+				zc = redEn;
+			
+				
+			//redEn = 0;
+			MPI_Reduce(&xl,&redEn,1,MPI_INT,MPI_MAX,0,MPI_COMM_WORLD);
+				xl = redEn;
+			
+
+			//redEn = 0;
+			MPI_Reduce(&yl,&redEn,1,MPI_INT,MPI_MAX,0,MPI_COMM_WORLD);
+				yl = redEn;
+			
+			//redEn = 0;
+			MPI_Reduce(&zl,&redEn,1,MPI_INT,MPI_MAX,0,MPI_COMM_WORLD);
+				zl = redEn;
+			
+		
 		if (rank == ROOT) {
 			
 			energy = Ebulk + Eint + Esurf;

@@ -15,7 +15,7 @@ void wet::algorithm()
 		for(st=1;st<=Neqst;st++)
 		{
 		  
-		    
+		  //  cout << "Process rank " << rank << "starting algorithm " <<endl;    
             computemoments();
 	    
 	    if(st%infost==0)
@@ -32,10 +32,11 @@ void wet::algorithm()
 		
 		for(k=k1;k<k2;k++)
 		  {
+		    diffCD();
 		    computeenergy();
 		    computesurfarea();
 		  }
-
+		
 		if (rank==ROOT)
 		  {
 		writeenergy(st);
@@ -50,6 +51,8 @@ void wet::algorithm()
 		COMx=0.0;
 		COMy=0.0;
 		COMz=0.0;
+		COMn=0.0;
+		COMt=0.0;
 		KEx=0.0;
 		vol=0.0;
 		KEy=0.0;
@@ -62,6 +65,12 @@ void wet::algorithm()
 		zhold=0.0;
 		dU=0.0;
 		r=0.0;
+		xc=0;
+		yc=0;
+		zc=0;
+		xl=0;
+		yl=0;
+		zl=0;
 		if(st%wrtst==0 and st>=stst)
 		{
 		
@@ -89,6 +98,10 @@ void wet::algorithm()
 		{
 		writemoments(st);
 		writevelocity(st);
+		if(st==Neqst)
+		  {
+		    writeinput();
+		  }
 		if(dist==1)
 		  {
 		    writedis(st);

@@ -43,21 +43,23 @@ class wet
 
 	int k, k1,k2; //Starting and finishing k values
 
-	double t0,t1,t2; //Weightings used to ensure anisotropy
+	double t0,t1,t2,ell; //Weightings used to ensure anisotropy
 
 	//double    (*drho)[3]; // Gradients of equiliberium variables
 
 	double d2C,dC;
 	
-	double theta;
-	 
-	double *Chold, *uxhold,*uyhold,*uzhold,*phold,*plan;
+	double theta, theta1,theta2;
+	
+	int str; //Width of theta2 strip
+ 
+	double *Chold, *uxhold,*uyhold,*uzhold,*phold,*plan,*planuz,*planuy;
 
 	int input,ktot,surftype;
 
 	int Lx,Ly,Lz,N; // Size of simulation box
 	
-	double Wc; //Modified wetting constant.
+	double *Wc; //Modified wetting constant.
 
 	double *ux,*uy,*uz; // Drop velocity
 	
@@ -65,7 +67,7 @@ class wet
 
 	int xk,yk,zk,xend; //Positions
 
-	int xs, ys ,zs,xs2,ys2,zs2,h,P,Ps,Pe; //Position and width of solid surface
+	int xs, ys ,zs,xs2,ys2,zs2,h,P,Ps,Pe,xc,yc,zc,xl,yl,zl; //Position and width of solid surface
 
 	int xcentre,ycentre,zcentre,R; //Drop position and drop radius
 
@@ -115,7 +117,7 @@ class wet
 	
 	double Ebulk,Eint,Esurf,energy,surfarea,xhold,yhold,zhold,r;//variables to calculate energy
 	
-	double KEx , KEy , KEz , COMx , COMy , COMz , Ctot , rhotot , disdtot , disvtot, vol, dU; //Variables to calculate Kinetic energy
+	double KEx , KEy , KEz , COMx , COMy , COMz ,COMt,COMn, Ctot , rhotot , disdtot , disvtot, vol, dU; //Variables to calculate Kinetic energy
 
 	string folder; //Holds the name of the folder to which inputs should be written
 
@@ -125,7 +127,7 @@ class wet
 
 	int Q; // Number of velocity dicridations
 
-	int wx ,wy ,wz ,wx2,wy2,wz2,pw; //Width of surface
+	int wx ,wy ,wz ,wx2,wy2,wz2,pw,zw,Pz; //Width of surface
 
 	double El,Eg,Ei,Et,Ekin;//Energy values
 
@@ -233,7 +235,8 @@ class wet
 	void gendisdGlobal();
 	void writedisin(long int);
 	void computesurfarea();
-	public:
+	void writeinput();
+ public:
 
 		void algorithm();
 		wet(void);

@@ -58,9 +58,9 @@ void wet::readinput()
     inputfile.ignore(250,'\n');
     cout << "M is " << M  << endl;
     
-    inputfile >> theta ;
+    inputfile >> theta1 >> theta2 ;
     inputfile.ignore(250,'\n');
-    cout << "theta is " << theta  << endl;
+    cout << "theta1 and theta2 " << theta1 << " " << theta2  << endl;
     
     inputfile >> tau1 >> tau2 ;
     inputfile.ignore(250,'\n');
@@ -118,6 +118,12 @@ void wet::readinput()
     inputfile >> uxi >> uyi >> uzi;
     inputfile.ignore(250,'\n');
     cout << "Initial Drop velocity " << uxi << " " << uyi << " " << uzi << endl;
+
+    
+    inputfile >> ell;
+    inputfile.ignore(250,'\n');
+    cout << "Drop anisotropy " << ell << endl;
+
     
     inputfile >> Nd;
     inputfile.ignore(250,'\n');
@@ -149,9 +155,13 @@ void wet::readinput()
     inputfile.ignore(250,'\n');
     cout << "Surface width 2 " << wx2 << " " << wy2 << " " << wz2 << endl;
 
-    inputfile >> h >> P >> pw >> Ps >> Pe ;
+    inputfile >> h >> P >> Pz >> pw >> zw >> Ps >> Pe ;
     inputfile.ignore(250,'\n');
-    cout << "Posts " << h << " " << P << " " << pw << " " << Ps << " " << Pe << endl;
+    cout << "Posts " << h << " " << P << " " << Pz << " " << pw << " " << zw << " " << Ps << " " << Pe << endl;
+
+    inputfile >> str ;
+    inputfile.ignore(250,'\n');
+    cout << "Strip width " << str << endl;
     
     inputfile.close();
 

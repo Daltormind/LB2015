@@ -14,16 +14,18 @@ void wet::initialisesurface()
 	if(surftype==0)
 	  {
 	//Surface One
+	     
 	if(xk>=xs and xk<xs+wx and zk>=zs and zk<zs+wz  and yk>=ys and yk<ys+wy)
 	{
 		mask[k]=28;
 		
 	}
-
+	
 	if(xk>=xs2 and xk<xs2+wx2 and zk>=zs2 and zk<zs2+wz2  and yk>=ys2 and yk<ys2+wy2)
 	  {
 	    mask[k]=28;
 	  }
+	
 	/*
 	if(yk>=ys2 and yk<ys2+wy2 and zk>=zs2 and zk<zs2+wz2)
 	  {
@@ -36,20 +38,78 @@ void wet::initialisesurface()
 	  }
 	*/
 	//Initialise Posts
-	if(xk>=h and xk<xs and mod(yk,P)<pw and yk>=Ps and yk<Pe)
+	int yt=yk+(pw-1)/2;
+	int zt=zk+(zw-1)/2;
+	if(xk>=h and xk<xs and mod(yt,P)<pw and yk>=Ps and yk<Pe and mod(zt,Pz)<zw)
 	{
 		mask[k]=28;
 		
 	}
 	  }
+	
 	else if (surftype==1)
 	  {
-	//Initialise Circle
-	    if((Lx-double(xk)+double(xs))*(Lx-double(xk)+double(xs))+double(yk)*double(yk)<double(ys)*double(ys))
+	//Initialise Cylinder
+	    if((Lx-double(xk)+double(xs))*(Lx-double(xk)+double(xs))+(double(yk)-double(zs))*(double(yk)-double(zs))<double(ys)*double(ys))
+	  {	
+
+  mask[k]=28;
+
+	  }
+
+	     
+	if(xk>=xs2 and xk<xs2+wx2 and zk>=zs2 and zk<zs2+wz2  and yk>=ys2 and yk<ys2+wy2)
+	{
+		mask[k]=28;
+		
+	}
+
+	  }
+	
+	else if (surftype==2)
+	  {
+	//Initialise sphere
+	    if((Lx-double(xk)+double(xs))*(Lx-double(xk)+double(xs))+double(yk)*double(yk)+double(zk)*double(zk)/*/(xs2*xs2)*/<double(ys)*double(ys))
 	  {	
   mask[k]=28;
 	  }
 	  }
+
+	else if (surftype==3)
+	  {
+	//Initialise Cylinder pillar
+	    if((Lx-double(xk)+double(xs))*(Lx-double(xk)+double(xs))+double(yk)*double(yk)<double(ys)*double(ys))
+	  {	
+	    if(mod(yk,P)<pw){
+  mask[k]=28;
+	    }
+	  }
+	  }
+
+	else if (surftype==4)
+	  {
+	//Initialise Concave surface
+	    if(xk>zs)
+	  {	
+	    
+  mask[k]=28;
+	    
+	  }
+	    if((double(xk)-double(xs))*(double(xk)-double(xs))+double(yk)*double(yk)<double(ys)*double(ys)){mask[k]=0;}
+
+	  }
+
+
+	else if (surftype==5)
+	  {
+	//Initialise step surface
+	    if((double(zs)-double(xk))/double(xs)+double(yk)/double(ys)<1.0)
+	      {
+		mask[k]=28;
+	      }
+	    if(xk>xs2){mask[k]=28;}
+	  }
+	
 	
 	
 	if(input==1)

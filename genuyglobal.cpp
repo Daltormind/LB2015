@@ -48,5 +48,17 @@ void wet::genuyglobal(void)
 		}
 		
 		
+	if(rank==ROOT)
+	  {
+	for(k=0;k<Ly*Lz;k++)
+	  {
+	    planuy[k]=0.0;
+	    for(int n=0;n<Lx;n++)
+	      {
+		planuy[k]+=uyGlobal[k+n*Ly*Lz]*(CGlobal[k+n*Ly*Lz]*rho1+(1-CGlobal[k+n*Ly*Lz])*rho2);
+	      }
+	  }
+	  }
+
 	
 	}

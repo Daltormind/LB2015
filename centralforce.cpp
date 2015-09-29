@@ -4,7 +4,7 @@
 
 void wet ::centralforce()
 {
-
+  //  if(rho[k]>0.1) G[0]=-0.0000002*(xk-300);
 		//compute gamma
   gamma0 = t0*(1.0 - 1.5*(ux[k]*ux[k] + uy[k]*uy[k] + uz[k]*uz[k]));
   

@@ -14,14 +14,14 @@ void wet::writedis(long int in)
         
         //------------------------- Write the disd File------------------------
         
-        snprintf(filename1,20,"/sdisd%d.m",in);			//Create a name for file that contain data
+        snprintf(filename1,20,"/sdisd%dZ1.m",in);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());
 		file.precision(16);
 	
 		for( h = 0 ; h < 1 ; h++) 
 		{   
-			file  << "disd" << in << "(:,:," << h+1 << ")=[" << endl;
+			file  << "disd" << in << "Z1(:,:," << h+1 << ")=[" << endl;
 		
 			for( i = 0 ; i < Lx ; i++) 
 			{
@@ -45,22 +45,81 @@ void wet::writedis(long int in)
 }
 		
 		file.close();
+	
+        snprintf(filename1,20,"/sdisd%dY1.m",in);			//Create a name for file that contain data
+		filename=folder+filename1;
+        file.open(filename.c_str());
+		file.precision(16);
+	
+		for( h = 0 ; h < Lz ; h++) 
+		{   
+			file  << "disd" << in << "Y1(:,:," << h+1 << ")=[" << endl;
+		
+			for( i = 0 ; i < Lx ; i++) 
+			{
+			  for( j = 0 ; j < 1 ; j++) 
+				{
+					k = h + j*Lz + i*Ly*Lz;
+					
+					
+					
+					file << disdGlobal[k] << " " ;
+					
+					
+						
+				}
+				file << endl;
+		
+}
+			file <<"];" << endl;
+		
+			
+}
+		
+		file.close();
 		
 		
 		//--------------------------- Write disv file---------------------------
 		
-		snprintf(filename1,20,"/sdisv%d.m",in);			//Create a name for file that contain data
+		snprintf(filename1,20,"/sdisv%dZ1.m",in);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());
 		file.precision(16);
 		
 		for( h = 0 ; h < 1 ; h++) 
 		{   
-			file  << "disv" << in << "(:,:," << h+1 << ")=[" << endl;
+			file  << "disv" << in << "Z1(:,:," << h+1 << ")=[" << endl;
 		
 			for( i = 0 ; i < Lx ; i++) 
 			{
 				for( j = 0 ; j < Ly ; j++) 
+				{
+					k = h + j*Lz + i*Ly*Lz;
+					file << disvGlobal[k] << " " ;
+				
+						
+				}
+				file << endl;
+			
+			}
+			file <<"];" << endl;
+		
+		}
+		
+		file.close();
+		
+		snprintf(filename1,20,"/sdisv%dY1.m",in);			//Create a name for file that contain data
+		filename=folder+filename1;
+        file.open(filename.c_str());
+		file.precision(16);
+		
+		for( h = 0 ; h < Lz ; h++) 
+		{   
+			file  << "disv" << in << "Y1(:,:," << h+1 << ")=[" << endl;
+		
+			for( i = 0 ; i < Lx ; i++) 
+			{
+				for( j = 0 ; j < 1 ; j++) 
 				{
 					k = h + j*Lz + i*Ly*Lz;
 					file << disvGlobal[k] << " " ;

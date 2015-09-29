@@ -47,6 +47,8 @@ void wet::genuxglobal(void)
 			}
 		}
 		
-		
 	
-	}
+
+	
+	
+}

@@ -116,7 +116,7 @@ gradrhoU8=0.5*(-rho[d[d[k][7]][7]]+4*rho[d[k][7]]-3*rho[k])/dt;
 }
     	
     	if(mask[d[k][1]]==28)
-    	{gradrhoU2=gradrhoU1;gradCU2=gradCU1;gradmuU1=gradmuU1;gradpU2=gradpU1;
+    	{gradrhoU2=gradrhoU1;gradCU2=gradCU1;gradmuU2=gradmuU1;gradpU2=gradpU1;
 	  
 }
     	
@@ -619,7 +619,7 @@ gradrhoU8=0.5*(-rho[d[d[k][7]][7]]+4*rho[d[k][7]]-3*rho[k])/dt;
 }
     	
     	if(mask[d[k][1]]==28 || mask[d[k][1]]==3)
-    	{gradrhoU2=gradrhoU1;gradCU2=gradCU1;gradmuU1=gradmuU1;gradpU2=gradpU1;
+    	{gradrhoU2=gradrhoU1;gradCU2=gradCU1;gradmuU2=gradmuU1;gradpU2=gradpU1;
 	  
 }
     	

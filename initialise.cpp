@@ -63,6 +63,8 @@ void wet::initialise()
 		uyGlobal=new double[N] ;
 		uzGlobal=new double[N] ;
 		plan=new double[Lz*Ly];
+		planuy=new double[Lz*Ly];
+		planuz=new double[Lz*Ly];
 		if(dist==1)
 		  {
 		    disvGlobal=new double[N];
@@ -150,6 +152,7 @@ void wet::initialise()
 	gc15=new double[ProcessN]; gc16=new double[ProcessN]; gc17=new double[ProcessN]; gc18=new double[ProcessN];
 	tau=new double[ProcessN];
 
+	Wc=new double[ProcessN];
 	//f=new double[ProcessN][19];
 
 	
@@ -162,9 +165,24 @@ void wet::initialise()
 
 
 	
-	 
-	 Wc=-cos(theta*M_PI/180.0)*sqrt(2*B/kappa);
+	 	for(k=k1;k<k2;k++)
+		  {
 
+		    computecoordinates(k);
+		    /*  
+		    if(yk<=10)
+		      {
+			theta=theta2;
+		      }
+		    else
+		      {
+			theta=theta1;
+		      }
+		    */
+		    theta=0.5*(theta1-theta2)*(1-tanh(2*(yk-str)/ep))+theta2;
+
+	 Wc[k]=-cos(theta*M_PI/180.0)*sqrt(2*B/kappa);
+		  }
 	 writeinfofile();
 	neibour();
 	

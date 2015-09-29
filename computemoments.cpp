@@ -37,9 +37,11 @@ if(mask[k]!=28)
 		}
 		//rho[k]=f[k][0]+f[k][1]+f[k][2]+f[k][3]+f[k][4]+f[k][7]+f[k][8]+f[k][9]+f[k][10];
 		
-		     	    
-	    if(st%Nd==0)
-	      {
+	
+	//printf("CHECK: st=%i Nd=%i\n",st,Nd);		     	    
+			//	cout << "Nd=" << Nd << " st=" << st << endl;	
+		/*    if(st%Nd==0)
+	      { 
 
 
 		//cout << " New drop added " << endl;
@@ -88,9 +90,9 @@ if(mask[k]!=28)
 		  }
 		  }
 		  }
-		  }
-		
-	    
+	      }
+		*/
+ 
 
 
 		
@@ -98,7 +100,7 @@ if(mask[k]!=28)
 		
 		tau[k]=1.0/(C[k]/tau1+(1-C[k])/tau2); // Compute tau for updated moments
 		if(rt==1){
-	if (mask[k]==1 || mask[k]==3 || mask[k]==4 || mask[k]==5){tau[k]=0.5;}
+	if (mask[k]==1 || mask[k]==3){tau[k]=0.5;}
 		}
 	
 //	if(st%10000==0){tau[k]=0.5;}
@@ -115,6 +117,15 @@ if(mask[k]!=28)
 exchangeC();
 exchangerho();
 
+for(k=k1;k<k2;k++)
+  {
+    computecoordinates(k);
+    cenxu=xk*C[k];
+    cenxl=C[k];
+  }
+
+cenx=cenxu/cenxl;
+if(rho[k]>0.1) G[0]=-0.0000002*(cenx-300);
 for(k=k1;k<k2;k++)//Initialise free energy 
 	{
 		if(mask[k]!=28)
@@ -203,7 +214,7 @@ for(k=k1;k<k2;k++)//Initialise free energy
 			else if (mask[k]==3)
 			{
 			
-				dC=Wc*(C[k]-C[k]*C[k]);
+				dC=Wc[k]*(C[k]-C[k]*C[k]);
 				if(mask[d[k][0]]==28)
     	{hold1=C[d[k][1]]-2*dC;}else{hold1=C[d[k][0]];}
     	
@@ -296,7 +307,7 @@ else{hold11=C[d[k][10]];}
 	else if (mask[k]==1)
 	      {
 			
-				dC=Wc*(C[k]-C[k]*C[k]);
+				dC=Wc[k]*(C[k]-C[k]*C[k]);
 				if(mask[d[k][0]]==28)
     	{hold1=C[d[k][1]]-2*dC;}else{hold1=C[d[k][0]];}
     	
@@ -772,7 +783,10 @@ if(mask[k]!=28)
 			   ux[k]=(3.0*(g1[k]-g2[k]+g7[k]-g10[k]+g9[k]-g8[k]+g15[k]+g17[k]-g18[k]-g16[k])+0.5*dt*mu[k]*gradCCx)/rho[k];
 			   uy[k]=(3.0*(g3[k]-g4[k]+g7[k]-g10[k]+g8[k]-g9[k]+g11[k]+g13[k]-g12[k]-g14[k])+0.5*dt*mu[k]*gradCCy)/rho[k];
 			   uz[k]=(3.0*(g5[k]-g6[k]+g11[k]-g14[k]+g12[k]-g13[k]+g15[k]+g16[k]-g17[k]-g18[k])+0.5*dt*mu[k]*gradCCz)/rho[k];
-			   /*
+			  
+
+			 
+ /*
 			   if(st==1)
 			     {
 			       ux[k]=C[k]*uxi;
@@ -810,10 +824,10 @@ if(mask[k]!=28)
 			   uy[k]=(3.0*(g3[k]-g4[k]+g7[k]-g10[k]+g8[k]-g9[k])+0.5*dt*mu[k]*gradCCy)/rho[k];
 			  	uz[k]=0.0;
 				/*
-				if(st==1)
+				if(st==5000)
 				  {
-				    ux[k]=C[k]*uxi;
-				    uy[k]=C[k]*uyi;
+				    ux[k]+=uxi;
+				    uy[k]+=uyi;
 				    uz[k]=0.0;
 				  }
 				*/

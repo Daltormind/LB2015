@@ -4,7 +4,7 @@ void wet::genCglobal(void)
 {
 
 	//if(t%iCfoStep==0)
-	//	cout << "Process " << raCk << ": geCeratiCg global C..." << eCdl;
+	//	cout << "Process " << rank << ": generating global C..." << endl;
 
 	int m, n;
 	MPI_Status  status[size];
@@ -49,7 +49,7 @@ void wet::genCglobal(void)
 		
 	
 	}
-
+	//	cout << "Process " << rank << ": global C generated 0." << endl;
 	if(rank==ROOT)
 	  {
 	for(k=0;k<Ly*Lz;k++)
@@ -61,6 +61,7 @@ void wet::genCglobal(void)
 	      }
 	  }
 	  }
+	
 	//if(t%iCfoStep==0)
-	//	cout << "Process " << raCk << ": global C geCerated." << eCdl;
+	//	cout << "Process " << rank << ": global C generated 2." << endl;
 }

@@ -14,7 +14,11 @@ void wet::initialisemoments()
 	computecoordinates(k);
 
 	if(R!=-1)
-	{
+	  {
+
+
+
+	  
 	  /*
 	if((xk-xcentre)*(xk-xcentre)+(yk-ycentre)*(yk-ycentre)+(zk-zcentre)*(zk-zcentre)<(R-5*ep)*(R-5*ep))
 		{
@@ -29,17 +33,24 @@ void wet::initialisemoments()
 	  */	
 	  /*else*/ // if ((xk-xcentre)*(xk-xcentre)+(yk-ycentre)*(yk-ycentre)+(zk-zcentre)*(zk-zcentre)<(R+5*ep)*(R+5*ep))
 	  //	{
-		  
-		  	num=sqrt((xk-xcentre)*(xk-xcentre)+(yk-ycentre)*(yk-ycentre)+(zk-zcentre)*(zk-zcentre));
-		  	test=tanh(2.0*(-num+R)/ep);
+	  
+	    num=sqrt((xk-xcentre)*(xk-xcentre)+(yk-ycentre)*(yk-ycentre)*ell+(zk-zcentre)*(zk-zcentre)/(ell));
+	     		
+     	test=tanh(2.0*(-num+R)/ep);
 		  	C[k]=0.5 + 0.5*test;
 		  	
-			
 			ux[k]=C[k]*uxi;
-		  	
 			uy[k]=C[k]*uyi;
-		  	uz[k]=C[k]*uzi;
-			
+			uz[k]=C[k]*uzi;
+		
+//if(xk>=xs2 and xk<xs2+wx2 and yk>=ys2 and yk<ys2+wy2 and zk >=zs2 and zk<zs2+wz2 )
+			//{
+			//  C[k]=1.0;
+			//  ux[k]=/*C[k]*/uxi;
+		  	
+			//  uy[k]=/*C[k]*/uyi;
+			//	uz[k]=/*C[k]*/uzi;
+			// }
 				 
 				//cout << "Entered boundry layer C=" << C[k]  << " test=" << test << " num=" << num << endl;
 		
@@ -59,32 +70,55 @@ void wet::initialisemoments()
 
 		}
 			*/
-		}
+		   
+	  }
+	
 
 
 	else
 	{
 	  
-	  
+	
 	  //C[k]=0.0;
-	   
+	  if((95-xk)>abs(100-yk))
+	    {
 	  if(xk<30 ){C[k]=0.0;}
-	  else if (xk<40)
+	  else if (xk>40)
 	  
 	    {
-	  			test=tanh(2.0*(xk-35)/ep);
+	  			test=tanh(2.0*(xk-75)/ep);
 	  			
 				C[k]=0.5 + 0.5*test;  	
 	  					}
-	  					else if(xk>60)
+	  					else if(xk>150)
 	  					{
 	  						test=tanh(2.0*(90-xk)/ep);
 				C[k]=0.5 + 0.5*test; 
 	  					}
 	  
-	  else {C[k]=1.0;}
-		
-	  C[k]=0.0;
+	  //  else {C[k]=1.0;}
+	    }
+	     
+	  // if(yk<10 ){C[k]=0.0;}
+	  
+	  if(abs(100-yk)>=(95-xk))
+	    {
+	  if (yk<100)
+	  
+	    {
+	  			test=tanh(2.0*(yk-80)/ep);
+	  			
+				C[k]=0.5 + 0.5*test;  	
+	  					}
+	  					else if(yk>=100)
+	  					{
+	  						test=tanh(2.0*(120-yk)/ep);
+				C[k]=0.5 + 0.5*test; 
+	  					}
+	  
+	  //  else {C[k]=1.0;}
+	    }
+	
 		ux[k]=uxi;
 		uy[k]=uyi;
 		uz[k]=uzi;
@@ -103,7 +137,7 @@ void wet::initialisemoments()
 	    
 	    C[k]=Chold[ktot];
 	    ux[k]=uxhold[ktot];
-	    uy[k]=1.5*uyhold[ktot];
+	    uy[k]=uyhold[ktot];
 	    uz[k]=uzhold[ktot];
 
 	    if(C[k]==-2){C[k]=0;};
@@ -204,7 +238,7 @@ void wet::initialisemoments()
 			else if (mask[k]==3)
 			{
 			
-				dC=Wc*(C[k]-C[k]*C[k]);
+				dC=Wc[k]*(C[k]-C[k]*C[k]);
 				if(mask[d[k][0]]==28)
     	{hold1=C[d[k][1]]-2*dC;}else{hold1=C[d[k][0]];}
     	
@@ -273,7 +307,7 @@ void wet::initialisemoments()
 	else if (mask[k]==1)
 	      {
 			
-				dC=Wc*(C[k]-C[k]*C[k]);
+				dC=Wc[k]*(C[k]-C[k]*C[k]);
 				if(mask[d[k][0]]==28)
     	{hold1=C[d[k][1]]-2*dC;}else{hold1=C[d[k][0]];}
     	

@@ -101,7 +101,7 @@ if(mask[k]!=28)
       
 			}
 
-    else if (mask[k]==1 || mask[k]==4 || mask[k]==5 )
+    else if (mask[k]==1)
     {
     	if(mask[d[k][0]]==28 || mask[d[k][1]]==28)
 	  {graduxC1=0.0;graduyC1=0.0;gradmuC1=0.0;graduzC1=0.0;graduxC2=0.0;graduyC2=0.0;gradmuC2=0.0;graduzC2=0.0;}
