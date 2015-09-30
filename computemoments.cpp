@@ -116,7 +116,7 @@ if(mask[k]!=28)
 
 exchangeC();
 exchangerho();
-
+/*
 for(k=k1;k<k2;k++)
   {
     computecoordinates(k);
@@ -126,6 +126,7 @@ for(k=k1;k<k2;k++)
 
 cenx=cenxu/cenxl;
 if(rho[k]>0.1) G[0]=-0.0000002*(cenx-300);
+*/
 for(k=k1;k<k2;k++)//Initialise free energy 
 	{
 		if(mask[k]!=28)
