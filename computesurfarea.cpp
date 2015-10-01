@@ -34,7 +34,7 @@ void wet::computesurfarea()
     
       if(C[k]>0.15)
 	{
-	  if(xk>xhold){xhold=xk;}
+	  if((xs-xk)>xhold){xhold=(xs-xk);}
 	}
     
   
