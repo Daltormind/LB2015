@@ -192,5 +192,10 @@ void wet::algorithm()
 		
 		
 		}
+		
+		if(rank==ROOT)
+		{
+			popen("plot.sh")
+		}
 
 }

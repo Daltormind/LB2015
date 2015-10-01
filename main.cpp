@@ -13,6 +13,9 @@ int main(int argc, char *argv[])
 	
 	drop.algorithm();
 	
+	
+	
+	
 	MPI_Finalize();
 	
 	return(0);
