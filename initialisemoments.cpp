@@ -13,6 +13,11 @@ void wet::initialisemoments()
 	{
 	computecoordinates(k);
 
+	
+	test=tanh(2.0*(xk-165)/ep);
+	  			
+	C[k]=0.5 + 0.5*test;
+	
 	if(R!=-1)
 	  {
 
@@ -129,6 +134,8 @@ void wet::initialisemoments()
 	
 	
 	}
+	
+	
 	
 	if(input==1)
 	  { 
