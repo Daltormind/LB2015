@@ -14,9 +14,7 @@ void wet::initialisemoments()
 	computecoordinates(k);
 
 	
-	test=tanh(2.0*(xk-165)/ep);
-	  			
-	C[k]=0.5 + 0.5*test;
+	
 	
 	if(R!=-1)
 	  {
@@ -135,8 +133,12 @@ void wet::initialisemoments()
 	
 	}
 	
-	
-	
+	if(xk>=160)
+	{
+	test=tanh(2.0*(xk-165)/ep);
+	  			
+	C[k]=0.5 + 0.5*test;
+	}
 	if(input==1)
 	  { 
 	    if(rank==ROOT){ktot=k+rank*(k2-(Lx%size+1)*k1)-k1;}
