@@ -133,11 +133,14 @@ void wet::initialisemoments()
 	
 	}
 	
+	/*
 	if(xk>=120)
 	{
 	test=tanh(2.0*(xk-140)/ep);
 	  			
 	C[k]=0.5 + 0.5*test;
+	}
+	*/
 	
 	if(input==1)
 	  { 
