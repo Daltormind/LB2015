@@ -133,12 +133,12 @@ void wet::initialisemoments()
 	
 	}
 	
-	if(xk>=160)
+	if(xk>=120)
 	{
-	test=tanh(2.0*(xk-165)/ep);
+	test=tanh(2.0*(xk-140)/ep);
 	  			
 	C[k]=0.5 + 0.5*test;
-	}
+	
 	if(input==1)
 	  { 
 	    if(rank==ROOT){ktot=k+rank*(k2-(Lx%size+1)*k1)-k1;}
