@@ -50,7 +50,7 @@ void wet::initialisesurface()
 	else if (surftype==1)
 	  {
 	//Initialise Cylinder
-	    if((Lx-double(xk)+double(xs))*(Lx-double(xk)+double(xs))+(double(yk)-double(zs))*(double(yk)-double(zs))<double(ys)*double(ys))
+	    if((Lx-double(xk)+double(xs))*(Lx-double(xk)+double(xs))/(double(wx)*double(wx))+(double(yk)-double(zs))*(double(yk)-double(zs))/(double(wy)*double(wy))<1.0;
 	  {	
 
   mask[k]=28;
