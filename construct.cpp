@@ -14,7 +14,7 @@ wet::wet(void)
 	
 	
 	readinput();
-	string command0="rm -r" + folder
+	string command0="rm -r" + folder;
 	string command="mkdir " + folder;
     cout <<"String command is equal to " << command << endl;
     system(command0.c_str());
