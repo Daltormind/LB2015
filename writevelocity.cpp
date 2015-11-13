@@ -157,10 +157,12 @@ void wet::writevelocity(int in)
 		file << "uy" << in << "X95=squeeze(uy" << in << "X95);" << endl;
 		file.close();
 		
+		/*
         snprintf(filename1,20,"/suy%dslice.m",in);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());
 		file.precision(16);
+		
 		
 		for( n = 0 ; n < Lz ; n++) 
 		{   
@@ -179,7 +181,7 @@ void wet::writevelocity(int in)
 		}
 		file << "uy" << in << "slice=squeeze(uy" << in << "slice);" << endl;
 		file.close();
-		
+		*/
 	
 		if( dimensions==3)
 		  {		// Write z velocity
@@ -254,7 +256,7 @@ void wet::writevelocity(int in)
 		}
 		file << "uz" << in << "X95=squeeze(uz" << in << "X95);" << endl;
 		file.close();
-		
+		/*
         snprintf(filename1,20,"/suz%dslice.m",in);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());
@@ -277,7 +279,7 @@ void wet::writevelocity(int in)
 		}
 		file << "uz" << in << "slice=squeeze(uz" << in << "slice);" << endl;
 		file.close();
-		
+		*/
 		 
 		  }
 		

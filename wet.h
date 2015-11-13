@@ -54,7 +54,7 @@ class wet
 	
 	int str; //Width of theta2 strip
  
-	double *Chold, *uxhold,*uyhold,*uzhold,*phold,*plan,*planuz,*planuy;
+	double *Chold, *uxhold,*uyhold,*uzhold,*phold,*plan,*planuz,*planuy,*planux;
 
 	int input,ktot,surftype;
 

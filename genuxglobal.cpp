@@ -47,7 +47,17 @@ void wet::genuxglobal(void)
 			}
 		}
 		
-	
+	if(rank==ROOT)
+	  {
+	for(k=0;k<Ly*Lz;k++)
+	  {
+	    planux[k]=0.0;
+	    for(int n=0;n<Lx;n++)
+	      {
+		planux[k]+=uxGlobal[k+n*Ly*Lz]*(CGlobal[k+n*Ly*Lz]*rho1+(1-CGlobal[k+n*Ly*Lz])*rho2);
+	      }
+	  }
+	  }
 
 	
 	

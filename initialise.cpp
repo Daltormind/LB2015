@@ -65,6 +65,8 @@ void wet::initialise()
 		plan=new double[Lz*Ly];
 		planuy=new double[Lz*Ly];
 		planuz=new double[Lz*Ly];
+		planux=new double[Lz*Ly];
+		
 		if(dist==1)
 		  {
 		    disvGlobal=new double[N];
