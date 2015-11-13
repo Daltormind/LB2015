@@ -66,6 +66,8 @@ void wet::initialise()
 		planuy=new double[Lz*Ly];
 		planuz=new double[Lz*Ly];
 		planux=new double[Lz*Ly];
+		planC=new double[Lz*Ly];
+		stan=new double[Lz*Ly];
 		
 		if(dist==1)
 		  {

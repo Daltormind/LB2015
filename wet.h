@@ -54,7 +54,7 @@ class wet
 	
 	int str; //Width of theta2 strip
  
-	double *Chold, *uxhold,*uyhold,*uzhold,*phold,*plan,*planuz,*planuy,*planux;
+	double *Chold, *uxhold,*uyhold,*uzhold,*phold,*plan,*planuz,*planuy,*planux,*planC,*stan;
 
 	int input,ktot,surftype;
 
@@ -66,7 +66,7 @@ class wet
 	
 	double uxi,uyi,uzi; //Initial Drop velocity
 
-	int xk,yk,zk,xend; //Positions
+	int xk,yk,zk,xend,av; //Positions
 
 	int xs, ys ,zs,xs2,ys2,zs2,h,P,Ps,Pe,xc,yc,zc,xl,yl,zl; //Position and width of solid surface
 

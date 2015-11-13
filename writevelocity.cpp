@@ -60,7 +60,7 @@ void wet::writevelocity(int in)
 		}
 		file << "ux" << in << "Y1=squeeze(ux" << in << "Y1);" << endl;
 		file.close();
-		/*
+		
         snprintf(filename1,20,"/sux%dX95.m",in);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());
@@ -83,7 +83,53 @@ void wet::writevelocity(int in)
 		}
 		file << "ux" << in << "X95=squeeze(ux" << in << "X95);" << endl;
 		file.close();
-		*/
+		
+		snprintf(filename1,20,"/sC%dX95.m",in);			//Create a name for file that contain data
+		filename=folder+filename1;
+        file.open(filename.c_str());
+		file.precision(16);
+		
+		for( n = 0 ; n < Lz ; n++) 
+		{   
+			file  << "C"   << in << "X95(:,:," << n+1 << ")=[" << endl;
+			for( q = 0 ; q < 1 ; q++) 
+			{
+				for( j = 0 ; j < Ly ; j++) 
+				{
+					k = n + j*Lz + q*Ly*Lz;
+					file << planC[k] << " " ;
+						
+				}
+				file << endl;
+			}
+			file <<"];" << endl;
+		}
+		file << "ux" << in << "X95=squeeze(C" << in << "X95);" << endl;
+		file.close();
+		
+		snprintf(filename1,20,"/sstan%dX95.m",in);			//Create a name for file that contain data
+		filename=folder+filename1;
+        file.open(filename.c_str());
+		file.precision(16);
+		
+		for( n = 0 ; n < Lz ; n++) 
+		{   
+			file  << "stan"   << in << "X95(:,:," << n+1 << ")=[" << endl;
+			for( q = 0 ; q < 1 ; q++) 
+			{
+				for( j = 0 ; j < Ly ; j++) 
+				{
+					k = n + j*Lz + q*Ly*Lz;
+					file << stan[k] << " " ;
+						
+				}
+				file << endl;
+			}
+			file <<"];" << endl;
+		}
+		file << "stan" << in << "X95=squeeze(ux" << in << "X95);" << endl;
+		file.close();
+		
 		// Write y velocity
         
         snprintf(filename1,20,"/suy%dZ1.m",in);			//Create a name for file that contain data
