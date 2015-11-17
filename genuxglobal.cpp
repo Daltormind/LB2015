@@ -52,12 +52,12 @@ void wet::genuxglobal(void)
 	for(k=0;k<Ly*Lz;k++)
 	  {
 	    planux[k]=0.0;
-	    planC[k]=0.0;
+	    //planC[k]=0.0;
 	    for(int n=0;n<Lx;n++)
 	      {
 		planux[k]+=uxGlobal[k+n*Ly*Lz]*(CGlobal[k+n*Ly*Lz]);
-		planC[k]+=CGlobal[k+n*Ly*Lz];
-		av=planux[k]/planC[k];
+		//planC[k]+=CGlobal[k+n*Ly*Lz];
+		av=planux[k]/plan[k];
 		stan[k]=(uxGlobal[k+n*Ly*Lz]*(CGlobal[k+n*Ly*Lz])-av)*(uxGlobal[k+n*Ly*Lz]*(CGlobal[k+n*Ly*Lz])-av);
 		
 	      }
