@@ -70,7 +70,7 @@ class wet
 
 	int xs, ys ,zs,xs2,ys2,zs2,h,P,Ps,Pe,xc,yc,zc,xl,yl,zl; //Position and width of solid surface
 
-	int xcentre,ycentre,zcentre,R; //Drop position and drop radius
+	int xcentre,ycentre,zcentre,R,xcentre1,ycentre1,zcentre1,R1; //Drop position and drop radius
 
 	int a,i ;//Discrete velocity index and cartesian index
 

@@ -115,6 +115,14 @@ void wet::readinput()
     inputfile.ignore(250,'\n');
     cout << "Droplet Radius " << R << endl;
     
+    inputfile >> xcentre1 >> ycentre1 >> zcentre1 ;
+    inputfile.ignore(250,'\n');
+    cout << "Drop centre " << xcentre << " " << ycentre << " " << zcentre << endl;
+    
+    inputfile >> R1;
+    inputfile.ignore(250,'\n');
+    cout << "Droplet Radius " << R << endl;
+    
     inputfile >> uxi >> uyi >> uzi;
     inputfile.ignore(250,'\n');
     cout << "Initial Drop velocity " << uxi << " " << uyi << " " << uzi << endl;
