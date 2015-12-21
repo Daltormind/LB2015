@@ -163,6 +163,18 @@ void wet::initialisemoments()
 
 	    if(C[k]==-2){C[k]=0;};
 	  }
+	  
+	  if(input==2)
+	  {
+	  num=sqrt((xk-xcentre)*(xk-xcentre)+(yk-ycentre)*(yk-ycentre));
+	     		
+     	test=tanh(2.0*(-num+R)/ep);
+		  	C[k]=0.5 + 0.5*test;
+		  	
+			ux[k]=C[k]*uxi;
+			uy[k]=C[k]*uyi;
+			uz[k]=C[k]*uzi;
+	  }
 	
 
 	}
