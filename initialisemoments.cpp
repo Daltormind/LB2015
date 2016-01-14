@@ -168,7 +168,7 @@ void wet::initialisemoments()
 	  {
 	  num=sqrt((zk-zcentre)*(zk-zcentre)+(yk-ycentre)*(yk-ycentre));
 	     		double no=rand()%5;
-     	test=tanh(2.0*(-num+R+5)/ep);
+     	test=tanh(2.0*(-num+R+no)/ep);
 		  	C[k]=0.5 + 0.5*test;
 		  	
 			ux[k]=C[k]*uxi;
