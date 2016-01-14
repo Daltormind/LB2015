@@ -27,7 +27,7 @@ void wet::writemoments(long int in)
 			{
 			  for( j = 0 ; j < Ly ; j++) 
 				{
-					k = h + j*Lz + i*Ly*Lz;
+					k = h +50 + j*Lz + i*Ly*Lz;
 					
 					if(maskGlobal[k]==28){file << -2 << " " ;}
 					
@@ -128,7 +128,7 @@ void wet::writemoments(long int in)
 			{
 			  for( j = 0 ; j < 1 ; j++) 
 				{
-					k = h + j*Lz + i*Ly*Lz;
+					k = h + (j+50)*Lz + i*Ly*Lz;
 					
 					if(maskGlobal[k]==28){file << -2 << " " ;}
 					
@@ -273,7 +273,7 @@ void wet::writemoments(long int in)
 			{
 				for( j = 0 ; j < Ly ; j++) 
 				{
-					k = h + j*Lz + i*Ly*Lz;
+					k = h + 50 + j*Lz + i*Ly*Lz;
 					file << pGlobal[k] << " " ;
 						
 				}
@@ -282,6 +282,52 @@ void wet::writemoments(long int in)
 			file <<"];" << endl;
 		}
 		file << "p" << in << "Z1=squeeze(p" << in << "Z1);" << endl;
+		file.close();
+		
+		snprintf(filename1,20,"/spc%dZ1.m",in);			//Create a name for file that contain data
+		filename=folder+filename1;
+        file.open(filename.c_str());
+		file.precision(16);
+		
+		for( h = 0 ; h < 1 ; h++) 
+		{   
+			file  << "pc" << in << "Z1(:,:," << h+1 << ")=[" << endl;
+			for( i = 0 ; i < Lx ; i++) 
+			{
+				for( j = 0 ; j < Ly ; j++) 
+				{
+					k = h + 50 + j*Lz + i*Ly*Lz;
+					file << pcGlobal[k] << " " ;
+						
+				}
+				file << endl;
+			}
+			file <<"];" << endl;
+		}
+		file << "pc" << in << "Z1=squeeze(pc" << in << "Z1);" << endl;
+		file.close();
+		
+		snprintf(filename1,20,"/spt%dZ1.m",in);			//Create a name for file that contain data
+		filename=folder+filename1;
+        file.open(filename.c_str());
+		file.precision(16);
+		
+		for( h = 0 ; h < 1 ; h++) 
+		{   
+			file  << "pt" << in << "Z1(:,:," << h+1 << ")=[" << endl;
+			for( i = 0 ; i < Lx ; i++) 
+			{
+				for( j = 0 ; j < Ly ; j++) 
+				{
+					k = h + 50 + j*Lz + i*Ly*Lz;
+					file << ptGlobal[k] << " " ;
+						
+				}
+				file << endl;
+			}
+			file <<"];" << endl;
+		}
+		file << "pt" << in << "Z1=squeeze(pt" << in << "Z1);" << endl;
 		file.close();
 		
 
@@ -322,7 +368,7 @@ void wet::writemoments(long int in)
 			{
 				for( j = 0 ; j < 1 ; j++) 
 				{
-					k = h + j*Lz + i*Ly*Lz;
+					k = h + (j+50)*Lz + i*Ly*Lz;
 					file << pGlobal[k] << " " ;
 						
 				}
@@ -331,6 +377,52 @@ void wet::writemoments(long int in)
 			file <<"];" << endl;
 		}
 		file << "p" << in << "Y1=squeeze(p" << in << "Y1);" << endl;
+		file.close();
+		
+		snprintf(filename1,20,"/spc%dY1.m",in);			//Create a name for file that contain data
+		filename=folder+filename1;
+        file.open(filename.c_str());
+		file.precision(16);
+		
+		for( h = 0 ; h < Lz ; h++) 
+		{   
+			file  << "pc" << in << "(:,:," << h+1 << ")=[" << endl;
+			for( i = 0 ; i < Lx ; i++) 
+			{
+				for( j = 0 ; j < 1 ; j++) 
+				{
+					k = h + (j+50)*Lz + i*Ly*Lz;
+					file << pcGlobal[k] << " " ;
+						
+				}
+				file << endl;
+			}
+			file <<"];" << endl;
+		}
+		file << "pc" << in << "Y1=squeeze(pc" << in << "Y1);" << endl;
+		file.close();
+		
+		snprintf(filename1,20,"/spt%dY1.m",in);			//Create a name for file that contain data
+		filename=folder+filename1;
+        file.open(filename.c_str());
+		file.precision(16);
+		
+		for( h = 0 ; h < Lz ; h++) 
+		{   
+			file  << "pt" << in << "(:,:," << h+1 << ")=[" << endl;
+			for( i = 0 ; i < Lx ; i++) 
+			{
+				for( j = 0 ; j < 1 ; j++) 
+				{
+					k = h + (j+50)*Lz + i*Ly*Lz;
+					file << ptGlobal[k] << " " ;
+						
+				}
+				file << endl;
+			}
+			file <<"];" << endl;
+		}
+		file << "pt" << in << "Y1=squeeze(pt" << in << "Y1);" << endl;
 		file.close();
 		
 		/*

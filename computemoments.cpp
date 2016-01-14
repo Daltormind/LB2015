@@ -454,6 +454,8 @@ else{hold11=C[d[k][10]];}
 			
 			
 			mu[k]=2*B*( C[k]*pow(C[k]-1.0,2) + pow(C[k],2)*(C[k]-1.0) ) - kappa*d2C;
+			
+			pc[k]=-kappa*C[k]*d2C;
 
             
             
@@ -784,6 +786,9 @@ if(mask[k]!=28)
 			   ux[k]=(3.0*(g1[k]-g2[k]+g7[k]-g10[k]+g9[k]-g8[k]+g15[k]+g17[k]-g18[k]-g16[k])+0.5*dt*mu[k]*gradCCx)/rho[k];
 			   uy[k]=(3.0*(g3[k]-g4[k]+g7[k]-g10[k]+g8[k]-g9[k]+g11[k]+g13[k]-g12[k]-g14[k])+0.5*dt*mu[k]*gradCCy)/rho[k];
 			   uz[k]=(3.0*(g5[k]-g6[k]+g11[k]-g14[k]+g12[k]-g13[k]+g15[k]+g16[k]-g17[k]-g18[k])+0.5*dt*mu[k]*gradCCz)/rho[k];
+			   
+			   pc[k]+=kappa/2*(gradCCx*gradCCx+gradCCy*gradCCy+gradCCz*gradCCz);
+			   pt[k]=2*B*( C[k]*pow(C[k]-1.0,2) + pow(C[k],2)*(C[k]-1.0) )-B*C[k]*C[k]*(C[k]-1)*(C[k]-1);
 			  
 
 			 

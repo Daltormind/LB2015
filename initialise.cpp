@@ -68,6 +68,8 @@ void wet::initialise()
 		planux=new double[Lz*Ly];
 		planC=new double[Lz*Ly];
 		stan=new double[Lz*Ly];
+		pcGlobal=new double[N];
+		ptGlobal=new double[N];
 		
 		if(dist==1)
 		  {
@@ -126,6 +128,10 @@ void wet::initialise()
 	ux=new double[ProcessN]; uy=new double[ProcessN];uz=new double[ProcessN];//Velocity
 
 	mu=new double[ProcessN]; //Free Energy
+	
+	pc=new double[ProcessN];
+	
+	pt=new double[ProcessN];
 	
 	//muh=new double[ProcessN];
 	

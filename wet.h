@@ -30,7 +30,7 @@ class wet
 
   int ProcessN,dist; //Number of nodes the processor is dealing with
 
-	double *C , *mu , *p, *rho;//, *muh; //Assigning memory space to the composition
+	double *C , *mu , *p, *rho,*pc,*pt;//, *muh; //Assigning memory space to the composition
 	
 	double *disv, *disd;
 
@@ -182,7 +182,7 @@ class wet
     
     double M0,M1,M2,M3,M4,M5,M6,M7,M8,M9,M10,M11,M12,M13,M14,M15,M16,M17,M18;
 	
-    double *CGlobal,  *muGlobal,*pGlobal,*uxGlobal,*uyGlobal,*uzGlobal,*disvGlobal,*disdGlobal;
+    double *CGlobal,  *muGlobal,*pGlobal,*uxGlobal,*uyGlobal,*uzGlobal,*disvGlobal,*disdGlobal,*pcGlobal,*ptGlobal;
 	int *maskGlobal;
 
 
