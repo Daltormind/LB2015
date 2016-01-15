@@ -167,12 +167,16 @@ void wet::initialisemoments()
 	  if(input==2)
 	  {
 	  num=sqrt((zk-zcentre)*(zk-zcentre)+(yk-ycentre)*(yk-ycentre));
+
 	     		for(int j=0;j<100;j++)
 	     		{
 	     		
 	     		double q=double(j)*2.0*M_PI/100.0;
 	     		double no=sin(q*double(xk));//rand()%5;
 	     		}
+
+	  double no=3*sin(0.05*double(xk));//rand()%5;
+
      	test=tanh(2.0*(-num+R+no)/ep);
 		  	C[k]=0.5 + 0.5*test;
 		  	
