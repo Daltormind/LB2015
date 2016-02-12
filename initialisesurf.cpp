@@ -96,7 +96,7 @@ void wet::initialisesurface()
 	    
 	  }
 	  
-	  	    if((Lx-double(xk)+double(xs))*(Lx-double(xk)+double(xs))/(double(wx)*double(wx))+(double(yk)-double(ys))*(double(yk)-double(ys))/(double(wy)*double(wy))-(double(zk)-double(zs))*(double(zk)-double(zs))/(double(wz)*double(wz))<1.0)
+	  	    if((Lx-double(xk)+double(xs))*(Lx-double(xk)+double(xs))/(double(wx)*double(wx))+(double(yk)-double(ys))*(double(yk)-double(ys))/(double(wy)*double(wy))/*-(double(zk)-double(zs))*(double(zk)-double(zs))/(double(wz)*double(wz))*/<1.0)
 
 	    if((double(xk)-double(xs))*(double(xk)-double(xs))+double(yk)*double(yk)<double(ys)*double(ys)){mask[k]=0;}
 
