@@ -45,6 +45,21 @@ void wet::writeinfofile(void)
 		file <<  "Surface width " << wx << " " << wy << " " << wz << endl;
 		file <<  "Posts " << h << " " << P << endl << endl;
 		
+		double We;
+		double Oh;
+		double v1;
+		double vtot;
+		double s;
+		vtot=uxi*uxi+uyi*uyi+uzi*uzi;
+		s=B*e/12;
+		v1=tau1/3;
+		We=rho1*vtot*R/s;
+		Oh=v1*sqrt(rho1/(s*R));
+		
+		file << "We=" << We << endl;
+		file << "Oh=" << Oh << endl;
+		
+		
 		 
 		
 		
