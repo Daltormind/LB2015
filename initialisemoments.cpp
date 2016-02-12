@@ -79,7 +79,7 @@ void wet::initialisemoments()
 	     		if((xk-xcentre1)*(xk-xcentre1)+(yk-ycentre1)*(yk-ycentre1)*ell+(zk-zcentre1)*(zk-zcentre1)/(ell)<4*R1*R1)
 	     		{
      	test=tanh(2.0*(-num+R1)/ep);
-		  	C[k]=0.5 - 0.5*test;
+		  	C[k]-=0.5 + 0.5*test;
 		  	}
 			
 		   
@@ -167,16 +167,17 @@ void wet::initialisemoments()
 	  if(input==2)
 	  {
 	  num=sqrt((zk-zcentre)*(zk-zcentre)+(yk-ycentre)*(yk-ycentre));
-
-	     		for(int j=0;j<100;j++)
-	     		{
+	  double no=0.0;
+	   for(int j=0;j<5;j++)
+	  	{
 	     		
 	     		double q=double(j)*2.0*M_PI/100.0;
-	     		double no=sin(q*double(xk));//rand()%5;
-	     		}
+	     	        no+=sin(q*double(xk));//rand()%5;
+			
+			       	}
 
-	  double no=3*sin(0.05*double(xk));//rand()%5;
-
+	 
+	
      	test=tanh(2.0*(-num+R+no)/ep);
 		  	C[k]=0.5 + 0.5*test;
 		  	
