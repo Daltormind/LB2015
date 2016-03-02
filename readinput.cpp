@@ -131,6 +131,10 @@ void wet::readinput()
     inputfile >> ell;
     inputfile.ignore(250,'\n');
     cout << "Drop anisotropy " << ell << endl;
+    
+    inputfile >> xe >> ye >> ze;
+    inputfile.ignore(250,'\n');
+    cout << "Initial Drop velocity " << xe << " " << ye << " " << ze << endl;
 
     
     inputfile >> Nd;

@@ -76,9 +76,11 @@ void wet::initialisemoments()
 			
 			num=sqrt((xk-xcentre1)*(xk-xcentre1)+(yk-ycentre1)*(yk-ycentre1)*ell+(zk-zcentre1)*(zk-zcentre1)/(ell));
 	     		
-	     		if((xk-xcentre1)*(xk-xcentre1)+(yk-ycentre1)*(yk-ycentre1)*ell+(zk-zcentre1)*(zk-zcentre1)/(ell)<4*R1*R1)
+	     		if((xk-xcentre1)*(xk-xcentre1)/(xe*xe)+(yk-ycentre1)*(yk-ycentre1)/(ye*ye)+(zk-zcentre1)*(zk-zcentre1)/(ze*ze)<4)
 	     		{
-     	test=tanh(2.0*(-num+R1)/ep);
+	     			    num=sqrt((xk-xcentre)*(xk-xcentre)/(xe*xe)+(yk-ycentre)*(yk-ycentre)/(ye*ye)+(zk-zcentre)*(zk-zcentre)/(ze*ze));
+
+     	test=tanh(2.0*(-num+1)/ep);
 		  	C[k]-=0.5 + 0.5*test;
 		  	}
 			
