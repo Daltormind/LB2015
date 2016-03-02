@@ -69,10 +69,12 @@ void wet::initialisesurface()
 	else if (surftype==2)
 	  {
 	//Initialise sphere
-	    if((Lx-double(xk)+double(xs))*(Lx-double(xk)+double(xs))+double(yk)*double(yk)+double(zk)*double(zk)/*/(xs2*xs2)*/<double(ys)*double(ys))
-	  {	
-  mask[k]=28;
-	  }
+	    // if((Lx-double(xk)+double(xs))*(Lx-double(xk)+double(xs))+double(yk)*double(yk)+double(zk)*double(zk)/*/(xs2*xs2)*/<double(ys)*double(ys))
+	 
+ if((Lx-double(xk)+double(xs))*(Lx-double(xk)+double(xs))/(double(wx)*double(wx))+(double(yk)-double(ys))*(double(yk)-double(ys))/(double(wy)*double(wy))+(double(zk)-double(zs))*(double(zk)-double(zs))/(double(wz)*double(wz))<1.0){mask[k]=28;}
+ // {	
+		//mask[k]=28;
+ //     }
 	  }
 
 	else if (surftype==3)
@@ -89,18 +91,18 @@ void wet::initialisesurface()
 	else if (surftype==4)
 	  {
 	//Initialise Concave surface
-	    if(xk>zs)
-	  {	
+	//    if(xk>zs)
+	    // {	
 	    
-  mask[k]=28;
+	    // mask[k]=28;
 	    
-	  }
+	    // }
 	  
-	  	    if((Lx-double(xk)+double(xs))*(Lx-double(xk)+double(xs))/(double(wx)*double(wx))+(double(yk)-double(ys))*(double(yk)-double(ys))/(double(wy)*double(wy))/*-(double(zk)-double(zs))*(double(zk)-double(zs))/(double(wz)*double(wz))*/<1.0)
+	    if((Lx-double(xk)+double(xs))*(Lx-double(xk)+double(xs))/(double(wx)*double(wx))+(double(yk)-double(ys))*(double(yk)-double(ys))/(double(wy)*double(wy))-(double(zk)-double(zs))*(double(zk)-double(zs))/(double(wz)*double(wz))<1.0){mask[k]=28;}
 
-	    if((double(xk)-double(xs))*(double(xk)-double(xs))+double(yk)*double(yk)<double(ys)*double(ys)){mask[k]=0;}
+		      // if((double(xk)-double(xs))*(double(xk)-double(xs))+double(yk)*double(yk)<double(ys)*double(ys)){mask[k]=0;}
 
-	  }
+		      }
 
 
 	else if (surftype==5)

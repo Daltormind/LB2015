@@ -51,7 +51,7 @@ void wet::writeinfofile(void)
 		double vtot;
 		double s;
 		vtot=uxi*uxi+uyi*uyi+uzi*uzi;
-		s=B*e/12;
+		s=B*ep/12;
 		v1=tau1/3;
 		We=rho1*vtot*R/s;
 		Oh=v1*sqrt(rho1/(s*R));
