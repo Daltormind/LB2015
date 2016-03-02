@@ -74,7 +74,7 @@ void wet::initialisemoments()
 		}
 			*/
 			
-			num=sqrt((xk-xcentre1)*(xk-xcentre1)+(yk-ycentre1)*(yk-ycentre1)*ell+(zk-zcentre1)*(zk-zcentre1)*(ell));
+			num=sqrt((xk-xcentre1)*(xk-xcentre1)+(yk-ycentre1)*(yk-ycentre1)*xe+(zk-zcentre1)*(zk-zcentre1)*(xe));
 	     		
 	     		if((xk-xcentre1)*(xk-xcentre1)/(xe*xe)+(yk-ycentre1)*(yk-ycentre1)/(ye*ye)+(zk-zcentre1)*(zk-zcentre1)/(ze*ze)<4*R1*R1)
 	     		{
