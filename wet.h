@@ -86,7 +86,9 @@ class wet
 
 	double *hc0,*hc1,*hc2,*hc3,*hc4,*hc5,*hc6,*hc7,*hc8,*hc9,*hc10,*hc11,*hc12,*hc13,*hc14,*hc15,*hc16,*hc17,*hc18 ; //The sinhcle particle probability functions
 	
+	double vsum;
 	
+	int vn;
 
 	//double (*ge)[19], (*he)[19]; //Equiliberium functions
 
