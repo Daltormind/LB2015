@@ -82,6 +82,7 @@ void wet::initialisemoments()
 
      	test=tanh(2.0*(-num+R1)/ep);
 		  	C[k]-=0.5 + 0.5*test;
+			if (C[k]<0) {C[k]=0;}
 		  	}
 			
 		   

@@ -64,6 +64,13 @@ void wet::initialisesurface()
 		
 	}
 
+	     
+	if(xk>=xs3 and xk<xs3+wx3 and zk>=zs3 and zk<zs3+wz3  and yk>=ys3 and yk<ys3+wy3)
+	{
+		mask[k]=28;
+		
+	}
+
 	  }
 	
 	else if (surftype==2)

@@ -68,9 +68,11 @@ class wet
 
 	int xk,yk,zk,xend,av; //Positions
 
-	int xs, ys ,zs,xs2,ys2,zs2,h,P,Ps,Pe,xc,yc,zc,xl,yl,zl; //Position and width of solid surface
+	int xs, ys ,zs,xs2,ys2,zs2,h,P,Ps,Pe,xc,yc,zc,xl,yl,zl,xs3,ys3,zs3; //Position and width of solid surface
 
-	int xcentre,ycentre,zcentre,R,xcentre1,ycentre1,zcentre1,R1,xe,ye,ze; //Drop position and drop radius
+	int xcentre,ycentre,zcentre,R,xcentre1,ycentre1,zcentre1,R1;
+
+        double xe,ye,ze; //Drop position and drop radius
 
 	int a,i ;//Discrete velocity index and cartesian index
 
@@ -128,7 +130,7 @@ class wet
 
 	int Q; // Number of velocity dicridations
 
-	int wx ,wy ,wz ,wx2,wy2,wz2,pw,zw,Pz; //Width of surface
+	int wx ,wy ,wz ,wx2,wy2,wz2,pw,zw,Pz,wx3,wy3,wz3; //Width of surface
 
 	double El,Eg,Ei,Et,Ekin;//Energy values
 

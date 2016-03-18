@@ -166,6 +166,14 @@ void wet::readinput()
     inputfile >> wx2 >> wy2 >> wz2 ;
     inputfile.ignore(250,'\n');
     cout << "Surface width 2 " << wx2 << " " << wy2 << " " << wz2 << endl;
+    
+    inputfile >> xs3 >> ys3 >> zs3;
+    inputfile.ignore(250,'\n');
+    cout << "Surface position 2" << xs2 << " " << ys2 << " " << zs2 << endl;
+
+    inputfile >> wx3 >> wy3 >> wz3 ;
+    inputfile.ignore(250,'\n');
+    cout << "Surface width 2 " << wx2 << " " << wy2 << " " << wz2 << endl;
 
     inputfile >> h >> P >> Pz >> pw >> zw >> Ps >> Pe ;
     inputfile.ignore(250,'\n');
