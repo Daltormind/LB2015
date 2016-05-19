@@ -73,6 +73,7 @@ void wet::algorithm()
 		zl=0;
 		vsum=0.0;
 		vn=0;
+		xsum=0;
 		if(st%wrtst==0 and st>=stst)
 		{
 		

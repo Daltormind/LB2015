@@ -66,7 +66,7 @@ class wet
 	
 	double uxi,uyi,uzi; //Initial Drop velocity
 
-	int xk,yk,zk,xend,av; //Positions
+	int xk,yk,zk,xend,av,xsum; //Positions
 
 	int xs, ys ,zs,xs2,ys2,zs2,h,P,Ps,Pe,xc,yc,zc,xl,yl,zl,xs3,ys3,zs3; //Position and width of solid surface
 

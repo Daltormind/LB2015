@@ -31,13 +31,14 @@ void wet::computeenergy()
 		{
 		  Esurf+=Wc[k]*kappa*(C[k]*C[k]/2.0 - C[k]*C[k]*C[k]/3.0);
 		}
-		/*
+		
 		if(C[k]>0.2 and C[k]<0.8)
 		{
 			vsum+=ux[k];
 			vn+=1;
+			xsum+=xk;
 		}
-		*/
+		
 
 
 
