@@ -150,7 +150,7 @@ void wet::readinput()
     if (!inputfile) {
 		cout << "Can't open the input file surf.par " << endl;
 	}
-	
+	 
 	inputfile >> xs >> ys >> zs ;
     inputfile.ignore(250,'\n');
     cout << "Surface position " << xs << " " << ys << " " << zs << endl;
@@ -182,6 +182,24 @@ void wet::readinput()
     inputfile >> str ;
     inputfile.ignore(250,'\n');
     cout << "Strip width " << str << endl;
+    
+    inputfile.close();
+
+        
+    inputfile.open("sweep.par");
+    
+    if (!inputfile) {
+		cout << "Can't open the input file surf.par " << endl;
+	}
+    
+	inputfile >> rad ;
+    inputfile.ignore(250,'\n');
+    cout << "rad " << rad << endl;
+
+
+	inputfile >> fol1 ;
+    inputfile.ignore(250,'\n');
+    cout << "Folder " << fol1 << endl;
     
     inputfile.close();
 

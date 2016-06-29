@@ -35,4 +35,6 @@ wet::~wet(void)
 	//delete []muh;
 	//delete []f;
 
+	system("sh tran.sh");
+
 }

@@ -33,16 +33,17 @@ void wet::computeenergy()
 		}
 		
 
-		if(yk==0 and zk==0)
-		  {
-		if(C[k]>0.2 and C[k]<0.8)
-		{
+			if(yk==0 and zk==0)
+			  {
+		   	if(C[k]>0.2 and C[k]<0.8)
+		   	{
 			vsum+=ux[k];
 			vn+=1;
 			xsum+=xk;
-			cout << "Have entered loop" << endl;
-		}
-		  }
+			psum+=p[k];
+			//	cout << "Have entered loop" << endl;
+				}
+			 }
 
 
 
@@ -116,16 +117,25 @@ void wet::computeenergy()
 		
 		
 				
-		/*
+		
 			reducedEnergy = 0.0;
 			MPI_Reduce(&vsum,&reducedEnergy,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
 			vsum = reducedEnergy;
+		
+			reducedEnergy = 0.0;
+			MPI_Reduce(&psum,&reducedEnergy,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
+			psum = reducedEnergy;
+			
+			redEn=0;
+			reducedEnergy = 0.0;
+			MPI_Reduce(&xsum,&redEn,1,MPI_INT,MPI_SUM,0,MPI_COMM_WORLD);
+			xsum = redEn;
 			
 			reducedEnergy = 0.0;
-			//redEn=0;
+			redEn=0;
 			MPI_Reduce(&vn,&redEn,1,MPI_INT,MPI_SUM,0,MPI_COMM_WORLD);
 			vn = redEn;
-		*/				
+						
 			reducedEnergy = 0.0;
 			MPI_Reduce(&Ebulk,&reducedEnergy,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
 			Ebulk = reducedEnergy;

@@ -37,6 +37,7 @@ class wet
 	int *mask;
 
 	//double (*u)[3];
+	double rad,psum;
 	
 	double G[3];
 
@@ -124,7 +125,7 @@ class wet
 	
 	double KEx , KEy , KEz , COMx , COMy , COMz ,COMt,COMn, Ctot , rhotot , disdtot , disvtot, vol, dU; //Variables to calculate Kinetic energy
 
-	string folder; //Holds the name of the folder to which inputs should be written
+	string folder,fol1; //Holds the name of the folder to which inputs should be written
 
 	long int st;//equation step
 
