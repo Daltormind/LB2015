@@ -33,10 +33,24 @@ wet::wet(void)
       }
     
     if(input==5)
-      {
+      {//ellipse shaped air bubble
 	folder=fol1;
 	ye=rad;
 	ze=rad;
+	R=cbrt(R*R*R+R1*R1*R1/(ye*ze));
+	xcentre=198-R;
+	xcentre1=198-2*R+2+R1;
+	
+      }
+
+    if(input==13)
+      {//elipse shaped drop
+	folder=fol1;
+	ell=rad;
+	
+	xcentre=198-R*ell*ell;
+	xcentre1=198-2*R*ell*ell+2+R1;
+
       }
 
     if(input==7)
@@ -65,6 +79,50 @@ xcentre1=xcentre-(xcentre-xcentre1)*cos(rad);
 	folder=fol1;
 	xcentre1=100+rad;
       }
+
+    if(input==10)
+      {
+	
+	folder=fol1;
+        wz=rad;
+      }
+
+    if(input==11)
+      {
+	folder=fol1;
+	R=rad;
+	xcentre=198-R;
+	xcentre1=198-2*R+R1+2;
+      }
+
+    if(input==14)
+      {
+	uxi=rad;
+	folder=fol1;
+	
+	
+	R=cbrt(R*R*R+R1*R1*R1);
+	xcentre=198-R;
+	xcentre1=198-2*R+2+R1;
+	  
+
+      }
+
+    
+    if(input==15)
+      {
+	
+	folder=fol1;	
+	xcentre1=198-2*R+rad+R1;
+      }
+
+    if(input==16)
+      {
+	
+	folder=fol1;	
+	ell=rad;
+      }
+
 
 	string command0="rm -r" + folder;
 	string command="mkdir " + folder;

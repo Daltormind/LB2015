@@ -36,15 +36,15 @@ void wet::initialisemoments()
 	  */	
 	  /*else*/ // if ((xk-xcentre)*(xk-xcentre)+(yk-ycentre)*(yk-ycentre)+(zk-zcentre)*(zk-zcentre)<(R+5*ep)*(R+5*ep))
 	  //	{
-	  
-	    num=sqrt((xk-xcentre)*(xk-xcentre)+(yk-ycentre)*(yk-ycentre)*ell+(zk-zcentre)*(zk-zcentre)/(ell));
+	  //Initialise Drop 1
+	    num=sqrt((xk-xcentre)*(xk-xcentre)/*/(ell*ell*ell*ell)*/+(yk-ycentre)*(yk-ycentre)*ell*ell+(zk-zcentre)*(zk-zcentre)/(ell*ell));
 	     		
      	test=tanh(2.0*(-num+R)/ep);
 		  	C[k]=0.5 + 0.5*test;
-		  	
-			//ux[k]=C[k]*uxi;
-			//uy[k]=C[k]*uyi;
-			//uz[k]=C[k]*uzi;
+		  	 
+			ux[k]=2*C[k]*(uxi);
+			uy[k]=2*C[k]*(uyi);
+			uz[k]=2*C[k]*(uzi);
 		
 //if(xk>=xs2 and xk<xs2+wx2 and yk>=ys2 and yk<ys2+wy2 and zk >=zs2 and zk<zs2+wz2 )
 			//{
@@ -73,16 +73,24 @@ void wet::initialisemoments()
 
 		}
 			*/
-			
-			num=sqrt((xk-xcentre1)*(xk-xcentre1)*xe+(yk-ycentre1)*(yk-ycentre1)*ye+(zk-zcentre1)*(zk-zcentre1)*(ze));
+			//Initialise Second Drop
+			num=sqrt((xk-xcentre1)*(xk-xcentre1)*xe*xe+(yk-ycentre1)*(yk-ycentre1)*ye*ye+(zk-zcentre1)*(zk-zcentre1)*(ze*ze));
 	     		
 			//		if((xk-xcentre1)*(xk-xcentre1)/(xe*xe)+(yk-ycentre1)*(yk-ycentre1)/(ye*ye)+(zk-zcentre1)*(zk-zcentre1)/(ze*ze)<4*R1*R1)
 	     		//{
 	     			   // num=sqrt((xk-xcentre)*(xk-xcentre)/(xe*xe)+(yk-ycentre)*(yk-ycentre)/(ye*ye)+(zk-zcentre)*(zk-zcentre)/(ze*ze));
 
      	test=tanh(2.0*(-num+R1)/ep);
-		  	C[k]-=0.5 + 0.5*test;
-			if (C[k]<0) {C[k]=0;}
+	
+C[k]=0.5 + 0.5*test;
+
+  	 
+			ux[k]+=-C[k]*(uxi);
+			uy[k]+=-C[k]*(uyi);
+			uz[k]+=-C[k]*(uzi);
+		
+//C[k]-=0.5 + 0.5*test;
+	//		if (C[k]<0) {C[k]=0;}
 			//	}
 			
 			
@@ -552,7 +560,7 @@ void wet::initialisemoments()
 	
 	p[k]=0.0;//g0[k]+g1[k]+g2[k]+g3[k]+g4[k]+g7[k]+g8[k]+g9[k]+g10[k]+g11[k]+g12[k]+g12[k]+g13[k]+g14[k]+g15[k]+g16[k]+g17[k]+g18[k]+g5[k]+g6[k]+dt*ux[k]*gradrhoCx/6.0+dt*gradrhoCy*uy[k]/6.0+dt*gradrhoCz*uz[k]/6.0;//compute pressure
 	
-	if(xk>180){p[k]=0.001*(xk-180);}
+	//	if(xk>180){p[k]=0.001*(xk-180);}
 
 	if(input==1)
 	  {

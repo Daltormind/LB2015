@@ -79,9 +79,13 @@ void wet::initialisesurface()
 	    // if((Lx-double(xk)+double(xs))*(Lx-double(xk)+double(xs))+double(yk)*double(yk)+double(zk)*double(zk)/*/(xs2*xs2)*/<double(ys)*double(ys))
 	 
  if((Lx-double(xk)+double(xs))*(Lx-double(xk)+double(xs))/(double(wx)*double(wx))+(double(yk)-double(ys))*(double(yk)-double(ys))/(double(wy)*double(wy))+(double(zk)-double(zs))*(double(zk)-double(zs))/(double(wz)*double(wz))<1.0){mask[k]=28;}
- // {	
-		//mask[k]=28;
- //     }
+ 
+ if(xk>198)
+ {	
+		mask[k]=28;
+ 
+
+  }
 	  }
 
 	else if (surftype==3)
@@ -120,6 +124,12 @@ void wet::initialisesurface()
 		mask[k]=28;
 	      }
 	    if(xk>xs2){mask[k]=28;}
+	  }
+	else if (surftype==6)
+	  {//initialise saddle point
+	    
+	    if(Lx-double(xk)-double(xs)<double(yk)*double(yk)/(double(wy)*double(wy))-double(zk)*double(zk)/(double(wz)*double(wz))){mask[k]=28;}
+
 	  }
 	
 	
