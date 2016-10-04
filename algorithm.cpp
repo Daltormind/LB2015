@@ -1,4 +1,4 @@
-//algorithm
+//Algorithm.cpp This file executes the major loop which steps the code forward through time. 
 
 
 #include "wet.h"
@@ -15,14 +15,14 @@ void wet::algorithm()
 		for(st=1;st<=Neqst;st++)
 		{
 		  
-		  //  cout << "Process rank " << rank << "starting algorithm " <<endl;    
-            computemoments();
+		  
+            computemoments(); //Compute values of moments from current density function variables.
 	    
-	    if(st%infost==0)
+	    if(st%infost==0) //Writes out values to energy.txt every infost timesteps
 	      {
 
 		  
-	    if(dist==1)
+	    if(dist==1)//Asking whether dissipation should be written still a work in progress.
 	    {
 	      disdtot=0.0;
 	      disvtot=0.0;
@@ -33,8 +33,8 @@ void wet::algorithm()
 		for(k=k1;k<k2;k++)
 		  {
 		    diffCD();
-		    computeenergy();
-		    computesurfarea();
+		    computeenergy();//computing outputs for compute energy.cpp
+		    computesurfarea();//computing surface outputs
 		  }
 		
 		if (rank==ROOT)
