@@ -51,9 +51,10 @@ void wet::writemoments(long int in)
 			
 }
 			
-			/*
-			file << "C" << in << "Z1=squeeze(C" << in << "Z1);" << endl;
+			
+			file << "C" << in << "rank" << rank << "Z1=squeeze(C" << in << "Z1);" << endl;
 		file.close();
+		/*
 		//	cout << "Process:" << rank << " past C write writemoments" << endl; 
 
 

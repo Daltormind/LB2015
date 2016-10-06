@@ -39,7 +39,7 @@ void wet::writevelocity(int in)
 			}
 			file <<"];" << endl;
 		}
-		file << "ux" << in << "Z1=squeeze(ux" << in << "Z1);" << endl;
+		file << "ux" << in << "rank" << rank << "Z1=squeeze(ux" << in << "Z1);" << endl;
 		file.close();
 		
 
@@ -153,14 +153,14 @@ void wet::writevelocity(int in)
 				for( j = 0 ; j < Ly ; j++) 
 				{
 					k = n + j*Lz + q*Ly*Lz;
-					file << uyGlobal[k] << " " ;
+					file << uy[k] << " " ;
 						
 				}
 				file << endl;
 			}
 			file <<"];" << endl;
 		}
-		file << "uy" << in << "Z1=squeeze(uy" << in << "Z1);" << endl;
+		file << "uy" << in << "rank" << rank << "Z1=squeeze(uy" << in << "Z1);" << endl;
 		file.close();
 		
 		/*
