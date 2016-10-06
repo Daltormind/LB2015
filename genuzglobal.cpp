@@ -55,7 +55,7 @@ void wet::genuzglobal(void)
 	    planuz[k]=0.0;
 	    for(int n=0;n<Lx;n++)
 	      {
-		planuz[k]+=uzGlobal[k+n*Ly*Lz]*(CGlobal[k+n*Ly*Lz]*rho1+(1-C[k+n*Ly*Lz])*rho2);
+		planuz[k]+=uzGlobal[k+n*Ly*Lz]*(CGlobal[k+n*Ly*Lz]*rho1+(1-CGlobal[k+n*Ly*Lz])*rho2);
 	      }
 	  }
 	  }
