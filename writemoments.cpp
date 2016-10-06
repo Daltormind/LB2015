@@ -30,7 +30,7 @@ void wet::writemoments(long int in)
 		{   
 			file << "C" << in  << "rank" << rank << "Z1(:,:," << h+1 << ")=[" << endl;
 		
-			for( i = istart ; i < iend ; i++) 
+			for( i = 2 ; i < 2+iend-istart ; i++) 
 			{
 			  for( j = 0 ; j < Ly ; j++) 
 				{
