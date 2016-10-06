@@ -78,9 +78,10 @@ void wet::initialise()
 		  }
 
 	}
-	
+	if(rank==ROOT)
+	{
 	cout << "Process "<< rank << " Entered initialise" << endl;
-	/*
+	}/*
 	N=Lx*Ly*Lz;
 	ProcessN=N;
 	k1 = 0;			//k where real lattice starts
@@ -91,9 +92,10 @@ void wet::initialise()
 	dt=1.0;
 	dx=1.0;
 	kappa=B*ep*ep/8;
-	
+	if(rank==ROOT)
+	{
 	cout << "Process "<< rank << " size=" << size << endl;
-
+    }
 	if(dimensions==2)
 	{
 		t0=4.0/9.0,t1=1.0/9.0,t2=1.0/36.0; //Weightings
@@ -169,9 +171,10 @@ void wet::initialise()
 
 	//--------------------Initialise Variable values----------------------
 
-
+	if(rank==ROOT)
+	{
 	cout  << "Process "<< rank << " Initialised variables" << endl;
-
+	}
 
 
 	
@@ -195,33 +198,62 @@ void wet::initialise()
 		  }
 	 writeinfofile();
 	neibour();
-	
+	if(rank==ROOT)
+	{
 	cout  << "Process "<< rank << " past neibour" << endl;
-	
+	}
 	initialisesurface();
 	
 	generateglobalmask();
-
+	if(rank==ROOT)
+	{
 	cout  << "Process "<< rank << " past initialise surface" << endl;
-
+	}
 	//relabel();
 
 	initialisemoments();
-	
+	if(rank==ROOT)
+	{
 	cout  << "Process "<< rank << " past initialise moments" << endl;
-
+	}
 	//momentsbound();
 	
 	
 	genCglobal();
+	if(rank==ROOT)
+	{
+	cout << "Process "<< rank << " Finished Cglobal" << endl;
+	}
 	genmuglobal();
+	if(rank==ROOT)
+	{
+	cout << "Process "<< rank << " Finished muglobal" << endl;
+	}
 	genpglobal();
+	if(rank==ROOT)
+	{
+	cout << "Process "<< rank << " Finished pglobal" << endl;
+	}
 	genuxglobal();
+	if(rank==ROOT)
+	{
+	cout << "Process "<< rank << " Finished uxglobal" << endl;
+	}
 	genuyglobal();
+	if(rank==ROOT)
+	{
+	cout << "Process "<< rank << " Finished uyglobal" << endl;
+	}
 	genuzglobal();
+	if(rank==ROOT)
+	{
+	cout << "Process "<< rank << " Finished uzglobal" << endl;
+	}
 	generateglobalmask();
+	if(rank==ROOT)
+	{
 	cout  << "Process "<< rank << " past generateglobals" << endl;
-	
+	}
 	if(rank==ROOT)
 	{
 	
@@ -230,8 +262,10 @@ void wet::initialise()
 	//computeenergy();
 
 	}
-	
+	if(rank==ROOT)
+	{
 	cout  << "Process "<< rank << " past writemoments" << endl;
+	}
 	int i, j, h;
 	ofstream file;
 	char filename1[20];
@@ -267,8 +301,10 @@ void wet::initialise()
 		
 		file.close();
 		*/
+		if(rank==ROOT)
+		{
 	cout << "Process "<< rank << " Initialised surface and moments" << endl;
-
+}
 
 
 		//equiliberiumg();
@@ -356,5 +392,8 @@ void wet::initialise()
 	
 
 	//writevelocity(0);
+	if(rank==ROOT)
+	{
 	cout << "Process "<< rank << " Finished initialise" << endl;
+	}
 }
