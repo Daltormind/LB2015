@@ -19,9 +19,9 @@ void wet::writemoments(long int in)
         file.open(filename.c_str());
 		file.precision(16);
 	
-		computeCoordinates(k1);
+		computecoordinates(k1);
 		int istart=xk;
-		computeCoordinates(k2);
+		computecoordinates(k2);
 		int iend=k2;
 		
 	
