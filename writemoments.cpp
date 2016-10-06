@@ -36,9 +36,9 @@ void wet::writemoments(long int in)
 				{
 					k = h + j*Lz + i*Ly*Lz;
 					
-					if(maskGlobal[k]==28){file << -2 << " " ;}
+					if(mask[k]==28){file << -2 << " " ;}
 					
-					else{file << CGlobal[k] << " " ;}
+					else{file << C[k] << " " ;}
 					
 					
 						
