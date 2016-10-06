@@ -254,14 +254,14 @@ void wet::initialise()
 	{
 	cout  << "Process "<< rank << " past generateglobals" << endl;
 	}
-	if(rank==ROOT)
-	{
+	//if(rank==ROOT)
+	//{
 	
 	writemoments(0);
-	writevelocity(0);
+	//writevelocity(0);
 	//computeenergy();
 
-	}
+	//}
 	if(rank==ROOT)
 	{
 	cout  << "Process "<< rank << " past writemoments" << endl;

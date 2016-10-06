@@ -14,16 +14,23 @@ void wet::writemoments(long int in)
 		//	cout << "Process:" << rank << " Entered writemoments" << endl; 
         //------------------------- Write the composition File------------------------
         
-        snprintf(filename1,20,"/sC%dZ1.m",in);			//Create a name for file that contain data
+        snprintf(filename1,20,"/sC%drank%dZ1.m",in,rank);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());
 		file.precision(16);
 	
+		computeCoordinates(k1);
+		int istart=xk;
+		computeCoordinates(k2);
+		int iend=k2;
+		
+	
+	
 		for( h = 0 ; h < 1 ; h++) 
 		{   
-			file  << "C" << in << "Z1(:,:," << h+1 << ")=[" << endl;
+			file << "C" << in  << "rank" << rank << "Z1(:,:," << h+1 << ")=[" << endl;
 		
-			for( i = 0 ; i < Lx ; i++) 
+			for( i = istart ; i < iend ; i++) 
 			{
 			  for( j = 0 ; j < Ly ; j++) 
 				{
@@ -43,6 +50,8 @@ void wet::writemoments(long int in)
 		
 			
 }
+			
+			/*
 			file << "C" << in << "Z1=squeeze(C" << in << "Z1);" << endl;
 		file.close();
 		//	cout << "Process:" << rank << " past C write writemoments" << endl; 
@@ -114,7 +123,7 @@ void wet::writemoments(long int in)
 		file.close();
 	*/
 	//	cout << "Process:" << rank << " pastwriteslice" << endl; 
-
+/*
         snprintf(filename1,20,"/sC%dY1.m",in);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());
@@ -260,7 +269,7 @@ void wet::writemoments(long int in)
 		file.close();
 		*/
 		//------------------------- Write pressure File----------------------------------
-		
+		/*
 		snprintf(filename1,20,"/sp%dZ1.m",in);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());
@@ -357,7 +366,7 @@ void wet::writemoments(long int in)
 		file << "p" << in << "X95=squeeze(p" << in << "X95);" << endl;
 		file.close();
 		*/
-		
+		/*
 		snprintf(filename1,20,"/sp%dY1.m",in);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());
