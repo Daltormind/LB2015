@@ -52,7 +52,7 @@ void wet::initialise()
 	cout << "Process k1 k2 ProcessN "<< rank << " " << k1 << " " << k2 << " " << ProcessN <<endl;
 	
 	//Setting up different processors done.
-	
+	/*
 	if(rank==ROOT)
 	{
 		CGlobal=new double[N] ;
@@ -78,6 +78,7 @@ void wet::initialise()
 		  }
 
 	}
+	*/
 	if(rank==ROOT)
 	{
 	cout << "Process "<< rank << " Entered initialise" << endl;
@@ -212,6 +213,7 @@ void wet::initialise()
 	//relabel();
 
 	initialisemoments();
+	/*
 	if(rank==ROOT)
 	{
 	cout  << "Process "<< rank << " past initialise moments" << endl;
@@ -254,11 +256,12 @@ void wet::initialise()
 	{
 	cout  << "Process "<< rank << " past generateglobals" << endl;
 	}
+	*/
 	//if(rank==ROOT)
 	//{
 	
 	writemoments(0);
-	//writevelocity(0);
+	writevelocity(0);
 	//computeenergy();
 
 	//}

@@ -86,32 +86,32 @@ void wet::algorithm()
 	 
 	 
 		
-		genCglobal();
-		genpglobal();
-		genmuglobal();
-		generateglobalmask();
-		genuxglobal();	
-		genuyglobal();
-		genuzglobal();
+		//genCglobal();
+		//genpglobal();
+		//genmuglobal();
+		//generateglobalmask();
+		//genuxglobal();	
+		//genuyglobal();
+		//genuzglobal();
 		if(dist==1)
 		  {
 		    gendisvGlobal();
 		    gendisdGlobal();
 		  }
-		if(rank==ROOT)
-		{
+		//if(rank==ROOT)
+		//{
 		writemoments(st);
 		writevelocity(st);
-		if(st==Neqst)
-		  {
-		    writeinput();
-		  }
+		//if(st==Neqst)
+		  //{
+		   // writeinput();
+		  //}
 		if(dist==1)
 		  {
 		    writedis(st);
 		  }
 		//writeenergy(st);
-		}
+		//}
 		
 	
 	
