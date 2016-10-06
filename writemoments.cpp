@@ -24,7 +24,7 @@ void wet::writemoments(long int in)
 		computecoordinates(k2);
 		int iend=k2;
 		
-	
+	    cout << "rank=" << rank<< " istart=" << istart << " iend=" << iend << endl;
 	
 		for( h = 0 ; h < 1 ; h++) 
 		{   
