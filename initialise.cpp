@@ -205,11 +205,11 @@ void wet::initialise()
 	}
 	initialisesurface();
 	
-	generateglobalmask();
-	if(rank==ROOT)
-	{
-	cout  << "Process "<< rank << " past initialise surface" << endl;
-	}
+	//generateglobalmask();
+	//if(rank==ROOT)
+	//{
+	//cout  << "Process "<< rank << " past initialise surface" << endl;
+	//}
 	//relabel();
 
 	initialisemoments();
