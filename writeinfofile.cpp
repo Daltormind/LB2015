@@ -68,7 +68,7 @@ void wet::writeinfofile(void)
 		
 		file << "Neqst=" << Neqst << ";" << endl;
 		file << "wrtst=" << wrtst << ";" << endl;
-		file << "ranktot=" << argv[1] << ";" << endl;
+		file << "ranktot=" << size << ";" << endl;
 		
 		file.close();
 		
