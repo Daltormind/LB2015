@@ -147,7 +147,7 @@ void wet::writevelocity(int in)
 		
 		for( n = 0 ; n < 1 ; n++) 
 		{   
-			file << "uy"   << in << "Z1(:,:," << n+1 << ")=[" << endl;
+			file << "uy"   << in << "rank" << rank << "Z1(:,:," << n+1 << ")=[" << endl;
 			for( q = 2 ; q < 2+iend-istart ; q++) 
 			{
 				for( j = 0 ; j < Ly ; j++) 

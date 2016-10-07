@@ -59,6 +59,18 @@ void wet::writeinfofile(void)
 		file << "We=" << We << endl;
 		file << "Oh=" << Oh << endl;
 		
+		file.close();
+		
+		snprintf(filename1,20,"/p.m");			//Create a name for file that contain data
+		filename=folder+filename1;
+        file.open(filename.c_str());
+		file.precision(16);
+		
+		file << "Neqst=" << Neqst << ";" << endl;
+		file << "wrtst=" << wrtst << ";" << endl;
+		file << "ranktot=" << argv[1] << ";" << endl;
+		
+		file.close();
 		
 		 
 		
