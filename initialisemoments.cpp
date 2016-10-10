@@ -189,14 +189,13 @@ C[k]+=0.5 + 0.5*test;
 	
 	if(input==1)
 	  { 
-	   
+	   ofstream inputfile;
 char filename1[20];
 		string filename;
 	
 	cout << "Have entered input=1" << endl;
 	
 	
-    file.open(filename.c_str());
     snprintf(filename1,20,"/C%d.txt",rank);	
 	filename=filename1;
 	inputfile.open(filename.c_str());
