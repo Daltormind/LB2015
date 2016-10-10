@@ -82,7 +82,7 @@ void wet::initialisemoments()
 
      	test=tanh(2.0*(-num+R1)/ep);
 	
-C[k]=0.5 + 0.5*test;
+C[k]+=0.5 + 0.5*test;
 
   	 
 			ux[k]+=-C[k]*(uxi);
@@ -190,21 +190,27 @@ C[k]=0.5 + 0.5*test;
 	if(input==1)
 	  { 
 	   
-
+char filename1[20];
+		string filename;
 	
 	cout << "Have entered input=1" << endl;
 	
-
 	
-	inputfile.open("C%d.txt",rank);
+    file.open(filename.c_str());
+    snprintf(filename1,20,"/C%d.txt",rank);	
+	filename=filename1;
+	inputfile.open(filename.c_str());
 	  for(int i=0;i<ProcessN;i++)
 	    {
 	      inputfile >> C[i];
 	    }
 	  inputfile.close();
 	  
+	  snprintf(filename1,20,"ux%d.txt",rank);	
+	  	filename=filename1;
+
+	inputfile.open(filename.c_str());
 	  
-	  inputfile.open("ux%d.txt",rank);
 	  for(int i=0;i<ProcessN;i++)
 	    {
 	      inputfile >> ux[i];
@@ -212,7 +218,10 @@ C[k]=0.5 + 0.5*test;
 	  inputfile.close();
 	  
 	  
-	inputfile.open("uy%d.txt",rank);
+	snprintf(filename1,20,"uy%d.txt",rank);	
+		filename=filename1;
+
+	inputfile.open(filename.c_str());
 	  for(int i=0;i<ProcessN;i++)
 	    {
 	      inputfile >> uy[i];
@@ -220,7 +229,10 @@ C[k]=0.5 + 0.5*test;
 	  inputfile.close();
 	  
 	  
-	inputfile.open("uz%d.txt",rank);
+	snprintf(filename1,20,"uz%d.txt",rank);	
+		filename=filename1;
+
+	inputfile.open(filename.c_str());
 	  for(int i=0;i<ProcessN;i++)
 	    {
 	      inputfile >> uz[i];
@@ -228,7 +240,10 @@ C[k]=0.5 + 0.5*test;
 	  inputfile.close();
 	
 	    
-	inputfile.open("p&d.txt",rank);
+	snprintf(filename1,20,"p%d.txt",rank);	
+		filename=filename1;
+
+	inputfile.open(filename.c_str());
 	  for(int i=0;i<ProcessN;i++)
 	    {
 	      inputfile >> p[i];
