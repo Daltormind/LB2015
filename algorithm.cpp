@@ -37,15 +37,15 @@ void wet::algorithm()
 		    computesurfarea();//computing surface outputs
 		  }
 		
-		if (rank==ROOT)
+		if (rank==ROOT)//i.e. only do this for core process.
 		  {
-		writeenergy(st);
+		writeenergy(st);//write out the energy and other variables.
 		if(dist==1)
 		  {
 		writedisin(st);
 		  }
 		  }
-		Ebulk=0.0;
+		Ebulk=0.0;//setting values used in writeenergy to zero so they can be computed next time.
 		Eint=0.0;
 		Esurf=0.0;
 		COMx=0.0;
@@ -75,7 +75,7 @@ void wet::algorithm()
 		vn=0;
 		xsum=0;
 		psum=0;
-		if(st%wrtst==0 and st>=stst)
+		if(st%wrtst==0 and st>=stst)//wrtst step controls how often you want to write out the full data
 		{
 		
 		//computeenergy();
@@ -93,22 +93,22 @@ void wet::algorithm()
 		//genuxglobal();	
 		//genuyglobal();
 		//genuzglobal();
-		if(dist==1)
+		if(dist==1)//Do you want to write dissipation ? Still a work in progress.
 		  {
 		    gendisvGlobal();
 		    gendisdGlobal();
 		  }
 		//if(rank==ROOT)
 		//{
-		writemoments(st);
-		writevelocity(st);
-		//if(st==Neqst)
-		  //{
-		   // writeinput();
-		  //}
+		writemoments(st);//write out the momments i.e. C, p and mu
+		writevelocity(st);//write out ux, uy  and uz
+		if(st==Neqst)
+		  {
+		    writeinput();
+		  }
 		if(dist==1)
 		  {
-		    writedis(st);
+		    writedis(st);//write out dissipation if you want still a work in progress
 		  }
 		//writeenergy(st);
 		//}
@@ -124,32 +124,21 @@ void wet::algorithm()
 		
 		//cout << "Process " << rank << " :Got through writemoments"  << endl;
 
-		for(k=k1;k<k2;k++)
+		for(k=k1;k<k2;k++)//looping through the array
 		{
-			/*
-			if(rank==0 and k==5151)
-            {
-            cout << st << " " << h0[k] << " " << h1[k] << " " << h2[k] << " " << h3[k] << " " << h4[k] << " " << h7[k] << " " << h8[k] << " " << h9[k] << " " << h10[k] << " " << C[k] <<  endl;
-            }
-			*/
-			if(mask[k]!=28)
+			
+			if(mask[k]!=28)//i.e for nodes not on the surface
 			{
-			diffCD();
-			/*
-			if(k==k1)
-			  {cout << "just before computeenergy" << endl;}
-			computeenergy();
-			if(k==k1)
-			  {cout << "just after compute energy" << endl;}
-			*/
-			 diffBD();
+			diffCD();//compute central differances
+			
+			 diffBD();//compute biased differances
 			
 			
-			centralforce();
+			centralforce();//compute a load of common terms used in the following functions
 			
-			equiliberiumg();
+			equiliberiumg();//compute geq
            
-            equiliberiumh();
+            equiliberiumh();//compute heq
             
            //equiliberiumf();
             
@@ -157,9 +146,9 @@ void wet::algorithm()
             
           //  propcolf();
             
-           propcolh();
+           propcolh();//propogate and collide h
             
-            propcolg();
+            propcolg();//propogate and collide g
             
             
 
@@ -168,27 +157,25 @@ void wet::algorithm()
 			//computeenergy();
 	}
 		
-		exchangedencol();
+		exchangedencol();//exchange node information between computing cores
 		
-		//cout << "Process " << rank << " :Got through first k loop"  << endl;
 
 		for(k=k1;k<k2;k++)
 		{	
 		
 		if(mask[k]!=28)
 			{
-			propset();
+			propset();//some more propogation stuff
 			}
 		}
 		
-		//cout << "Process " << rank << " :Got through second k loop" << endl;
 		
 		for(k=k1;k<k2;k++)
 		{		
 		
 		if(mask[k]!=28)
 			{
-			setwallnodes();
+			setwallnodes();//det the value for nodes on the solid surface
 			}
 		}
 

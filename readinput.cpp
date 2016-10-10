@@ -203,6 +203,7 @@ void wet::readinput()
     
     inputfile.close();
 
+/*
     if(input==1)
       {
 
@@ -257,7 +258,7 @@ void wet::readinput()
 	  
   
       }
-
+*/
 
 
 }

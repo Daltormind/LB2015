@@ -189,13 +189,55 @@ C[k]=0.5 + 0.5*test;
 	
 	if(input==1)
 	  { 
-	    if(rank==ROOT){ktot=k+rank*(k2-(Lx%size+1)*k1)-k1;}
-	    if(rank >ROOT){ktot=k+rank*(k2-k1)+(Lx%size)*Ly*Lz-k1;}
+	   
+
+	
+	cout << "Have entered input=1" << endl;
+	
+
+	
+	inputfile.open("C%d.txt",rank);
+	  for(int i=0;i<ProcessN;i++)
+	    {
+	      inputfile >> C[i];
+	    }
+	  inputfile.close();
+	  
+	  
+	  inputfile.open("ux%d.txt",rank);
+	  for(int i=0;i<ProcessN;i++)
+	    {
+	      inputfile >> ux[i];
+	    }
+	  inputfile.close();
+	  
+	  
+	inputfile.open("uy%d.txt",rank);
+	  for(int i=0;i<ProcessN;i++)
+	    {
+	      inputfile >> uy[i];
+	    }
+	  inputfile.close();
+	  
+	  
+	inputfile.open("uz%d.txt",rank);
+	  for(int i=0;i<ProcessN;i++)
+	    {
+	      inputfile >> uz[i];
+	    }
+	  inputfile.close();
+	
 	    
-	    C[k]=Chold[ktot];
-	    ux[k]=uxhold[ktot];
-	    uy[k]=uyhold[ktot];
-	    uz[k]=uzhold[ktot];
+	inputfile.open("p&d.txt",rank);
+	  for(int i=0;i<ProcessN;i++)
+	    {
+	      inputfile >> p[i];
+	    }
+	  inputfile.close();
+	
+	  
+  
+      
 
 	    if(C[k]==-2){C[k]=0;};
 	  }

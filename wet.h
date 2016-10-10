@@ -30,34 +30,34 @@ class wet
 
   int ProcessN,dist; //Number of nodes the processor is dealing with
 
-	double *C , *mu , *p, *rho,*pc,*pt;//, *muh; //Assigning memory space to the composition
+	double *C , *mu , *p, *rho,*pc,*pt;//, *muh; //Assigning memory space to the composition, free energy, pressure, density, interface curvature pressure, total pressure
 	
-	double *disv, *disd;
+	double *disv, *disd;//Variables to hold two types of dissipation
 
-	int *mask;
+	int *mask;//mask stores which nodes are solid and which were not.
 
 	//double (*u)[3];
-	double rad,psum;
+	double rad,psum;//rad is a variable used by sweep.par to set multiple simulations running at once, psum is used as a sum of pressure in some specific instances.
 	
-	double G[3];
+	double G[3];//Holds the value of the bulk body force. Force acts in rho so gravity by defualt.
 
 	int (*d)[18]; //Assigning memory for neibour arrays
 
-	int k, k1,k2; //Starting and finishing k values
+	int k, k1,k2; //k is used to sweep though simulation grid. k1 nd k2 are Starting and finishing k values
 
-	double t0,t1,t2,ell; //Weightings used to ensure anisotropy
+	double t0,t1,t2; //Weightings used to ensure anisotropy,
 
 	//double    (*drho)[3]; // Gradients of equiliberium variables
 
-	double d2C,dC;
+	double d2C,dC;//d2C holds the value of del^2(C), dC hold the value of grad C
 	
-	double theta, theta1,theta2;
+	double theta, theta1,theta2;//contact angle, two more contact angles for varying the contact angle on the surface
 	
 	int str; //Width of theta2 strip
  
-	double *Chold, *uxhold,*uyhold,*uzhold,*phold,*plan,*planuz,*planuy,*planux,*planC,*stan;
-
-	int input,ktot,surftype;
+	double *Chold, *uxhold,*uyhold,*uzhold,*phold,*plan,*planuz,*planuy,*planux,*planC,*stan;//Chold is used to make C.txt for writeinput, u*hold used to make u*.txt in writeinput. 
+//plan* used in writemoments to store the values of the vertical sum of values.
+	int input,ktot,surftype;//input 0/1 controls whether you use the .par file for input or the .txt files. ktot stores the maximum value of k, surftype stores what sort of surface to initialise
 
 	int Lx,Ly,Lz,N; // Size of simulation box
 	
@@ -67,13 +67,13 @@ class wet
 	
 	double uxi,uyi,uzi; //Initial Drop velocity
 
-	int xk,yk,zk,xend,av,xsum; //Positions
+	int xk,yk,zk,xend,av,xsum; //Positions 
 
 	int xs, ys ,zs,xs2,ys2,zs2,h,P,Ps,Pe,xc,yc,zc,xl,yl,zl,xs3,ys3,zs3; //Position and width of solid surface
 
-	int xcentre,ycentre,zcentre,R,xcentre1,ycentre1,zcentre1,R1;
+	int xcentre,ycentre,zcentre,R,xcentre1,ycentre1,zcentre1,R1;// Position of the centre of drop 1. Radius of drop one. Position of drop 2. Radius of drop 2.
 
-        double xe,ye,ze; //Drop position and drop radius
+        double xe,ye,ze,ell; //ellipticity of drop
 
 	int a,i ;//Discrete velocity index and cartesian index
 
@@ -87,9 +87,9 @@ class wet
 
 	double *hc0,*hc1,*hc2,*hc3,*hc4,*hc5,*hc6,*hc7,*hc8,*hc9,*hc10,*hc11,*hc12,*hc13,*hc14,*hc15,*hc16,*hc17,*hc18 ; //The sinhcle particle probability functions
 	
-	double vsum;
+	double vsum;//used to store velocity sums in calculation of velocity averages
 	
-	int vn;
+	int vn;//Used to store number of values in calculation of velocity averages. 
 
 	//double (*ge)[19], (*he)[19]; //Equiliberium functions
 
@@ -190,42 +190,43 @@ class wet
     double *CGlobal,  *muGlobal,*pGlobal,*uxGlobal,*uyGlobal,*uzGlobal,*disvGlobal,*disdGlobal,*pcGlobal,*ptGlobal;
 	int *maskGlobal;
 
+//Declariation of subfunctions
 
-
-	void initialisemoments();
-	void computecoordinates(int);
-	void initialise();
-	void neibour();
-	void readinput();
-	void equiliberiumg();
-	void equiliberiumh();
-	void writemoments(long int);
-	void computemoments();
-	template<typename V> V mod(V,V);
-	void writevelocity(int);
-	void propcolh();
-	void propcolg();
-	void mach();
-	void initialisesurface();
-	void relabel();
-	void computefreeenergy();
-	void diffBD();
-	void diffCD();
-	void centralforce();
-	void equiliberiumf();
-	void propcolf();
-	void setwallnodes();
-	void momentsbound();
-	void computeenergy();
-	void propset();
-	void exchangeC();
+	void initialisemoments();//Sets the initial value of C,p,mu and rho
+	//void inputmoments();//input comments if input=1
+	void computecoordinates(int);//Computes the x,y,z position of a gridpoint from k values
+	void initialise();//Run at start of simulation to set everything up
+	void neibour();//Computes which grid points are adjacent to current grid point.
+	void readinput();//get values from .par files
+	void equiliberiumg();//calculate geq
+	void equiliberiumh();//calculate heq
+	void writemoments(long int);//write the value of the moments to file
+	void computemoments();//compute the value of the moments from the density functions
+	template<typename V> V mod(V,V);//adds the modulo template
+	void writevelocity(int);//write tha value of the velocity to file
+	void propcolh();//propogate and collide h
+	void propcolg();//propogate and collide g
+	void mach();//Not used any more
+	void initialisesurface();//Initialises the solid surface
+	void relabel();//Used in initialise surface
+	void computefreeenergy();//computes values witten in writefreeenergy
+	void diffBD();//computes biased differences
+	void diffCD();//computes central differences
+	void centralforce();//
+	void equiliberiumf();//calculates equilibrium value of f not used
+	void propcolf();//not used
+	void setwallnodes();//sorts out nodes on the solid surface
+	void momentsbound();//sorts out the simulation box boundaries
+	void computeenergy();//computes variables written in write energy
+	void propset();//finishes the propogation
+	void exchangeC();//exchange functions send information between computing nodes
 	void exchangerho();
 	void exchangemu();
 	void exchangep();
 	void exchangevel();
 	void exchangemask();
 	void genCglobal();
-	void generateglobalmask();
+	void generateglobalmask();//generate functions generate global versions of the data no longer used used as this was memory inefficient. Also generate the plan variables which is till useful.
 	void exchangemuh();
 	void exchangedencol();
 	void genmuglobal();
@@ -233,15 +234,15 @@ class wet
 	void genuxglobal();
 	void genuyglobal();
 	void genuzglobal();
-	void writeinfofile();
-	void writeenergy(long int);
-	void dis();
-	void writedis(long int);
+	void writeinfofile();//writes simulation start values information
+	void writeenergy(long int);//writes the value of the system energy as well as some other stuff
+	void dis();//Calculates dissipation
+	void writedis(long int);//writes dissipation
 	void gendisvGlobal();
 	void gendisdGlobal();
 	void writedisin(long int);
-	void computesurfarea();
-	void writeinput();
+	void computesurfarea();//computes contact area between liquid and surface. Written to file in write energy
+	void writeinput();//writes the .txt files which allow a simulation to be started from where another ended.
  public:
 
 		void algorithm();

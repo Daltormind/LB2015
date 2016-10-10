@@ -6,6 +6,11 @@
 void wet::writeinput()
 {
 
+
+	computecoordinates(k1);
+		int istart=xk;
+		computecoordinates(k2);
+		int iend=xk;
 	//genCglobal();
 	int i, j, h;
 	ofstream file;
@@ -14,14 +19,14 @@ void wet::writeinput()
        
         //------------------------- Write the composition File------------------------
         
-        snprintf(filename1,20,"/C.txt");			//Create a name for file that contain data
+        snprintf(filename1,20,"/C%d.txt",rank);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());
 		file.precision(16);
 	
-		for( h = 0 ; h < Lx*Ly*Lz ; h++) 
+		for( h = 0 ; h < ProcessN ; h++) 
 		{   
-		file << CGlobal[h] << endl ;
+		file << C[h] << endl ;
 	      	}
 		 
 	file.close();		
@@ -30,57 +35,57 @@ void wet::writeinput()
 
         //------------------------- Write pressure------------------------
         
-        snprintf(filename1,20,"/p.txt");			//Create a name for file that contain data
+        snprintf(filename1,20,"/p%d.txt",rank);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());
 		file.precision(16);
 	
-		for( h = 0 ; h < Lx*Ly*Lz ; h++) 
+		for(h = 0 ; h < ProcessN ; h++) 
 		{   
-		file << pGlobal[h] << endl ;
+		file << p[h] << endl ;
 	      	}
 		 
 	file.close();	
 
         //------------------------- Write the chempot------------------------
         
-        snprintf(filename1,20,"/mu.txt");			//Create a name for file that contain data
+        snprintf(filename1,20,"/mu%d.txt",rank);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());
 		file.precision(16);
 	
-		for( h = 0 ; h < Lx*Ly*Lz ; h++) 
+		for(h = 0 ; h < ProcessN ; h++) 
 		{   
-		file << muGlobal[h] << endl ;
+		file << mu[h] << endl ;
 	      	}
 		 
 	file.close();		
 
 
-        //------------------------- Write xvel------------------------
+        //------------------------- Write ux------------------------
         
-        snprintf(filename1,20,"/ux.txt");			//Create a name for file that contain data
+        snprintf(filename1,20,"/ux%d.txt",rank);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());
 		file.precision(16);
 	
-		for( h = 0 ; h < Lx*Ly*Lz ; h++) 
+		for(h = 0 ; h < ProcessN ; h++) 
 		{   
-		file << uxGlobal[h] << endl ;
+		file << ux[h] << endl ;
 	      	}
 		 
 	file.close();		
 
-        //------------------------- Write xvel------------------------
+        //------------------------- Write uy------------------------
         
-        snprintf(filename1,20,"/uy.txt");			//Create a name for file that contain data
+        snprintf(filename1,20,"/uy%d.txt",rank);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());
 		file.precision(16);
 	
-		for( h = 0 ; h < Lx*Ly*Lz ; h++) 
+		for(h = 0 ; h < ProcessN ; h++) 
 		{   
-		file << uyGlobal[h] << endl ;
+		file << uy[h] << endl ;
 	      	}
 		 
 	file.close();		
@@ -89,14 +94,14 @@ void wet::writeinput()
 
         //-------------------------Write uz vel------------------------
         
-        snprintf(filename1,20,"/uz.txt");			//Create a name for file that contain data
+        snprintf(filename1,20,"/uz%d.txt",rank);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());
 		file.precision(16);
 	
-		for( h = 0 ; h < Lx*Ly*Lz ; h++) 
+		for(h = 0 ; h < ProcessN ; h++) 
 		{   
-		file << uzGlobal[h] << endl ;
+		file << uz[h] << endl ;
 	      	}
 		 
 	file.close();		

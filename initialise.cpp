@@ -211,8 +211,9 @@ void wet::initialise()
 	//cout  << "Process "<< rank << " past initialise surface" << endl;
 	//}
 	//relabel();
-
+	
 	initialisemoments();
+	
 	/*
 	if(rank==ROOT)
 	{
