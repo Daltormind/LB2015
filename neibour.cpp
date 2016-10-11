@@ -114,7 +114,7 @@ void wet::neibour()
 	
 	}
 	*/
-	cout  << "Process "<< rank << " Second k loop done" << endl;
+	//cout  << "Process "<< rank << " Second k loop done" << endl;
 	}
 	
 	if(boundtype==1)

@@ -138,11 +138,25 @@ void wet::initialisesurface()
 	  {
 	  
 	      
-	       
-	    if(rank==ROOT){ktot=k+rank*(k2-(Lx%size+1)*k1)-k1;}
-	    if(rank >ROOT){ktot=k+rank*(k2-k1)+(Lx%size)*Ly*Lz-k1;}
+	    ifstream inputfile;
+        char filename1[20];
+		string filename;
+	
+	cout << "Have entered input=1" << endl;
+	
+	
+    snprintf(filename1,20,"/C%d.txt",rank);	
+	filename=filename1;
+	inputfile.open(filename.c_str());
+	  for(int i=0;i<ProcessN;i++)
+	    {
+	      inputfile >> C[i];
+	    }
+	  inputfile.close();
+	    //if(rank==ROOT){ktot=k+rank*(k2-(Lx%size+1)*k1)-k1;}
+	    //if(rank >ROOT){ktot=k+rank*(k2-k1)+(Lx%size)*Ly*Lz-k1;}
 	    
-	    if(Chold[ktot]==-2){mask[k]=28;}
+	    if(C[k]==-2){mask[k]=28;}
 	    
 	 
 	 

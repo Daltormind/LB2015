@@ -189,7 +189,7 @@ C[k]+=0.5 + 0.5*test;
 	
 	if(input==1)
 	  { 
-	   ofstream inputfile;
+	   ifstream inputfile;
 char filename1[20];
 		string filename;
 	
@@ -620,11 +620,26 @@ char filename1[20];
 
 	if(input==1)
 	  {
-	    if(rank==ROOT){ktot=k+rank*(k2-(Lx%size+1)*k1)-k1;}
-	    if(rank >ROOT){ktot=k+rank*(k2-k1)+(Lx%size)*Ly*Lz-k1;}
+	    //if(rank==ROOT){ktot=k+rank*(k2-(Lx%size+1)*k1)-k1;}
+	    //if(rank >ROOT){ktot=k+rank*(k2-k1)+(Lx%size)*Ly*Lz-k1;}
 	    
-	    p[k]=phold[ktot];
+	    //p[k]=phold[ktot];
+	    
+	    ifstream inputfile;
+        char filename1[20];
+		string filename;
+	
+		snprintf(filename1,20,"p%d.txt",rank);	
+		filename=filename1;
+
+	inputfile.open(filename.c_str());
+	  for(int i=0;i<ProcessN;i++)
+	    {
+	      inputfile >> p[i];
+	    }
+	  inputfile.close();
 	  }
+	  
 	
 tau[k]=1.0/(C[k]/tau1+(1-C[k])/tau2);
 
