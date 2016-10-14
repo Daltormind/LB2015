@@ -80,9 +80,9 @@ void wet::writemoments(long int in)
 		file << "cat ";
 		for (int asize=0 ; asize<size ; asize++)
 		{
-		file "../../DataFiles/" << folder << "/" << asize << "data.csv." << in << " ";
+		file << folder << "/" << asize << "data.csv." << in << " " ;
 		}
-		file << ">../../DataFiles/" << folder << "/data.csv." << in << endl;
+		file << folder << "/data.csv." << in << endl;
 		file.close();
 		system("sh cat.sh");
 		} 
