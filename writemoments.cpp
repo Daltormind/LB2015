@@ -75,11 +75,11 @@ void wet::writemoments(long int in)
 		
 		if(rank==ROOT)
 		{
-		file.open("cat.sh")
-		file << "cat "
+		file.open("cat.sh");
+		file << "cat ";
 		for (int asize=0 ; asize<size ; asize++)
 		{
-		file << asize << "data.csv." << in << " "
+		file << asize << "data.csv." << in << " ";
 		}
 		file << ">data.csv." << in << endl;
 		file.close();
