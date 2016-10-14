@@ -54,6 +54,38 @@ void wet::writemoments(long int in)
 			
 			file << "C" << in << "rank" << rank << "Z1=squeeze(C" << in << "rank" << rank << "Z1);" << endl;
 		file.close();
+		
+		snprintf(filename1,20,"/%ddata.csv.%d",rank,in);			//Create a name for file that contain data
+		filename=folder+filename1;
+        file.open(filename.c_str());
+		file.precision(16);
+		if(rank==ROOT)
+		{
+		file << "xpos, ypos, zpos, C, p, ux, uy, uz" << endl;
+		}
+		for(k=k1 ; k<k2 ; k++)
+		
+		{
+		computecoordinates(k);
+		file << xk << ", " << yk << ", " << zk << ", " << C[k] << ", " << p[k] << ", " << ux[k] << ", " << uy[k] << ", " << uz[k] << endl;
+		}
+		file.close();
+		
+		MPI_Barrier(MPI_COMM_WORLD);
+		
+		if(rank==ROOT)
+		{
+		file.open("cat.sh")
+		file << "cat "
+		for (int asize=0 ; asize<size ; asize++)
+		{
+		file << asize << "data.csv." << in << " "
+		}
+		file << ">data.csv." << in << endl;
+		file.close();
+		system("sh cat.sh");
+		} 
+		
 		/*
 		//	cout << "Process:" << rank << " past C write writemoments" << endl; 
 

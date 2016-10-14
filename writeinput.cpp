@@ -26,7 +26,14 @@ void wet::writeinput()
 	
 		for( h = 0 ; h < ProcessN ; h++) 
 		{   
+		if(mask[h]!=28)
+		{
 		file << C[h] << endl ;
+		}
+		else
+		{
+		file << -2 << endl;
+		}
 	      	}
 		 
 	file.close();		
