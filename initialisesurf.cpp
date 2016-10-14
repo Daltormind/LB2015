@@ -142,7 +142,7 @@ void wet::initialisesurface()
         char filename1[20];
 		string filename;
 	
-	cout << "Have entered input=1" << endl;
+		//cout << "Have entered input=1" << endl;
 	
 	
     snprintf(filename1,20,"/C%d.txt",rank);	

@@ -204,14 +204,14 @@ void wet::initialise()
 	cout  << "Process "<< rank << " past neibour" << endl;
 	}
 	initialisesurface();
-	
+	cout << "Process " << rank << " past initialisesurface" << endl;
 	//generateglobalmask();
 	//if(rank==ROOT)
 	//{
 	//cout  << "Process "<< rank << " past initialise surface" << endl;
 	//}
 	//relabel();
-	
+	cout << "Process " << rank << " reached initialisesurface" << endl;
 	initialisemoments();
 	
 	/*
