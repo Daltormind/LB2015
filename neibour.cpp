@@ -58,8 +58,10 @@ void wet::neibour()
 	y=yk+geo[a][1];
 	z=zk+geo[a][2];
 	
-	
-	//x=mod(x,Lx);
+	if(size==1)
+	{
+	x=mod(x,Lx);
+	}
 	y=mod(y,Ly);
 	z=mod(z,Lz);
 	
