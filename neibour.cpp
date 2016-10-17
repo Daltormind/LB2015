@@ -24,7 +24,18 @@ void wet::neibour()
 	
 	int x,y,z;
 	
+	int start,stop;
 	
+	if(size>1)
+	{
+	start=Lz*Ly;
+	stop=k2+Lz*Ly;
+	}
+	else
+	{
+	start=0;
+	stop=k2;
+	}
 	
 	if(boundtype==0)
 	{
@@ -39,7 +50,7 @@ void wet::neibour()
 		
 		
 	
-	for(k=Lz*Ly;k<k2+Lz*Ly;k++)
+	for(k=start;k<stop;k++)
 	{
 	  
 		xk=int (k/float(Lz*Ly));
@@ -121,7 +132,7 @@ void wet::neibour()
 	
 	if(boundtype==1)
 	{
-		for(k=k1-Ly*Lz;k<k2+Ly*Lz;k++)
+		for(k=start;k<stop;k++)
 	{
 		xk=int (k/float(Lz*Ly));
 		yk=int((k-xk*Lz*Ly)/float(Lz));
@@ -382,7 +393,7 @@ void wet::neibour()
 	
 	if(boundtype==2)
 	{
-		for(k=k1-Ly*Lz;k<k2+Ly*Lz;k++)
+		for(k=start;k<stop;k++)
 	{
 		xk=int (k/float(Lz*Ly));
 		yk=int((k-xk*Lz*Ly)/float(Lz));
