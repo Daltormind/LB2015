@@ -7,7 +7,8 @@ void wet::initialise()
 {
 	
 	MPI_Status statusLeft, statusRight;
-
+if(size>1)
+{
 	//periodic boundary condition in processors
 	if(rank==0)
 		leftProcess=size-1;
@@ -46,7 +47,15 @@ void wet::initialise()
 	}
 	k1 = 2*Ly*Lz;			//k where real lattice starts
 	k2 = ProcessN-2*Ly*Lz;		//k where real lattice ends
-	
+}
+else
+{
+ProcessN=Lx*Ly*Lz;
+leftProcess=0;//Not really necdecary
+rightProcess=0; 
+k1=0;
+k2=ProcessN;
+}	
 	
 	
 	cout << "Process k1 k2 ProcessN "<< rank << " " << k1 << " " << k2 << " " << ProcessN <<endl;
@@ -262,7 +271,7 @@ void wet::initialise()
 	//{
 	
 	writemoments(0);
-	writevelocity(0);
+	//writevelocity(0);
 	//computeenergy();
 
 	//}

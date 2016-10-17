@@ -114,8 +114,11 @@ if(mask[k]!=28)
 }
 }
 
+if(size>1)
+{
 exchangeC();
 exchangerho();
+}
 /*
 for(k=k1;k<k2;k++)
   {
@@ -471,8 +474,10 @@ else{hold11=C[d[k][10]];}
 			*/
 		}
 	}
-	
+if(size>1)
+{	
 exchangemu();
+}
 //exchangemuh();
 
 //Compute Macroscopic velocity
@@ -847,9 +852,10 @@ if(mask[k]!=28)
 			}
 }
 }
-
+if(size>1)
+{
 exchangevel();
-
+}
 //Compute macroscopic pressure
 
 for(k=k1;k<k2;k++)
@@ -1177,9 +1183,10 @@ if(mask[k]!=28)
 	}
 }
 }
-
+if(size>1)
+{
 exchangep();
-
+}
 
 
 

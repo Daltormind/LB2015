@@ -162,9 +162,10 @@ void wet::initialisesurface()
 	 
 	  }
 	}
-	
+	if(size>1)
+	{
 	exchangemask();
-	 
+	 }
 	 
 	 
 	 cout  << "Process "<< rank << " past exchangmask 1" << endl;
@@ -205,8 +206,10 @@ void wet::initialisesurface()
 	
 	 
 	     
-	 
+	 if(size>1)
+	 {
 	exchangemask();
+	}
 	//	cout  << "Process "<< rank << " First in initsurf k loop done" << endl;
 	/*
 	for(k=k1;k<k2;k++)
@@ -258,9 +261,10 @@ void wet::initialisesurface()
 
 }
 	//	cout  << "Process "<< rank << " before exchangemask 2" << endl;
-	
+	if(size>1)
+	{
 	exchangemask();
-	
+	}
 
 	for(k=k1;k<k2;k++)
 	  {
@@ -358,7 +362,10 @@ void wet::initialisesurface()
 	    
 	  }
 
+	if(size>1)
+	{
 	exchangemask();
+	}
 	/*
 	//Set concave corner specials.
 
@@ -466,7 +473,10 @@ void wet::initialisesurface()
 	      }
 	  }
 */
+	if(size>1)
+	{
 	exchangemask();
+	}
 //	cout  << "Process "<< rank << " Past exchangemask 2" << endl;
 	
 	/*

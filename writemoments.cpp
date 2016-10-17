@@ -13,7 +13,7 @@ void wet::writemoments(long int in)
 		string filename;
 		//	cout << "Process:" << rank << " Entered writemoments" << endl; 
         //------------------------- Write the composition File------------------------
-        
+        /*
         snprintf(filename1,20,"/sC%drank%dZ1.m",in,rank);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());
@@ -54,7 +54,7 @@ void wet::writemoments(long int in)
 			
 			file << "C" << in << "rank" << rank << "Z1=squeeze(C" << in << "rank" << rank << "Z1);" << endl;
 		file.close();
-		
+		*/
 		snprintf(filename1,20,"/%ddata.csv.%d",rank,in);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());

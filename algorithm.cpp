@@ -101,7 +101,7 @@ void wet::algorithm()
 		//if(rank==ROOT)
 		//{
 		writemoments(st);//write out the momments i.e. C, p and mu
-		writevelocity(st);//write out ux, uy  and uz
+		//writevelocity(st);//write out ux, uy  and uz
 		if(st==Neqst)
 		  {
 		    writeinput();
@@ -156,9 +156,10 @@ void wet::algorithm()
 	
 			//computeenergy();
 	}
-		
+		if(size>1)
+		{
 		exchangedencol();//exchange node information between computing cores
-		
+		}
 
 		for(k=k1;k<k2;k++)
 		{	

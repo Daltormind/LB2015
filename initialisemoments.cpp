@@ -281,8 +281,10 @@ char filename1[20];
 
 	}
 	}
+	if(size>1)
+	{
 	exchangeC();
-	
+	}
 	for(k=k1;k<k2;++k)//Initialise free energy and density
 	{
 		if(mask[k]!=28)
@@ -601,11 +603,12 @@ char filename1[20];
 			*/
 		}
 	}
-
+	if(size>1)
+	{
 	exchangemu();
 	//exchangemuh();
 	exchangerho();
-
+	}
 
 	for(k=k1;k<k2;++k)//Initialise pressure and tau
 	{
@@ -649,9 +652,10 @@ tau[k]=1.0/(C[k]/tau1+(1-C[k])/tau2);
 
 }
 
-	
+	if(size>1)
+	{
 	exchangep();
 	
 	exchangevel();
-
+}
 	}
