@@ -55,6 +55,8 @@ leftProcess=0;//Not really necdecary
 rightProcess=0; 
 k1=0;
 k2=ProcessN;
+N=Lx*Ly*Lz;
+xend=Lx;
 }	
 	
 	
@@ -403,7 +405,7 @@ k2=ProcessN;
 	}
 	
 	
-
+	
 	//writevelocity(0);
 	if(rank==ROOT)
 	{
