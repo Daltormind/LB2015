@@ -59,7 +59,7 @@ void wet::writemoments(long int in)
 			if(rank==size-1)
 			{
 			file <<"];" << endl;
-			file << "C" << in << "Z1=squeeze(C" << in << "rank" << rank << "Z1);" << endl;
+			file << "C" << in << "Z1=squeeze(C" << in << "Z1);" << endl;
 			}
 			
 			
