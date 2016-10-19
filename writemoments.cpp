@@ -13,7 +13,7 @@ void wet::writemoments(long int in)
 		string filename;
 		//	cout << "Process:" << rank << " Entered writemoments" << endl; 
         //------------------------- Write the composition File------------------------
-        /*
+        
         snprintf(filename1,20,"/sC%drank%dZ1.m",in,rank);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());
@@ -28,8 +28,10 @@ void wet::writemoments(long int in)
 	
 		for( h = 0 ; h < 1 ; h++) 
 		{   
+			if(rank==ROOT)
+			{
 			file << "C" << in  << "rank" << rank << "Z1(:,:," << h+1 << ")=[" << endl;
-		
+			}
 			for( i = 2 ; i < 2+iend-istart ; i++) 
 			{
 			  for( j = 0 ; j < Ly ; j++) 
@@ -45,16 +47,44 @@ void wet::writemoments(long int in)
 				}
 				file << endl;
 		
-}
+}			
+			if(rank==size-1)
+			{
 			file <<"];" << endl;
-		
+			file << "C" << in << "rank" << rank << "Z1=squeeze(C" << in << "rank" << rank << "Z1);" << endl;
+			}
+			
 			
 }
 			
+			file.close();
 			
-			file << "C" << in << "rank" << rank << "Z1=squeeze(C" << in << "rank" << rank << "Z1);" << endl;
-		file.close();
-		*/
+			MPI_Barrier(MPI_COMM_WORLD);
+			
+			if(rank==ROOT)
+			{
+			file.open("catm.sh");
+			
+			file << "cat ";
+			
+			
+			
+			for(int asize=0; asize<size; asize++)
+			{
+				file << folder << "/" << "sC" << in << "rank" << rank << "Z1.m ";
+			}
+			
+			file << "> " << folder << "/" << "sC" << in << "Z1.m" << endl; 
+			
+			for(int asize=0; asize<size ; asize++)
+		{
+		file << "rm " << folder << "/" << "sC" << in << "rank" "Z1.m" << endl;
+		}
+			file.close();
+		    system("sh catm.sh");
+			}
+		
+		
 		snprintf(filename1,20,"/%ddata.csv.%d",rank,in);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());
