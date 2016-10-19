@@ -191,4 +191,10 @@ void wet::algorithm()
 			popen("plot.sh")
 		}
 	    */
+	    MPI_Barrier(MPI_COMM_WORLD);
+	    if(rank==ROOT)
+	    {
+	    	system("sh tran.sh");
+	    }
+	    
 }
