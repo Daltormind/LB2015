@@ -86,7 +86,7 @@ void wet::writemoments(long int in)
 			
 			for(int asize=0; asize<size ; asize++)
 		{
-		file << "rm " << folder << "/" << "sC" << in << "rank" << rank << "Z1.m" << endl;
+		file << "rm " << folder << "/" << "sC" << in << "rank" << asize << "Z1.m" << endl;
 		}
 			file.close();
 		    system("sh catm.sh");
