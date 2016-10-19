@@ -18,11 +18,19 @@ void wet::writemoments(long int in)
 		filename=folder+filename1;
         file.open(filename.c_str());
 		file.precision(16);
-	
+		int offset;
 		computecoordinates(k1);
 		int istart=xk;
 		computecoordinates(k2);
 		int iend=xk;
+		if(size>1)
+		{
+		offset=2;
+		}
+		else
+		{
+		offset=0;
+		}
 		
 	    //cout << "rank=" << rank<< " istart=" << istart << " iend=" << iend << endl;
 	
@@ -30,9 +38,9 @@ void wet::writemoments(long int in)
 		{   
 			if(rank==ROOT)
 			{
-			file << "C" << in  << "rank" << rank << "Z1(:,:," << h+1 << ")=[" << endl;
+			file << "C" << in << "Z1(:,:," << h+1 << ")=[" << endl;
 			}
-			for( i = 2 ; i < 2+iend-istart ; i++) 
+			for( i = offset ; i < offset+iend-istart ; i++) 
 			{
 			  for( j = 0 ; j < Ly ; j++) 
 				{
