@@ -40,7 +40,7 @@ void wet::writemoments(long int in)
 					computecoordinates(k);
 					if(mask[k]==28){file << -2 << " " ;}
 					
-					else{file << xk[k] << " " ;}
+					else{file << xk << " " ;}
 					
 					
 						
