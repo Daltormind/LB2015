@@ -37,10 +37,10 @@ void wet::writemoments(long int in)
 			  for( j = 0 ; j < Ly ; j++) 
 				{
 					k = h + j*Lz + i*Ly*Lz;
-					
+					computecoordinates(k);
 					if(mask[k]==28){file << -2 << " " ;}
 					
-					else{file << C[k] << " " ;}
+					else{file << xk[k] << " " ;}
 					
 					
 						
@@ -71,14 +71,14 @@ void wet::writemoments(long int in)
 			
 			for(int asize=0; asize<size; asize++)
 			{
-				file << folder << "/" << "sC" << in << "rank" << rank << "Z1.m ";
+				file << folder << "/" << "sC" << in << "rank" << asize << "Z1.m ";
 			}
 			
 			file << "> " << folder << "/" << "sC" << in << "Z1.m" << endl; 
 			
 			for(int asize=0; asize<size ; asize++)
 		{
-		file << "rm " << folder << "/" << "sC" << in << "rank" "Z1.m" << endl;
+		file << "rm " << folder << "/" << "sC" << in << "rank" << rank << "Z1.m" << endl;
 		}
 			file.close();
 		    system("sh catm.sh");
