@@ -45,10 +45,10 @@ void wet::writemoments(long int in)
 			  for( j = 0 ; j < Ly ; j++) 
 				{
 					k = h + j*Lz + i*Ly*Lz;
-					computecoordinates(k);
+					
 					if(mask[k]==28){file << -2 << " " ;}
 					
-					else{file << xk << " " ;}
+					else{file << C[k] << " " ;}
 					
 					
 						
@@ -59,7 +59,7 @@ void wet::writemoments(long int in)
 			if(rank==size-1)
 			{
 			file <<"];" << endl;
-			file << "C" << in << "rank" << rank << "Z1=squeeze(C" << in << "rank" << rank << "Z1);" << endl;
+			file << "C" << in << "Z1=squeeze(C" << in << "rank" << rank << "Z1);" << endl;
 			}
 			
 			
