@@ -93,6 +93,10 @@ void wet::readinput()
     inputfile >> surftype;
     inputfile.ignore(250,'\n');
     cout << "surftype=" << surftype << endl;
+    
+    inputfile >> plane;
+    inputfile.ignore(250,'\n');
+    cout << "plane=" << plane << endl;
 
 
     inputfile.close();

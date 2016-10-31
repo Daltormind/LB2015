@@ -105,7 +105,10 @@ void wet::writemoments(long int in)
 		
 		{
 		computecoordinates(k);
+		if(zk==plane)
+		{
 		file << xk << ", " << yk << ", " << zk << ", " << C[k] << ", " << p[k] << ", " << ux[k] << ", " << uy[k] << ", " << uz[k] << endl;
+		}
 		}
 		file.close();
 		
@@ -130,6 +133,54 @@ void wet::writemoments(long int in)
 		file.close();
 		system("sh cat.sh");
 		} 
+		
+		//Writing out interface position
+		
+		snprintf(filename1,20,"/%dinter.csv.%d",rank,in);			//Create a name for file that contain data
+		filename=folder+filename1;
+        file.open(filename.c_str());
+		file.precision(16);
+		if(rank==ROOT)
+		{
+		file << "xpos, ypos, zpos, C" << endl;
+		}
+		for(k=k1 ; k<k2 ; k++)
+		
+		{
+		if(C[k]<0.7 && C[k]>0.3)
+		{
+		computecoordinates(k);
+		
+		file << xk << ", " << yk << ", " << zk << ", " << C[k] << endl;
+		}
+		}
+		file.close();
+		
+		MPI_Barrier(MPI_COMM_WORLD);
+		
+		if(rank==ROOT)
+		{
+		file.open("cat.sh");
+		
+		file << "cat ";
+		
+		for (int asize=0 ; asize<size ; asize++)
+		{
+		file << folder << "/" << asize << "inter.csv." << in << " " ;
+		}
+		file << ">" << folder << "/inter.csv." << in << endl;
+		
+		for(int asize=0; asize<size ; asize++)
+		{
+		file << "rm " << folder << "/" << asize << "inter.csv." << in << endl;
+		}
+		file.close();
+		system("sh cat.sh");
+		} 
+		
+		
+		
+		
 		
 		/*
 		//	cout << "Process:" << rank << " past C write writemoments" << endl; 
