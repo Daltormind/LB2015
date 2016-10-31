@@ -1,0 +1,8 @@
+98 0 0 		%Position of centre of surface 22 22 47
+200 200 300			%width of surface 5 5 5
+198 0 0 			%Position of surface 2 72 72 47
+50 500 500 		%width of surface 2 5 5 5
+0 0 0
+0 0 0
+1570 10 1500 5 1250 1500 1600 				%Posts 480 120
+20      	     	   				%Strip width

@@ -1,0 +1,20 @@
+10000 					% # of simulation steps
+1000				% writestep
+0					%Startwrite
+100				%Info step
+3					%Dimensions
+1				%boundtype 0=periodic 1=symmetric 2=flow
+100 100 100			%Simulation Box Size
+1 0.001188				%Liquid and gas densities 1 0.001188
+5				%epsilon
+0.02 0.25				%B BA 0.01728 0.25 0.02 
+0.94		%Mobility 0.4714
+180 180		%theta
+0.0252 0.4714 			%tau1 and tau2 0.045 0.761 0.0252 0.4714 
+0.00000 0.00000	0.0		%G[0]   G[1] G[2]
+../../DataFiles/testlong 	%Folder in which to write output data
+0				%writedis 1=yes	
+1				%surface relaxation type
+0				% input type 0=normal 1=from file
+0				% substrate type 0=flat 1=cylinder 2=sphere 3=
+0				% z Plane to write to output  

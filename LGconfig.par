@@ -1,0 +1,8 @@
+48 0 0			%Drop Centre
+50	%Drop Radius
+575 500 0
+50
+0.06 0.0 0.0			%Initial Drop Velocity
+1.0  	 			%drop Asymetry of drop 1
+1 1 1                           %asymmetry of drop 2
+50000 %Spawn rate
