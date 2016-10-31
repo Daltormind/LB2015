@@ -53,8 +53,8 @@ void wet::writeinfofile(void)
 		vtot=uxi*uxi+uyi*uyi+uzi*uzi;
 		s=B*ep/12;
 		v1=tau1/3;
-		We=rho1*vtot*R/s;
-		Oh=v1*sqrt(rho1/(s*R));
+		We=rho1*vtot*vtot*2*R/s;
+		Oh=v1*sqrt(rho1/(s*2*R));
 		
 		file << "We=" << We << endl;
 		file << "Oh=" << Oh << endl;

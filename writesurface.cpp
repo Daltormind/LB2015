@@ -13,7 +13,7 @@ int i, j, h;
 		
 		//Writing out interface position
 		
-		snprintf(filename1,20,"/%dsurf.csv.%d",rank,in);			//Create a name for file that contain data
+		snprintf(filename1,20,"/%dsurf.csv",rank);			//Create a name for file that contain data
 		filename=folder+filename1;
         file.open(filename.c_str());
 		file.precision(16);
@@ -43,13 +43,13 @@ int i, j, h;
 		
 		for (int asize=0 ; asize<size ; asize++)
 		{
-		file << folder << "/" << asize << "surf.csv." << in << " " ;
+		file << folder << "/" << asize << "surf.csv ";
 		}
-		file << ">" << folder << "/surf.csv." << in << endl;
+		file << ">" << folder << "/surf.csv" << endl;
 		
 		for(int asize=0; asize<size ; asize++)
 		{
-		file << "rm " << folder << "/" << asize << "surf.csv." << in << endl;
+		file << "rm " << folder << "/" << asize << "surf.csv" << endl;
 		}
 		file.close();
 		system("sh cat.sh");
