@@ -147,7 +147,7 @@ void wet::writemoments(long int in)
 		for(k=k1 ; k<k2 ; k++)
 		
 		{
-		if(C[k]<0.7 && C[k]>0.3)
+		if(C[k]<0.9 && C[k]>0.1)
 		{
 		computecoordinates(k);
 		

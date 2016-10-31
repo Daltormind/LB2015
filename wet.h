@@ -245,6 +245,7 @@ class wet
 	void writedisin(long int);
 	void computesurfarea();//computes contact area between liquid and surface. Written to file in write energy
 	void writeinput();//writes the .txt files which allow a simulation to be started from where another ended.
+	void writesurface();
  public:
 
 		void algorithm();

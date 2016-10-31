@@ -215,6 +215,7 @@ xend=Lx;
 	cout  << "Process "<< rank << " past neibour" << endl;
 	}
 	initialisesurface();
+	writesurface();
 	cout << "Process " << rank << " past initialisesurface" << endl;
 	//generateglobalmask();
 	//if(rank==ROOT)
