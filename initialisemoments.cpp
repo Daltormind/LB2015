@@ -186,7 +186,8 @@ C[k]+=0.5 + 0.5*test;
 	C[k]=0.5 + 0.5*test;
 	}
 	*/
-	
+	}
+	}
 	if(input==1)
 	  { 
 	   ifstream inputfile;
@@ -196,15 +197,18 @@ char filename1[20];
 		//cout << "Have entered input=1" << endl;
 	
 	
-    snprintf(filename1,20,"/C%d.txt",rank);	
+    snprintf(filename1,20,"C%d.txt",rank);	
 	filename=filename1;
+	cout << "The file is called " << filename << endl;
 	inputfile.open(filename.c_str());
+	if (rank==ROOT){cout << "Before C0 is " << C[0] << endl;}
 	  for(int i=0;i<ProcessN;i++)
 	    {
 	      inputfile >> C[i];
+	       if(C[i]==-2){C[i]=0;};
 	    }
 	  inputfile.close();
-	  
+	  if (rank==ROOT){cout << "After C0 is " << C[0] << endl;}
 	  snprintf(filename1,20,"ux%d.txt",rank);	
 	  	filename=filename1;
 
@@ -253,7 +257,7 @@ char filename1[20];
   
       
 
-	    if(C[k]==-2){C[k]=0;};
+	   
 	  }
 	  
 	  if(input==2)
@@ -279,8 +283,8 @@ char filename1[20];
 	  }
 	
 
-	}
-	}
+	
+	
 	if(size>1)
 	{
 	exchangeC();
@@ -618,9 +622,10 @@ char filename1[20];
 	
 	
 	p[k]=0.0;//g0[k]+g1[k]+g2[k]+g3[k]+g4[k]+g7[k]+g8[k]+g9[k]+g10[k]+g11[k]+g12[k]+g12[k]+g13[k]+g14[k]+g15[k]+g16[k]+g17[k]+g18[k]+g5[k]+g6[k]+dt*ux[k]*gradrhoCx/6.0+dt*gradrhoCy*uy[k]/6.0+dt*gradrhoCz*uz[k]/6.0;//compute pressure
-	
+	tau[k]=1.0/(C[k]/tau1+(1-C[k])/tau2);
 	//	if(xk>180){p[k]=0.001*(xk-180);}
-
+	}
+	}
 	if(input==1)
 	  {
 	    //if(rank==ROOT){ktot=k+rank*(k2-(Lx%size+1)*k1)-k1;}
@@ -644,18 +649,18 @@ char filename1[20];
 	  }
 	  
 	
-tau[k]=1.0/(C[k]/tau1+(1-C[k])/tau2);
 
 
 
-}
 
-}
+
+
+
 
 	if(size>1)
 	{
 	exchangep();
 	
 	exchangevel();
-}
 	}
+}

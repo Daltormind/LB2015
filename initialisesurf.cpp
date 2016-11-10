@@ -133,7 +133,7 @@ void wet::initialisesurface()
 	  }
 	
 	
-	
+	}
 	if(input==1)
 	  {
 	  
@@ -145,23 +145,30 @@ void wet::initialisesurface()
 		//cout << "Have entered input=1" << endl;
 	
 	
-    snprintf(filename1,20,"/C%d.txt",rank);	
+    snprintf(filename1,20,"C%d.txt",rank);	
 	filename=filename1;
 	inputfile.open(filename.c_str());
+
+	if(rank==ROOT)
+	  {cout << "Just before reading in" << endl;}
 	  for(int i=0;i<ProcessN;i++)
 	    {
 	      inputfile >> C[i];
+	        if(C[i]==-2){mask[i]=28;}
+	      //cout << C[i] << endl;
 	    }
+	  cout << "just after reading in" << endl;
 	  inputfile.close();
 	    //if(rank==ROOT){ktot=k+rank*(k2-(Lx%size+1)*k1)-k1;}
 	    //if(rank >ROOT){ktot=k+rank*(k2-k1)+(Lx%size)*Ly*Lz-k1;}
 	    
-	    if(C[k]==-2){mask[k]=28;}
+	  
 	    
 	 
 	 
 	  }
-	}
+	
+	
 	if(size>1)
 	{
 	exchangemask();

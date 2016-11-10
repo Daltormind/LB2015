@@ -215,6 +215,10 @@ xend=Lx;
 	cout  << "Process "<< rank << " past neibour" << endl;
 	}
 	initialisesurface();
+	if(rank==ROOT)
+	  {
+	    cout << "Process " << rank << " past initialisesurface " << endl;
+	  }
 	writesurface();
 	cout << "Process " << rank << " past initialisesurface" << endl;
 	//generateglobalmask();
@@ -223,9 +227,9 @@ xend=Lx;
 	//cout  << "Process "<< rank << " past initialise surface" << endl;
 	//}
 	//relabel();
-	cout << "Process " << rank << " reached initialisesurface" << endl;
+	cout << "Process " << rank << " reached initialisemoments" << endl;
 	initialisemoments();
-	
+	cout << "Process " << rank << " past initialise moments" << endl;
 	/*
 	if(rank==ROOT)
 	{

@@ -123,6 +123,20 @@ xcentre1=xcentre-(xcentre-xcentre1)*cos(rad);
 	ell=rad;
       }
 
+    if(input==17)//Varying the height of a ridge
+      {
+	folder=fol1;
+	wx=rad;
+	xcentre=xs2-wx-R;
+      }
+    
+    if(input==18)
+      {
+	folder=fol1;
+	wx=rad;
+	wy=rad;
+	xcentre=xs2-wx-R;
+      }
 
 	string command0="rm -r" + folder;
 	string command="mkdir " + folder;
