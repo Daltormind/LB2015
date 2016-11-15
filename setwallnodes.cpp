@@ -675,7 +675,7 @@ void wet::setwallnodes()
 	/*
 	else if(mask[k]==1)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[1]][1]]+4*C[d[1]]);
+		//Chold=1.0/3.0*(-2*dC-C[d2[1]]+4*C[d[1]]);
 		
 		h2[k]=h1[k];
 		h10[k]=h7[k];
@@ -693,7 +693,7 @@ void wet::setwallnodes()
 	
 	else if(mask[k]==2)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d2[0]]+4*C[d[0]]);
 		
 		h1[k]=h2[k];
 		h7[k]=h10[k];
@@ -714,7 +714,7 @@ void wet::setwallnodes()
 	
 	else if(mask[k]==3)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d2[0]]+4*C[d[0]]);
 		
 		h4[k]=h3[k];
 		h9[k]=h8[k];
@@ -735,7 +735,7 @@ void wet::setwallnodes()
 	
 	else if(mask[k]==4)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d2[0]]+4*C[d[0]]);
 		
 		h3[k]=h4[k];
 		h7[k]=h10[k];
@@ -756,7 +756,7 @@ void wet::setwallnodes()
 	
 	else if(mask[k]==7)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d2[0]]+4*C[d[0]]);
 		
 		h10[k]=h7[k];
 		
@@ -774,7 +774,7 @@ void wet::setwallnodes()
 	}
 	else if(mask[k]==8)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d2[0]]+4*C[d[0]]);
 		
 		h9[k]=h8[k];
 		
@@ -792,7 +792,7 @@ void wet::setwallnodes()
 	
 	else if(mask[k]==9)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d2[0]]+4*C[d[0]]);
 		
 		h8[k]=h9[k];
 		
@@ -811,7 +811,7 @@ void wet::setwallnodes()
 	
 	else if(mask[k]==10)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d2[0]]+4*C[d[0]]);
 		
 		h7[k]=h10[k];
 		
@@ -830,7 +830,7 @@ void wet::setwallnodes()
 	/*
 	else if(mask[k]==27)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d2[0]]+4*C[d[0]]);
 		
 		h2[k]=h1[k];
 		h10[k]=h7[k];
@@ -847,7 +847,7 @@ void wet::setwallnodes()
 	}
 	else if(mask[k]==29)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d2[0]]+4*C[d[0]]);
 		
 		h2[k]=h1[k];
 		h8[k]=h9[k];
@@ -865,7 +865,7 @@ void wet::setwallnodes()
 	
 	else if(mask[k]==38)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d2[0]]+4*C[d[0]]);
 		
 		h1[k]=h2[k];
 		h9[k]=h8[k];
@@ -881,7 +881,7 @@ void wet::setwallnodes()
 	
 	else if(mask[k]==40)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d2[0]]+4*C[d[0]]);
 		
 		h1[k]=h2[k];
 		h7[k]=h10[k];
@@ -896,7 +896,7 @@ void wet::setwallnodes()
 	}
 	else if(mask[k]==47)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d2[0]]+4*C[d[0]]);
 		
 		h4[k]=h3[k];
 		h10[k]=h7[k];
@@ -912,7 +912,7 @@ void wet::setwallnodes()
 	
 	else if(mask[k]==48)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d2[0]]+4*C[d[0]]);
 		
 		h4[k]=h3[k];
 		h9[k]=h8[k];
@@ -928,7 +928,7 @@ void wet::setwallnodes()
 	
 	else if(mask[k]==59)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d2[0]]+4*C[d[0]]);
 		
 		h3[k]=h4[k];
 		h8[k]=h9[k];
@@ -944,7 +944,7 @@ void wet::setwallnodes()
 	
 	else if(mask[k]==60)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d2[0]]+4*C[d[0]]);
 		
 		h3[k]=h4[k];
 		h7[k]=h10[k];

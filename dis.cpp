@@ -162,7 +162,7 @@ graduxC5=0.5*(ux[d[4]]-ux[d[5]])/dt;
 		graduzC6=0.5*(uz[d[5]]-uz[d[4]])/dt;
 		}
 		
-    	if(mask[d[6]]==28 || mask[d[d[6]][6]]==2 || mask[d[9]]==28 || mask[d[d[9]][9]]==2)
+    	if(mask[d[6]]==28 || mask[d2[6]]==2 || mask[d[9]]==28 || mask[d2[9]]==2)
 	  {graduxC7=0.0;graduyC7=0.0;gradmuC7=0.0;graduzC7=0.0;graduxC10=0.0;graduyC10=0.0;gradmuC10=0.0;graduzC10=0.0;}
     	else
     	{			
@@ -182,7 +182,7 @@ graduxC5=0.5*(ux[d[4]]-ux[d[5]])/dt;
 
 		}
 		
-		if(mask[d[7]]==28 || mask[d[d[7]][7]]==2 || mask[d[8]]==28 || mask[d[d[8]][8]]==2)
+		if(mask[d[7]]==28 || mask[d2[7]]==2 || mask[d[8]]==28 || mask[d2[8]]==2)
 		  {graduxC8=0.0;graduyC8=0.0;gradmuC8=0.0;graduzC8=0.0;
 		    graduxC9=0.0;graduyC9=0.0;gradmuC9=0.0;graduzC9=0.0;}
     	else
@@ -205,7 +205,7 @@ graduxC5=0.5*(ux[d[4]]-ux[d[5]])/dt;
 
 		}
 		
-		if(mask[d[10]]==28 || mask[d[d[10]][10]]==2 || mask[d[13]]==28 || mask[d[d[13]][13]]==2)
+		if(mask[d[10]]==28 || mask[d2[10]]==2 || mask[d[13]]==28 || mask[d2[13]]==2)
 		  {graduxC11=0.0;graduyC11=0.0;gradmuC11=0.0;graduzC11=0.0;
 		    graduxC14=0.0;graduyC14=0.0;gradmuC14=0.0;graduzC11=0.0;}
     	else
@@ -226,7 +226,7 @@ graduxC5=0.5*(ux[d[4]]-ux[d[5]])/dt;
 
 		}
 		
-		if(mask[d[11]]==28 || mask[d[d[11]][11]]==2 || mask[d[12]]==28 || mask[d[d[12]][12]]==2)
+		if(mask[d[11]]==28 || mask[d2[11]]==2 || mask[d[12]]==28 || mask[d2[12]]==2)
 		  {graduxC12=0.0;graduyC12=0.0;gradmuC12=0.0;graduzC12=0.0;
 		    graduxC13=0.0;graduyC13=0.0;gradmuC13=0.0;graduzC13=0.0;}
     	else
@@ -248,7 +248,7 @@ graduxC5=0.5*(ux[d[4]]-ux[d[5]])/dt;
 
 		}
 		
-		if(mask[d[14]]==28 || mask[d[d[14]][14]]==2 || mask[d[17]]==28 || mask[d[d[17]][17]]==2)
+		if(mask[d[14]]==28 || mask[d2[14]]==2 || mask[d[17]]==28 || mask[d2[17]]==2)
 		  {graduxC15=0.0;graduyC15=0.0;gradmuC15=0.0;graduzC15=0.0;
 		    graduxC18=0.0;graduyC18=0.0;gradmuC18=0.0;graduzC18=0.0;}
     	else
@@ -269,7 +269,7 @@ graduxC5=0.5*(ux[d[4]]-ux[d[5]])/dt;
 
 		}
 		
-		if(mask[d[15]]==28 || mask[d[d[15]][15]]==2 || mask[d[16]]==28 || mask[d[d[16]][16]]==2)
+		if(mask[d[15]]==28 || mask[d2[15]]==2 || mask[d[16]]==28 || mask[d2[16]]==2)
 		  {graduxC16=0.0;graduyC16=0.0;gradmuC16=0.0;graduzC16=0.0;
 		    graduxC17=0.0;graduyC17=0.0;gradmuC17=0.0;graduzC17=0.0;}
     	else

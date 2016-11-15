@@ -22,7 +22,7 @@ void wet::neibour(int b)
 	
 	
 	
-	int x,y,z;
+	int x,y,z,x2,y2,z2;
 	/*
 	int start,stop;
 	
@@ -69,17 +69,24 @@ void wet::neibour(int b)
 	y=yk+geo[a][1];
 	z=zk+geo[a][2];
 	
+	x2=xk+2*geo[a][0];
+	y2=yk+2*geo[a][1];
+	z2=zk+2*geo[a][2];
+	
 	if(size==1)
 	{
 	x=mod(x,Lx);
+	x2=mod(x2,Lx);
 	}
 	y=mod(y,Ly);
 	z=mod(z,Lz);
+	y2=mod(y2,Ly);
+	z2=mod(z2,Lz);
 	
 	
 	
 	d[a]=z+y*Lz+x*Ly*Lz;
-	
+	d2[a]=z2+y2*Lz+x2*Ly*Lz;
 	
 	
 	//}

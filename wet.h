@@ -43,7 +43,7 @@ class wet
 	
 	double G[3];//Holds the value of the bulk body force. Force acts in rho so gravity by defualt.
 
-	int (*d)[18]; //Assigning memory for neibour arrays
+	int d[18],d2[18]; //Assigning memory for neibour arrays
 
 	int k, k1,k2; //k is used to sweep though simulation grid. k1 nd k2 are Starting and finishing k values
 

@@ -240,7 +240,7 @@ void wet::diffCD()
 		}
 		
 		/*
-		if(mask[d[8]]==28 || mask[d[d[8]][8]]==2)
+		if(mask[d[8]]==28 || mask[d2[8]]==2)
     	{gradrhoC9=0.0;gradCC9=0.0;gradmuC9=0.0;gradpC9=0.0;gradrhoC8=0.0;gradCC8=0.0;gradmuC8=0.0;gradpC8=0.0;}
     	else
     	{			
@@ -257,7 +257,7 @@ void wet::diffCD()
 		}
 		*/
 		/*
-		if(mask[d[9]]==28 || mask[d[d[9]][9]]==2)
+		if(mask[d[9]]==28 || mask[d2[9]]==2)
     	{gradrhoC10=0.0;gradCC10=0.0;gradmuC10=0.0;gradpC10=0.0;gradrhoC7=0.0;gradCC7=0.0;gradmuC7=0.0;gradpC7=0.0;}
     	else
     	{			
@@ -307,7 +307,7 @@ void wet::diffCD()
 
 		}
 		/*
-		if(mask[d[12]]==28 || mask[d[d[12]][12]]==2)
+		if(mask[d[12]]==28 || mask[d2[12]]==2)
     	{gradrhoC13=0.0;gradCC13=0.0;gradmuC13=0.0;gradpC13=0.0;}
     	else
     	{			
@@ -319,7 +319,7 @@ void wet::diffCD()
 		}
 		*/
 		/*
-		if(mask[d[13]]==28 || mask[d[d[13]][13]]==2)
+		if(mask[d[13]]==28 || mask[d2[13]]==2)
     	{gradrhoC14=0.0;gradCC14=0.0;gradmuC14=0.0;gradpC14=0.0;}
     	else
     	{			
@@ -364,7 +364,7 @@ void wet::diffCD()
 
 		}
 		/*
-		if(mask[d[16]]==28 || mask[d[d[16]][16]]==2 )
+		if(mask[d[16]]==28 || mask[d2[16]]==2 )
     	{gradrhoC17=0.0;gradCC17=0.0;gradmuC17=0.0;gradpC17=0.0;}
     	else
     	{			
@@ -376,7 +376,7 @@ void wet::diffCD()
 		}
 		*/
 		/*
-		if(mask[d[17]]==28 || mask[d[d[17]][17]]==2)
+		if(mask[d[17]]==28 || mask[d2[17]]==2)
     	{gradrhoC18=0.0;gradCC18=0.0;gradmuC18=0.0;gradpC18=0.0;}
     	else
     	{			
@@ -503,7 +503,7 @@ void wet::diffCD()
 		}
 		
 		/*
-		if(mask[d[8]]==28 || mask[d[d[8]][8]]==2)
+		if(mask[d[8]]==28 || mask[d2[8]]==2)
     	{gradrhoC9=0.0;gradCC9=0.0;gradmuC9=0.0;gradpC9=0.0;gradrhoC8=0.0;gradCC8=0.0;gradmuC8=0.0;gradpC8=0.0;}
     	else
     	{			
@@ -520,7 +520,7 @@ void wet::diffCD()
 		}
 		*/
 		/*
-		if(mask[d[9]]==28 || mask[d[d[9]][9]]==2)
+		if(mask[d[9]]==28 || mask[d2[9]]==2)
     	{gradrhoC10=0.0;gradCC10=0.0;gradmuC10=0.0;gradpC10=0.0;gradrhoC7=0.0;gradCC7=0.0;gradmuC7=0.0;gradpC7=0.0;}
     	else
     	{			

@@ -134,7 +134,7 @@ xend=Lx;
 	      
 	      }
 	      */
-	d=new int[ProcessN][18]; //Array which holds neigbour values
+	//d=new int[ProcessN][18]; //Array which holds neigbour values
 
 	C=new double[ProcessN]; //Array which holds Composition values
 
@@ -210,7 +210,7 @@ xend=Lx;
 	 Wc[k]=-cos(theta*M_PI/180.0)*sqrt(2*B/kappa);
 		  }
 	 writeinfofile();
-	neibour();
+	//neibour();
 	if(rank==ROOT)
 	{
 	cout  << "Process "<< rank << " past neibour" << endl;
