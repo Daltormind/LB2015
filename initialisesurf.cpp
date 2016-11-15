@@ -7,7 +7,7 @@ void wet::initialisesurface()
 	
 	for(k=k1;k<k2;k++)
 	{
-	neibour(k)
+	neibour(k);
 	computecoordinates(k);
 	
 	mask[k]=0;
