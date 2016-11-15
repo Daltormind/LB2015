@@ -17,7 +17,7 @@ void wet::diffgamma()
 		
 		for(int b=1;b<19;b++)
 		{
-			dgammai+=t[b]*e[b][i]*(gamma[d[k][b-1]][c]-gamma[d[k][com[b]-1]][c])/2;
+			dgammai+=t[b]*e[b][i]*(gamma[d[b-1]][c]-gamma[d[com[b]-1]][c])/2;
 		}
 		
 		if(k==388)

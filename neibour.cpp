@@ -2,7 +2,7 @@
 
 #include "wet.h"
 
-void wet::neibour()
+void wet::neibour(int b)
 
 {
 	
@@ -23,7 +23,7 @@ void wet::neibour()
 	
 	
 	int x,y,z;
-	
+	/*
 	int start,stop;
 	
 	if(size>1)
@@ -36,7 +36,7 @@ void wet::neibour()
 	start=0;
 	stop=k2;
 	}
-	
+	*/
 	if(boundtype==0)
 	{
 	
@@ -50,12 +50,12 @@ void wet::neibour()
 		
 		
 	
-	for(k=start;k<stop;k++)
-	{
+	//for(k=start;k<stop;k++)
+	//{
 	  
-		xk=int (k/float(Lz*Ly));
-		yk=int((k-xk*Lz*Ly)/float(Lz));
-		zk=k-xk*Ly*Lz-yk*Lz;
+		xk=int (b/float(Lz*Ly));
+		yk=int((b-xk*Lz*Ly)/float(Lz));
+		zk=b-xk*Ly*Lz-yk*Lz;
 	  
 	  
 //cout  << "Process "<< rank << " compute coordinates done" << endl;
@@ -78,11 +78,11 @@ void wet::neibour()
 	
 	
 	
-	d[k][a]=z+y*Lz+x*Ly*Lz;
+	d[a]=z+y*Lz+x*Ly*Lz;
 	
 	
 	
-	}
+	//}
 	
 	
 	
@@ -121,7 +121,7 @@ void wet::neibour()
 	
 	
 	
-	d[d[k][a]][a]=z+y*Lz+(x+2)*Ly*Lz;
+	d[d[a]][a]=z+y*Lz+(x+2)*Ly*Lz;
 	}
 	}
 	
@@ -132,11 +132,11 @@ void wet::neibour()
 	
 	if(boundtype==1)
 	{
-		for(k=start;k<stop;k++)
-	{
-		xk=int (k/float(Lz*Ly));
-		yk=int((k-xk*Lz*Ly)/float(Lz));
-		zk=k-xk*Ly*Lz-yk*Lz;
+		//for(k=start;k<stop;k++)
+	
+		xk=int (b/float(Lz*Ly));
+		yk=int((b-xk*Lz*Ly)/float(Lz));
+		zk=b-xk*Ly*Lz-yk*Lz;
 	for(a=0;a<Q-1;a++)
 	{
 	
@@ -155,75 +155,67 @@ void wet::neibour()
 	}
 	
 	
-	d[k][a]=z+y*Lz+x*Ly*Lz;
-	
-	
-	
-	
-	if(xk==9 and yk==0 and zk==0 and a==2)
-	  {
-	    cout << " xk yk zk " << xk << " " << yk << " " << zk << " " << x << " " << y << " " << z << endl;   
-	  }
+	d[a]=z+y*Lz+x*Ly*Lz;
 	
 	}
-	computecoordinates(k);
+	computecoordinates(b);
 	if(xk==0)
 	{
-		d[k][1]=d[k][0];
-		d[k][7]=d[k][6];
-		d[k][9]=d[k][8];
-		d[k][15]=d[k][14];
-		d[k][17]=d[k][16];
-		//if(yk==0){d[k][9]=d[k][6];d[k][3]=d[k][2];d[k][8]=d[k][6];d[k][11]=d[k][10];d[k][13]=d[k][12];if(zk==0){d[k][5]=d[k][4];d[k][12]=d[k][10];d[k][13]=d[k][10];d[k][16]=d[k][14]}}
-		//if(yk==Ly-1){d[k][7]=d[k][8];d[k][2]=d[k][3];}
+		d[1]=d[0];
+		d[7]=d[6];
+		d[9]=d[8];
+		d[15]=d[14];
+		d[17]=d[16];
+		//if(yk==0){d[9]=d[6];d[3]=d[2];d[8]=d[6];d[11]=d[10];d[13]=d[12];if(zk==0){d[5]=d[4];d[12]=d[10];d[13]=d[10];d[16]=d[14]}}
+		//if(yk==Ly-1){d[7]=d[8];d[2]=d[3];}
 	}
 	
 	if(xk==Lx-1)
 	{
-		d[k][0]=d[k][1];
-		d[k][6]=d[k][7];
-		d[k][8]=d[k][9];
-		d[k][14]=d[k][15];
-		d[k][16]=d[k][17];
+		d[0]=d[1];
+		d[6]=d[7];
+		d[8]=d[9];
+		d[14]=d[15];
+		d[16]=d[17];
 		
 	}
 	
 	if(yk==0)
 	{
-		d[k][3]=d[k][2];
-		d[k][9]=d[k][7];
-		d[k][8]=d[k][6];
-		d[k][11]=d[k][10];
-		d[k][13]=d[k][12];
+		d[3]=d[2];
+		d[9]=d[7];
+		d[8]=d[6];
+		d[11]=d[10];
+		d[13]=d[12];
 	}
 	
 	if(yk==Ly-1)
 	{
-		d[k][2]=d[k][3];
-		d[k][7]=d[k][9];
-		d[k][6]=d[k][8];
-		d[k][10]=d[k][11];
-		d[k][12]=d[k][13];
+		d[2]=d[3];
+		d[7]=d[9];
+		d[6]=d[8];
+		d[10]=d[11];
+		d[12]=d[13];
 	}
 	
 	if(dimensions==3)
 	{
 	if(zk==0)
 	{
-		d[k][5]=d[k][4];
-		d[k][12]=d[k][10];
-		d[k][13]=d[k][11];
-		d[k][16]=d[k][14];
-		d[k][17]=d[k][15];
+		d[5]=d[4];
+		d[12]=d[10];
+		d[13]=d[11];
+		d[16]=d[14];
+		d[17]=d[15];
 	}
 	
 	if(zk==Lz-1)
 	{
-		d[k][4]=d[k][5];
-		d[k][10]=d[k][12];
-		d[k][11]=d[k][13];
-		d[k][14]=d[k][16];
-		d[k][15]=d[k][17];
+		d[4]=d[5];
+		d[10]=d[12];
+		d[11]=d[13];
+		d[14]=d[16];
+		d[15]=d[17];
 	}
 	
 	
@@ -245,146 +237,146 @@ void wet::neibour()
 	
 	
 	
-	d[d[k][a]][a]=z+y*Lz+x*Ly*Lz;
+	d[d[a]][a]=z+y*Lz+x*Ly*Lz;
 	}
 	}
 	*/
 	
-	}
+	
 	/*
 	for(k=k1;k<k2;k++)
 	{
-		if(d[k][0]>=k2)
+		if(d[0]>=k2)
 		{
-			d[k][6]=d[k][2];
-			d[k][8]=d[k][3];
-			d[k][14]=d[k][4];
-			d[k][16]=d[k][5];
+			d[6]=d[2];
+			d[8]=d[3];
+			d[14]=d[4];
+			d[16]=d[5];
 
 			
 		}
-		if(d[k][1]>=k2)
+		if(d[1]>=k2)
 		{
-			d[k][7]=d[k][2];
-			d[k][9]=d[k][3];
-			d[k][15]=d[k][4];
-			d[k][17]=d[k][5];
+			d[7]=d[2];
+			d[9]=d[3];
+			d[15]=d[4];
+			d[17]=d[5];
 
 			
 		}
-		if(d[k][2]>=k2)
+		if(d[2]>=k2)
 		{
-			d[k][6]=d[k][0];
-			d[k][7]=d[k][1];
-			d[k][10]=d[k][4];
-			d[k][12]=d[k][5];
+			d[6]=d[0];
+			d[7]=d[1];
+			d[10]=d[4];
+			d[12]=d[5];
 
 			
 		}
-		if(d[k][3]>=k2)
+		if(d[3]>=k2)
 		{
-			d[k][8]=d[k][0];
-			d[k][9]=d[k][1];
-			d[k][11]=d[k][4];
-			d[k][13]=d[k][5];
+			d[8]=d[0];
+			d[9]=d[1];
+			d[11]=d[4];
+			d[13]=d[5];
 
 			
 		}
-		if(d[k][4]>=k2)
+		if(d[4]>=k2)
 		{
-			d[k][10]=d[k][2];
-			d[k][11]=d[k][3];
-			d[k][14]=d[k][0];
-			d[k][15]=d[k][1];
+			d[10]=d[2];
+			d[11]=d[3];
+			d[14]=d[0];
+			d[15]=d[1];
 
 			
 		}
-		if(d[k][5]>=k2)
+		if(d[5]>=k2)
 		{
-			d[k][12]=d[k][2];
-			d[k][13]=d[k][3];
-			d[k][16]=d[k][0];
-			d[k][17]=d[k][1];
+			d[12]=d[2];
+			d[13]=d[3];
+			d[16]=d[0];
+			d[17]=d[1];
 
 			
 		}
-		if(d[k][6]>=k2)
+		if(d[6]>=k2)
 		{
-			d[k][6]=k;
-			
-
-			
-		}
-		if(d[k][7]>=k2)
-		{
-			d[k][7]=k;
+			d[6]=k;
 			
 
 			
 		}
-		if(d[k][8]>=k2)
+		if(d[7]>=k2)
 		{
-			d[k][8]=k;
+			d[7]=k;
+			
+
+			
 		}
-		if(d[k][9]>=k2)
+		if(d[8]>=k2)
 		{
-			d[k][9]=k;
+			d[8]=k;
 		}
-		if(d[k][10]>=k2)
+		if(d[9]>=k2)
 		{
-			d[k][10]=k;
+			d[9]=k;
 		}
-		if(d[k][11]>=k2)
+		if(d[10]>=k2)
 		{
-			d[k][11]=k;
+			d[10]=k;
 		}
-		if(d[k][12]>=k2)
+		if(d[11]>=k2)
 		{
-			d[k][12]=k;
+			d[11]=k;
 		}
-		if(d[k][13]>=k2)
+		if(d[12]>=k2)
 		{
-			d[k][13]=k;
+			d[12]=k;
 		}
-		if(d[k][14]>=k2)
+		if(d[13]>=k2)
 		{
-			d[k][14]=k;
+			d[13]=k;
 		}
-		if(d[k][15]>=k2)
+		if(d[14]>=k2)
 		{
-			d[k][15]=k;
+			d[14]=k;
 		}
-		if(d[k][16]>=k2)
+		if(d[15]>=k2)
 		{
-			d[k][16]=k;
+			d[15]=k;
 		}
-		if(d[k][17]>=k2)
+		if(d[16]>=k2)
 		{
-			d[k][17]=k;
+			d[16]=k;
 		}
-		if(d[k][0]>=k2)
+		if(d[17]>=k2)
 		{
-			d[k][0]=k;
+			d[17]=k;
 		}
-		if(d[k][1]>=k2)
+		if(d[0]>=k2)
 		{
-			d[k][1]=k;
+			d[0]=k;
 		}
-		if(d[k][2]>=k2)
+		if(d[1]>=k2)
 		{
-			d[k][2]=k;
+			d[1]=k;
 		}
-		if(d[k][3]>=k2)
+		if(d[2]>=k2)
 		{
-			d[k][3]=k;
+			d[2]=k;
 		}
-		if(d[k][4]>=k2)
+		if(d[3]>=k2)
 		{
-			d[k][4]=k;
+			d[3]=k;
 		}
-		if(d[k][5]>=k2)
+		if(d[4]>=k2)
 		{
-			d[k][5]=k;
+			d[4]=k;
+		}
+		if(d[5]>=k2)
+		{
+			d[5]=k;
 		}
 	}
 	*/
@@ -393,11 +385,11 @@ void wet::neibour()
 	
 	if(boundtype==2)
 	{
-		for(k=start;k<stop;k++)
-	{
-		xk=int (k/float(Lz*Ly));
-		yk=int((k-xk*Lz*Ly)/float(Lz));
-		zk=k-xk*Ly*Lz-yk*Lz;
+		//for(k=start;k<stop;k++)
+	
+		xk=int (b/float(Lz*Ly));
+		yk=int((b-xk*Lz*Ly)/float(Lz));
+		zk=b-xk*Ly*Lz-yk*Lz;
 	for(a=0;a<Q-1;a++)
 	{
 	
@@ -416,75 +408,69 @@ void wet::neibour()
 	}
 	
 	
-	d[k][a]=z+y*Lz+x*Ly*Lz;
+	d[a]=z+y*Lz+x*Ly*Lz;
 	
 	
-	
-	
-	if(xk==9 and yk==0 and zk==0 and a==2)
-	  {
-	    cout << " xk yk zk " << xk << " " << yk << " " << zk << " " << x << " " << y << " " << z << endl;   
-	  }
 	
 	}
-	computecoordinates(k);
+	computecoordinates(b);
 	if(xk==0)
 	{
-		d[k][1]=k;
-		d[k][7]=k;
-		d[k][9]=k;
-		d[k][15]=k;
-		d[k][17]=k;
-		//if(yk==0){d[k][9]=d[k][6];d[k][3]=d[k][2];d[k][8]=d[k][6];d[k][11]=d[k][10];d[k][13]=d[k][12];if(zk==0){d[k][5]=d[k][4];d[k][12]=d[k][10];d[k][13]=d[k][10];d[k][16]=d[k][14]}}
-		//if(yk==Ly-1){d[k][7]=d[k][8];d[k][2]=d[k][3];}
+		d[1]=b;
+		d[7]=b;
+		d[9]=b;
+		d[15]=b;
+		d[17]=b;
+		//if(yk==0){d[9]=d[6];d[3]=d[2];d[8]=d[6];d[11]=d[10];d[13]=d[12];if(zk==0){d[5]=d[4];d[12]=d[10];d[13]=d[10];d[16]=d[14]}}
+		//if(yk==Ly-1){d[7]=d[8];d[2]=d[3];}
 	}
 	
 	if(xk==Lx-1)
 	{
-		d[k][0]=k;
-		d[k][6]=k;
-		d[k][8]=k;
-		d[k][14]=k;
-		d[k][16]=k;
+		d[0]=b;
+		d[6]=b;
+		d[8]=b;
+		d[14]=b;
+		d[16]=b;
 		
 	}
 	
 	if(yk==0)
 	{
-		d[k][3]=d[k][2];
-		d[k][9]=d[k][7];
-		d[k][8]=d[k][6];
-		d[k][11]=d[k][10];
-		d[k][13]=d[k][12];
+		d[3]=d[2];
+		d[9]=d[7];
+		d[8]=d[6];
+		d[11]=d[10];
+		d[13]=d[12];
 	}
 	
 	if(yk==Ly-1)
 	{
-		d[k][2]=d[k][3];
-		d[k][7]=d[k][9];
-		d[k][6]=d[k][8];
-		d[k][10]=d[k][11];
-		d[k][12]=d[k][13];
+		d[2]=d[3];
+		d[7]=d[9];
+		d[6]=d[8];
+		d[10]=d[11];
+		d[12]=d[13];
 	}
 	
 	if(dimensions==3)
 	{
 	if(zk==0)
 	{
-		d[k][5]=d[k][4];
-		d[k][12]=d[k][10];
-		d[k][13]=d[k][11];
-		d[k][16]=d[k][14];
-		d[k][17]=d[k][15];
+		d[5]=d[4];
+		d[12]=d[10];
+		d[13]=d[11];
+		d[16]=d[14];
+		d[17]=d[15];
 	}
 	
 	if(zk==Lz-1)
 	{
-		d[k][4]=d[k][5];
-		d[k][10]=d[k][12];
-		d[k][11]=d[k][13];
-		d[k][14]=d[k][16];
-		d[k][15]=d[k][17];
+		d[4]=d[5];
+		d[10]=d[12];
+		d[11]=d[13];
+		d[14]=d[16];
+		d[15]=d[17];
 	}
 	
 	
@@ -506,146 +492,146 @@ void wet::neibour()
 	
 	
 	
-	d[d[k][a]][a]=z+y*Lz+x*Ly*Lz;
+	d[d[a]][a]=z+y*Lz+x*Ly*Lz;
 	}
 	}
 	*/
 	
-	}
+	
 	/*
 	for(k=k1;k<k2;k++)
 	{
-		if(d[k][0]>=k2)
+		if(d[0]>=k2)
 		{
-			d[k][6]=d[k][2];
-			d[k][8]=d[k][3];
-			d[k][14]=d[k][4];
-			d[k][16]=d[k][5];
+			d[6]=d[2];
+			d[8]=d[3];
+			d[14]=d[4];
+			d[16]=d[5];
 
 			
 		}
-		if(d[k][1]>=k2)
+		if(d[1]>=k2)
 		{
-			d[k][7]=d[k][2];
-			d[k][9]=d[k][3];
-			d[k][15]=d[k][4];
-			d[k][17]=d[k][5];
+			d[7]=d[2];
+			d[9]=d[3];
+			d[15]=d[4];
+			d[17]=d[5];
 
 			
 		}
-		if(d[k][2]>=k2)
+		if(d[2]>=k2)
 		{
-			d[k][6]=d[k][0];
-			d[k][7]=d[k][1];
-			d[k][10]=d[k][4];
-			d[k][12]=d[k][5];
+			d[6]=d[0];
+			d[7]=d[1];
+			d[10]=d[4];
+			d[12]=d[5];
 
 			
 		}
-		if(d[k][3]>=k2)
+		if(d[3]>=k2)
 		{
-			d[k][8]=d[k][0];
-			d[k][9]=d[k][1];
-			d[k][11]=d[k][4];
-			d[k][13]=d[k][5];
+			d[8]=d[0];
+			d[9]=d[1];
+			d[11]=d[4];
+			d[13]=d[5];
 
 			
 		}
-		if(d[k][4]>=k2)
+		if(d[4]>=k2)
 		{
-			d[k][10]=d[k][2];
-			d[k][11]=d[k][3];
-			d[k][14]=d[k][0];
-			d[k][15]=d[k][1];
+			d[10]=d[2];
+			d[11]=d[3];
+			d[14]=d[0];
+			d[15]=d[1];
 
 			
 		}
-		if(d[k][5]>=k2)
+		if(d[5]>=k2)
 		{
-			d[k][12]=d[k][2];
-			d[k][13]=d[k][3];
-			d[k][16]=d[k][0];
-			d[k][17]=d[k][1];
+			d[12]=d[2];
+			d[13]=d[3];
+			d[16]=d[0];
+			d[17]=d[1];
 
 			
 		}
-		if(d[k][6]>=k2)
+		if(d[6]>=k2)
 		{
-			d[k][6]=k;
-			
-
-			
-		}
-		if(d[k][7]>=k2)
-		{
-			d[k][7]=k;
+			d[6]=k;
 			
 
 			
 		}
-		if(d[k][8]>=k2)
+		if(d[7]>=k2)
 		{
-			d[k][8]=k;
+			d[7]=k;
+			
+
+			
 		}
-		if(d[k][9]>=k2)
+		if(d[8]>=k2)
 		{
-			d[k][9]=k;
+			d[8]=k;
 		}
-		if(d[k][10]>=k2)
+		if(d[9]>=k2)
 		{
-			d[k][10]=k;
+			d[9]=k;
 		}
-		if(d[k][11]>=k2)
+		if(d[10]>=k2)
 		{
-			d[k][11]=k;
+			d[10]=k;
 		}
-		if(d[k][12]>=k2)
+		if(d[11]>=k2)
 		{
-			d[k][12]=k;
+			d[11]=k;
 		}
-		if(d[k][13]>=k2)
+		if(d[12]>=k2)
 		{
-			d[k][13]=k;
+			d[12]=k;
 		}
-		if(d[k][14]>=k2)
+		if(d[13]>=k2)
 		{
-			d[k][14]=k;
+			d[13]=k;
 		}
-		if(d[k][15]>=k2)
+		if(d[14]>=k2)
 		{
-			d[k][15]=k;
+			d[14]=k;
 		}
-		if(d[k][16]>=k2)
+		if(d[15]>=k2)
 		{
-			d[k][16]=k;
+			d[15]=k;
 		}
-		if(d[k][17]>=k2)
+		if(d[16]>=k2)
 		{
-			d[k][17]=k;
+			d[16]=k;
 		}
-		if(d[k][0]>=k2)
+		if(d[17]>=k2)
 		{
-			d[k][0]=k;
+			d[17]=k;
 		}
-		if(d[k][1]>=k2)
+		if(d[0]>=k2)
 		{
-			d[k][1]=k;
+			d[0]=k;
 		}
-		if(d[k][2]>=k2)
+		if(d[1]>=k2)
 		{
-			d[k][2]=k;
+			d[1]=k;
 		}
-		if(d[k][3]>=k2)
+		if(d[2]>=k2)
 		{
-			d[k][3]=k;
+			d[2]=k;
 		}
-		if(d[k][4]>=k2)
+		if(d[3]>=k2)
 		{
-			d[k][4]=k;
+			d[3]=k;
 		}
-		if(d[k][5]>=k2)
+		if(d[4]>=k2)
 		{
-			d[k][5]=k;
+			d[4]=k;
+		}
+		if(d[5]>=k2)
+		{
+			d[5]=k;
 		}
 	}
 	*/
@@ -673,7 +659,7 @@ snprintf(filename1,20,"/sd%ld.m",rank);			//Create a name for file that contain 
 					k = h + j*Lz + i*Ly*Lz;
 					
 					
-					file << d[k][1] << " " ;
+					file << d[1] << " " ;
 						
 				}
 				file << endl;

@@ -48,8 +48,8 @@ void wet::setwallnodes()
 	{	
 		if(dimensions==2)
 		{
-		M0=M*(mu[d[k][6]]+mu[d[k][7]]+mu[d[k][8]]+mu[d[k][9]]+4.0*mu[d[k][0]]
-		      +4.0*mu[d[k][1]]+4.0*mu[d[k][2]]+4.0*mu[d[k][3]]-20.0*mu[k])/(6.0*dt*dt);
+		M0=M*(mu[d[6]]+mu[d[7]]+mu[d[8]]+mu[d[9]]+4.0*mu[d[0]]
+		      +4.0*mu[d[1]]+4.0*mu[d[2]]+4.0*mu[d[3]]-20.0*mu[k])/(6.0*dt*dt);
 		if(C[k]<0)
 		  {
 		     M0+=M*2*BA*( 2*B*(C[k]*(C[k]-1)*(C[k]-1)+C[k]*C[k]*(C[k]-1)) - mu[k])/kappa;
@@ -59,7 +59,7 @@ void wet::setwallnodes()
 		}
 		if(dimensions==3)
 		{
-		M0=M*(mu[d[k][6]]+mu[d[k][7]]+mu[d[k][8]]+mu[d[k][9]]+mu[d[k][10]]+mu[d[k][11]]+mu[d[k][12]]+mu[d[k][13]]+mu[d[k][14]]+mu[d[k][15]]+mu[d[k][16]]+mu[d[k][17]]+2.0*(mu[d[k][0]]+mu[d[k][1]]+mu[d[k][2]]+mu[d[k][3]]+mu[d[k][4]]+mu[d[k][5]])-24.0*mu[k])/(6.0*dt*dt);
+		M0=M*(mu[d[6]]+mu[d[7]]+mu[d[8]]+mu[d[9]]+mu[d[10]]+mu[d[11]]+mu[d[12]]+mu[d[13]]+mu[d[14]]+mu[d[15]]+mu[d[16]]+mu[d[17]]+2.0*(mu[d[0]]+mu[d[1]]+mu[d[2]]+mu[d[3]]+mu[d[4]]+mu[d[5]])-24.0*mu[k])/(6.0*dt*dt);
 		
 		if(C[k]<0)
 		  {
@@ -72,139 +72,139 @@ void wet::setwallnodes()
 			{
 			
 				
-		if(mask[d[k][0]]==28)
+		if(mask[d[0]]==28)
     	{
-    	hold1=mu[d[k][1]];
+    	hold1=mu[d[1]];
 		h2[k]=h1[k];
 		g2[k]=g1[k];
     	}
-    	else{hold1=mu[d[k][0]];}
+    	else{hold1=mu[d[0]];}
     	
-    	if(mask[d[k][1]]==28)
+    	if(mask[d[1]]==28)
     	{
-    	hold2=mu[d[k][0]];
+    	hold2=mu[d[0]];
 		h1[k]=h2[k];
 		g1[k]=g2[k];
     	}
-    	else{hold2=mu[d[k][1]];}
-    	if(mask[d[k][2]]==28)
+    	else{hold2=mu[d[1]];}
+    	if(mask[d[2]]==28)
     	{
-    	hold3=mu[d[k][3]];
+    	hold3=mu[d[3]];
 	    h4[k]=h3[k];
 		g4[k]=g3[k];
     	}
-    	else{hold3=mu[d[k][2]];}
-    	if(mask[d[k][3]]==28)
+    	else{hold3=mu[d[2]];}
+    	if(mask[d[3]]==28)
     	{
-    	hold4=mu[d[k][2]];
+    	hold4=mu[d[2]];
 		h3[k]=h4[k];
     	g3[k]=g4[k];
     	}
-    	else{hold4=mu[d[k][3]];}
-    	if(mask[d[k][4]]==28)
+    	else{hold4=mu[d[3]];}
+    	if(mask[d[4]]==28)
     	{
-    	hold5=mu[d[k][5]];
+    	hold5=mu[d[5]];
 		h6[k]=h5[k];
 		g6[k]=g5[k];
     	}
-    	else{hold5=mu[d[k][4]];}
-    	if(mask[d[k][5]]==28)
+    	else{hold5=mu[d[4]];}
+    	if(mask[d[5]]==28)
     	{
-    	hold6=mu[d[k][4]];
+    	hold6=mu[d[4]];
 		h5[k]=h6[k];
 		g5[k]=g6[k];
     	}
-    	else{hold6=mu[d[k][5]];}
-    	if(mask[d[k][6]]==28 )
+    	else{hold6=mu[d[5]];}
+    	if(mask[d[6]]==28 )
     	{
-    	hold7=mu[d[k][9]];
+    	hold7=mu[d[9]];
 		h10[k]=h7[k];
 		g10[k]=g7[k];
     	}
-    	else{hold7=mu[d[k][6]];}
-    	if(mask[d[k][7]]==28 )
+    	else{hold7=mu[d[6]];}
+    	if(mask[d[7]]==28 )
     	{
-    	hold8=mu[d[k][8]];
+    	hold8=mu[d[8]];
 		h9[k]=h8[k];
 		g9[k]=g8[k];
 	
 		
     	}
-    	else{hold8=mu[d[k][7]];}
-    	if(mask[d[k][8]]==28 )
+    	else{hold8=mu[d[7]];}
+    	if(mask[d[8]]==28 )
     	{
-    	hold9=mu[d[k][7]];
+    	hold9=mu[d[7]];
 		h8[k]=h9[k];
 		g8[k]=g9[k];
     	}
-    	else{hold9=mu[d[k][8]];}
-    	if(mask[d[k][9]]==28 )
+    	else{hold9=mu[d[8]];}
+    	if(mask[d[9]]==28 )
     	{
-    	hold10=mu[d[k][6]];
+    	hold10=mu[d[6]];
 		h7[k]=h10[k];
 		g7[k]=g10[k];
 	
 		
     	}
-    	else{hold10=mu[d[k][9]];}
-    	if(mask[d[k][10]]==28 )
+    	else{hold10=mu[d[9]];}
+    	if(mask[d[10]]==28 )
     	{
-    	hold11=mu[d[k][13]];
+    	hold11=mu[d[13]];
 		h14[k]=h11[k];
 		g14[k]=g11[k];
 	
     	}
-    	else{hold11=mu[d[k][10]];}
-    	if(mask[d[k][11]]==28 )
+    	else{hold11=mu[d[10]];}
+    	if(mask[d[11]]==28 )
     	{
-    	hold12=mu[d[k][12]];
+    	hold12=mu[d[12]];
 		h13[k]=h12[k];
 		g13[k]=g12[k];
     	}
-    	else{hold12=mu[d[k][11]];}
-    	if(mask[d[k][12]]==28 )
+    	else{hold12=mu[d[11]];}
+    	if(mask[d[12]]==28 )
     	{
-    	hold13=mu[d[k][11]];
+    	hold13=mu[d[11]];
 		h12[k]=h13[k];
 		g12[k]=g13[k];
     	}
-    	else{hold13=mu[d[k][12]];}
-    	if(mask[d[k][13]]==28 )
+    	else{hold13=mu[d[12]];}
+    	if(mask[d[13]]==28 )
     	{
-    	hold14=mu[d[k][10]];
+    	hold14=mu[d[10]];
 		h11[k]=h14[k];
 		g11[k]=g14[k];
 	       
     	}
-    	else{hold14=mu[d[k][13]];}
-    	if(mask[d[k][14]]==28 )
+    	else{hold14=mu[d[13]];}
+    	if(mask[d[14]]==28 )
     	{
-    	hold15=mu[d[k][17]];
+    	hold15=mu[d[17]];
 		h18[k]=h15[k];
 		g18[k]=g15[k];
     	}
-    	else{hold15=mu[d[k][14]];}
-    	if(mask[d[k][15]]==28 )
+    	else{hold15=mu[d[14]];}
+    	if(mask[d[15]]==28 )
     	{
-    	hold16=mu[d[k][16]];
+    	hold16=mu[d[16]];
 		h17[k]=h16[k];
 		g17[k]=g16[k];
     	}
-    	else{hold16=mu[d[k][15]];}
-    	if(mask[d[k][16]]==28 )
+    	else{hold16=mu[d[15]];}
+    	if(mask[d[16]]==28 )
     	{
-    	hold17=mu[d[k][15]];
+    	hold17=mu[d[15]];
 		h16[k]=h17[k];
 		g16[k]=g17[k];
     	}
-    	else{hold17=mu[d[k][16]];}
-    	if(mask[d[k][17]]==28 )
+    	else{hold17=mu[d[16]];}
+    	if(mask[d[17]]==28 )
     	{
-    	hold18=mu[d[k][14]];
+    	hold18=mu[d[14]];
 		h15[k]=h18[k];
 		g15[k]=g18[k];
     	}
-    	else{hold18=mu[d[k][17]];}
+    	else{hold18=mu[d[17]];}
 			
 			if(dimensions==3)
             {
@@ -233,135 +233,135 @@ void wet::setwallnodes()
 			{
 			
 				
-		if(mask[d[k][0]]==28)
+		if(mask[d[0]]==28)
     	{
-    	hold1=mu[d[k][1]];
+    	hold1=mu[d[1]];
 		h2[k]=h1[k];
 		g2[k]=g1[k];
     	}
-    	else{hold1=mu[d[k][0]];}
+    	else{hold1=mu[d[0]];}
     	
-    	if(mask[d[k][1]]==28)
+    	if(mask[d[1]]==28)
     	{
-    	hold2=mu[d[k][0]];
+    	hold2=mu[d[0]];
 		h1[k]=h2[k];
 		g1[k]=g2[k];
     	}
-    	else{hold2=mu[d[k][1]];}
-    	if(mask[d[k][2]]==28)
+    	else{hold2=mu[d[1]];}
+    	if(mask[d[2]]==28)
     	{
-    	hold3=mu[d[k][3]];
+    	hold3=mu[d[3]];
 	    h4[k]=h3[k];
 		g4[k]=g3[k];
     	}
-    	else{hold3=mu[d[k][2]];}
-    	if(mask[d[k][3]]==28)
+    	else{hold3=mu[d[2]];}
+    	if(mask[d[3]]==28)
     	{
-    	hold4=mu[d[k][2]];
+    	hold4=mu[d[2]];
 		h3[k]=h4[k];
     	g3[k]=g4[k];
     	}
-    	else{hold4=mu[d[k][3]];}
-    	if(mask[d[k][4]]==28)
+    	else{hold4=mu[d[3]];}
+    	if(mask[d[4]]==28)
     	{
-    	hold5=mu[d[k][5]];
+    	hold5=mu[d[5]];
 		h6[k]=h5[k];
 		g6[k]=g5[k];
     	}
-    	else{hold5=mu[d[k][4]];}
-    	if(mask[d[k][5]]==28)
+    	else{hold5=mu[d[4]];}
+    	if(mask[d[5]]==28)
     	{
-    	hold6=mu[d[k][4]];
+    	hold6=mu[d[4]];
 		h5[k]=h6[k];
 		g5[k]=g6[k];
     	}
-    	else{hold6=mu[d[k][5]];}
-    	if(mask[d[k][6]]==28 || mask[d[k][6]]==3)
+    	else{hold6=mu[d[5]];}
+    	if(mask[d[6]]==28 || mask[d[6]]==3)
     	{
-    	hold7=mu[d[k][9]];
+    	hold7=mu[d[9]];
 		h10[k]=h7[k];
 		g10[k]=g7[k];
     	}
-    	else{hold7=mu[d[k][6]];}
-    	if(mask[d[k][7]]==28 || mask[d[k][7]]==3)
+    	else{hold7=mu[d[6]];}
+    	if(mask[d[7]]==28 || mask[d[7]]==3)
     	{
-    	hold8=mu[d[k][8]];
+    	hold8=mu[d[8]];
 		h9[k]=h8[k];
 		g9[k]=g8[k];
     	}
-    	else{hold8=mu[d[k][7]];}
-    	if(mask[d[k][8]]==28 || mask[d[k][8]]==3)
+    	else{hold8=mu[d[7]];}
+    	if(mask[d[8]]==28 || mask[d[8]]==3)
     	{
-    	hold9=mu[d[k][7]];
+    	hold9=mu[d[7]];
 		h8[k]=h9[k];
 		g8[k]=g9[k];
     	}
-    	else{hold9=mu[d[k][8]];}
-    	if(mask[d[k][9]]==28 || mask[d[k][9]]==3)
+    	else{hold9=mu[d[8]];}
+    	if(mask[d[9]]==28 || mask[d[9]]==3)
     	{
-    	hold10=mu[d[k][6]];
+    	hold10=mu[d[6]];
 		h7[k]=h10[k];
 		g7[k]=g10[k];
     	}
-    	else{hold10=mu[d[k][9]];}
-    	if(mask[d[k][10]]==28 ||  mask[d[k][10]]==3)
+    	else{hold10=mu[d[9]];}
+    	if(mask[d[10]]==28 ||  mask[d[10]]==3)
     	{
-    	hold11=mu[d[k][13]];
+    	hold11=mu[d[13]];
 		h14[k]=h11[k];
 		g14[k]=g11[k];
 	
     	}
-    	else{hold11=mu[d[k][10]];}
-    	if(mask[d[k][11]]==28 || mask[d[k][11]]==3)
+    	else{hold11=mu[d[10]];}
+    	if(mask[d[11]]==28 || mask[d[11]]==3)
     	{
-    	hold12=mu[d[k][12]];
+    	hold12=mu[d[12]];
 		h13[k]=h12[k];
 		g13[k]=g12[k];
     	}
-    	else{hold12=mu[d[k][11]];}
-    	if(mask[d[k][12]]==28 || mask[d[k][12]]==3)
+    	else{hold12=mu[d[11]];}
+    	if(mask[d[12]]==28 || mask[d[12]]==3)
     	{
-    	hold13=mu[d[k][11]];
+    	hold13=mu[d[11]];
 		h12[k]=h13[k];
 		g12[k]=g13[k];
     	}
-    	else{hold13=mu[d[k][12]];}
-    	if(mask[d[k][13]]==28 || mask[d[k][13]]==3)
+    	else{hold13=mu[d[12]];}
+    	if(mask[d[13]]==28 || mask[d[13]]==3)
     	{
-    	hold14=mu[d[k][10]];
+    	hold14=mu[d[10]];
 		h11[k]=h14[k];
 		g11[k]=g14[k];
 	       
     	}
-    	else{hold14=mu[d[k][13]];}
-    	if(mask[d[k][14]]==28 || mask[d[k][14]]==3)
+    	else{hold14=mu[d[13]];}
+    	if(mask[d[14]]==28 || mask[d[14]]==3)
     	{
-    	hold15=mu[d[k][17]];
+    	hold15=mu[d[17]];
 		h18[k]=h15[k];
 		g18[k]=g15[k];
     	}
-    	else{hold15=mu[d[k][14]];}
-    	if(mask[d[k][15]]==28 || mask[d[k][15]]==3)
+    	else{hold15=mu[d[14]];}
+    	if(mask[d[15]]==28 || mask[d[15]]==3)
     	{
-    	hold16=mu[d[k][16]];
+    	hold16=mu[d[16]];
 		h17[k]=h16[k];
 		g17[k]=g16[k];
     	}
-    	else{hold16=mu[d[k][15]];}
-    	if(mask[d[k][16]]==28 || mask[d[k][16]]==3)
+    	else{hold16=mu[d[15]];}
+    	if(mask[d[16]]==28 || mask[d[16]]==3)
     	{
-    	hold17=mu[d[k][15]];
+    	hold17=mu[d[15]];
 		h16[k]=h17[k];
 		g16[k]=g17[k];
     	}
-    	else{hold17=mu[d[k][16]];}
-    	if(mask[d[k][17]]==28 || mask[d[k][17]]==3)
+    	else{hold17=mu[d[16]];}
+    	if(mask[d[17]]==28 || mask[d[17]]==3)
     	{
-    	hold18=mu[d[k][14]];
+    	hold18=mu[d[14]];
 		h15[k]=h18[k];
 		g15[k]=g18[k];
     	}
-    	else{hold18=mu[d[k][17]];}
+    	else{hold18=mu[d[17]];}
 			
 			if(dimensions==3)
             {
@@ -390,62 +390,62 @@ void wet::setwallnodes()
 			{
 			
 				
-		if(mask[d[k][0]]==28)
+		if(mask[d[0]]==28)
     	{
-    	hold1=mu[d[k][1]];
+    	hold1=mu[d[1]];
 		h2[k]=h1[k];
 		g2[k]=g1[k];
 		
 	      
 
     	}
-    	else{hold1=mu[d[k][0]];}
+    	else{hold1=mu[d[0]];}
     	
-    	if(mask[d[k][1]]==28)
+    	if(mask[d[1]]==28)
     	{
-    	hold2=mu[d[k][0]];
+    	hold2=mu[d[0]];
 		h1[k]=h2[k];
 		g1[k]=g2[k];
     	}
-    	else{hold2=mu[d[k][1]];}
-    	if(mask[d[k][2]]==28)
+    	else{hold2=mu[d[1]];}
+    	if(mask[d[2]]==28)
     	{
-    	hold3=mu[d[k][3]];
+    	hold3=mu[d[3]];
 	    h4[k]=h3[k];
 		g4[k]=g3[k];
     	}
-    	else{hold3=mu[d[k][2]];}
-    	if(mask[d[k][3]]==28)
+    	else{hold3=mu[d[2]];}
+    	if(mask[d[3]]==28)
     	{
-    	hold4=mu[d[k][2]];
+    	hold4=mu[d[2]];
 		h3[k]=h4[k];
     	g3[k]=g4[k];
     	}
-    	else{hold4=mu[d[k][3]];}
+    	else{hold4=mu[d[3]];}
     
-	if(mask[d[k][4]]==28)
+	if(mask[d[4]]==28)
     	{
-    	hold5=mu[d[k][5]];
+    	hold5=mu[d[5]];
 		h6[k]=h5[k];
 		g6[k]=g5[k];
     	}
-    	else{hold5=mu[d[k][4]];}
+    	else{hold5=mu[d[4]];}
   
-  	if(mask[d[k][5]]==28)
+  	if(mask[d[5]]==28)
     	{
-    	hold6=mu[d[k][4]];
+    	hold6=mu[d[4]];
 		h5[k]=h6[k];
 		g5[k]=g6[k];
     	}
-    	else{hold6=mu[d[k][5]];}
+    	else{hold6=mu[d[5]];}
 
-    	if(mask[d[k][6]]==28 )
+    	if(mask[d[6]]==28 )
     	{
-    	hold7=mu[d[k][9]];
+    	hold7=mu[d[9]];
 		h10[k]=h7[k];
 		g10[k]=g7[k];
 		
-		if(mask[d[k][9]]==28)
+		if(mask[d[9]]==28)
 		  {
 		    hold7=mu[k];
 		    h10[k]=hc10[k];
@@ -454,16 +454,16 @@ void wet::setwallnodes()
 		
 
   	}
-    	else{hold7=mu[d[k][6]];}
+    	else{hold7=mu[d[6]];}
 
-    	if(mask[d[k][7]]==28 )
+    	if(mask[d[7]]==28 )
     	{
-    	hold8=mu[d[k][8]];
+    	hold8=mu[d[8]];
 		h9[k]=h8[k];
 		g9[k]=g8[k];
 		
 		
-		if(mask[d[k][8]]==28)
+		if(mask[d[8]]==28)
 		  {
 		    hold8=mu[k];
 		    h9[k]=hc9[k];
@@ -472,16 +472,16 @@ void wet::setwallnodes()
 		
 
 	}
-    	else{hold8=mu[d[k][7]];}
+    	else{hold8=mu[d[7]];}
     	
-	if(mask[d[k][8]]==28 )
+	if(mask[d[8]]==28 )
     	{
-    	hold9=mu[d[k][7]];
+    	hold9=mu[d[7]];
 		h8[k]=h9[k];
 		g8[k]=g9[k];
 
 		
-		if(mask[d[k][7]]==28)
+		if(mask[d[7]]==28)
 		  {
 		    hold9=mu[k];
 		    h8[k]=hc8[k];
@@ -490,16 +490,16 @@ void wet::setwallnodes()
 		
 
     	}
-    	else{hold9=mu[d[k][8]];}
+    	else{hold9=mu[d[8]];}
     
-	if(mask[d[k][9]]==28 )
+	if(mask[d[9]]==28 )
     	{
-    	hold10=mu[d[k][6]];
+    	hold10=mu[d[6]];
 		h7[k]=h10[k];
 		g7[k]=g10[k];
 
 		
-		if(mask[d[k][6]]==28)
+		if(mask[d[6]]==28)
 		  {
 		    hold10=mu[k];
 		    h7[k]=hc7[k];
@@ -509,16 +509,16 @@ void wet::setwallnodes()
 
 
     	}
-    	else{hold10=mu[d[k][9]];}
+    	else{hold10=mu[d[9]];}
  
-   	if(mask[d[k][10]]==28 )
+   	if(mask[d[10]]==28 )
     	{
-    	hold11=mu[d[k][13]];
+    	hold11=mu[d[13]];
 		h14[k]=h11[k];
 		g14[k]=g11[k];
 		
 		
-		if(mask[d[k][13]]==28)
+		if(mask[d[13]]==28)
 		  {
 		    hold11=mu[k];
 		    h14[k]=hc11[k];
@@ -526,16 +526,16 @@ void wet::setwallnodes()
 		  }
 		
     	}
-    	else{hold11=mu[d[k][10]];}
+    	else{hold11=mu[d[10]];}
     	
-	if(mask[d[k][11]]==28 )
+	if(mask[d[11]]==28 )
     	{
-    	hold12=mu[d[k][12]];
+    	hold12=mu[d[12]];
 		h13[k]=h12[k];
 		g13[k]=g12[k];
 		
 		
-		if(mask[d[k][12]]==28)
+		if(mask[d[12]]==28)
 		  {
 		    hold12=mu[k];
 		    h13[k]=hc13[k];
@@ -543,16 +543,16 @@ void wet::setwallnodes()
 		  }
 		
 	}
-    	else{hold12=mu[d[k][11]];}
+    	else{hold12=mu[d[11]];}
 
-    	if(mask[d[k][12]]==28 )
+    	if(mask[d[12]]==28 )
     	{
-    	hold13=mu[d[k][11]];
+    	hold13=mu[d[11]];
 		h12[k]=h13[k];
 		g12[k]=g13[k];
   
 		
-		if(mask[d[k][11]]==28)
+		if(mask[d[11]]==28)
 		  {
 		    hold13=mu[k];
 		    h12[k]=hc12[k];
@@ -560,16 +560,16 @@ void wet::setwallnodes()
 		  }
 		
   	}
-    	else{hold13=mu[d[k][12]];}
+    	else{hold13=mu[d[12]];}
 
-    	if(mask[d[k][13]]==28 )
+    	if(mask[d[13]]==28 )
     	{
-    	hold14=mu[d[k][10]];
+    	hold14=mu[d[10]];
 		h11[k]=h14[k];
 		g11[k]=g14[k];
 	       
 		
-		if(mask[d[k][10]]==28)
+		if(mask[d[10]]==28)
 		  {
 		    hold14=mu[k];
 		    h11[k]=hc11[k];
@@ -578,16 +578,16 @@ void wet::setwallnodes()
 		
 		
     	}
-    	else{hold14=mu[d[k][13]];}
+    	else{hold14=mu[d[13]];}
 
-    	if(mask[d[k][14]]==28 )
+    	if(mask[d[14]]==28 )
     	{
-    	hold15=mu[d[k][17]];
+    	hold15=mu[d[17]];
 		h18[k]=h15[k];
 		g18[k]=g15[k];
     
 		
-		if(mask[d[k][17]]==28)
+		if(mask[d[17]]==28)
 		  {
 		    hold15=mu[k];
 		    h18[k]=hc18[k];
@@ -595,16 +595,16 @@ void wet::setwallnodes()
 		  }
 		
 	}
-    	else{hold15=mu[d[k][14]];}
+    	else{hold15=mu[d[14]];}
 
-    	if(mask[d[k][15]]==28 )
+    	if(mask[d[15]]==28 )
     	{
-    	hold16=mu[d[k][16]];
+    	hold16=mu[d[16]];
 		h17[k]=h16[k];
 		g17[k]=g16[k];
     	
 		
-		if(mask[d[k][16]]==28)
+		if(mask[d[16]]==28)
 		  {
 		    hold16=mu[k];
 		    h17[k]=hc17[k];
@@ -612,16 +612,16 @@ void wet::setwallnodes()
 		  }
 		
 }
-    	else{hold16=mu[d[k][15]];}
+    	else{hold16=mu[d[15]];}
     
-	if(mask[d[k][16]]==28 )
+	if(mask[d[16]]==28 )
     	{
-    	hold17=mu[d[k][15]];
+    	hold17=mu[d[15]];
 		h16[k]=h17[k];
 		g16[k]=g17[k];
 		
 		
-		if(mask[d[k][15]]==28)
+		if(mask[d[15]]==28)
 		  {
 		    hold17=mu[k];
 		    h16[k]=hc16[k];
@@ -630,16 +630,16 @@ void wet::setwallnodes()
 		
 
     	}
-    	else{hold17=mu[d[k][16]];}
+    	else{hold17=mu[d[16]];}
 
-    	if(mask[d[k][17]]==28 )
+    	if(mask[d[17]]==28 )
     	{
-    	hold18=mu[d[k][14]];
+    	hold18=mu[d[14]];
 		h15[k]=h18[k];
 		g15[k]=g18[k];
 
 		
-		if(mask[d[k][14]]==28)
+		if(mask[d[14]]==28)
 		  {
 		    hold18=mu[k];
 		    h15[k]=hc15[k];
@@ -647,7 +647,7 @@ void wet::setwallnodes()
 		  }
 		
     	}
-    	else{hold18=mu[d[k][17]];}
+    	else{hold18=mu[d[17]];}
 			
 			if(dimensions==3)
             {
@@ -675,285 +675,285 @@ void wet::setwallnodes()
 	/*
 	else if(mask[k]==1)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[k][1]][1]]+4*C[d[k][1]]);
+		//Chold=1.0/3.0*(-2*dC-C[d[d[1]][1]]+4*C[d[1]]);
 		
 		h2[k]=h1[k];
 		h10[k]=h7[k];
 		h8[k]=h9[k];
-		//h0[k]+=h[d[k][0]][1]+h[d[k][6]][7]+h[d[k][8]][9]-h2[k]-h8[k]-h10[k];
+		//h0[k]+=h[d[0]][1]+h[d[6]][7]+h[d[8]][9]-h2[k]-h8[k]-h10[k];
 		
 		g2[k]=g1[k];
 		g10[k]=g7[k];
 		g8[k]=g9[k];
-		//g0[k]+=g[d[k][0]][1]+g[d[k][6]][7]+g[d[k][8]][9]-g2[k]-g8[k]-g10[k];
+		//g0[k]+=g[d[0]][1]+g[d[6]][7]+g[d[8]][9]-g2[k]-g8[k]-g10[k];
 		
-		M0=1.0/3.0*M*(mu[d[k][7]] + mu[d[k][9]] + 4.0*mu[d[k][1]]
-	 + 2.0*mu[d[k][2]] + 2.0*mu[d[k][3]] - 10.0*mu[k]);
+		M0=1.0/3.0*M*(mu[d[7]] + mu[d[9]] + 4.0*mu[d[1]]
+	 + 2.0*mu[d[2]] + 2.0*mu[d[3]] - 10.0*mu[k]);
 	}
 	
 	else if(mask[k]==2)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[k][0]][0]]+4*C[d[k][0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
 		
 		h1[k]=h2[k];
 		h7[k]=h10[k];
 		h9[k]=h8[k];
-		//h0[k]+=h[d[k][1]][2]+h[d[k][7]][8]+h[d[k][9]][10]-h1[k]-h7[k]-h9[k];
+		//h0[k]+=h[d[1]][2]+h[d[7]][8]+h[d[9]][10]-h1[k]-h7[k]-h9[k];
 
 		
 		g1[k]=g2[k];
 		g7[k]=g10[k];
 		g9[k]=g8[k];
-		//g0[k]+=g[d[k][1]][2]+g[d[k][7]][8]+g[d[k][9]][10]-g1[k]-g7[k]-g9[k];
+		//g0[k]+=g[d[1]][2]+g[d[7]][8]+g[d[9]][10]-g1[k]-g7[k]-g9[k];
 		
-		M0=1.0/3.0*M*(mu[d[k][6]] + mu[d[k][8]] + 4.0*mu[d[k][0]]
-	+2.0*mu[d[k][2]] + 2.0*mu[d[k][3]] - 10.0*mu[k]);
+		M0=1.0/3.0*M*(mu[d[6]] + mu[d[8]] + 4.0*mu[d[0]]
+	+2.0*mu[d[2]] + 2.0*mu[d[3]] - 10.0*mu[k]);
 
 		
 	}
 	
 	else if(mask[k]==3)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[k][0]][0]]+4*C[d[k][0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
 		
 		h4[k]=h3[k];
 		h9[k]=h8[k];
 		h10[k]=h7[k];
-		//h0[k]+=h[d[k][1]][2]+h[d[k][7]][8]+h[d[k][9]][10]-h1[k]-h7[k]-h9[k];
+		//h0[k]+=h[d[1]][2]+h[d[7]][8]+h[d[9]][10]-h1[k]-h7[k]-h9[k];
 
 		
 		g4[k]=g3[k];
 		g9[k]=g8[k];
 		g10[k]=g7[k];
-		//g0[k]+=g[d[k][1]][2]+g[d[k][7]][8]+g[d[k][9]][10]-g1[k]-g7[k]-g9[k];
+		//g0[k]+=g[d[1]][2]+g[d[7]][8]+g[d[9]][10]-g1[k]-g7[k]-g9[k];
 		
-		M0=1.0/3.0*M*(mu[d[k][8]] + mu[d[k][9]] + 4.0*mu[d[k][3]]
-	+2.0*mu[d[k][0]] + 2.0*mu[d[k][1]] - 10.0*mu[k]);
+		M0=1.0/3.0*M*(mu[d[8]] + mu[d[9]] + 4.0*mu[d[3]]
+	+2.0*mu[d[0]] + 2.0*mu[d[1]] - 10.0*mu[k]);
 
 		
 	}
 	
 	else if(mask[k]==4)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[k][0]][0]]+4*C[d[k][0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
 		
 		h3[k]=h4[k];
 		h7[k]=h10[k];
 		h8[k]=h9[k];
-		//h0[k]+=h[d[k][1]][2]+h[d[k][7]][8]+h[d[k][9]][10]-h1[k]-h7[k]-h9[k];
+		//h0[k]+=h[d[1]][2]+h[d[7]][8]+h[d[9]][10]-h1[k]-h7[k]-h9[k];
 
 		
 		g3[k]=g4[k];
 		g7[k]=g10[k];
 		g8[k]=g9[k];
-		//g0[k]+=g[d[k][1]][2]+g[d[k][7]][8]+g[d[k][9]][10]-g1[k]-g7[k]-g9[k];
+		//g0[k]+=g[d[1]][2]+g[d[7]][8]+g[d[9]][10]-g1[k]-g7[k]-g9[k];
 		
-		M0=1.0/3.0*M*(mu[d[k][6]] + mu[d[k][7]] + 4.0*mu[d[k][2]]
-	+2.0*mu[d[k][0]] + 2.0*mu[d[k][1]] - 10.0*mu[k]);
+		M0=1.0/3.0*M*(mu[d[6]] + mu[d[7]] + 4.0*mu[d[2]]
+	+2.0*mu[d[0]] + 2.0*mu[d[1]] - 10.0*mu[k]);
 
 		
 	}
 	
 	else if(mask[k]==7)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[k][0]][0]]+4*C[d[k][0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
 		
 		h10[k]=h7[k];
 		
-		//h0[k]+=h[d[k][1]][2]+h[d[k][7]][8]+h[d[k][9]][10]-h1[k]-h7[k]-h9[k];
+		//h0[k]+=h[d[1]][2]+h[d[7]][8]+h[d[9]][10]-h1[k]-h7[k]-h9[k];
 
 		
 		g10[k]=g7[k];
 		
-		//g0[k]+=g[d[k][1]][2]+g[d[k][7]][8]+g[d[k][9]][10]-g1[k]-g7[k]-g9[k];
+		//g0[k]+=g[d[1]][2]+g[d[7]][8]+g[d[9]][10]-g1[k]-g7[k]-g9[k];
 		
-		M0=1.0/6.0*M*(mu[d[k][8]] + 2.0*mu[d[k][9]] + mu[d[k][7]]+ 4.0*mu[d[k][3]] + 4.0*mu[d[k][2]]
-	+4.0*mu[d[k][0]] + 4.0*mu[d[k][1]] - 20.0*mu[k]);
+		M0=1.0/6.0*M*(mu[d[8]] + 2.0*mu[d[9]] + mu[d[7]]+ 4.0*mu[d[3]] + 4.0*mu[d[2]]
+	+4.0*mu[d[0]] + 4.0*mu[d[1]] - 20.0*mu[k]);
 
 		
 	}
 	else if(mask[k]==8)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[k][0]][0]]+4*C[d[k][0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
 		
 		h9[k]=h8[k];
 		
-		//h0[k]+=h[d[k][1]][2]+h[d[k][7]][8]+h[d[k][9]][10]-h1[k]-h7[k]-h9[k];
+		//h0[k]+=h[d[1]][2]+h[d[7]][8]+h[d[9]][10]-h1[k]-h7[k]-h9[k];
 
 		
 		g9[k]=g8[k];
 		
-		//g0[k]+=g[d[k][1]][2]+g[d[k][7]][8]+g[d[k][9]][10]-g1[k]-g7[k]-g9[k];
+		//g0[k]+=g[d[1]][2]+g[d[7]][8]+g[d[9]][10]-g1[k]-g7[k]-g9[k];
 
-		M0=1.0/6.0*M*(2.0*mu[d[k][8]] + mu[d[k][9]] + mu[d[k][6]]+ 4.0*mu[d[k][3]] + 4.0*mu[d[k][2]]
-	+4.0*mu[d[k][0]] + 4.0*mu[d[k][1]] - 20.0*mu[k]);
+		M0=1.0/6.0*M*(2.0*mu[d[8]] + mu[d[9]] + mu[d[6]]+ 4.0*mu[d[3]] + 4.0*mu[d[2]]
+	+4.0*mu[d[0]] + 4.0*mu[d[1]] - 20.0*mu[k]);
 		
 	}
 	
 	else if(mask[k]==9)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[k][0]][0]]+4*C[d[k][0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
 		
 		h8[k]=h9[k];
 		
-		//h0[k]+=h[d[k][1]][2]+h[d[k][7]][8]+h[d[k][9]][10]-h1[k]-h7[k]-h9[k];
+		//h0[k]+=h[d[1]][2]+h[d[7]][8]+h[d[9]][10]-h1[k]-h7[k]-h9[k];
 
 		
 		g8[k]=g9[k];
 		
-		//g0[k]+=g[d[k][1]][2]+g[d[k][7]][8]+g[d[k][9]][10]-g1[k]-g7[k]-g9[k];
+		//g0[k]+=g[d[1]][2]+g[d[7]][8]+g[d[9]][10]-g1[k]-g7[k]-g9[k];
 		
-		M0=1.0/6.0*M*(mu[d[k][6]] + 2.0*mu[d[k][7]] + mu[d[k][9]]+ 4.0*mu[d[k][3]] + 4.0*mu[d[k][2]]
-	+4.0*mu[d[k][0]] + 4.0*mu[d[k][1]] - 20.0*mu[k]);
+		M0=1.0/6.0*M*(mu[d[6]] + 2.0*mu[d[7]] + mu[d[9]]+ 4.0*mu[d[3]] + 4.0*mu[d[2]]
+	+4.0*mu[d[0]] + 4.0*mu[d[1]] - 20.0*mu[k]);
 
 		
 	}
 	
 	else if(mask[k]==10)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[k][0]][0]]+4*C[d[k][0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
 		
 		h7[k]=h10[k];
 		
-		//h0[k]+=h[d[k][1]][2]+h[d[k][7]][8]+h[d[k][9]][10]-h1[k]-h7[k]-h9[k];
+		//h0[k]+=h[d[1]][2]+h[d[7]][8]+h[d[9]][10]-h1[k]-h7[k]-h9[k];
 
 		
 		g7[k]=g10[k];
 		
-		//g0[k]+=g[d[k][1]][2]+g[d[k][7]][8]+g[d[k][9]][10]-g1[k]-g7[k]-g9[k];
+		//g0[k]+=g[d[1]][2]+g[d[7]][8]+g[d[9]][10]-g1[k]-g7[k]-g9[k];
 
-		M0=1.0/6.0*M*(mu[d[k][8]] + 2.0*mu[d[k][6]] + mu[d[k][7]]+ 4.0*mu[d[k][3]] + 4.0*mu[d[k][2]]
-	+4.0*mu[d[k][0]] + 4.0*mu[d[k][1]] - 20.0*mu[k]);
+		M0=1.0/6.0*M*(mu[d[8]] + 2.0*mu[d[6]] + mu[d[7]]+ 4.0*mu[d[3]] + 4.0*mu[d[2]]
+	+4.0*mu[d[0]] + 4.0*mu[d[1]] - 20.0*mu[k]);
 	}
 	*/
 	
 	/*
 	else if(mask[k]==27)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[k][0]][0]]+4*C[d[k][0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
 		
 		h2[k]=h1[k];
 		h10[k]=h7[k];
 		
-		//h0[k]+=h[d[k][1]][2]+h[d[k][7]][8]+h[d[k][9]][10]-h1[k]-h7[k]-h9[k];
+		//h0[k]+=h[d[1]][2]+h[d[7]][8]+h[d[9]][10]-h1[k]-h7[k]-h9[k];
 
 		
 		g2[k]=g1[k];
 		g10[k]=g7[k];
 		
-		//g0[k]+=g[d[k][1]][2]+g[d[k][7]][8]+g[d[k][9]][10]-g1[k]-g7[k]-g9[k];
+		//g0[k]+=g[d[1]][2]+g[d[7]][8]+g[d[9]][10]-g1[k]-g7[k]-g9[k];
 
 		
 	}
 	else if(mask[k]==29)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[k][0]][0]]+4*C[d[k][0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
 		
 		h2[k]=h1[k];
 		h8[k]=h9[k];
 		
-		//h0[k]+=h[d[k][1]][2]+h[d[k][7]][8]+h[d[k][9]][10]-h1[k]-h7[k]-h9[k];
+		//h0[k]+=h[d[1]][2]+h[d[7]][8]+h[d[9]][10]-h1[k]-h7[k]-h9[k];
 
 		
 		g2[k]=g1[k];
 		g8[k]=g9[k];
 		
-		//g0[k]+=g[d[k][1]][2]+g[d[k][7]][8]+g[d[k][9]][10]-g1[k]-g7[k]-g9[k];
+		//g0[k]+=g[d[1]][2]+g[d[7]][8]+g[d[9]][10]-g1[k]-g7[k]-g9[k];
 
 		
 	}
 	
 	else if(mask[k]==38)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[k][0]][0]]+4*C[d[k][0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
 		
 		h1[k]=h2[k];
 		h9[k]=h8[k];
-		//h0[k]+=h[d[k][1]][2]+h[d[k][7]][8]+h[d[k][9]][10]-h1[k]-h7[k]-h9[k];
+		//h0[k]+=h[d[1]][2]+h[d[7]][8]+h[d[9]][10]-h1[k]-h7[k]-h9[k];
 
 		
 		g1[k]=g2[k];
 		g9[k]=g8[k];
-		//g0[k]+=g[d[k][1]][2]+g[d[k][7]][8]+g[d[k][9]][10]-g1[k]-g7[k]-g9[k];
+		//g0[k]+=g[d[1]][2]+g[d[7]][8]+g[d[9]][10]-g1[k]-g7[k]-g9[k];
 
 		
 	}
 	
 	else if(mask[k]==40)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[k][0]][0]]+4*C[d[k][0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
 		
 		h1[k]=h2[k];
 		h7[k]=h10[k];
-		//h0[k]+=h[d[k][1]][2]+h[d[k][7]][8]+h[d[k][9]][10]-h1[k]-h7[k]-h9[k];
+		//h0[k]+=h[d[1]][2]+h[d[7]][8]+h[d[9]][10]-h1[k]-h7[k]-h9[k];
 
 		
 		g1[k]=g2[k];
 		g7[k]=g10[k];
-		//g0[k]+=g[d[k][1]][2]+g[d[k][7]][8]+g[d[k][9]][10]-g1[k]-g7[k]-g9[k];
+		//g0[k]+=g[d[1]][2]+g[d[7]][8]+g[d[9]][10]-g1[k]-g7[k]-g9[k];
 
 		
 	}
 	else if(mask[k]==47)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[k][0]][0]]+4*C[d[k][0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
 		
 		h4[k]=h3[k];
 		h10[k]=h7[k];
-		//h0[k]+=h[d[k][1]][2]+h[d[k][7]][8]+h[d[k][9]][10]-h1[k]-h7[k]-h9[k];
+		//h0[k]+=h[d[1]][2]+h[d[7]][8]+h[d[9]][10]-h1[k]-h7[k]-h9[k];
 
 		
 		g4[k]=g3[k];
 		g10[k]=g7[k];
-		//g0[k]+=g[d[k][1]][2]+g[d[k][7]][8]+g[d[k][9]][10]-g1[k]-g7[k]-g9[k];
+		//g0[k]+=g[d[1]][2]+g[d[7]][8]+g[d[9]][10]-g1[k]-g7[k]-g9[k];
 
 		
 	}
 	
 	else if(mask[k]==48)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[k][0]][0]]+4*C[d[k][0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
 		
 		h4[k]=h3[k];
 		h9[k]=h8[k];
-		//h0[k]+=h[d[k][1]][2]+h[d[k][7]][8]+h[d[k][9]][10]-h1[k]-h7[k]-h9[k];
+		//h0[k]+=h[d[1]][2]+h[d[7]][8]+h[d[9]][10]-h1[k]-h7[k]-h9[k];
 
 		
 		g4[k]=g[k][3
 		g9[k]=g8[k];
-		//g0[k]+=g[d[k][1]][2]+g[d[k][7]][8]+g[d[k][9]][10]-g1[k]-g7[k]-g9[k];
+		//g0[k]+=g[d[1]][2]+g[d[7]][8]+g[d[9]][10]-g1[k]-g7[k]-g9[k];
 
 		
 	}
 	
 	else if(mask[k]==59)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[k][0]][0]]+4*C[d[k][0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
 		
 		h3[k]=h4[k];
 		h8[k]=h9[k];
-		//h0[k]+=h[d[k][1]][2]+h[d[k][7]][8]+h[d[k][9]][10]-h1[k]-h7[k]-h9[k];
+		//h0[k]+=h[d[1]][2]+h[d[7]][8]+h[d[9]][10]-h1[k]-h7[k]-h9[k];
 
 		
 		g3[k]=g4[k];
 		g8[k]=g9[k];
-		//g0[k]+=g[d[k][1]][2]+g[d[k][7]][8]+g[d[k][9]][10]-g1[k]-g7[k]-g9[k];
+		//g0[k]+=g[d[1]][2]+g[d[7]][8]+g[d[9]][10]-g1[k]-g7[k]-g9[k];
 
 		
 	}
 	
 	else if(mask[k]==60)
 	{
-		//Chold=1.0/3.0*(-2*dC-C[d[d[k][0]][0]]+4*C[d[k][0]]);
+		//Chold=1.0/3.0*(-2*dC-C[d[d[0]][0]]+4*C[d[0]]);
 		
 		h3[k]=h4[k];
 		h7[k]=h10[k];
-		//h0[k]+=h[d[k][1]][2]+h[d[k][7]][8]+h[d[k][9]][10]-h1[k]-h7[k]-h9[k];
+		//h0[k]+=h[d[1]][2]+h[d[7]][8]+h[d[9]][10]-h1[k]-h7[k]-h9[k];
 
 		
 		g3[k]=g4[k];
 		g7[k]=g10[k];
-		//g0[k]+=g[d[k][1]][2]+g[d[k][7]][8]+g[d[k][9]][10]-g1[k]-g7[k]-g9[k];
+		//g0[k]+=g[d[1]][2]+g[d[7]][8]+g[d[9]][10]-g1[k]-g7[k]-g9[k];
 
 		
 	}
@@ -963,14 +963,14 @@ void wet::setwallnodes()
 /*
 if (mask[k]==0)
 {
-M0=M*(mu[d[k][6]]+mu[d[k][7]]+mu[d[k][8]]+mu[d[k][9]]+4.0*mu[d[k][0]]
-		+4.0*mu[d[k][1]]+4.0*mu[d[k][2]]+4.0*mu[d[k][3]]-20.0*mu[k])/(6.0*dt*dt);
+M0=M*(mu[d[6]]+mu[d[7]]+mu[d[8]]+mu[d[9]]+4.0*mu[d[0]]
+		+4.0*mu[d[1]]+4.0*mu[d[2]]+4.0*mu[d[3]]-20.0*mu[k])/(6.0*dt*dt);
 }		
 	else	if(mask[k]==1)
 	
 	{
-		M0=1.0/3.0*M*(mu[d[k][7]] + mu[d[k][9]] + 4.0*mu[d[k][1]]
-	 + 2.0*mu[d[k][2]] + 2.0*mu[d[k][3]] - 10.0*mu[k]);
+		M0=1.0/3.0*M*(mu[d[7]] + mu[d[9]] + 4.0*mu[d[1]]
+	 + 2.0*mu[d[2]] + 2.0*mu[d[3]] - 10.0*mu[k]);
 		
 	
 	}
@@ -978,16 +978,16 @@ M0=M*(mu[d[k][6]]+mu[d[k][7]]+mu[d[k][8]]+mu[d[k][9]]+4.0*mu[d[k][0]]
 	else if(mask[k]==2)
 	
 	{
-		M0=1.0/3.0*M*(mu[d[k][6]] + mu[d[k][8]] + 4.0*mu[d[k][0]]
-	+2.0*mu[d[k][2]] + 2.0*mu[d[k][3]] - 10.0*mu[k]);
+		M0=1.0/3.0*M*(mu[d[6]] + mu[d[8]] + 4.0*mu[d[0]]
+	+2.0*mu[d[2]] + 2.0*mu[d[3]] - 10.0*mu[k]);
 		
 	}
 	
 	else if(mask[k]==3)
 	
 	{
-		M0=1.0/3.0*M*(mu[d[k][8]] + mu[d[k][9]] + 4.0*mu[d[k][3]]
-	+2.0*mu[d[k][0]] + 2.0*mu[d[k][1]] - 10.0*mu[k]);
+		M0=1.0/3.0*M*(mu[d[8]] + mu[d[9]] + 4.0*mu[d[3]]
+	+2.0*mu[d[0]] + 2.0*mu[d[1]] - 10.0*mu[k]);
 		
 	}
 */

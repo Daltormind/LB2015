@@ -22,7 +22,7 @@ void wet::applyBoundaryConditions(void)
 				computecoordinate(k);
 				a2=xk*xk+yk*yk+zk*zk;
 				
-				if (mask[dd[k][0]] == 28)
+				if (mask[dd[0]] == 28)
 				 {       
 				 ee=1;
 				 ae=xk-xc;
@@ -138,12 +138,12 @@ void wet::applyBoundaryConditions(void)
 				 	
 				 if(q<0.5)
 				 {
-				 	ffd[k]=2*q*fna[k]+(1-2*q)*fna[ddd[k]];
+				 	ffd=2*q*fna[k]+(1-2*q)*fna[ddd];
 				 }
 				 
 				 if(q>=0.5)
 				 {
-				 	ffd[k]=fna[k]/(2*q)+(2*q-1)/(2*q)*fnd[k];//check this line possible typo on paper
+				 	ffd=fna[k]/(2*q)+(2*q-1)/(2*q)*fnd;//check this line possible typo on paper
 				 }
 				 }
 				 if (mask[ddb[k]] == 28)
@@ -156,12 +156,12 @@ void wet::applyBoundaryConditions(void)
 				 	
 				 if(q<0.5)
 				 {
-				 	ffd[k]=2*q*fna[k]+(1-2*q)*fna[ddd[k]];
+				 	ffd=2*q*fna[k]+(1-2*q)*fna[ddd];
 				 }
 				 
 				 if(q>=0.5)
 				 {
-				 	ffd[k]=fna[k]/(2*q)+(2*q-1)/(2*q)*fnd[k];//check this line possible typo on paper
+				 	ffd=fna[k]/(2*q)+(2*q-1)/(2*q)*fnd;//check this line possible typo on paper
 				 }
 				 }
 				 if (mask[ddc[k]] == 28)
@@ -181,7 +181,7 @@ void wet::applyBoundaryConditions(void)
 				 	ffb[k]=fnc[k]/(2*q)+(2*q-1)/(2*q)*fnb[k];//check this line possible typo on paper
 				 }
 				 }
-				 if (mask[ddd[k]] == 28)
+				 if (mask[ddd] == 28)
 				 {	
 				 
 				 	
@@ -192,12 +192,12 @@ void wet::applyBoundaryConditions(void)
 				 	
 				 if(q<0.5)
 				 {
-				 	ffa[k]=2*q*fnd[k]+(1-2*q)*fnd[dda[k]];
+				 	ffa[k]=2*q*fnd+(1-2*q)*fnd[dda[k]];
 				 }
 				 
 				 if(q>=0.5)
 				 {
-				 	ffa[k]=fnd[k]/(2*q)+(2*q-1)/(2*q)*fna[k];//check this line possible typo on paper
+				 	ffa[k]=fnd/(2*q)+(2*q-1)/(2*q)*fna[k];//check this line possible typo on paper
 				 }
 				 }
 				 if (mask[dde[k]] == 28)

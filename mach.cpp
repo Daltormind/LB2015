@@ -29,10 +29,10 @@ void wet::mach()
 	
 	//for(int b=1;b<Q;b++)
 		//{
-			//gamhold[k][a]+=t[b]*(gamma[d[k][b-1]][a]-2*gamma[k][a]+gamma[d[k][com[b]-1]][a])/dt/cs2;
+			//gamhold[a]+=t[b]*(gamma[d[b-1]][a]-2*gamma[k][a]+gamma[d[com[b]-1]][a])/dt/cs2;
 			if(dimensions==1)
 			{
-				gamhold[k][a]=gamma[d[k][0]][a]-2*gamma[k][a]+gamma[d[k][1]][a];
+				gamhold[a]=gamma[d[0]][a]-2*gamma[k][a]+gamma[d[1]][a];
 			}
 			
 		//}
@@ -48,13 +48,13 @@ void wet::mach()
 		{
 			if(a==0)
 			{
-				hc[k][a]+=M/2*(gamhold[k][a]+gamhold[k][a]);
-				ht[k][a]+=M/2*(gamhold[k][a]+gamhold[k][a]);
+				hc[k][a]+=M/2*(gamhold[a]+gamhold[a]);
+				ht[k][a]+=M/2*(gamhold[a]+gamhold[a]);
 			}
 			else
 			{	
-				hc[k][a]+=M/2*(gamhold[d[k][com[a]-1]][a]+gamhold[k][a]);
-				ht[k][a]+=M/2*(gamhold[d[k][com[a]-1]][a]+gamhold[k][a]);
+				hc[k][a]+=M/2*(gamhold[d[com[a]-1]][a]+gamhold[a]);
+				ht[k][a]+=M/2*(gamhold[d[com[a]-1]][a]+gamhold[a]);
 			}
 		
 			h[k][a]=hc[k][a];

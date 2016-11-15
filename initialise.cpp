@@ -126,13 +126,14 @@ xend=Lx;
 	}
 
 	Q=19;
-	
+	/*
 	if(dist==1)
 	  {
 	    disv=new double[ProcessN];	 
 	    disd=new double[ProcessN];
 	      
 	      }
+	      */
 	d=new int[ProcessN][18]; //Array which holds neigbour values
 
 	C=new double[ProcessN]; //Array which holds Composition values
@@ -143,9 +144,9 @@ xend=Lx;
 
 	mu=new double[ProcessN]; //Free Energy
 	
-	pc=new double[ProcessN];
+	//pc=new double[ProcessN];
 	
-	pt=new double[ProcessN];
+	//pt=new double[ProcessN];
 	
 	//muh=new double[ProcessN];
 	
@@ -192,7 +193,7 @@ xend=Lx;
 	
 	 	for(k=k1;k<k2;k++)
 		  {
-
+			neibour(k);
 		    computecoordinates(k);
 		    /*  
 		    if(yk<=10)
@@ -337,7 +338,7 @@ xend=Lx;
 	for(k=k1;k<k2;k++)
 	{
         
-	 
+	 neibour(k);
 	  diffCD();
 	 
 	  diffBD();

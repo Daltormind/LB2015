@@ -32,6 +32,7 @@ void wet::algorithm()
 		
 		for(k=k1;k<k2;k++)
 		  {
+		  	neibour(k);
 		    diffCD();
 		    computeenergy();//computing outputs for compute energy.cpp
 		    computesurfarea();//computing surface outputs
@@ -126,7 +127,7 @@ void wet::algorithm()
 
 		for(k=k1;k<k2;k++)//looping through the array
 		{
-			
+			neibour(k);
 			if(mask[k]!=28)//i.e for nodes not on the surface
 			{
 			diffCD();//compute central differances
@@ -163,7 +164,7 @@ void wet::algorithm()
 
 		for(k=k1;k<k2;k++)
 		{	
-		
+		neibour(k);
 		if(mask[k]!=28)
 			{
 			propset();//some more propogation stuff
@@ -173,7 +174,7 @@ void wet::algorithm()
 		
 		for(k=k1;k<k2;k++)
 		{		
-		
+		neibour(k);
 		if(mask[k]!=28)
 			{
 			setwallnodes();//det the value for nodes on the solid surface

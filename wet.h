@@ -32,7 +32,7 @@ class wet
   
   int plane; //Controls which plane is written 
 
-	double *C , *mu , *p, *rho,*pc,*pt;//, *muh; //Assigning memory space to the composition, free energy, pressure, density, interface curvature pressure, total pressure
+	double *C , *mu , *p, *rho;//,*pc,*pt;//, *muh; //Assigning memory space to the composition, free energy, pressure, density, interface curvature pressure, total pressure
 	
 	double *disv, *disd;//Variables to hold two types of dissipation
 
@@ -57,7 +57,7 @@ class wet
 	
 	int str; //Width of theta2 strip
  
-	double *Chold, *uxhold,*uyhold,*uzhold,*phold,*plan,*planuz,*planuy,*planux,*planC,*stan;//Chold is used to make C.txt for writeinput, u*hold used to make u*.txt in writeinput. 
+	//double *Chold, *uxhold,*uyhold,*uzhold,*phold,*plan,*planuz,*planuy,*planux,*planC,*stan;//Chold is used to make C.txt for writeinput, u*hold used to make u*.txt in writeinput. 
 //plan* used in writemoments to store the values of the vertical sum of values.
 	int input,ktot,surftype;//input 0/1 controls whether you use the .par file for input or the .txt files. ktot stores the maximum value of k, surftype stores what sort of surface to initialise
 
@@ -198,7 +198,7 @@ class wet
 	//void inputmoments();//input comments if input=1
 	void computecoordinates(int);//Computes the x,y,z position of a gridpoint from k values
 	void initialise();//Run at start of simulation to set everything up
-	void neibour();//Computes which grid points are adjacent to current grid point.
+	void neibour(int);//Computes which grid points are adjacent to current grid point.
 	void readinput();//get values from .par files
 	void equiliberiumg();//calculate geq
 	void equiliberiumh();//calculate heq

@@ -11,14 +11,14 @@ void wet ::Propogation()
 	
 	for(a=1;a<19;a++)
 		{
-			g[k][a]=g[d[k][com[a]]][a];
-			f[k][a]=f[d[k][com[a]]][a];
+			g[k][a]=g[d[com[a]]][a];
+			f[k][a]=f[d[com[a]]][a];
 		
 		
 		}
 	
-	g1[k]=g[d[k][2]][1];
-	g2[k]=g[d[k][1]][2];
+	g1[k]=g[d[2]][1];
+	g2[k]=g[d[1]][2];
 	
 	
 
