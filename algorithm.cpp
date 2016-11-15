@@ -21,14 +21,14 @@ void wet::algorithm()
 	    if(st%infost==0) //Writes out values to energy.txt every infost timesteps
 	      {
 
-		  
+		  /*
 	    if(dist==1)//Asking whether dissipation should be written still a work in progress.
 	    {
 	      disdtot=0.0;
 	      disvtot=0.0;
 	      dis();
 	    }
-	     
+	     */
 		
 		for(k=k1;k<k2;k++)
 		  {
