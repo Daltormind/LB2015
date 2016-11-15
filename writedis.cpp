@@ -12,7 +12,7 @@ void wet::writedis(long int in)
 	char filename1[20];
 		string filename;
         
-        //------------------------- Write the disd File------------------------
+        //------------------------- Write the disd[k] File------------------------
         
         snprintf(filename1,20,"/sdisd%dZ1.m",in);			//Create a name for file that contain data
 		filename=folder+filename1;
@@ -21,7 +21,7 @@ void wet::writedis(long int in)
 	
 		for( h = 0 ; h < 1 ; h++) 
 		{   
-			file  << "disd" << in << "Z1(:,:," << h+1 << ")=[" << endl;
+			file  << "disd[k]" << in << "Z1(:,:," << h+1 << ")=[" << endl;
 		
 			for( i = 0 ; i < Lx ; i++) 
 			{
@@ -53,7 +53,7 @@ void wet::writedis(long int in)
 	
 		for( h = 0 ; h < Lz ; h++) 
 		{   
-			file  << "disd" << in << "Y1(:,:," << h+1 << ")=[" << endl;
+			file  << "disd[k]" << in << "Y1(:,:," << h+1 << ")=[" << endl;
 		
 			for( i = 0 ; i < Lx ; i++) 
 			{

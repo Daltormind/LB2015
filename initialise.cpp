@@ -130,7 +130,7 @@ xend=Lx;
 	if(dist==1)
 	  {
 	    disv=new double[ProcessN];	 
-	    disd=new double[ProcessN];
+	    disd[k]=new double[ProcessN];
 	      
 	      }
 	      

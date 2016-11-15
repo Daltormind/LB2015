@@ -609,13 +609,13 @@ graduxC5=0.5*(ux[d[4]]-ux[d[5]])/dt;
 
 			if(dimensions==2)
 			  {
-		disd=M*(gradmuCx*gradmuCx+gradmuCy*gradmuCy);
+		disd[k]=M*(gradmuCx*gradmuCx+gradmuCy*gradmuCy);
 			  }
 			else if(dimensions==3)
 			  {
-			    disd=M*(gradmuCx*gradmuCx+gradmuCy*gradmuCy+gradmuCz*gradmuCz);
+			    disd[k]=M*(gradmuCx*gradmuCx+gradmuCy*gradmuCy+gradmuCz*gradmuCz);
 			  }
-		disdtot+=disd;
+		disdtot+=disd[k];
 		disvtot+=disv[k];
 
 	}

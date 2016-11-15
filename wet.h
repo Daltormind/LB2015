@@ -34,7 +34,7 @@ class wet
 
 	double *C , *mu , *p, *rho;//,*pc,*pt;//, *muh; //Assigning memory space to the composition, free energy, pressure, density, interface curvature pressure, total pressure
 	
-	double *disv, *disd;//Variables to hold two types of dissipation
+	double *disv, *disd[k];//Variables to hold two types of dissipation
 
 	int *mask;//mask stores which nodes are solid and which were not.
 
