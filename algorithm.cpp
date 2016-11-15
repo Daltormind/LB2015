@@ -41,10 +41,12 @@ void wet::algorithm()
 		if (rank==ROOT)//i.e. only do this for core process.
 		  {
 		writeenergy(st);//write out the energy and other variables.
+		/*
 		if(dist==1)
 		  {
 		writedisin(st);
 		  }
+		  */
 		  }
 		Ebulk=0.0;//setting values used in writeenergy to zero so they can be computed next time.
 		Eint=0.0;
