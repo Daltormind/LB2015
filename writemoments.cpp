@@ -99,7 +99,7 @@ void wet::writemoments(long int in)
 		file.precision(16);
 		if(rank==ROOT)
 		{
-		file << "xpos, ypos, zpos, C, p, ux, uy, uz" << endl;
+		file << "xpos, ypos, zpos, C, p, ux, uy, uz, mu" << endl;
 		}
 		for(k=k1 ; k<k2 ; k++)
 		
@@ -107,7 +107,7 @@ void wet::writemoments(long int in)
 		computecoordinates(k);
 		if(zk==plane)
 		{
-		file << xk << ", " << yk << ", " << zk << ", " << C[k] << ", " << p[k] << ", " << ux[k] << ", " << uy[k] << ", " << uz[k] << endl;
+		file << xk << ", " << yk << ", " << zk << ", " << C[k] << ", " << p[k] << ", " << ux[k] << ", " << uy[k] << ", " << uz[k] << ", " <<  mu[k] << endl;
 		}
 		}
 		file.close();
