@@ -94,11 +94,13 @@ void wet::algorithm()
 		//genuxglobal();	
 		//genuyglobal();
 		//genuzglobal();
+		/*
 		if(dist==1)//Do you want to write dissipation ? Still a work in progress.
 		  {
 		    gendisvGlobal();
 		    gendisdGlobal();
 		  }
+		  */
 		//if(rank==ROOT)
 		//{
 		writemoments(st);//write out the momments i.e. C, p and mu
@@ -107,10 +109,12 @@ void wet::algorithm()
 		  {
 		    writeinput();
 		  }
+		  /*
 		if(dist==1)
 		  {
 		    writedis(st);//write out dissipation if you want still a work in progress
 		  }
+		  */
 		//writeenergy(st);
 		//}
 		

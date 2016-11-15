@@ -126,14 +126,14 @@ xend=Lx;
 	}
 
 	Q=19;
-	
+	/*
 	if(dist==1)
 	  {
 	    disv=new double[ProcessN];	 
 	    disd[k]=new double[ProcessN];
 	      
 	      }
-	      
+	  */    
 	//d=new int[ProcessN][18]; //Array which holds neigbour values
 
 	C=new double[ProcessN]; //Array which holds Composition values

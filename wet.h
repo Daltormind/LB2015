@@ -34,7 +34,7 @@ class wet
 
 	double *C , *mu , *p, *rho;//,*pc,*pt;//, *muh; //Assigning memory space to the composition, free energy, pressure, density, interface curvature pressure, total pressure
 	
-	double *disv, *disd[k];//Variables to hold two types of dissipation
+	//double *disv, *disd[k];//Variables to hold two types of dissipation
 
 	int *mask;//mask stores which nodes are solid and which were not.
 
@@ -227,22 +227,22 @@ class wet
 	void exchangep();
 	void exchangevel();
 	void exchangemask();
-	void genCglobal();
+	//void genCglobal();
 	void generateglobalmask();//generate functions generate global versions of the data no longer used used as this was memory inefficient. Also generate the plan variables which is till useful.
 	void exchangemuh();
 	void exchangedencol();
-	void genmuglobal();
-	void genpglobal();
-	void genuxglobal();
-	void genuyglobal();
-	void genuzglobal();
+	//void genmuglobal();
+	//void genpglobal();
+	//void genuxglobal();
+	//void genuyglobal();
+	//void genuzglobal();
 	void writeinfofile();//writes simulation start values information
 	void writeenergy(long int);//writes the value of the system energy as well as some other stuff
-	void dis();//Calculates dissipation
-	void writedis(long int);//writes dissipation
-	void gendisvGlobal();
-	void gendisdGlobal();
-	void writedisin(long int);
+	//void dis();//Calculates dissipation
+	//void writedis(long int);//writes dissipation
+	//void gendisvGlobal();
+	//void gendisdGlobal();
+	//void writedisin(long int);
 	void computesurfarea();//computes contact area between liquid and surface. Written to file in write energy
 	void writeinput();//writes the .txt files which allow a simulation to be started from where another ended.
 	void writesurface();
