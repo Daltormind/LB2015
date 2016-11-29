@@ -34,7 +34,7 @@ void wet::writemoments(long int in)
 		
 	    //cout << "rank=" << rank<< " istart=" << istart << " iend=" << iend << endl;
 	
-		for( h = 0 ; h < 1 ; h++) 
+		for( h = 50 ; h < 50 ; h++) 
 		{   
 			if(rank==ROOT)
 			{

@@ -167,7 +167,7 @@ void wet::neibour(int b)
 	
 	
 	d[a]=z+y*Lz+x*Ly*Lz;
-		d2[a]=z2+y2*Lz+x2*Ly*Lz;
+	d2[a]=z2+y2*Lz+x2*Ly*Lz;
 
 	
 	}
@@ -238,7 +238,14 @@ void wet::neibour(int b)
 	if(dimensions==3)
 	{
 	if(zk==0)
-	{
+	  {
+	    
+	    	d[5]=d[4];
+		d[12]=d[10];
+		d[13]=d[11];
+		d[16]=d[14];
+		d[17]=d[15];
+
 		d2[5]=d2[4];
 		d2[12]=d2[10];
 		d2[13]=d2[11];
@@ -248,11 +255,19 @@ void wet::neibour(int b)
 	
 	if(zk==Lz-1)
 	{
+		d[4]=d[5];
+		d[10]=d[12];
+		d[11]=d[13];
+		d[14]=d[16];
+		d[15]=d[17];
+
+		
 		d2[4]=d2[5];
 		d2[10]=d2[12];
 		d2[11]=d2[13];
 		d2[14]=d2[16];
 		d2[15]=d2[17];
+
 	}
 	
 	

@@ -83,15 +83,15 @@ void wet::initialisemoments()
 
      	test=tanh(2.0*(-num+R1)/ep);
 	
-C[k]+=0.5 + 0.5*test;
+	//C[k]+=0.5 + 0.5*test;
 
   	 
-			ux[k]+=-C[k]*(uxi);
-			uy[k]+=-C[k]*(uyi);
-			uz[k]+=-C[k]*(uzi);
+	//ux[k]+=-C[k]*(uxi);
+	//uy[k]+=-C[k]*(uyi);
+	//uz[k]+=-C[k]*(uzi);
 		
-//C[k]-=0.5 + 0.5*test;
-	//		if (C[k]<0) {C[k]=0;}
+C[k]-=0.5 + 0.5*test;
+			if (C[k]<0) {C[k]=0;}
 			//	}
 			
 			
