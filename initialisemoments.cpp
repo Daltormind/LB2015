@@ -43,9 +43,9 @@ void wet::initialisemoments()
      	test=tanh(2.0*(-num+R)/ep);
 		  	C[k]=0.5 + 0.5*test;
 		  	 
-			ux[k]=2*C[k]*(uxi);
-			uy[k]=2*C[k]*(uyi);
-			uz[k]=2*C[k]*(uzi);
+			ux[k]=C[k]*(uxi);
+			uy[k]=C[k]*(uyi);
+			uz[k]=C[k]*(uzi);
 		
 //if(xk>=xs2 and xk<xs2+wx2 and yk>=ys2 and yk<ys2+wy2 and zk >=zs2 and zk<zs2+wz2 )
 			//{
