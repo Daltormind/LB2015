@@ -15,14 +15,14 @@ wet::wet(void)
 	
 	readinput();
 	
-    if(input==4)
+	if(input==4)//Changing the size of the air bubble rad is the radius of the air bubble, volume of liquid changes
       {
 	folder=fol1;
 	xcentre1=100+rad;
 	R1=rad;
       }
 
-    if(input==12)
+	if(input==12)//Changing the size of the air bubble whilsy keeping liquid volume constant
       {
 	folder=fol1;
 	R=cbrt(R*R*R+rad*rad*rad);
@@ -32,7 +32,7 @@ wet::wet(void)
 	  
       }
     
-    if(input==5)
+	if(input==5)//Ellipse shaped air bubble whilst keeping volume constant
       {//ellipse shaped air bubble
 	folder=fol1;
 	ye=rad;
@@ -53,7 +53,7 @@ wet::wet(void)
 
       }
 
-    if(input==7)
+    if(input==7)//studying a drop impacting at an angle with gravity
       {
 	
 	
@@ -66,7 +66,7 @@ wet::wet(void)
 	G[0]=G[0]*cos(rad);
       }
     
-    if(input==8)
+    if(input==8)//Studying a drop impact with off-centre drop but not velocity
     {
       folder=fol1;
       	ycentre1=ycentre1-(xcentre-xcentre1)*sin(rad);

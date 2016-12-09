@@ -24,7 +24,7 @@ int i, j, h;
 		for(k=k1 ; k<k2 ; k++)
 		
 		{
-		if(mask[k]==28)
+		if(mask[k]==1 || mask[k]==3)
 		{
 		computecoordinates(k);
 		
