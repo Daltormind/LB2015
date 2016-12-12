@@ -99,7 +99,7 @@ xend=Lx;
 	k1 = 0;			//k where real lattice starts
 	k2 = N;		//k where real lattice ends
 	*/
-	
+	first=0;
 	cs2=1.0/3.0;
 	dt=1.0;
 	dx=1.0;

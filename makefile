@@ -4,8 +4,7 @@ Maindep = initialise.o initialisemoments.o neibour.o computeCoordinates.o \
  construct.o readinput.o Equiliberiumg.o Equiliberiumh.o writemoments.o	algorithm.o	computemoments.o \
  writevelocity.o destruct.o  propcolh.o propcolg.o  initialisesurf.o relabel.o  \
  diffCD.o   diffBD.o centralforce.o   setwallnodes.o  computeenergy.o propset.o \
- exchangeC.o exchangemu.o exchangerho.o exchangevel.o genCglobal.o exchangemask.o exchangep.o generateglobalmask.o exchangedencol.o \
-genmuglobal.o genpglobal.o genuxglobal.o genuyglobal.o genuzglobal.o writeinfofile.o writeenergy.o writedis.o dis.o gendisvGlobal.o gendisdGlobal.o writedisin.o computesurfarea.o writeinput.o writesurface.o
+ exchangeC.o exchangemu.o exchangerho.o exchangevel.o exchangemask.o exchangep.o exchangedencol.o  writeinfofile.o writeenergy.o computesurfarea.o writeinput.o writesurface.o
 
 
 DEBUG = #-g
@@ -117,8 +116,8 @@ exchangemu.o : ../functions/exchangemu.cpp ../functions/wet.h
 exchangep.o : ../functions/exchangep.cpp ../functions/wet.h
 	$(Compiler) $(DEBUG)	-c ../functions/exchangep.cpp	
 	
-genCglobal.o : ../functions/genCglobal.cpp ../functions/wet.h
-	$(Compiler) $(DEBUG)	-c ../functions/genCglobal.cpp	
+#genCglobal.o : ../functions/genCglobal.cpp ../functions/wet.h
+#	$(Compiler) $(DEBUG)	-c ../functions/genCglobal.cpp	
 	
 exchangemask.o : ../functions/exchangemask.cpp ../functions/wet.h
 	$(Compiler) $(DEBUG)	-c ../functions/exchangemask.cpp
@@ -126,28 +125,28 @@ exchangemask.o : ../functions/exchangemask.cpp ../functions/wet.h
 exchangevel.o : ../functions/exchangevel.cpp ../functions/wet.h
 	$(Compiler) $(DEBUG)	-c ../functions/exchangevel.cpp	
 
-generateglobalmask.o : ../functions/generateglobalmask.cpp ../functions/wet.h
-	$(Compiler) $(DEBUG)	-c ../functions/generateglobalmask.cpp	
+#generateglobalmask.o : ../functions/generateglobalmask.cpp ../functions/wet.h
+#	$(Compiler) $(DEBUG)	-c ../functions/generateglobalmask.cpp	
 
 	
 
 exchangedencol.o : ../functions/exchangedencol.cpp ../functions/wet.h
 	$(Compiler) $(DEBUG)	-c ../functions/exchangedencol.cpp	
 	
-genmuglobal.o : ../functions/genmuglobal.cpp ../functions/wet.h
-	$(Compiler) $(DEBUG)	-c ../functions/genmuglobal.cpp		
+#genmuglobal.o : ../functions/genmuglobal.cpp ../functions/wet.h
+#	$(Compiler) $(DEBUG)	-c ../functions/genmuglobal.cpp		
 	
-genpglobal.o : ../functions/genpglobal.cpp ../functions/wet.h
-	$(Compiler) $(DEBUG)	-c ../functions/genpglobal.cpp	
+#genpglobal.o : ../functions/genpglobal.cpp ../functions/wet.h
+#	$(Compiler) $(DEBUG)	-c ../functions/genpglobal.cpp	
 	
-genuxglobal.o : ../functions/genuxglobal.cpp ../functions/wet.h
-	$(Compiler) $(DEBUG)	-c ../functions/genuxglobal.cpp
+#genuxglobal.o : ../functions/genuxglobal.cpp ../functions/wet.h
+#	$(Compiler) $(DEBUG)	-c ../functions/genuxglobal.cpp
 	
-genuyglobal.o : ../functions/genuyglobal.cpp ../functions/wet.h
-	$(Compiler) $(DEBUG)	-c ../functions/genuyglobal.cpp
+#genuyglobal.o : ../functions/genuyglobal.cpp ../functions/wet.h
+#	$(Compiler) $(DEBUG)	-c ../functions/genuyglobal.cpp
 
-genuzglobal.o : ../functions/genuzglobal.cpp ../functions/wet.h
-	$(Compiler) $(DEBUG)	-c ../functions/genuzglobal.cpp
+#genuzglobal.o : ../functions/genuzglobal.cpp ../functions/wet.h
+#	$(Compiler) $(DEBUG)	-c ../functions/genuzglobal.cpp
 	
 writeinfofile.o : ../functions/writeinfofile.cpp ../functions/wet.h
 	$(Compiler) $(DEBUG)	-c ../functions/writeinfofile.cpp
@@ -155,21 +154,21 @@ writeinfofile.o : ../functions/writeinfofile.cpp ../functions/wet.h
 writeenergy.o : ../functions/writeenergy.cpp ../functions/wet.h
 	$(Compiler) $(DEBUG)	-c ../functions/writeenergy.cpp
 
-dis.o : ../functions/dis.cpp ../functions/wet.h
-	$(Compiler) $(DEBUG)    -c ../functions/dis.cpp
+#dis.o : ../functions/dis.cpp ../functions/wet.h
+#	$(Compiler) $(DEBUG)    -c ../functions/dis.cpp
 
-writedis.o : ../functions/writedis.cpp ../functions/wet.h
-	$(Compiler) $(DEBUG)    -c ../functions/writedis.cpp
+#writedis.o : ../functions/writedis.cpp ../functions/wet.h
+#	$(Compiler) $(DEBUG)    -c ../functions/writedis.cpp
 
-gendisvGlobal.o : ../functions/gendisvGlobal.cpp ../functions/wet.h
-	$(Compiler) $(DEBUG)    -c ../functions/gendisvGlobal.cpp
+#gendisvGlobal.o : ../functions/gendisvGlobal.cpp ../functions/wet.h
+#	$(Compiler) $(DEBUG)    -c ../functions/gendisvGlobal.cpp
 
-gendisdGlobal.o : ../functions/gendisdGlobal.cpp ../functions/wet.h
-	$(Compiler) $(DEBUG)    -c ../functions/gendisdGlobal.cpp
+#gendisdGlobal.o : ../functions/gendisdGlobal.cpp ../functions/wet.h
+#	$(Compiler) $(DEBUG)    -c ../functions/gendisdGlobal.cpp
 
 
-writedisin.o : ../functions/writedisin.cpp ../functions/wet.h
-	$(Compiler) $(DEBUG)    -c ../functions/writedisin.cpp
+#writedisin.o : ../functions/writedisin.cpp ../functions/wet.h
+#	$(Compiler) $(DEBUG)    -c ../functions/writedisin.cpp
 
 
 computesurfarea.o : ../functions/computesurfarea.cpp ../functions/wet.h

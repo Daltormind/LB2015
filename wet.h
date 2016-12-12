@@ -30,7 +30,7 @@ class wet
 
   int ProcessN,dist; //Number of nodes the processor is dealing with
   
-  int plane; //Controls which plane is written 
+  int plane,first; //Controls which plane is written 
 
 	double *C , *mu , *p, *rho;//,*pc,*pt;//, *muh; //Assigning memory space to the composition, free energy, pressure, density, interface curvature pressure, total pressure
 	

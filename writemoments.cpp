@@ -105,10 +105,18 @@ void wet::writemoments(long int in)
 		
 		{
 		computecoordinates(k);
+		/*
+		if(k==k2-1)
+		  {
+		    cout << "For process rank=" << rank << " k2 point is equal to " << k2 << " " << xk << " " << yk << " " << zk << endl; 
+		
+		  }
+		*/
 		if(zk==plane)
 		{
-		file << xk << ", " << yk << ", " << zk << ", " << C[k] << ", " << p[k] << ", " << ux[k] << ", " << uy[k] << ", " << uz[k] << ", " <<  mu[k] << endl;
-		}
+		file << xk << ", " << yk << ", " << zk << ", " << C[k] << ", " << p[k] << ", " << ux[k] << ", " << uy[k] << ", " << uz[k] << ", " <<  mu[k] << endl; 
+		
+}
 		}
 		file.close();
 		

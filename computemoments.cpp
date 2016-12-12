@@ -25,6 +25,15 @@ if(mask[k]!=28)
 		    
 		  
 	}
+
+		if(isnan(C[k])!=0)
+		  {if(first==0)
+		      {
+		    computecoordinates(k);
+		    cout << "First NAN is at " << xk << " " << yk << " " << zk << endl;
+		    first=1;
+		      }
+		  }
 		if(dimensions==2)
 		{
 		C[k]=h0[k]+h1[k]+h2[k]+h3[k]+h4[k]+h7[k]+h8[k]+h9[k]+h10[k]; //Compute C from updated velocity distributions
