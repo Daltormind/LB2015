@@ -78,39 +78,12 @@ void wet::algorithm()
 		vn=0;
 		xsum=0;
 		psum=0;
-		if(st%wrtst==0 and st>=stst)//wrtst step controls how often you want to write out the full data
-		{
 		
-		//computeenergy();
-		//cout << "t = " << st << " El=" << El << " Eg=" << Eg << " Ei=" << Ei  << " Et=" << Et << endl;
 		
-	 
-	 
-	 
-	 
 		
-		//genCglobal();
-		//genpglobal();
-		//genmuglobal();
-		//generateglobalmask();
-		//genuxglobal();	
-		//genuyglobal();
-		//genuzglobal();
-		/*
-		if(dist==1)//Do you want to write dissipation ? Still a work in progress.
-		  {
-		    gendisvGlobal();
-		    gendisdGlobal();
-		  }
-		  */
-		//if(rank==ROOT)
-		//{
-		writemoments(st);//write out the momments i.e. C, p and mu
-		//writevelocity(st);//write out ux, uy  and uz
-		if(st==Neqst)
-		  {
-		    writeinput();
-		  }
+		//writemoments(st);//write out the momments i.e. C, p and mu
+		
+		
 		  /*
 		if(dist==1)
 		  {
@@ -125,9 +98,19 @@ void wet::algorithm()
 	
 	
 		
-		}
+		
 		
 	      }
+	      
+	      if(st%wrtst==0 and st>=stst)//wrtst step controls how often you want to write out the full data
+		{
+		writemoments(st);//write out the momments i.e. C, p and mu
+		}
+		
+		if(st==Neqst)
+		  {
+		    writeinput();
+		  }
 		
 		//cout << "Process " << rank << " :Got through writemoments"  << endl;
 
