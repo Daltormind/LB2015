@@ -97,6 +97,10 @@ void wet::readinput()
     inputfile >> plane;
     inputfile.ignore(250,'\n');
     cout << "plane=" << plane << endl;
+    
+    inputfile >> OutputType;
+    inputfile.ignore(250,'\n');
+    cout << "OutputType=" << OutputType << endl;
 
 
     inputfile.close();

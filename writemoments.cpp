@@ -142,6 +142,9 @@ void wet::writemoments(long int in)
 		system("sh cat.sh");
 		} 
 		
+		
+		if(OutputType==0)
+		{
 		//Writing out interface position
 		
 		snprintf(filename1,20,"/%dinter.csv.%d",rank,in);			//Create a name for file that contain data
@@ -185,9 +188,54 @@ void wet::writemoments(long int in)
 		file.close();
 		system("sh cat.sh");
 		} 
+		}
+		else
+		{
+		//Writing out information inside drop
 		
+		snprintf(filename1,20,"/%ddrop.csv.%d",rank,in);			//Create a name for file that contain data
+		filename=folder+filename1;
+        file.open(filename.c_str());
+		file.precision(16);
+		if(rank==ROOT)
+		{
+		file << "xpos, ypos, zpos, C, ux, uy, uz" << endl;
+		}
+		for(k=k1 ; k<k2 ; k++)
 		
+		{
+		if(C[k]<0.5)
+		{
+		computecoordinates(k);
 		
+		file << xk << ", " << yk << ", " << zk << ", " << C[k] << ", " << ux[k] << ", " << uy[k] << ", " << uz[k] << endl;
+		}
+		}
+		file.close();
+		
+		MPI_Barrier(MPI_COMM_WORLD);
+		
+		if(rank==ROOT)
+		{
+		file.open("cat.sh");
+		
+		file << "cat ";
+		
+		for (int asize=0 ; asize<size ; asize++)
+		{
+		file << folder << "/" << asize << "drop.csv." << in << " " ;
+		}
+		file << ">" << folder << "/drop.csv." << in << endl;
+		
+		for(int asize=0; asize<size ; asize++)
+		{
+		file << "rm " << folder << "/" << asize << "drop.csv." << in << endl;
+		}
+		file.close();
+		system("sh cat.sh");
+		} 
+		
+		}
 		
 		
 		/*
