@@ -1,15 +1,13 @@
 //Computecoordinate
+//Takes in the intiger (k) which counts over the lattice position and outputs the nodes position in cartesian
+//x,y,z coordinates.
 
 #include "wet.h"
 
 void wet::computecoordinates(int k)
 	{
 		
-		/*
-		xk=int (k/float(Lz*Ly));
-		yk=int((k-xk*Lz*Ly)/float(Lz));
-		zk=k-xk*Ly*Lz-yk*Lz;
-		*/
+		
 	
 	  long int kTot;
 

@@ -4,8 +4,7 @@
 
 void wet ::centralforce()
 {
-  //  if(rho[k]>0.1) G[0]=-0.0000002*(xk-300);
-		//compute gamma
+		//compute gamma at current lattice node.
   gamma0 = t0*(1.0 - 1.5*(ux[k]*ux[k] + uy[k]*uy[k] + uz[k]*uz[k]));
   
   gamma1 = t1*(1.0 + 3.0*ux[k] + 3.0*ux[k]*ux[k] - 1.5*uy[k]*uy[k] - 1.5*uz[k]*uz[k]);
@@ -65,11 +64,10 @@ void wet ::centralforce()
          gammar17=gamma17-t2;
          gammar18=gamma18-t2;
 			
-			//gammat=gamma0+gamma1+gamma2+gamma3+gamma4+gamma7+gamma8+gamma9+gamma10;
-			//	if(gammat!=1){cout << "At k=" << k << " t="<< st << " gammat=" << gammat << endl;}
-			
-		
-		
+
+	//Compute the external force components, h/g specifies which function density variable it applies 
+	//C/U/M denotes whether it is a central, upstream or mixed difference
+	//The number/letter at the end specifies which lattice or cartesian direction the force is along. 				
 	 FhC1=(gradCC1-3.0*C[k]/rho[k]*(gradpC1-mu[k]*gradCC1/*-rho[k]*G[0]*/));
 	 FhC2=(gradCC2-3.0*C[k]/rho[k]*(gradpC2-mu[k]*gradCC2/*+rho[k]*G[0]*/));
 	 FhC3=(gradCC3-3.0*C[k]/rho[k]*(gradpC3-mu[k]*gradCC3/*-rho[k]*G[1]*/));
@@ -142,20 +140,6 @@ FhC10=(gradCC10-3.0*C[k]/rho[k]*(gradpC10-mu[k]*gradCC10/*+rho[k]*(G[0]+G[1])*/)
 		 FgrCy=gradrhoCy/3.0;
 		 FgrCz=gradrhoCz/3.0;
 		 
-		 
-		 /*
-		 FfC1=(gradrhoC1/3.0 -rho[k]*gradmuC1)*3.0;
-    	 FfC2=(gradrhoC2/3.0 -rho[k]*gradmuC2)*3.0;
-    	 FfC3=(gradrhoC3/3.0 -rho[k]*gradmuC3)*3.0;
-    	 FfC4=(gradrhoC4/3.0 -rho[k]*gradmuC4)*3.0;
-      	 FfC7=(gradrhoC7/3.0 -rho[k]*gradmuC7)*3.0;
-		 FfC8=(gradrhoC8/3.0 -rho[k]*gradmuC8)*3.0;
-		 FfC9=(gradrhoC9/3.0 -rho[k]*gradmuC9)*3.0;
-		 FfC10=(gradrhoC10/3.0 -rho[k]*gradmuC10)*3.0;
-
-		 FfCx=(gradrhoCx/3.0 -rho[k]*gradmuCx)*3.0;
-		 FfCy=(gradrhoCy/3.0 -rho[k]*gradmuCy)*3.0;
-		*/
 		
 		 FhU1=(gradCU1-3.0*C[k]/rho[k]*(gradpU1-mu[k]*gradCU1-rho[k]*G[0]));
 		 FhU2=(gradCU2-3.0*C[k]/rho[k]*(gradpU2-mu[k]*gradCU2+rho[k]*G[0]));
@@ -229,19 +213,6 @@ FhC10=(gradCC10-3.0*C[k]/rho[k]*(gradpC10-mu[k]*gradCC10/*+rho[k]*(G[0]+G[1])*/)
 		 FgrUy=gradrhoUy/3.0;
 		 FgrUz=gradrhoUz/3.0;
 		 
-		 /*
-		 FfU1=(gradrhoU1/3.0 -rho[k]*gradmuU1)*3.0;
-    	         FfU2=(gradrhoU2/3.0 -rho[k]*gradmuU2)*3.0;
-    	         FfU3=(gradrhoU3/3.0 -rho[k]*gradmuU3)*3.0;
-    	         FfU4=(gradrhoU4/3.0 -rho[k]*gradmuU4)*3.0;
-      	         FfU7=(gradrhoU7/3.0 -rho[k]*gradmuU7)*3.0;
-		 FfU8=(gradrhoU8/3.0 -rho[k]*gradmuU8)*3.0;
-		 FfU9=(gradrhoU9/3.0 -rho[k]*gradmuU9)*3.0;
-		 FfU10=(gradrhoU10/3.0 -rho[k]*gradmuU10)*3.0;
-
-		 FfUx=(gradrhoUx/3.0 -rho[k]*gradmuUx)*3.0;
-		 FfUy=(gradrhoUy/3.0 -rho[k]*gradmuUy)*3.0;
-		*/
 		 FgM1=0.5*(FgU1+FgC1);
 		 FgM2=0.5*(FgU2+FgC2);
 		 FgM3=0.5*(FgU3+FgC3);
@@ -315,19 +286,6 @@ FhC10=(gradCC10-3.0*C[k]/rho[k]*(gradpC10-mu[k]*gradCC10/*+rho[k]*(G[0]+G[1])*/)
 		 FhMy=0.5*(FhUy+FhCy);
 		 FhMz=0.5*(FhUz+FhCz);
 		 
-		 /*
-		 FfM1=0.5*(FfU1+FfC1);
-		 FfM2=0.5*(FfU2+FfC2);
-		 FfM3=0.5*(FfU3+FfC3);
-		 FfM4=0.5*(FfU4+FfC4);
-		 FfM7=0.5*(FfU7+FfC7);
-		 FfM8=0.5*(FfU8+FfC8);
-		 FfM9=0.5*(FfU9+FfC9);
-		 FfM10=0.5*(FfU10+FfC10);
-         FfMx=0.5*(FfUx+FfCx);
-		 FfMy=0.5*(FfUy+FfCy);
-			*/
-		 
-		
+	
 
 }

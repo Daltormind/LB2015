@@ -1,4 +1,4 @@
-//rhoomputes the mixed differenrhoes of rho ,mu rho, and p
+//Computes the mixed differenrhoes of C ,mu rho, and p
 
 #include "wet.h"
 
@@ -10,34 +10,6 @@ void wet::diffMD()
 	if(mask[k]!=28)
     {
 
-
-	/*
-	for(i=0;i<dimensions;i++)
-	{
-		for(a=1;a<Q;a++)
-		{
-			drho[k][i]+=t[a]*e[a][i]*(-rho[d[d[a-1]][a-1]]+4*rho[d[a-1]]-3*rho[k])/4;
-			dC[k][i]+=t[a]*e[a][i]*(-C[d[d[a-1]][a-1]]+4*C[d[a-1]]-3*C[k])/4;
-			dp[k][i]+=t[a]*e[a][i]*(-p[d[d[a-1]][a-1]]+4*p[d[a-1]]-3*p[k])/4;
-			dmu[k][i]+=t[a]*e[a][i]*(-mu[d[d[a-1]][a-1]]+4*mu[d[a-1]]-3*mu[k])/4;
-		}
-	}
-
-
-	for(a=0;a<Q;a++)
-	{
-		for(i=0;i<dimensions;i++)
-		{
-			for(int b=1;b<Q;b++)
-			{
-				dgamma[k][a]+=t[b]*e[b][i]*(-gamma[d[d[b-1]][b-1]][a]+4*gamma[d[b-1]][a]-3*gamma[k][a])*(e[a][i]-u[k][i])/4;
-			}
-
-
-		}
-
-	}
-	*/
 	if(mask[k]==0)
     {
 	if(dimensions==3)

@@ -1,5 +1,5 @@
 //Computemoments
-
+//Computes the values of the moments from the functional density variables, 
 
 #include "wet.h"
 
@@ -25,7 +25,7 @@ if(mask[k]!=28)
 		    
 		  
 	}
-
+		//Check for NaN and output first occurence.
 		if(isnan(C[k])!=0)
 		  {if(first==0)
 		      {
@@ -37,112 +37,32 @@ if(mask[k]!=28)
 		if(dimensions==2)
 		{
 		C[k]=h0[k]+h1[k]+h2[k]+h3[k]+h4[k]+h7[k]+h8[k]+h9[k]+h10[k]; //Compute C from updated velocity distributions
-		/*
-	if(mask[k]==1)
-		  {
-		    C[k]=0.0;
-		  }
-		*/
+		
 		}
-		//rho[k]=f[k][0]+f[k][1]+f[k][2]+f[k][3]+f[k][4]+f[k][7]+f[k][8]+f[k][9]+f[k][10];
 		
-	
-	//printf("CHECK: st=%i Nd=%i\n",st,Nd);		     	    
-			//	cout << "Nd=" << Nd << " st=" << st << endl;	
-		/*    if(st%Nd==0)
-	      { 
-
-
-		//cout << " New drop added " << endl;
-		int centre,check,count;
-		check=0;
-		count=0;
-		double test,num;
-		srand(st);
-		centre=rand()%(Ly-40) +20;
-		
-
-		do
-		  {
-		    check=0;
-		for(k=k1;k<k2;k++)
-		  {
-		    	computecoordinates(k);
-		    	if((xk-xcentre)*(xk-xcentre)+(yk-centre)*(yk-centre)<=(R+2*ep)*(R+2*ep))
-			  {
-		    if(C[k]>0.01){check=1;}
-			  }
-		    
-			  }
-		count=count+1;
-		srand(st+50*count);
-		centre=rand()%(Ly-40) +20;
-		cout << count << " " << centre << " " <<  check << endl;
-		  }
-		while(check==1 && count<=50);
-
-		if(check!=1)
-		  {
-		for(k=k1;k<k2;k++)
-		  {
-		computecoordinates(k);
-		if((xk-xcentre)*(xk-xcentre)+(yk-centre)*(yk-centre)<=(R+2*ep)*(R+2*ep))
-		  {
-		    //  cout << "entered new drop loop " << endl;
-				num=sqrt((xk-xcentre)*(xk-xcentre)+(yk-centre)*(yk-centre));
-				test=tanh(2.0*(-num+R)/ep);
-				C[k]=0.5 + 0.5*test;
-				
-				
-				
-			
-		  }
-		  }
-		  }
-	      }
-		*/
- 
-
-
-		
-		rho[k]=C[k]*rho1+(1-C[k])*rho2; //Compute Rho from updated moments
+ 		rho[k]=C[k]*rho1+(1-C[k])*rho2; //Compute Rho from updated moments
 		
 		tau[k]=1.0/(C[k]/tau1+(1-C[k])/tau2); // Compute tau for updated moments
 		if(rt==1){
-	if (mask[k]==1 || mask[k]==3){tau[k]=0.5;}
+	if (mask[k]==1 || mask[k]==3){tau[k]=0.5;}//Setting surface relaxation type.
 		}
 	
-//	if(st%10000==0){tau[k]=0.5;}
-		/*
-		computecoordinates(k);
-		if(xk==68 and yk==27 and zk == 49)
-		  {
-		    cout << st << " " << C[k]  << " " << h0[k] << " " << h1[k] <<  " " << h2[k] << " " << h3[k] << " " << h4[k] << " " << h5[k] << " " << h6[k] << " " << h7[k]  <<  " " << h8[k] << " " << h9[k] << " " << h10[k] << " " << h11[k] << " " << h12[k] << " " << h13[k] << " " << h14[k] << " " << h15[k] << " " << h16[k] << " " << h17[k] << " " << h18[k] << endl; 
-		  }
-		*/
 }
 }
 
+//Exchanging information with other nodes. 
 if(size>1)
 {
 exchangeC();
 exchangerho();
 }
-/*
-for(k=k1;k<k2;k++)
-  {
-    computecoordinates(k);
-    cenxu=xk*C[k];
-    cenxl=C[k];
-  }
 
-cenx=cenxu/cenxl;
-if(rho[k]>0.1) G[0]=-0.0000002*(cenx-300);
-*/
-for(k=k1;k<k2;k++)//Initialise free energy 
+for(k=k1;k<k2;k++)//computing chemical potential 
 	{ neibour(k);
 		if(mask[k]!=28)
 		{
+		
+			//Computing Laplacian of C in the Bulk
 			if (mask[k]==0 || mask[k]==2)
             {
             if(dimensions==3)
@@ -154,76 +74,7 @@ for(k=k1;k<k2;k++)//Initialise free energy
             d2C=(C[d[6]]+C[d[7]]+C[d[8]]+C[d[9]]+4.0*(C[d[0]]+C[d[1]]+C[d[2]]+C[d[3]])-20.0*C[k])/(6.0*dt*dt);
 			}
 			}
-			/*
-			else if (mask[k]==1 || mask[k]==4)
-			{
-			
-				dC=Wc*(C[k]-C[k]*C[k]);
-				if(mask[d[0]]==28)
-    	{hold1=C[d[1]]-2*dC;}else{hold1=C[d[0]];}
-    	
-    	if(mask[d[1]]==28)
-    	{hold2=C[d[0]]-2*dC;}else{hold2=C[d[1]];}
-    	
-    	if(mask[d[2]]==28)
-    	{hold3=C[d[3]]-2*dC;}else{hold3=C[d[2]];}
-    	
-    	if(mask[d[3]]==28)
-    	{hold4=C[d[2]]-2*dC;}else{hold4=C[d[3]];}
-    	
-    	if(mask[d[4]]==28)
-    	{hold5=C[d[5]]-2*dC;}else{hold5=C[d[4]];}
-    	
-    	if(mask[d[5]]==28)
-    	{hold6=C[d[4]]-2*dC;}else{hold6=C[d[5]];}
-    	
-    	if(mask[d[6]]==28)
-    	{hold7=C[d[9]]-2*dC;}else{hold7=C[d[6]];}
-    	
-    	if(mask[d[7]]==28)
-    	{hold8=C[d[8]]-2*dC;}else{hold8=C[d[7]];}
-    	
-    	if(mask[d[8]]==28)
-    	{hold9=C[d[7]]-2*dC;}else{hold9=C[d[8]];}
-    	
-    	if(mask[d[9]]==28)
-    	{hold10=C[d[6]]-2*dC;}else{hold10=C[d[9]];}
-    	
-    	if(mask[d[10]]==28)
-    	{hold11=C[d[13]]-2*dC;}else{hold11=C[d[10]];}
-    	
-    	if(mask[d[11]]==28)
-    	{hold12=C[d[12]]-2*dC;}else{hold12=C[d[11]];}
-    	
-    	if(mask[d[12]]==28)
-    	{hold13=C[d[11]]-2*dC;}else{hold13=C[d[12]];}
-    	
-    	if(mask[d[13]]==28)
-    	{hold14=C[d[10]]-2*dC;}else{hold14=C[d[13]];}
-    	
-    	if(mask[d[14]]==28)
-    	{hold15=C[d[17]]-2*dC;}else{hold15=C[d[14]];}
-    	
-    	if(mask[d[15]]==28)
-    	{hold16=C[d[16]]-2*dC;}else{hold16=C[d[15]];}
-    	
-    	if(mask[d[16]]==28)
-    	{hold17=C[d[15]]-2*dC;}else{hold17=C[d[16]];}
-    	
-    	if(mask[d[17]]==28)
-    	{hold18=C[d[14]]-2*dC;}else{hold18=C[d[17]];}
-			
-			if(dimensions==3)
-            {
-            d2C=(hold7+hold8+hold9+hold10+hold11+hold12+hold13+hold14+hold15+hold16+hold17+hold18+2.0*(hold1+hold2+hold3+hold4+hold5+hold6)-24.0*C[k])/(6.0*dt*dt);
-			}
-			if(dimensions==2)
-			{
-            d2C=(hold7+hold8+hold9+hold10+4.0*(hold1+hold2+hold3+hold4)-20.0*C[k])/(6.0*dt*dt);
-			}
-			
-			}
-			*/
+			//Computing laplacian of C at corners
 			else if (mask[k]==3)
 			{
 			
@@ -316,7 +167,7 @@ else{hold11=C[d[10]];}
 			}
 			
 			}
-			    
+			//Computing Laplacian of C on the surface 	   
 	else if (mask[k]==1)
 	      {
 			
@@ -413,81 +264,20 @@ else{hold11=C[d[10]];}
 		
 			
 		
-	/*		
-	else if(mask[k]==1)
-	{
-		dC=Wc*(C[k]-C[k]*C[k]);
-		d2C=(C[d[7]] + C[d[9]] + 4.0*C[d[1]] - 6.0*dC + 2.0*C[d[2]] + 2.0*C[d[3]]-10.0*C[k])/(3.0*dt*dt);
-
-	}
-	else if(mask[k]==2)
-	{
-		dC=Wc*(C[k]-C[k]*C[k]);
-		d2C=(C[d[6]]+C[d[8]]+4.0*C[d[1]] + 2.0*C[d[2]] + 2.0*C[d[3]]-10.0*C[k] -6.0*dC )/(3.0*dt*dt);
-
-	}
-	else if(mask[k]==3)
-	{
-		dC=Wc*(C[k]-C[k]*C[k]);
-		d2C=(C[d[8]]+C[d[9]]+4.0*C[d[3]] + 2.0*C[d[0]] + 2.0*C[d[1]]-10.0*C[k] -6.0*dC )/(3.0*dt*dt);
-
-	}
-	else if(mask[k]==4)
-	{
-		dC=Wc*(C[k]-C[k]*C[k]);
-		d2C=(C[d[6]]+C[d[7]]+4.0*C[d[2]] + 2.0*C[d[0]] + 2.0*C[d[1]]-10.0*C[k] -6.0*dC )/(3.0*dt*dt);
-
-	}
-	else if(mask[k]==7)
-	{
-	dC=Wc*(C[k]-C[k]*C[k]);
-	d2C=1.0/6.0*(C[d[8]] + 2.0*C[d[9]] + C[d[7]]+ 4.0*C[d[3]] + 4.0*C[d[2]]
-	+4.0*C[d[0]] + 4.0*C[d[1]] - 20.0*C[k]);
-	}	
-	else if(mask[k]==8)
-	{
-	dC=Wc*(C[k]-C[k]*C[k]);
-	d2C=1.0/6.0*(C[d[6]] + 2.0*C[d[8]] + C[d[9]]+ 4.0*C[d[3]] + 4.0*C[d[2]]
-	+4.0*C[d[0]] + 4.0*C[d[1]] - 20.0*C[k]);
-	}	
-	else if(mask[k]==9)
-	{
-	dC=Wc*(C[k]-C[k]*C[k]);
-	d2C=1.0/6.0*(C[d[6]] + 2.0*C[d[7]] + C[d[79]]+ 4.0*C[d[3]] + 4.0*C[d[2]]
-	+4.0*C[d[0]] + 4.0*C[d[1]] - 20.0*C[k]);
-	}	
-	else if(mask[k]==10)
-	{
-	dC=Wc*(C[k]-C[k]*C[k]);
-	d2C=1.0/6.0*(C[d[8]] + 2.0*C[d[6]] + C[d[7]]+ 4.0*C[d[3]] + 4.0*C[d[2]]
-	+4.0*C[d[0]] + 4.0*C[d[1]] - 20.0*C[k]);
-	}					
-	*/		
+	
 			
 			
 			mu[k]=2*B*( C[k]*pow(C[k]-1.0,2) + pow(C[k],2)*(C[k]-1.0) ) - kappa*d2C;
 			
-			//pc[k]=-kappa*C[k]*d2C;
+			//pc[k]=-kappa*C[k]*d2C;//Computing Laplace pressure
 
-            
-            
-            //d2rho=(rho[d[6]]+rho[d[7]]+rho[d[8]]+rho[d[9]]+4.0*(rho[d[0]]+rho[d[1]]+rho[d[2]]+rho[d[3]])-20.0*rho[k])/6.0;
-            
-            //mu[k]=0.0;//4.0*B*(rho[k]-rho1)*(rho[k]-rho2)*(rho[k]-(rho2+rho1)*0.5)-kappa*d2rho; 
-            /*
-			if(C[k]<0)
-			{
-			muh[k]=mu[k]+2*BA*C[k];
-			}
-			else{muh[k]=mu[k];}
-			*/
 		}
 	}
 if(size>1)
 {	
 exchangemu();
 }
-//exchangemuh();
+
 
 //Compute Macroscopic velocity
 for(k=k1;k<k2;k++)
@@ -495,7 +285,8 @@ for(k=k1;k<k2;k++)
 neibour(k);
 if(mask[k]!=28)
 
-{
+{			
+			//Compute the central gradient of C in the bulk
 			if(mask[k]==0 || mask[k]==2)
 			{
             gradCC1=0.5*(C[d[0]]-C[d[1]])/dt;
@@ -518,7 +309,7 @@ if(mask[k]!=28)
    			 gradCC17=0.5*(C[d[16]]-C[d[15]])/dt;
     		gradCC18=0.5*(C[d[17]]-C[d[14]])/dt;
 			}
-		
+		//Compute central gradient of C on the surface
 	else if(mask[k]==1)
 			{
 				if(mask[d[0]]==28 || mask[d[1]]==28)
@@ -641,7 +432,7 @@ if(mask[k]!=28)
 		
     
 			}
-				
+				//Compute central gradient of C at corners
 	else if(mask[k]==3)
 			{
 				if(mask[d[0]]==28 || mask[d[1]]==28 ||  mask[d[0]]==3 || mask[d[1]]==3 )
@@ -764,7 +555,7 @@ if(mask[k]!=28)
 		
     
 			}
-			
+			//Compute cartesian finite differance
 			if(dimensions==2)
 			{
     		gradCCx=1.0/3.0*(gradCC1-gradCC2)+1.0/12.0*(gradCC7-gradCC8+gradCC9-gradCC10);
@@ -777,88 +568,30 @@ if(mask[k]!=28)
     		gradCCz=1.0/6.0*(gradCC5-gradCC6)+1.0/12.0*(gradCC11+gradCC12-gradCC13-gradCC14+gradCC16+gradCC15-gradCC17-gradCC18);
     		}
 			
-			/*
-			if(st<50)
-			{
-            ux[k]=0.0;//(3.0*(g1[k]-g2[k]+g7[k]-g10[k]+g9[k]-g8[k])-0.5*C[k]*gradmuCx)/rho[k];
-            uy[k]=0.0;//(3.0*(g3[k]-g4[k]+g7[k]-g10[k]+g8[k]-g9[k])-0.5*C[k]*gradmuCy)/rho[k];
-			}
-			else
-			{
-				ux[k]=(3.0*(g1[k]-g2[k]+g7[k]-g10[k]+g9[k]-g8[k])-0.5*C[k]*gradmuCx)/rho[k];
-            	uy[k]=(3.0*(g3[k]-g4[k]+g7[k]-g10[k]+g8[k]-g9[k])-0.5*C[k]*gradmuCy)/rho[k];
-			}
-			*/
 			
-			
-			
-			//ux[k]=0.0;
-		      //uy[k]=0.0;
-		     // uz[k]=0.0;
-			 
+			 //compute macroscopic velocity
 			 if(dimensions==3)
 			 {
 			   ux[k]=(3.0*(g1[k]-g2[k]+g7[k]-g10[k]+g9[k]-g8[k]+g15[k]+g17[k]-g18[k]-g16[k])+0.5*dt*mu[k]*gradCCx)/rho[k];
 			   uy[k]=(3.0*(g3[k]-g4[k]+g7[k]-g10[k]+g8[k]-g9[k]+g11[k]+g13[k]-g12[k]-g14[k])+0.5*dt*mu[k]*gradCCy)/rho[k];
 			   uz[k]=(3.0*(g5[k]-g6[k]+g11[k]-g14[k]+g12[k]-g13[k]+g15[k]+g16[k]-g17[k]-g18[k])+0.5*dt*mu[k]*gradCCz)/rho[k];
 			   
-			   //pc[k]+=kappa/2*(gradCCx*gradCCx+gradCCy*gradCCy+gradCCz*gradCCz);
-			   //pt[k]=2*B*( C[k]*pow(C[k]-1.0,2) + pow(C[k],2)*(C[k]-1.0) )-B*C[k]*C[k]*(C[k]-1)*(C[k]-1);
+			   //pc[k]+=kappa/2*(gradCCx*gradCCx+gradCCy*gradCCy+gradCCz*gradCCz);//Compute laplacian pressure
+			   //pt[k]=2*B*( C[k]*pow(C[k]-1.0,2) + pow(C[k],2)*(C[k]-1.0) )-B*C[k]*C[k]*(C[k]-1)*(C[k]-1);//compute total preesure
 			  
 
 			 
- /*
-			   if(st==1)
-			     {
-			       ux[k]=C[k]*uxi;
-			       uy[k]=C[k]*uyi;
-			       uz[k]=C[k]*uzi;
-			       /*
-			       computecoordinates(k);
-			       /*
-			       double cth,sth,r,rs,xkd,ykd;
-
-			       ykd=double(yk);
-			       xkd=double(xk);
-			       cth=(xk+yk)/sqrt(xk*xk+yk*yk);
-			       sth=sqrt(1-cth*cth);
-
-			       r=sqrt(xk*xk+yk*yk);
-			       rs=r*sth;
-			       
-			       if(yk>xk){uy[k]=C[k]*uyi;}
-			      
-
-
-			       if(xk>yk){ux[k]=C[k]*uxi;}
-			       if(zk>50){uz[k]=C[k]*uzi;}
-			       
-			     }
-			 */
+ 
 
 
 	}
-			
+			//compute macroscopic velocity
 			if(dimensions==2)
 			{
 			   ux[k]=(3.0*(g1[k]-g2[k]+g7[k]-g10[k]+g9[k]-g8[k])+0.5*dt*mu[k]*gradCCx)/rho[k];
 			   uy[k]=(3.0*(g3[k]-g4[k]+g7[k]-g10[k]+g8[k]-g9[k])+0.5*dt*mu[k]*gradCCy)/rho[k];
 			  	uz[k]=0.0;
-				/*
-				if(st==5000)
-				  {
-				    ux[k]+=uxi;
-				    uy[k]+=uyi;
-				    uz[k]=0.0;
-				  }
-				*/
-			/*
-	if(mask[k]==1)
-			  {
-			    ux[k]=0.0;
-			    uy[k]=0.0;
-			  }
-			*/
+				
 			}
 }
 }
@@ -872,7 +605,7 @@ for(k=k1;k<k2;k++)
 {neibour(k);
 if(mask[k]!=28)
 {
-			
+			//compute gradient of density in the bulk
 			if(mask[k]==0 || mask[k]==2)
 			{
             gradrhoC1=0.5*(rho[d[0]]-rho[d[1]])/dt;
@@ -895,7 +628,7 @@ if(mask[k]!=28)
     gradrhoC17=0.5*(rho[d[16]]-rho[d[15]])/dt;
     gradrhoC18=0.5*(rho[d[17]]-rho[d[14]])/dt;
     }
-			
+			//compute gradient of density on the surface
     else if(mask[k]==1)
 			{
 				if(mask[d[0]]==28 || mask[d[1]]==28)
@@ -1024,7 +757,7 @@ if(mask[k]!=28)
 		
     
 			}
-
+	//compute gradient of density at a corner
     else if(mask[k]==3)
 			{
 				if(mask[d[0]]==28 || mask[d[1]]==28 ||  mask[d[0]]==3 || mask[d[1]]==3 )
@@ -1155,7 +888,7 @@ if(mask[k]!=28)
 			}
 
     
-    		
+    		//compute cartesian gradients of rho
     		if(dimensions==3)
     		{
     		gradrhoCx=1.0/6.0*(gradrhoC1-gradrhoC2)+1.0/12.0*(gradrhoC7-gradrhoC8+gradrhoC9-gradrhoC10+gradrhoC15+gradrhoC17-gradrhoC16-gradrhoC18);
@@ -1169,19 +902,7 @@ if(mask[k]!=28)
 			}
 			
 			
-	/*
-	if(st<50)
-	{
-	p[k]=0.0;
-    }
-    
-    else
-    {
-    p[k]=g0[k]+g1[k]+g2[k]+g3[k]+g4[k]+g7[k]+g8[k]+g9[k]+g10[k]+ux[k]*gradrhoCx/6.0+gradrhoCy*uy[k]/6.0;
-	}
-    */
-    
-    //p[k]=0.0;
+	//compute pressure
     if (dimensions==3)
     {
       p[k]=g0[k]+g1[k]+g2[k]+g3[k]+g4[k]+g7[k]+g8[k]+g9[k]+g10[k]+g11[k]+g12[k]+g13[k]+g14[k]+g15[k]+g16[k]+g17[k]+g18[k]+g5[k]+g6[k]+dt*ux[k]*gradrhoCx/6.0+dt*gradrhoCy*uy[k]/6.0+dt*gradrhoCz*uz[k]/6.0;//compute pressure

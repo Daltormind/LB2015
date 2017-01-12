@@ -22,7 +22,7 @@ if(size>1)
 	cout << "Initialise: Process " << rank << " : rightProcess: " << rightProcess << " leftProcess: " << leftProcess << endl;
 
 
-	N=Lx*Ly*Lz;
+	N=Lx*Ly*Lz;//Total number of lattice points across all cores
 	
 	if(size>Lx)
 	{
@@ -35,23 +35,23 @@ if(size>1)
 
 	if(rank==ROOT)
 		{
-		ProcessN=Ly*Lz*((Lx-Lx%size)/size + Lx%size + 4);	//Number of YZ plane for root process plus neighboors
+		ProcessN=Ly*Lz*((Lx-Lx%size)/size + Lx%size + 4);	//Number of lattice points on ROOT node
 		
 		xend=(Lx-Lx%size)/size + Lx%size +4;
 		}	
 	else
 	{
-		ProcessN=Ly*Lz*((Lx-Lx%size)/size+4);			    //Number of YZ plane for other processes
+		ProcessN=Ly*Lz*((Lx-Lx%size)/size+4);			    //Number of lattice points on other nodes
 	
 		xend=(Lx-Lx%size)/size + 4;
 	}
 	k1 = 2*Ly*Lz;			//k where real lattice starts
 	k2 = ProcessN-2*Ly*Lz;		//k where real lattice ends
 }
-else
+else//Do this if you are only using one computational node
 {
 ProcessN=Lx*Ly*Lz;
-leftProcess=0;//Not really necdecary
+leftProcess=0;//Not really needed
 rightProcess=0; 
 k1=0;
 k2=ProcessN;
@@ -63,46 +63,15 @@ xend=Lx;
 	cout << "Process k1 k2 ProcessN "<< rank << " " << k1 << " " << k2 << " " << ProcessN <<endl;
 	
 	//Setting up different processors done.
-	/*
-	if(rank==ROOT)
-	{
-		CGlobal=new double[N] ;
-		maskGlobal=new int[N];
-		muGlobal=new double[N] ;
-		pGlobal=new double[N] ;
-		uxGlobal=new double[N] ;
-		uyGlobal=new double[N] ;
-		uzGlobal=new double[N] ;
-		plan=new double[Lz*Ly];
-		planuy=new double[Lz*Ly];
-		planuz=new double[Lz*Ly];
-		planux=new double[Lz*Ly];
-		planC=new double[Lz*Ly];
-		stan=new double[Lz*Ly];
-		pcGlobal=new double[N];
-		ptGlobal=new double[N];
-		
-		if(dist==1)
-		  {
-		    disvGlobal=new double[N];
-		    disdGlobal=new double[N];
-		  }
-
-	}
-	*/
+	
 	if(rank==ROOT)
 	{
 	cout << "Process "<< rank << " Entered initialise" << endl;
-	}/*
-	N=Lx*Ly*Lz;
-	ProcessN=N;
-	k1 = 0;			//k where real lattice starts
-	k2 = N;		//k where real lattice ends
-	*/
-	first=0;
-	cs2=1.0/3.0;
-	dt=1.0;
-	dx=1.0;
+	}
+	first=0;//Marker for testing instability
+	cs2=1.0/3.0;//Speed of sound
+	dt=1.0;//Timestep 
+	dx=1.0;//Distance between lattice points
 	kappa=B*ep*ep/8;
 	if(rank==ROOT)
 	{
@@ -134,7 +103,7 @@ xend=Lx;
 	      
 	      }
 	  */    
-	//d=new int[ProcessN][18]; //Array which holds neigbour values
+	
 
 	C=new double[ProcessN]; //Array which holds Composition values
 
@@ -148,11 +117,7 @@ xend=Lx;
 	
 	//pt=new double[ProcessN];
 	
-	//muh=new double[ProcessN];
-	
 	p=new double[ProcessN];//Pressure
-
-	//drho=new double[ProcessN][3];
 
 	rho=new double[ProcessN];//Density
 
@@ -178,7 +143,7 @@ xend=Lx;
 	tau=new double[ProcessN];
 
 	Wc=new double[ProcessN];
-	//f=new double[ProcessN][19];
+	
 
 	
 
@@ -195,145 +160,25 @@ xend=Lx;
 		  {
 			neibour(k);
 		    computecoordinates(k);
-		    /*  
-		    if(yk<=10)
-		      {
-			theta=theta2;
-		      }
-		    else
-		      {
-			theta=theta1;
-		      }
-		    */
-		    theta=0.5*(theta1-theta2)*(1-tanh(2*(yk-str)/ep))+theta2;
+		    theta=0.5*(theta1-theta2)*(1-tanh(2*(yk-str)/ep))+theta2;//Sets the contact angle on the surface
 
-	 Wc[k]=-cos(theta*M_PI/180.0)*sqrt(2*B/kappa);
+	 Wc[k]=-cos(theta*M_PI/180.0)*sqrt(2*B/kappa);//Variable used to ensure that solid surface boundary condition is met.
 		  }
 	 writeinfofile();
-	//neibour();
-	if(rank==ROOT)
-	{
-	cout  << "Process "<< rank << " past neibour" << endl;
-	}
+	
+	
 	initialisesurface();
-	if(rank==ROOT)
-	  {
-	    cout << "Process " << rank << " past initialisesurface " << endl;
-	  }
+	
 	writesurface();
-	cout << "Process " << rank << " past initialisesurface" << endl;
-	//generateglobalmask();
-	//if(rank==ROOT)
-	//{
-	//cout  << "Process "<< rank << " past initialise surface" << endl;
-	//}
-	//relabel();
-	cout << "Process " << rank << " reached initialisemoments" << endl;
+	
 	initialisemoments();
-	cout << "Process " << rank << " past initialise moments" << endl;
-	/*
-	if(rank==ROOT)
-	{
-	cout  << "Process "<< rank << " past initialise moments" << endl;
-	}
-	//momentsbound();
-	
-	
-	genCglobal();
-	if(rank==ROOT)
-	{
-	cout << "Process "<< rank << " Finished Cglobal" << endl;
-	}
-	genmuglobal();
-	if(rank==ROOT)
-	{
-	cout << "Process "<< rank << " Finished muglobal" << endl;
-	}
-	genpglobal();
-	if(rank==ROOT)
-	{
-	cout << "Process "<< rank << " Finished pglobal" << endl;
-	}
-	genuxglobal();
-	if(rank==ROOT)
-	{
-	cout << "Process "<< rank << " Finished uxglobal" << endl;
-	}
-	genuyglobal();
-	if(rank==ROOT)
-	{
-	cout << "Process "<< rank << " Finished uyglobal" << endl;
-	}
-	genuzglobal();
-	if(rank==ROOT)
-	{
-	cout << "Process "<< rank << " Finished uzglobal" << endl;
-	}
-	generateglobalmask();
-	if(rank==ROOT)
-	{
-	cout  << "Process "<< rank << " past generateglobals" << endl;
-	}
-	*/
-	//if(rank==ROOT)
-	//{
 	
 	writemoments(0);
-	//writevelocity(0);
-	//computeenergy();
-
-	//}
-	if(rank==ROOT)
-	{
-	cout  << "Process "<< rank << " past writemoments" << endl;
-	}
-	int i, j, h;
-	ofstream file;
-	char filename1[20];
-		string filename;
-		/*
-        //------------------------- Write the composition File------------------------
-        
-        snprintf(filename1,20,"/s%ldmask%ld.m",rank,0);			//Create a name for file that contain data
-		filename=folder+filename1;
-        file.open(filename.c_str());
-		file.precision(16);
 		
-		for( h = 0 ; h < Lz ; h++) 
-		{   
-			file << "r" << rank  << "mask" << 0 << "(:,:," << h+1 << ")=[" << endl;
-			for( i = 0 ; i < xend ; i++) 
-			{
-				for( j = 0 ; j < Ly ; j++) 
-				{
-					k = h + j*Lz + i*Ly*Lz;
-					
-					
-					
-					file << mask[k] << " " ;
-					
-					
-						
-				}
-				file << endl;
-			}
-			file <<"];" << endl;
-		}
-		
-		file.close();
-		*/
 		if(rank==ROOT)
 		{
 	cout << "Process "<< rank << " Initialised surface and moments" << endl;
 }
-
-
-		//equiliberiumg();
-		
-
-		//equiliberiumh();
-		//writemoments(75);
-
 
 	for(k=k1;k<k2;k++)
 	{
@@ -346,7 +191,6 @@ xend=Lx;
 	  centralforce();
         equiliberiumg();
         equiliberiumh();
-        //equiliberiumf();
 
 		g0[k]=geq0;
 		g1[k]=geq1;
@@ -391,28 +235,12 @@ xend=Lx;
 		h16[k]=heq16;
 		h17[k]=heq17;
 		h18[k]=heq18;
-		/*
-		f[k][0]=feq0;
-		f[k][1]=feq1;
-		f[k][2]=feq2;
-		f[k][3]=feq3;
-		f[k][4]=feq4;
-
-		f[k][7]=feq7;
-		f[k][8]=feq8;
-		f[k][9]=feq9;
-		f[k][10]=feq10;
-		*/
-
 		
-
-
-
 	}
 	
 	
 	
-	//writevelocity(0);
+	
 	if(rank==ROOT)
 	{
 	cout << "Process "<< rank << " Finished initialise" << endl;

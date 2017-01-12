@@ -1,4 +1,6 @@
-
+//computesurfarea.cpp
+//Computes the contact area between liquid and solid in the simulation as well as other useful variables.
+//Used in algorithm.cpp
 #include"wet.h"
 
 void wet::computesurfarea()
@@ -7,7 +9,7 @@ void wet::computesurfarea()
 
   if(mask[k]==1 || mask[k]==3)
     {  
-      if(C[k]>0.15){surfarea+=1;}
+      if(C[k]>0.15){surfarea+=1;}//computes surface area of contact between liquid and solid
     }
  
   computecoordinates(k);
@@ -17,7 +19,7 @@ void wet::computesurfarea()
      
       if(C[k]>0.15){
 	
-	if(yk>yhold){yhold=yk;}
+	if(yk>yhold){yhold=yk;}//Computes maximal spread on the surface in the y direction in the z=0 plane. 
 	
       
       }
@@ -27,18 +29,18 @@ void wet::computesurfarea()
     {
       if(C[k]>0.15)
 	{
-	  if(zk>zhold){zhold=zk;}
+	  if(zk>zhold){zhold=zk;}//Computes maximal spread on the surface in the z direction in the y=0 plane.
 	}
     }
     
     
       if(C[k]>0.15)
 	{
-	  if((xs-xk)>xhold){xhold=(xs-xk);}
+	  if((xs-xk)>xhold){xhold=(xs-xk);}//Computes the maximal height of the drop in the x axis 
 	}
     
   
-
+//Transferring Data back to root computing node.
 	if (k==(k2-1)){
 		double reducedEnergy;
 				

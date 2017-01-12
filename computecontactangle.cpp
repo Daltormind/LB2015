@@ -1,4 +1,5 @@
 //computecontactangle
+//Computes the contact angle of an equilibrium drop on a flat surface.
 
 #include "wet.h"
 

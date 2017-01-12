@@ -26,17 +26,6 @@ void wet::initialisesurface()
 	    mask[k]=28;
 	  }
 	
-	/*
-	if(yk>=ys2 and yk<ys2+wy2 and zk>=zs2 and zk<zs2+wz2)
-	  {
-	    mask[k]=28;
-	  }
-
-	if(yk>=ys and yk<ys+wy and zk>=zs and zk<zs+wz)
-	  {
-	    mask[k]=28;
-	  }
-	*/
 	//Initialise Posts
 	int yt=yk+(pw-1)/2;
 	int zt=zk+(zw-1)/2;

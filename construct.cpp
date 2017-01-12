@@ -1,4 +1,5 @@
-//Constructor for class wet
+//Constructor for class wet, sets up the MPI computing environment as well as read in inputs and 
+//initialise variables to allow batch runs.
 
 #include "wet.h"
 
@@ -13,7 +14,7 @@ wet::wet(void)
 	MPI_Comm_size(MPI_COMM_WORLD, &size);		//size = total number of processes (see mpi.h library)
 	
 	
-	readinput();
+	readinput();//Read inputs from .par files
 	
 	if(input==4)//Changing the size of the air bubble rad is the radius of the air bubble, volume of liquid changes
       {
@@ -73,21 +74,21 @@ wet::wet(void)
 xcentre1=xcentre-(xcentre-xcentre1)*cos(rad);
     }
 
-    if(input==9)
+    if(input==9)//Initialising a water film
       {
 	R=-1;
 	folder=fol1;
 	xcentre1=100+rad;
       }
 
-    if(input==10)
+    if(input==10)//Initialising a ridge of variable height
       {
 	
 	folder=fol1;
         wz=rad;
       }
 
-    if(input==11)
+    if(input==11)//Varying the height of the air bubble
       {
 	folder=fol1;
 	R=rad;
@@ -95,7 +96,7 @@ xcentre1=xcentre-(xcentre-xcentre1)*cos(rad);
 	xcentre1=198-2*R+R1+2;
       }
 
-    if(input==14)
+    if(input==14)//Varying the size of the air bubble
       {
 	uxi=rad;
 	folder=fol1;
@@ -109,14 +110,14 @@ xcentre1=xcentre-(xcentre-xcentre1)*cos(rad);
       }
 
     
-    if(input==15)
+    if(input==15)//Varying position of the air bubble
       {
 	
 	folder=fol1;	
 	xcentre1=198-2*R+rad+R1;
       }
 
-    if(input==16)
+    if(input==16)//Initialising ellipse shaped drops 
       {
 	
 	folder=fol1;	
@@ -130,7 +131,7 @@ xcentre1=xcentre-(xcentre-xcentre1)*cos(rad);
 	xcentre=xs2-wx-R;
       }
     
-    if(input==18)
+    if(input==18)//Varying the height and the width of the ridge
       {
 	folder=fol1;
 	wx=rad;

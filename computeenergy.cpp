@@ -1,4 +1,5 @@
 // Calculate Kinetic energy
+//Calculates the various outputs which are output in write energy. 
 
 #include"wet.h"
 
@@ -19,17 +20,17 @@ void wet::computeenergy()
 		
 		if(C[k]<0.1 or C[k]>0.9 )
 		{
-		Ebulk+=en;
+		Ebulk+=en;//Calculating bulk energy
 		}
 		else
 		{
-		Eint+=en;
+		Eint+=en;//Calculating interface energy
 		}
 		
 		
 		if(mask[k]!=0 and mask[k]!=2)
 		{
-		  Esurf+=Wc[k]*kappa*(C[k]*C[k]/2.0 - C[k]*C[k]*C[k]/3.0);
+		  Esurf+=Wc[k]*kappa*(C[k]*C[k]/2.0 - C[k]*C[k]*C[k]/3.0);//Calculating solid surface energy
 		}
 		
 
@@ -37,11 +38,10 @@ void wet::computeenergy()
 			  {
 		   	if(C[k]>0.2 and C[k]<0.8)
 		   	{
-			vsum+=ux[k];
-			vn+=1;
-			xsum+=xk;
-			psum+=p[k];
-			//	cout << "Have entered loop" << endl;
+			vsum+=ux[k];//Calculating the summation of velocity in the interface.
+			vn+=1;//Calculating the number of nodes in the interface. 
+			xsum+=xk;//Calculating the summation of positions in the interface.
+			psum+=p[k];//Summation of pressure within the interface.
 				}
 			 }
 
@@ -81,25 +81,21 @@ void wet::computeenergy()
 		COMz+=rho[k]*uz[k];
 		COMt+=rho[k]*uy[k]*rho[k]*uy[k];//rho[k]*(uy[k]*cos(th)+ux[k]*sin(th));
 		COMn+=rho[k]*rho[k]*uz[k]*uz[k];//rho[k]*(-ux[k]*cos(th)+uy[k]*sin(th));
-		/*	
-	if(yk>100+uyi*st)
-		  {COMt+=rho[k]*uy[k];}
-		else{COMn+=rho[k]*uy[k];}
-		*/
+		
 		
 		if(mask[k]==1 || mask[k]==3)
 		  {
 		    if(C[k]>0.5)
 		      {
-			if(zk>zc){zc=zk;}
-			if(yk>yc){yc=yk;xc=xk;}
+			if(zk>zc){zc=zk;}//Computing maximum spread in the z direction on the surface
+			if(yk>yc){yc=yk;xc=xk;}//Computing mavimum spread in the y direction on the surface
 		      }
 		  }
 
 		if(C[k]>0.5)
 		  {
-		    if(zk>zl){zl=zk;}
-		    if(yk>yl){yl=yk;xl=xk;}
+		    if(zk>zl){zl=zk;}//Computing maximum spread in the z direction 
+		    if(yk>yl){yl=yk;xl=xk;}//Computing maximum spread in the y direction
 		  }
 
       }
@@ -110,7 +106,7 @@ void wet::computeenergy()
 
 
 
-
+//MPI_Reduce is used to create single values from the values on all of the computing nodes.
 	if (k==(k2-1)){
 		double reducedEnergy;
 		int redEn;
@@ -236,7 +232,7 @@ void wet::computeenergy()
 		
 		if (rank == ROOT) {
 			
-			energy = Ebulk + Eint + Esurf;
+			energy = Ebulk + Eint + Esurf;//compute total energy
 		}
 	}
 	

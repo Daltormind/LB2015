@@ -5,8 +5,6 @@
 void wet::exchangemu(void)
 {
 
-	//if(t%infoStep==0)
-	//	cout << "Process " << rank << ": exchanging phi density..." << endl;
 	
 	// exchange mu
 	MPI_Status statusCLeft, statusCRight;
