@@ -1,5 +1,4 @@
 //Computes biased differences
-//Compute upstream derivatives of moments
 
 #include "wet.h"
 
@@ -471,6 +470,10 @@ gradrhoU8=0.5*(-rho[d2[7]]+4*rho[d[7]]-3*rho[k])/dt;
 		gradpU18=0.5*(-p[d2[17]]+4*p[d[17]]-3*p[k])/dt;
 		}
 	 
+
+    
+    	
+		
     	
     	}
 
@@ -840,6 +843,9 @@ gradrhoU8=0.5*(-rho[d2[7]]+4*rho[d[7]]-3*rho[k])/dt;
 
     	
 		
+    	
+    	}
+	
 
     if(mask[k]==2)
     {
@@ -1487,7 +1493,8 @@ gradrhoU8=0.5*(-rho[d2[7]]+4*rho[d[7]]-3*rho[k])/dt;
     
     
     }
-    	
+  
+   	
     // Work out x and y derivatives
     		if(dimensions==2)
     		{
