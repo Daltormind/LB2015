@@ -208,40 +208,23 @@ class wet
 	void writevelocity(int);//write tha value of the velocity to file
 	void propcolh();//propogate and collide h
 	void propcolg();//propogate and collide g
-	void mach();//Not used any more
 	void initialisesurface();//Initialises the solid surface
-	void relabel();//Used in initialise surface
 	void computefreeenergy();//computes values witten in writefreeenergy
 	void diffBD();//computes biased differences
 	void diffCD();//computes central differences
 	void centralforce();//
 	void equiliberiumf();//calculates equilibrium value of f not used
-	void propcolf();//not used
 	void setwallnodes();//sorts out nodes on the solid surface
 	void momentsbound();//sorts out the simulation box boundaries
 	void computeenergy();//computes variables written in write energy
 	void propset();//finishes the propogation
 	void exchangeC();//exchange functions send information between computing nodes
-	void exchangerho();
-	void exchangemu();
-	void exchangep();
-	void exchangevel();
 	void exchangemask();
-	//void genCglobal();
-	void generateglobalmask();//generate functions generate global versions of the data no longer used used as this was memory inefficient. Also generate the plan variables which is till useful.
-	void exchangemuh();
 	void exchangedencol();
-	//void genmuglobal();
-	//void genpglobal();
-	//void genuxglobal();
-	//void genuyglobal();
-	//void genuzglobal();
 	void writeinfofile();//writes simulation start values information
 	void writeenergy(long int);//writes the value of the system energy as well as some other stuff
 	//void dis();//Calculates dissipation
 	//void writedis(long int);//writes dissipation
-	//void gendisvGlobal();
-	//void gendisdGlobal();
 	//void writedisin(long int);
 	void computesurfarea();//computes contact area between liquid and surface. Written to file in write energy
 	void writeinput();//writes the .txt files which allow a simulation to be started from where another ended.
