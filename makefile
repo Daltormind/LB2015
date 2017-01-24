@@ -2,9 +2,9 @@ Compiler = mpic++
 
 Maindep = initialise.o initialisemoments.o neibour.o computeCoordinates.o \
  construct.o readinput.o Equiliberiumg.o Equiliberiumh.o writemoments.o	algorithm.o	computemoments.o \
- writevelocity.o destruct.o  propcolh.o propcolg.o  initialisesurf.o  \
+ writevelocity.o destruct.o  propcolh.o propcolg.o  initialisesurf.o   \
  diffCD.o   diffBD.o centralforce.o   setwallnodes.o  computeenergy.o propset.o \
-  exchangedencol.o  writeinfofile.o writeenergy.o computesurfarea.o writeinput.o writesurface.o
+ exchangeC.o exchangemu.o exchangerho.o exchangevel.o exchangemask.o exchangep.o exchangedencol.o  writeinfofile.o writeenergy.o computesurfarea.o writeinput.o writesurface.o
 
 
 DEBUG = #-g
@@ -53,28 +53,24 @@ writevelocity.o : ../functions/writevelocity.cpp ../functions/wet.h
 destruct.o : ../functions/destruct.cpp ../functions/wet.h
 	$(Compiler) $(DEBUG)	-c ../functions/destruct.cpp
 	
-
-
-	
 	
 propcolh.o : ../functions/propcolh.cpp ../functions/wet.h
 	$(Compiler) $(DEBUG)	-c ../functions/propcolh.cpp
 	
 propcolg.o : ../functions/propcolg.cpp ../functions/wet.h
 	$(Compiler) $(DEBUG)	-c ../functions/propcolg.cpp
-	
-
+		
 	
 initialisesurf.o : ../functions/initialisesurf.cpp ../functions/wet.h
 	$(Compiler) $(DEBUG)	-c ../functions/initialisesurf.cpp		
 	
-		
+	
 computefreeenergy.o : ../functions/computefreeenergy.cpp ../functions/wet.h
 	$(Compiler) $(DEBUG)	-c ../functions/computefreeenergy.cpp		
 
 diffCD.o : ../functions/diffCD.cpp ../functions/wet.h
 	$(Compiler) $(DEBUG)	-c ../functions/diffCD.cpp	
-		
+	
 diffBD.o : ../functions/diffBD.cpp ../functions/wet.h
 	$(Compiler) $(DEBUG)	-c ../functions/diffBD.cpp	
 
@@ -94,16 +90,26 @@ computeenergy.o : ../functions/computeenergy.cpp ../functions/wet.h
 propset.o : ../functions/propset.cpp ../functions/wet.h
 	$(Compiler) $(DEBUG)	-c ../functions/propset.cpp		
 	
-
+exchangeC.o : ../functions/exchangeC.cpp ../functions/wet.h
+	$(Compiler) $(DEBUG)	-c ../functions/exchangeC.cpp
 	
-
-
+exchangerho.o : ../functions/exchangerho.cpp ../functions/wet.h
+	$(Compiler) $(DEBUG)	-c ../functions/exchangerho.cpp		
 	
+exchangemu.o : ../functions/exchangemu.cpp ../functions/wet.h
+	$(Compiler) $(DEBUG)	-c ../functions/exchangemu.cpp	
+	
+exchangep.o : ../functions/exchangep.cpp ../functions/wet.h
+	$(Compiler) $(DEBUG)	-c ../functions/exchangep.cpp	
+	
+exchangemask.o : ../functions/exchangemask.cpp ../functions/wet.h
+	$(Compiler) $(DEBUG)	-c ../functions/exchangemask.cpp
+	
+exchangevel.o : ../functions/exchangevel.cpp ../functions/wet.h
+	$(Compiler) $(DEBUG)	-c ../functions/exchangevel.cpp	
 
 exchangedencol.o : ../functions/exchangedencol.cpp ../functions/wet.h
 	$(Compiler) $(DEBUG)	-c ../functions/exchangedencol.cpp	
-	
-
 	
 writeinfofile.o : ../functions/writeinfofile.cpp ../functions/wet.h
 	$(Compiler) $(DEBUG)	-c ../functions/writeinfofile.cpp
@@ -111,12 +117,8 @@ writeinfofile.o : ../functions/writeinfofile.cpp ../functions/wet.h
 writeenergy.o : ../functions/writeenergy.cpp ../functions/wet.h
 	$(Compiler) $(DEBUG)	-c ../functions/writeenergy.cpp
 
-
-
-
 computesurfarea.o : ../functions/computesurfarea.cpp ../functions/wet.h
 	$(Compiler) $(DEBUG)    -c ../functions/computesurfarea.cpp
-
 
 writeinput.o : ../functions/writeinput.cpp ../functions/wet.h
 	$(Compiler) $(DEBUG)    -c ../functions/writeinput.cpp
