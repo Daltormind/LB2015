@@ -79,8 +79,6 @@ class wet
 
 	int a,i ;//Discrete velocity index and cartesian index
 
-	//double (*gamma)[19], (*dgamma)[19]; //Gamma
-
 	double *g0,*g1,*g2,*g3,*g4,*g5,*g6,*g7,*g8,*g9,*g10,*g11,*g12,*g13,*g14,*g15,*g16,*g17,*g18 ; //The single particle probability functions
 	
 	double *h0,*h1,*h2,*h3,*h4,*h5,*h6,*h7,*h8,*h9,*h10,*h11,*h12,*h13,*h14,*h15,*h16,*h17,*h18 ; //The sinhle particle probability functions
@@ -92,14 +90,6 @@ class wet
 	double vsum;//used to store velocity sums in calculation of velocity averages
 	
 	int vn;//Used to store number of values in calculation of velocity averages. 
-
-	//double (*ge)[19], (*he)[19]; //Equiliberium functions
-
-	//double (*gc)[19], (*hc)[19]; //post collision functions
-
-	//double (*geq)[19], (*heq)[19]; //Equiliberium functions
-
-	//double (*gamhold)[19];//Used to calculate the laplacian of gamma
 
 	double *tau,tau1,tau2;//Relaxation times
 
@@ -138,8 +128,6 @@ class wet
 	int wx ,wy ,wz ,wx2,wy2,wz2,pw,zw,Pz,wx3,wy3,wz3; //Width of surface
 
 	double El,Eg,Ei,Et,Ekin;//Energy values
-
-	//double *dCt , *dmut ,*drhot,*dpt,*dgammat;
 
     double gamma0,gamma1,gamma2,gamma3,gamma4,gamma5,gamma6,gamma7,gamma8,gamma9,gamma10,gamma11,gamma12,gamma13,gamma14,gamma15,gamma16,gamma17,gamma18,gammat;
         double gammar0,gammar1,gammar2,gammar3,gammar4,gammar5,gammar6,gammar7,gammar8,gammar9,gammar10,gammar11,gammar12,gammar13,gammar14,gammar15,gammar16,gammar17,gammar18,gammart;
@@ -227,15 +215,11 @@ class wet
 	void exchangep();
 	void exchangevel();
 	void exchangemask();
-	//void genCglobal();
+	
 	void generateglobalmask();//generate functions generate global versions of the data no longer used used as this was memory inefficient. Also generate the plan variables which is till useful.
 	void exchangemuh();
 	void exchangedencol();
-	//void genmuglobal();
-	//void genpglobal();
-	//void genuxglobal();
-	//void genuyglobal();
-	//void genuzglobal();
+	
 	void writeinfofile();//writes simulation start values information
 	void writeenergy(long int);//writes the value of the system energy as well as some other stuff
 	//void dis();//Calculates dissipation
