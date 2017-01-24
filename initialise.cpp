@@ -60,7 +60,7 @@ xend=Lx;
 }	
 	
 	
-	cout << "Process k1 k2 ProcessN "<< rank << " " << k1 << " " << k2 << " " << ProcessN <<endl;
+	//cout << "Process k1 k2 ProcessN "<< rank << " " << k1 << " " << k2 << " " << ProcessN <<endl;
 	
 	//Setting up different processors done.
 	
@@ -75,7 +75,7 @@ xend=Lx;
 	kappa=B*ep*ep/8;
 	if(rank==ROOT)
 	{
-	cout << "Process "<< rank << " size=" << size << endl;
+	//cout << "Process "<< rank << " size=" << size << endl;
     }
 	if(dimensions==2)
 	{

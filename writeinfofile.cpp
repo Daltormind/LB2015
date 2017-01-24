@@ -18,6 +18,7 @@ void wet::writeinfofile(void)
 		file << "Neqst " << Neqst << endl;
 		file << "wrtst " << wrtst << endl;
 		file << "stst "  << stst  << endl;
+		file << "infost "  << infost  << endl;
 		file << "dimensions " << dimensions << endl;
 		file << "boundtype " << boundtype << endl;
 		file << "Simulation Box size " << Lx << " " << Ly << " " << Lz << endl;
@@ -25,25 +26,37 @@ void wet::writeinfofile(void)
 		file << "epsilon " << ep << endl;
 		file << "B BA " << B << " " << BA << endl;
 		file << "M " << M << endl;
-		file << "theta " << theta << endl;
+		file << "theta " << theta1 << theta2 << endl;
 		file << "tau1 tau2 " << tau1 << " " << tau2 << endl;
 		file << "G0 G1 G2 "  << G[0] << " " << G[1] << " " << G[2] << endl;
 		file << "Folder " << folder << endl;	
 		file << "Dis type " << dist << endl;
 		file << "relaxtype " << rt << endl;
 		file << "Input type" << input << endl << endl;
+		file << "surftype " << surftype << endl;
+		file << "writeplane " << plane << endl;
+		file << "OutputType " << OutputType << endl;
+		
 		
 		  file << "=====Parameters from LGconfig.par=====" << endl << endl;
 		
 		file << "Drop position " << xcentre << " " << ycentre << " " << zcentre << endl;
 		file << "Drop radius " << R << endl;
+		file << "Drop 1 position " << xcentre1 << " " << ycentre1 << " " << zcentre1 << endl;
+		file << "Drop 1 radius " << R1 << endl;
 		file << "Initial drop velocity " << uxi << " " << uyi << " " << uzi << endl << endl;
+		file << "Drop 0 eccentricity " << ell << endl;
+		file << "Drop 1 eccentricity " << xe << " " << ye << " " << ze << endl;
 		
 		file  << "=====Parameters from surf.par=====" << endl << endl;
 		
 		file <<  "Surface position " << xs << " " << ys << " " << zs << endl;
 		file <<  "Surface width " << wx << " " << wy << " " << wz << endl;
-		file <<  "Posts " << h << " " << P << endl << endl;
+		file <<  "Surface position " << xs2 << " " << ys2 << " " << zs2 << endl;
+		file <<  "Surface width " << wx2 << " " << wy2 << " " << wz2 << endl;
+		file <<  "Surface position " << xs3 << " " << ys3 << " " << zs3 << endl;
+		file <<  "Surface width " << wx3 << " " << wy3 << " " << wz3 << endl;
+		file <<  "Posts " << h << " " << P << " " << Pz << " " << pw << " " << zw << " " << Ps << " " << Pe << endl << endl;
 		
 		double We;
 		double Oh;
@@ -53,7 +66,7 @@ void wet::writeinfofile(void)
 		vtot=uxi*uxi+uyi*uyi+uzi*uzi;
 		s=B*ep/12;
 		v1=tau1/3;
-		We=rho1*vtot*vtot*2*R/s;
+		We=rho1*vtot*2*R/s;
 		Oh=v1*sqrt(rho1/(s*2*R));
 		
 		file << "We=" << We << endl;
